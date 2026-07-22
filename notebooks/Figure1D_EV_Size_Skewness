@@ -6,13 +6,22 @@ import matplotlib as mpl
 import ipywidgets as widgets
 from IPython.display import display, FileLink, HTML
 from scipy.stats import ttest_rel
+import os
 
 # --- 1. DATA PREPARATION ---
 # Load dataset 
-df1 = pd.read_excel('../data/df1_EVs.xlsx')
-df2 = pd.read_excel('../data/df2_EVs.xlsx')
-df3 = pd.read_excel('../data/df3_EVs.xlsx')
-df4 = pd.read_excel('../data/df4_EVs.xlsx')
+def get_data_path(filename):
+    if os.path.exists(os.path.join('data', filename)):
+        return os.path.join('data', filename)
+    elif os.path.exists(os.path.join('..', 'data', filename)):
+        return os.path.join('..', 'data', filename)
+    else:
+        raise FileNotFoundError(f"Could not find {filename} in 'data/' or '../data/'")
+
+df1 = pd.read_excel(get_data_path('df1_EVs.xlsx'))
+df2 = pd.read_excel(get_data_path('df2_EVs.xlsx'))
+df3 = pd.read_excel(get_data_path('df3_EVs.xlsx'))
+df4 = pd.read_excel(get_data_path('df4_EVs.xlsx'))
 
 df_all = pd.concat([df1, df2, df3, df4], ignore_index=True)
 
