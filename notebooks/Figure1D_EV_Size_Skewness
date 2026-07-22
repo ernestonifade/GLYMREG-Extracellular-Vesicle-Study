@@ -8,8 +8,13 @@ from IPython.display import display, FileLink, HTML
 from scipy.stats import ttest_rel
 
 # --- 1. DATA PREPARATION ---
-# Load your dataset (adjust path as needed, e.g., 'data/df_all.csv')
-# df_all = pd.concat([df1_EVs, df2_EVs, df3_EVs, df4_EVs], ignore_index=True)
+# Load dataset 
+df1 = pd.read_excel('../data/df1_EVs')
+df2 = pd.read_excel('../data/df2_EVs')
+df3 = pd.read_excel('../data/df3_EVs')
+df4 = pd.read_excel('../data/df4_EVs')
+
+df_all = pd.concat([df1, df2, df3, df4], ignore_index=True)
 
 df_all['time'] = df_all['time'].map({
     'time1': 'Baseline',
@@ -22,7 +27,7 @@ df_all['time'] = df_all['time'].map({
 def compute_paired_ttests(df):
     """
     Dynamically computes paired t-tests (Mean vs Median EV size) 
-    for each time point and sex, returning a clean summary DataFrame.
+    for each time point and sex.
     """
     time_points = ['Baseline', '3 min', '1 hour', '2 hours']
     results = []
@@ -166,7 +171,7 @@ def render_figure(change=None):
 # --- 5. EXCEL EXPORT FUNCTION ---
 def export_excel(b):
     with out:
-        file_name = "Figure1_EV_Size_Skewness_Data.xlsx"
+        file_name = "Figure1D_EV_Size_Skewness_Data.xlsx"
         stats_df = compute_paired_ttests(df_all)
         
         with pd.ExcelWriter(file_name, engine='openpyxl') as writer:
