@@ -20,3 +20,4 @@ dependencies:
   - voila
   - jupyterlab
   - ipywidgets
+  - gnu-free-fonts
