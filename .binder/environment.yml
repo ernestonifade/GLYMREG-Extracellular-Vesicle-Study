@@ -1,0 +1,22 @@
+name: GLYMREG-Extracellular-Vesicle-Study-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pandas
+  - numpy
+  - scipy
+  - statsmodels
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - plotly
+  - openpyxl
+  - rpy2
+  - r-base
+  - r-afex
+  - r-emmeans
+  - voila
+  - jupyterlab
+  - ipywidgets
