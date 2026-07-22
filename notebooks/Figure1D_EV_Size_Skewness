@@ -9,10 +9,10 @@ from scipy.stats import ttest_rel
 
 # --- 1. DATA PREPARATION ---
 # Load dataset 
-df1 = pd.read_excel('../data/df1_EVs')
-df2 = pd.read_excel('../data/df2_EVs')
-df3 = pd.read_excel('../data/df3_EVs')
-df4 = pd.read_excel('../data/df4_EVs')
+df1 = pd.read_excel('../data/df1_EVs.xlsx')
+df2 = pd.read_excel('../data/df2_EVs.xlsx')
+df3 = pd.read_excel('../data/df3_EVs.xlsx')
+df4 = pd.read_excel('../data/df4_EVs.xlsx')
 
 df_all = pd.concat([df1, df2, df3, df4], ignore_index=True)
 
