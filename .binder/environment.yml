@@ -17,6 +17,7 @@ dependencies:
   - r-base
   - r-afex
   - r-emmeans
+  - r-performance
   - voila
   - jupyterlab
   - ipywidgets
