@@ -1,0 +1,185 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import ipywidgets as widgets
+from IPython.display import display, FileLink, HTML
+from scipy.stats import ttest_rel
+
+# --- 1. DATA PREPARATION ---
+# Load your dataset (adjust path as needed, e.g., 'data/df_all.csv')
+# df_all = pd.concat([df1_EVs, df2_EVs, df3_EVs, df4_EVs], ignore_index=True)
+
+df_all['time'] = df_all['time'].map({
+    'time1': 'Baseline',
+    'time2': '3 min',
+    'time3': '1 hour',
+    'time4': '2 hours'
+})
+
+# --- 2. DYNAMIC T-TEST CALCULATION FUNCTION ---
+def compute_paired_ttests(df):
+    """
+    Dynamically computes paired t-tests (Mean vs Median EV size) 
+    for each time point and sex, returning a clean summary DataFrame.
+    """
+    time_points = ['Baseline', '3 min', '1 hour', '2 hours']
+    results = []
+    
+    for t_pt in time_points:
+        for s in ['Male', 'Female']:
+            sub = df[(df['time'] == t_pt) & (df['sex'] == s)].dropna(subset=['Mean Value (nm)', 'Median Value (nm)'])
+            
+            if len(sub) > 1:
+                t_stat, p_val = ttest_rel(sub['Mean Value (nm)'], sub['Median Value (nm)'])
+                df_val = len(sub) - 1
+            else:
+                t_stat, p_val, df_val = np.nan, np.nan, np.nan
+                
+            results.append({
+                'Time Point': t_pt,
+                'Sex': s,
+                'N': len(sub),
+                'df': df_val,
+                'T-statistic': t_stat,
+                'p-value': p_val
+            })
+            
+    return pd.DataFrame(results)
+
+# --- 3. INTERACTIVE CONTROLS ---
+time_select = widgets.Dropdown(
+    options=['All Time Points (2x2 Grid)', 'Baseline', '3 min', '1 hour', '2 hours'],
+    value='All Time Points (2x2 Grid)',
+    description='Time View:',
+    style={'description_width': 'initial'}
+)
+
+export_btn = widgets.Button(
+    description='Download Figure Data & Stats',
+    button_style='success',
+    icon='download'
+)
+
+out = widgets.Output()
+
+# --- 4. DASHBOARD RENDERER ---
+def render_figure(change=None):
+    with out:
+        out.clear_output(wait=True)
+        selected_time = time_select.value
+        
+        # Calculate t-tests live on current dataset
+        stats_df = compute_paired_ttests(df_all)
+        
+        # Configure Matplotlib styles
+        mpl.rcParams['svg.fonttype'] = 'none'
+        plt.rcParams.update({
+            'font.family': 'sans-serif', 'font.sans-serif': ['Arial', 'Helvetica'],
+            'font.size': 8, 'font.weight': 'bold',
+            'axes.titlesize': 8.5, 'axes.titleweight': 'bold',
+            'axes.labelsize': 8, 'axes.labelweight': 'bold',
+            'xtick.labelsize': 7, 'ytick.labelsize': 7,
+            'axes.linewidth': 1.0, 'lines.linewidth': 1.2
+        })
+        
+        sex_markers = {'Male': 'o', 'Female': 's'}
+        
+        if selected_time == 'All Time Points (2x2 Grid)':
+            # Render Full 2x2 Grid
+            fig, axes = plt.subplots(2, 2, figsize=(6, 6), constrained_layout=True)
+            time_points = ['Baseline', '3 min', '1 hour', '2 hours']
+            
+            for ax, t_pt in zip(axes.flat, time_points):
+                subset = df_all[df_all['time'] == t_pt]
+                
+                sns.scatterplot(
+                    data=subset, x='Median Value (nm)', y='Mean Value (nm)',
+                    hue='sex', style='sex', ax=ax, s=35, 
+                    palette={'Male': '0.1', 'Female': '0.6'}, markers=sex_markers,
+                    edgecolor='black', linewidth=0.5
+                )
+                
+                # Identity line (Mean = Median)
+                all_vals = pd.concat([subset['Mean Value (nm)'], subset['Median Value (nm)']])
+                lims = [all_vals.min() * 0.9, all_vals.max() * 1.1]
+                ax.plot(lims, lims, 'k--', alpha=0.4, linewidth=1)
+                ax.set_xlim(lims); ax.set_ylim(lims)
+                
+                # Retrieve live p-values
+                m_p = stats_df[(stats_df['Time Point']==t_pt) & (stats_df['Sex']=='Male')]['p-value'].values[0]
+                f_p = stats_df[(stats_df['Time Point']==t_pt) & (stats_df['Sex']=='Female')]['p-value'].values[0]
+                
+                ax.text(0.05, 0.95, f"Male p: {m_p:.2g}\nFemale p: {f_p:.2g}", 
+                        transform=ax.transAxes, ha='left', va='top',
+                        bbox=dict(facecolor='white', alpha=0.8, edgecolor='none'))
+                
+                ax.set_title(f'Time: {t_pt}')
+                ax.set_xlabel('Median Size (nm)')
+                ax.set_ylabel('Mean Size (nm)')
+                
+                if t_pt == '2 hours':
+                    ax.legend(prop={'weight':'bold', 'size':7}, loc='lower right', frameon=True)
+                else:
+                    if ax.get_legend(): ax.get_legend().remove()
+                    
+            plt.suptitle('EV Size Skewness (Mean vs Median)', fontweight='bold')
+            plt.show()
+            
+            display(HTML("<b>Live Calculated Statistical Summary (Paired T-Tests):</b>"))
+            display(stats_df)
+            
+        else:
+            # Render Single Isolated Panel
+            fig, ax = plt.subplots(figsize=(4.5, 4), constrained_layout=True)
+            subset = df_all[df_all['time'] == selected_time]
+            
+            sns.scatterplot(
+                data=subset, x='Median Value (nm)', y='Mean Value (nm)',
+                hue='sex', style='sex', ax=ax, s=45, 
+                palette={'Male': '0.1', 'Female': '0.6'}, markers=sex_markers,
+                edgecolor='black', linewidth=0.5
+            )
+            
+            all_vals = pd.concat([subset['Mean Value (nm)'], subset['Median Value (nm)']])
+            lims = [all_vals.min() * 0.9, all_vals.max() * 1.1]
+            ax.plot(lims, lims, 'k--', alpha=0.4, linewidth=1)
+            ax.set_xlim(lims); ax.set_ylim(lims)
+            
+            m_p = stats_df[(stats_df['Time Point']==selected_time) & (stats_df['Sex']=='Male')]['p-value'].values[0]
+            f_p = stats_df[(stats_df['Time Point']==selected_time) & (stats_df['Sex']=='Female')]['p-value'].values[0]
+            
+            ax.text(0.05, 0.95, f"Male p: {m_p:.2g}\nFemale p: {f_p:.2g}", 
+                    transform=ax.transAxes, ha='left', va='top',
+                    bbox=dict(facecolor='white', alpha=0.8, edgecolor='none'))
+            
+            ax.set_title(f'Time: {selected_time}')
+            ax.set_xlabel('Median Size (nm)')
+            ax.set_ylabel('Mean Size (nm)')
+            ax.legend(prop={'weight':'bold', 'size':8}, loc='lower right', frameon=True)
+            plt.show()
+            
+            display(HTML(f"<b>Live Calculated Statistical Summary ({selected_time}):</b>"))
+            display(stats_df[stats_df['Time Point'] == selected_time])
+
+# --- 5. EXCEL EXPORT FUNCTION ---
+def export_excel(b):
+    with out:
+        file_name = "Figure1_EV_Size_Skewness_Data.xlsx"
+        stats_df = compute_paired_ttests(df_all)
+        
+        with pd.ExcelWriter(file_name, engine='openpyxl') as writer:
+            stats_df.to_excel(writer, sheet_name='Live_Paired_TTest_Stats', index=False)
+            df_all.to_excel(writer, sheet_name='Raw_EV_Data', index=False)
+            
+        print("✅ Live statistical outputs and raw data exported successfully:")
+        display(FileLink(file_name))
+
+time_select.observe(render_figure, names='value')
+export_btn.on_click(export_excel)
+
+# --- 6. INITIALIZE DASHBOARD VIEW ---
+display(widgets.HBox([time_select, export_btn]))
+display(out)
+render_figure()
