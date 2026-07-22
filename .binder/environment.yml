@@ -15,6 +15,10 @@ dependencies:
   - openpyxl
   - rpy2
   - r-base
+  - r-matrix
+  - r-lme4
+  - r-pbkrtest
+  - r-car
   - r-afex
   - r-emmeans
   - r-performance
