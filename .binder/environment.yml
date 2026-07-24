@@ -15,13 +15,19 @@ dependencies:
   - plotly
   - openpyxl
 
-  # Jupyter, Dashboard & Interactivity
+  # Jupyter & Dashboard
   - voila
   - jupyterlab
   - ipywidgets
   - ipykernel
 
-  # R Core Engine & Python-R Bridge
+  # R Engine & Statistical Packages (Pre-compiled binaries)
   - rpy2
   - r-base
   - r-matrix
+  - r-nloptr
+  - r-lme4
+  - r-pbkrtest
+  - r-car
+  - r-afex
+  - r-emmeans
