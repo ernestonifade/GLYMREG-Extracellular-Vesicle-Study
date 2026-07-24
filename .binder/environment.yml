@@ -1,7 +1,6 @@
 name: notebook
 channels:
   - conda-forge
-  - defaults
 dependencies:
   # Python Core & Scientific Stack
   - python=3.10
@@ -26,4 +25,3 @@ dependencies:
   - rpy2
   - r-base
   - r-matrix
-  - r-stats
