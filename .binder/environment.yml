@@ -3,6 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  # Python Core & Scientific Stack
   - python=3.10
   - pandas
   - numpy
@@ -14,17 +15,15 @@ dependencies:
   - seaborn
   - plotly
   - openpyxl
-  - rpy2
-  - r-base
-  - r-matrix
-  - r-lme4
-  - r-pbkrtest
-  - r-car
-  - r-afex
-  - r-emmeans
-  - r-performance
-  - r-stats
+
+  # Jupyter, Dashboard & Interactivity
   - voila
   - jupyterlab
   - ipywidgets
-  
+  - ipykernel
+
+  # R Core Engine & Python-R Bridge
+  - rpy2
+  - r-base
+  - r-matrix
+  - r-stats
