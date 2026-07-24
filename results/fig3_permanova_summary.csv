@@ -1,0 +1,4 @@
+Panel,Comparison Context,Features Evaluated,Sample Size (N),Centroid Distance (PC1-2),Pseudo-F Statistic,p_value_raw,p_value_FDR
+Figure 3A,Baseline (All Proteins),518,20,15.373701096120193,2.608721176657682,0.001,0.0015
+Figure 3B,Post-Exercise (All Proteins),518,20,18.44350535884598,3.7588804235112923,0.001,0.0015
+Figure 3C,Post-Exercise (19 Proteins),19,20,3.248804055014467,3.1200588893761565,0.007,0.007
