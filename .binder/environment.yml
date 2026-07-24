@@ -9,6 +9,7 @@ dependencies:
   - scipy
   - statsmodels
   - scikit-learn
+  - scikit-bio
   - matplotlib
   - seaborn
   - plotly
@@ -22,6 +23,7 @@ dependencies:
   - r-afex
   - r-emmeans
   - r-performance
+  - r-stats
   - voila
   - jupyterlab
   - ipywidgets
