@@ -1,0 +1,1555 @@
+Protein,Effect,N,df,F_statistic,p_value_raw,Partial_Eta_Squared,p_value_FDR
+Probable non-functional immunoglobulin kappa variable 3-7,TimePoint:Group,20,"1.20, 21.64",1.05,0.331,0.055,0.8057777777777778
+Probable non-functional immunoglobulin kappa variable 3-7,Group,20,"1, 18",0.15,0.704,0.008,0.8121870824053451
+Probable non-functional immunoglobulin kappa variable 3-7,TimePoint,20,"1.20, 21.64",2.28,0.143,0.112,0.5073561643835616
+Apolipoprotein A-IV,TimePoint:Group,20,"1.95, 35.07",0.9,0.414,0.048,0.8057777777777778
+Apolipoprotein A-IV,Group,20,"1, 18",0.0,0.996,0.001,0.997
+Apolipoprotein A-IV,TimePoint,20,"1.95, 35.07",,0.014,0.213,0.226625
+Coagulation factor XII,TimePoint:Group,20,"1.77, 31.80",0.61,0.532,0.033,0.846914110429448
+Coagulation factor XII,Group,20,"1, 18",0.03,0.869,0.002,0.9186571428571428
+Coagulation factor XII,TimePoint,20,"1.77, 31.80",1.95,0.163,0.098,0.5507848101265823
+Mannan-binding lectin serine protease 1,TimePoint:Group,20,"1.22, 22.02",0.2,0.711,0.011,0.8942711864406779
+Mannan-binding lectin serine protease 1,Group,20,"1, 18",,0.033,0.228,0.10750943396226416
+Mannan-binding lectin serine protease 1,TimePoint,20,"1.22, 22.02",0.37,0.589,0.02,0.8048923076923076
+Complement factor I,TimePoint:Group,20,"1.75, 31.50",0.36,0.675,0.019,0.883950248756219
+Complement factor I,Group,20,"1, 18",,0.026,0.247,0.09288275862068965
+Complement factor I,TimePoint,20,"1.75, 31.50",2.02,0.154,0.101,0.5318133333333334
+Platelet glycoprotein Ib alpha chain,TimePoint:Group,20,"1.96, 35.33",,0.098,0.122,0.8057777777777778
+Platelet glycoprotein Ib alpha chain,Group,20,"1, 18",,0.001,0.499,0.010791666666666668
+Platelet glycoprotein Ib alpha chain,TimePoint,20,"1.96, 35.33",0.73,0.486,0.039,0.7668277945619335
+Hepatocyte growth factor-like protein,TimePoint:Group,20,"1.67, 30.14",0.41,0.63,0.022,0.8710578947368421
+Hepatocyte growth factor-like protein,Group,20,"1, 18",,0.032,0.231,0.1055796178343949
+Hepatocyte growth factor-like protein,TimePoint,20,"1.67, 30.14",,0.048,0.166,0.3453333333333334
+Profilin-1,TimePoint:Group,20,"1.11, 20.02",0.26,0.639,0.014,0.8710578947368421
+Profilin-1,Group,20,"1, 18",1.57,0.227,0.08,0.38426797385620914
+Profilin-1,TimePoint,20,"1.11, 20.02",,0.067,0.169,0.36921276595744684
+Peptidase inhibitor 16,TimePoint:Group,20,"2.00, 35.97",0.99,0.382,0.052,0.8057777777777778
+Peptidase inhibitor 16,Group,20,"1, 18",,0.007,0.338,0.040741573033707866
+Peptidase inhibitor 16,TimePoint,20,"2.00, 35.97",1.63,0.21,0.083,0.6066417112299465
+Cell surface glycoprotein MUC18,TimePoint:Group,20,"1.99, 35.79",0.41,0.663,0.022,0.8800714285714286
+Cell surface glycoprotein MUC18,Group,20,"1, 18",,0.026,0.246,0.09288275862068965
+Cell surface glycoprotein MUC18,TimePoint,20,"1.99, 35.79",0.7,0.502,0.038,0.7701238938053097
+Adhesion G-protein coupled receptor G6,TimePoint:Group,20,"1.77, 31.91",0.13,0.851,0.007,0.9463461538461538
+Adhesion G-protein coupled receptor G6,Group,20,"1, 18",,0.086,0.155,0.20157466063348414
+Adhesion G-protein coupled receptor G6,TimePoint,20,"1.77, 31.91",0.9,0.406,0.048,0.7323448275862069
+Immunoglobulin heavy variable 1-69,TimePoint:Group,20,"1.49, 26.85",1.85,0.183,0.093,0.8057777777777778
+Immunoglobulin heavy variable 1-69,Group,20,"1, 18",0.94,0.346,0.05,0.5034494382022472
+Immunoglobulin heavy variable 1-69,TimePoint,20,"1.49, 26.85",,0.042,0.181,0.3453333333333333
+Insulin-like growth factor-binding protein complex acid labile subunit,TimePoint:Group,20,"2.00, 35.95",0.5,0.609,0.027,0.8656793478260869
+Insulin-like growth factor-binding protein complex acid labile subunit,Group,20,"1, 18",0.0,0.982,0.001,0.9915711500974659
+Insulin-like growth factor-binding protein complex acid labile subunit,TimePoint,20,"2.00, 35.95",1.29,0.289,0.067,0.6676444444444444
+Plasma serine protease inhibitor,TimePoint:Group,20,"1.91, 34.35",1.79,0.183,0.091,0.8057777777777778
+Plasma serine protease inhibitor,Group,20,"1, 18",,0.018,0.274,0.07642622950819672
+Plasma serine protease inhibitor,TimePoint,20,"1.91, 34.35",2.28,0.12,0.112,0.4673684210526316
+Immunoglobulin heavy variable 1-69D,TimePoint:Group,20,"1.81, 32.58",1.58,0.223,0.081,0.8057777777777778
+Immunoglobulin heavy variable 1-69D,Group,20,"1, 18",,0.072,0.169,0.17266666666666666
+Immunoglobulin heavy variable 1-69D,TimePoint,20,"1.81, 32.58",1.28,0.288,0.067,0.6676444444444444
+Pancreatic adenocarcinoma up-regulated factor,TimePoint:Group,20,"1.18, 21.32",0.92,0.366,0.048,0.8057777777777778
+Pancreatic adenocarcinoma up-regulated factor,Group,20,"1, 18",,0.057,0.186,0.1521958762886598
+Pancreatic adenocarcinoma up-regulated factor,TimePoint,20,"1.18, 21.32",0.92,0.366,0.048,0.7129667896678967
+Immunoglobulin heavy variable 3-64D,TimePoint:Group,20,"1.99, 35.84",1.14,0.33,0.06,0.8057777777777778
+Immunoglobulin heavy variable 3-64D,Group,20,"1, 18",1.03,0.324,0.054,0.48227586206896556
+Immunoglobulin heavy variable 3-64D,TimePoint,20,"1.99, 35.84",1.63,0.211,0.083,0.6066417112299465
+Neutrophil gelatinase-associated lipocalin,TimePoint:Group,20,"1.84, 33.06",0.73,0.48,0.039,0.8268076923076922
+Neutrophil gelatinase-associated lipocalin,Group,20,"1, 18",0.05,0.822,0.003,0.8876929460580912
+Neutrophil gelatinase-associated lipocalin,TimePoint,20,"1.84, 33.06",1.25,0.298,0.065,0.6770350877192982
+Lysosome-associated membrane glycoprotein 2,TimePoint:Group,20,"1.78, 32.08",,0.016,0.216,0.8057777777777778
+Lysosome-associated membrane glycoprotein 2,Group,20,"1, 18",0.73,0.403,0.039,0.5578461538461539
+Lysosome-associated membrane glycoprotein 2,TimePoint,20,"1.78, 32.08",0.63,0.52,0.034,0.7777421203438396
+Corneodesmosin,TimePoint:Group,20,"1.84, 33.07",1.09,0.343,0.057,0.8057777777777778
+Corneodesmosin,Group,20,"1, 18",0.99,0.334,0.052,0.49291168091168097
+Corneodesmosin,TimePoint,20,"1.84, 33.07",0.28,0.74,0.015,0.8827385321100918
+Collagen alpha-1(XVIII) chain,TimePoint:Group,20,"1.11, 20.02",0.86,0.375,0.046,0.8057777777777778
+Collagen alpha-1(XVIII) chain,Group,20,"1, 18",,0.001,0.462,0.010791666666666668
+Collagen alpha-1(XVIII) chain,TimePoint,20,"1.11, 20.02",0.63,0.451,0.034,0.7539044585987261
+Lipopolysaccharide-binding protein,TimePoint:Group,20,"1.77, 31.93",,0.007,0.258,0.8057777777777778
+Lipopolysaccharide-binding protein,Group,20,"1, 18",0.0,0.951,0.001,0.9697204724409448
+Lipopolysaccharide-binding protein,TimePoint,20,"1.77, 31.93",,0.046,0.164,0.3453333333333333
+Immunoglobulin heavy variable 3-49,TimePoint:Group,20,"1.68, 30.33",,0.061,0.152,0.8057777777777778
+Immunoglobulin heavy variable 3-49,Group,20,"1, 18",,0.004,0.371,0.0259
+Immunoglobulin heavy variable 3-49,TimePoint,20,"1.68, 30.33",0.06,0.918,0.003,0.945375745526839
+SPARC-like protein 1,TimePoint:Group,20,"1.82, 32.69",1.27,0.292,0.066,0.8057777777777778
+SPARC-like protein 1,Group,20,"1, 18",,0.001,0.544,0.010791666666666668
+SPARC-like protein 1,TimePoint,20,"1.82, 32.69",0.38,0.669,0.021,0.8370579710144929
+Ras-associated and pleckstrin homology domains-containing protein 1,TimePoint:Group,20,"1.83, 32.90",0.3,0.724,0.016,0.8972057416267941
+Ras-associated and pleckstrin homology domains-containing protein 1,Group,20,"1, 18",1.1,0.308,0.058,0.4665029239766082
+Ras-associated and pleckstrin homology domains-containing protein 1,TimePoint,20,"1.83, 32.90",0.29,0.733,0.016,0.8809605568445475
+Alpha-1-acid glycoprotein 2,TimePoint:Group,20,"1.58, 28.47",,0.096,0.13,0.8057777777777778
+Alpha-1-acid glycoprotein 2,Group,20,"1, 18",,0.004,0.379,0.0259
+Alpha-1-acid glycoprotein 2,TimePoint,20,"1.58, 28.47",,0.003,0.306,0.111
+Immunoglobulin heavy variable 3-20,TimePoint:Group,20,"1.57, 28.18",0.35,0.655,0.019,0.8762056555269923
+Immunoglobulin heavy variable 3-20,Group,20,"1, 18",,0.003,0.386,0.02252173913043478
+Immunoglobulin heavy variable 3-20,TimePoint,20,"1.57, 28.18",0.08,0.884,0.004,0.9288275862068965
+Neurogenic locus notch homolog protein 2,TimePoint:Group,20,"1.95, 35.04",1.45,0.249,0.074,0.8057777777777778
+Neurogenic locus notch homolog protein 2,Group,20,"1, 18",,0.001,0.65,0.010791666666666668
+Neurogenic locus notch homolog protein 2,TimePoint,20,"1.95, 35.04",1.5,0.237,0.077,0.6295692307692307
+Apolipoprotein B-100,TimePoint:Group,20,"1.45, 26.12",0.2,0.751,0.011,0.9067990762124711
+Apolipoprotein B-100,Group,20,"1, 18",1.27,0.274,0.066,0.431404255319149
+Apolipoprotein B-100,TimePoint,20,"1.45, 26.12",1.34,0.272,0.069,0.6622831050228312
+CD44 antigen,TimePoint:Group,20,"1.99, 35.90",0.93,0.405,0.049,0.8057777777777778
+CD44 antigen,Group,20,"1, 18",,0.001,0.565,0.010791666666666668
+CD44 antigen,TimePoint,20,"1.99, 35.90",0.63,0.536,0.034,0.7841944444444444
+Pigment epithelium-derived factor,TimePoint:Group,20,"1.55, 27.98",1.02,0.357,0.053,0.8057777777777778
+Pigment epithelium-derived factor,Group,20,"1, 18",,0.043,0.209,0.1265568181818182
+Pigment epithelium-derived factor,TimePoint,20,"1.55, 27.98",,0.014,0.238,0.226625
+Xaa-Pro dipeptidase,TimePoint:Group,20,"1.68, 30.28",1.73,0.198,0.087,0.8057777777777778
+Xaa-Pro dipeptidase,Group,20,"1, 18",,0.006,0.351,0.03572413793103448
+Xaa-Pro dipeptidase,TimePoint,20,"1.68, 30.28",2.43,0.113,0.119,0.46455555555555555
+Immunoglobulin heavy constant delta,TimePoint:Group,20,"1.05, 18.97",0.9,0.36,0.048,0.8057777777777778
+Immunoglobulin heavy constant delta,Group,20,"1, 18",1.37,0.257,0.071,0.41633644859813085
+Immunoglobulin heavy constant delta,TimePoint,20,"1.05, 18.97",1.26,0.278,0.066,0.6622831050228312
+Probable non-functional immunoglobulin heavy variable 3-38-3,TimePoint:Group,20,"1.03, 18.49",0.71,0.413,0.038,0.8057777777777778
+Probable non-functional immunoglobulin heavy variable 3-38-3,Group,20,"1, 18",,0.01,0.318,0.04886792452830189
+Probable non-functional immunoglobulin heavy variable 3-38-3,TimePoint,20,"1.03, 18.49",0.85,0.371,0.045,0.7129667896678967
+Immunoglobulin lambda constant 7,TimePoint:Group,20,"1.99, 35.74",0.65,0.526,0.035,0.8451578947368422
+Immunoglobulin lambda constant 7,Group,20,"1, 18",0.66,0.428,0.035,0.5743626943005181
+Immunoglobulin lambda constant 7,TimePoint,20,"1.99, 35.74",0.42,0.66,0.023,0.8370579710144929
+Receptor-type tyrosine-protein phosphatase gamma,TimePoint:Group,20,"1.44, 25.98",0.43,0.593,0.023,0.8647843137254903
+Receptor-type tyrosine-protein phosphatase gamma,Group,20,"1, 18",,0.001,0.769,0.010791666666666668
+Receptor-type tyrosine-protein phosphatase gamma,TimePoint,20,"1.44, 25.98",0.0,0.986,0.001,0.986
+Afamin,TimePoint:Group,20,"1.84, 33.18",0.3,0.722,0.017,0.8972057416267941
+Afamin,Group,20,"1, 18",1.87,0.189,0.094,0.33759310344827587
+Afamin,TimePoint,20,"1.84, 33.18",,0.034,0.176,0.33869230769230774
+Pyruvate kinase PKLR,TimePoint:Group,20,"1.93, 34.72",0.76,0.471,0.041,0.8268076923076922
+Pyruvate kinase PKLR,Group,20,"1, 18",1.14,0.3,0.06,0.45705882352941174
+Pyruvate kinase PKLR,TimePoint,20,"1.93, 34.72",,0.014,0.215,0.226625
+Insulin-like growth factor 2,TimePoint:Group,20,"1.85, 33.29",0.73,0.48,0.039,0.8268076923076922
+Insulin-like growth factor 2,Group,20,"1, 18",,0.046,0.203,0.1331173184357542
+Insulin-like growth factor 2,TimePoint,20,"1.85, 33.29",2.32,0.118,0.114,0.4665954198473282
+CD109 antigen,TimePoint:Group,20,"1.26, 22.70",0.77,0.417,0.041,0.8057777777777778
+CD109 antigen,Group,20,"1, 18",,0.001,0.522,0.010791666666666668
+CD109 antigen,TimePoint,20,"1.26, 22.70",0.3,0.639,0.017,0.8295789473684211
+ADP-ribosyl cyclase/cyclic ADP-ribose hydrolase 2,TimePoint:Group,20,"1.21, 21.84",,0.011,0.282,0.8057777777777778
+ADP-ribosyl cyclase/cyclic ADP-ribose hydrolase 2,Group,20,"1, 18",,0.01,0.315,0.04886792452830189
+ADP-ribosyl cyclase/cyclic ADP-ribose hydrolase 2,TimePoint,20,"1.21, 21.84",,0.024,0.231,0.28911627906976745
+Dedicator of cytokinesis protein 4,TimePoint:Group,20,"1.81, 32.57",0.05,0.937,0.003,0.97384
+Dedicator of cytokinesis protein 4,Group,20,"1, 18",,0.028,0.24,0.09669333333333334
+Dedicator of cytokinesis protein 4,TimePoint,20,"1.81, 32.57",1.71,0.199,0.087,0.5974659090909091
+Complement factor H-related protein 2,TimePoint:Group,20,"1.57, 28.23",0.64,0.497,0.034,0.8268076923076922
+Complement factor H-related protein 2,Group,20,"1, 18",0.72,0.406,0.039,0.5578461538461539
+Complement factor H-related protein 2,TimePoint,20,"1.57, 28.23",0.12,0.835,0.007,0.9144397463002114
+Selenoprotein P,TimePoint:Group,20,"1.43, 25.82",0.37,0.627,0.02,0.8710578947368421
+Selenoprotein P,Group,20,"1, 18",2.5,0.132,0.122,0.27008560311284047
+Selenoprotein P,TimePoint,20,"1.43, 25.82",0.75,0.441,0.04,0.7514407894736842
+Adipocyte plasma membrane-associated protein,TimePoint:Group,20,"1.59, 28.65",0.04,0.938,0.002,0.97384
+Adipocyte plasma membrane-associated protein,Group,20,"1, 18",,0.062,0.181,0.16058
+Adipocyte plasma membrane-associated protein,TimePoint,20,"1.59, 28.65",1.48,0.244,0.076,0.6371399999999999
+Immunoglobulin heavy constant alpha 2,TimePoint:Group,20,"1.43, 25.78",1.64,0.215,0.084,0.8057777777777778
+Immunoglobulin heavy constant alpha 2,Group,20,"1, 18",0.07,0.794,0.004,0.8695391120507401
+Immunoglobulin heavy constant alpha 2,TimePoint,20,"1.43, 25.78",1.57,0.227,0.08,0.6221481481481482
+Lactotransferrin,TimePoint:Group,20,"1.48, 26.62",0.98,0.366,0.051,0.8057777777777778
+Lactotransferrin,Group,20,"1, 18",1.51,0.235,0.078,0.3926774193548387
+Lactotransferrin,TimePoint,20,"1.48, 26.62",0.42,0.598,0.023,0.8048923076923076
+Alpha-enolase,TimePoint:Group,20,"1.46, 26.27",1.21,0.302,0.063,0.8057777777777778
+Alpha-enolase,Group,20,"1, 18",0.31,0.582,0.017,0.7177999999999999
+Alpha-enolase,TimePoint,20,"1.46, 26.27",1.05,0.345,0.055,0.7035826771653543
+Immunoglobulin heavy constant gamma 1,TimePoint:Group,20,"1.43, 25.73",2.61,0.107,0.127,0.8057777777777778
+Immunoglobulin heavy constant gamma 1,Group,20,"1, 18",0.61,0.444,0.033,0.589539641943734
+Immunoglobulin heavy constant gamma 1,TimePoint,20,"1.43, 25.73",0.13,0.804,0.007,0.8978666666666667
+Collectin-10,TimePoint:Group,20,"1.38, 24.88",0.63,0.486,0.034,0.8268076923076922
+Collectin-10,Group,20,"1, 18",,0.07,0.171,0.1686511627906977
+Collectin-10,TimePoint,20,"1.38, 24.88",0.69,0.46,0.037,0.7540506329113924
+Lysosome-associated membrane glycoprotein 1,TimePoint:Group,20,"1.87, 33.71",,0.045,0.162,0.8057777777777778
+Lysosome-associated membrane glycoprotein 1,Group,20,"1, 18",1.32,0.265,0.068,0.42236923076923083
+Lysosome-associated membrane glycoprotein 1,TimePoint,20,"1.87, 33.71",1.92,0.164,0.096,0.5507848101265823
+Cathelicidin antimicrobial peptide,TimePoint:Group,20,"1.41, 25.45",1.17,0.311,0.061,0.8057777777777778
+Cathelicidin antimicrobial peptide,Group,20,"1, 18",1.21,0.287,0.063,0.4437791044776119
+Cathelicidin antimicrobial peptide,TimePoint,20,"1.41, 25.45",0.81,0.416,0.043,0.735
+Fibroblast growth factor-binding protein 2,TimePoint:Group,20,"1.54, 27.66",0.64,0.495,0.034,0.8268076923076922
+Fibroblast growth factor-binding protein 2,Group,20,"1, 18",1.5,0.236,0.077,0.39308038585209
+Fibroblast growth factor-binding protein 2,TimePoint,20,"1.54, 27.66",,0.045,0.175,0.3453333333333333
+Lymphatic vessel endothelial hyaluronic acid receptor 1,TimePoint:Group,20,"1.71, 30.72",1.14,0.325,0.06,0.8057777777777778
+Lymphatic vessel endothelial hyaluronic acid receptor 1,Group,20,"1, 18",2.24,0.152,0.111,0.2905387453874539
+Lymphatic vessel endothelial hyaluronic acid receptor 1,TimePoint,20,"1.71, 30.72",0.48,0.595,0.026,0.8048923076923076
+Haptoglobin,TimePoint:Group,20,"1.86, 33.44",0.01,0.983,0.001,0.9916575875486381
+Haptoglobin,Group,20,"1, 18",0.94,0.345,0.05,0.5034084507042254
+Haptoglobin,TimePoint,20,"1.86, 33.44",0.82,0.44,0.044,0.7514407894736842
+Tenascin-X,TimePoint:Group,20,"1.37, 24.59",0.27,0.678,0.015,0.883950248756219
+Tenascin-X,Group,20,"1, 18",,0.001,0.507,0.010791666666666668
+Tenascin-X,TimePoint,20,"1.37, 24.59",0.25,0.694,0.014,0.8510874704491724
+Zinc finger protein 512B,TimePoint:Group,20,"1.91, 34.35",0.45,0.633,0.024,0.8710578947368421
+Zinc finger protein 512B,Group,20,"1, 18",,0.037,0.22,0.11408333333333333
+Zinc finger protein 512B,TimePoint,20,"1.91, 34.35",,0.046,0.159,0.3453333333333333
+Immunoglobulin lambda variable 3-19,TimePoint:Group,20,"1.82, 32.82",2.5,0.102,0.122,0.8057777777777778
+Immunoglobulin lambda variable 3-19,Group,20,"1, 18",2.07,0.167,0.103,0.3100573476702509
+Immunoglobulin lambda variable 3-19,TimePoint,20,"1.82, 32.82",1.37,0.268,0.071,0.6622831050228312
+Complement C1q subcomponent subunit B,TimePoint:Group,20,"1.78, 32.03",1.19,0.312,0.062,0.8057777777777778
+Complement C1q subcomponent subunit B,Group,20,"1, 18",1.34,0.262,0.069,0.42017337461300314
+Complement C1q subcomponent subunit B,TimePoint,20,"1.78, 32.03",0.25,0.756,0.014,0.888
+Ubiquitin-ribosomal protein eS31 fusion protein,TimePoint:Group,20,"1.58, 28.45",0.39,0.629,0.021,0.8710578947368421
+Ubiquitin-ribosomal protein eS31 fusion protein,Group,20,"1, 18",0.07,0.797,0.004,0.87024
+Ubiquitin-ribosomal protein eS31 fusion protein,TimePoint,20,"1.58, 28.45",0.23,0.743,0.013,0.8827385321100918
+Kinesin-like protein KIF21A,TimePoint:Group,20,"1.57, 28.19",0.58,0.527,0.031,0.8451578947368422
+Kinesin-like protein KIF21A,Group,20,"1, 18",1.0,0.331,0.053,0.48988000000000004
+Kinesin-like protein KIF21A,TimePoint,20,"1.57, 28.19",0.02,0.957,0.001,0.9663274853801169
+Attractin,TimePoint:Group,20,"1.38, 24.79",0.68,0.465,0.036,0.8268076923076922
+Attractin,Group,20,"1, 18",2.28,0.149,0.112,0.28692193308550185
+Attractin,TimePoint,20,"1.38, 24.79",2.16,0.148,0.107,0.5215
+Immunoglobulin lambda variable 1-44,TimePoint:Group,20,"1.99, 35.75",2.38,0.107,0.117,0.8057777777777778
+Immunoglobulin lambda variable 1-44,Group,20,"1, 18",2.7,0.118,0.131,0.2536265560165975
+Immunoglobulin lambda variable 1-44,TimePoint,20,"1.99, 35.75",0.42,0.657,0.023,0.8361818181818182
+Immunoglobulin heavy variable 1-46,TimePoint:Group,20,"1.55, 27.90",0.03,0.937,0.002,0.97384
+Immunoglobulin heavy variable 1-46,Group,20,"1, 18",,0.009,0.321,0.047090909090909086
+Immunoglobulin heavy variable 1-46,TimePoint,20,"1.55, 27.90",,0.022,0.214,0.27795121951219515
+Fibulin-1,TimePoint:Group,20,"1.76, 31.77",0.83,0.434,0.044,0.8174981818181818
+Fibulin-1,Group,20,"1, 18",0.4,0.533,0.022,0.6734000000000001
+Fibulin-1,TimePoint,20,"1.76, 31.77",0.19,0.801,0.01,0.8978666666666667
+Secreted phosphoprotein 24,TimePoint:Group,20,"1.62, 29.10",1.07,0.343,0.056,0.8057777777777778
+Secreted phosphoprotein 24,Group,20,"1, 18",0.06,0.802,0.004,0.872764705882353
+Secreted phosphoprotein 24,TimePoint,20,"1.62, 29.10",0.64,0.501,0.034,0.7701238938053097
+Scavenger receptor class B member 1,TimePoint:Group,20,"1.80, 32.45",2.47,0.105,0.121,0.8057777777777778
+Scavenger receptor class B member 1,Group,20,"1, 18",,0.015,0.285,0.06698275862068966
+Scavenger receptor class B member 1,TimePoint,20,"1.80, 32.45",0.38,0.667,0.021,0.8370579710144929
+Immunoglobulin lambda variable 2-18,TimePoint:Group,20,"1.39, 25.06",1.29,0.281,0.067,0.8057777777777778
+Immunoglobulin lambda variable 2-18,Group,20,"1, 18",,0.064,0.178,0.16331034482758622
+Immunoglobulin lambda variable 2-18,TimePoint,20,"1.39, 25.06",0.94,0.373,0.049,0.7129667896678967
+Collagen alpha-2(VI) chain,TimePoint:Group,20,"1.76, 31.60",0.53,0.57,0.029,0.8499367816091954
+Collagen alpha-2(VI) chain,Group,20,"1, 18",,0.011,0.307,0.052759259259259256
+Collagen alpha-2(VI) chain,TimePoint,20,"1.76, 31.60",0.52,0.576,0.028,0.8048923076923076
+Adiponectin,TimePoint:Group,20,"1.53, 27.47",1.59,0.222,0.081,0.8057777777777778
+Adiponectin,Group,20,"1, 18",0.07,0.789,0.004,0.8658940677966103
+Adiponectin,TimePoint,20,"1.53, 27.47",0.44,0.596,0.024,0.8048923076923076
+Nidogen-1,TimePoint:Group,20,"1.90, 34.20",0.68,0.504,0.037,0.8330219435736678
+Nidogen-1,Group,20,"1, 18",,0.001,0.569,0.010791666666666668
+Nidogen-1,TimePoint,20,"1.90, 34.20",2.25,0.123,0.111,0.4719555555555556
+Alpha-1-antitrypsin,TimePoint:Group,20,"1.76, 31.60",1.23,0.301,0.064,0.8057777777777778
+Alpha-1-antitrypsin,Group,20,"1, 18",0.0,0.997,0.001,0.997
+Alpha-1-antitrypsin,TimePoint,20,"1.76, 31.60",1.72,0.198,0.087,0.5974659090909091
+"Sushi, von Willebrand factor type A, EGF and pentraxin domain-containing protein 1",TimePoint:Group,20,"1.81, 32.53",0.92,0.4,0.049,0.8057777777777778
+"Sushi, von Willebrand factor type A, EGF and pentraxin domain-containing protein 1",Group,20,"1, 18",,0.057,0.187,0.1521958762886598
+"Sushi, von Willebrand factor type A, EGF and pentraxin domain-containing protein 1",TimePoint,20,"1.81, 32.53",,0.04,0.17,0.3453333333333333
+Complement C1s subcomponent,TimePoint:Group,20,"1.64, 29.48",0.64,0.506,0.034,0.8330219435736678
+Complement C1s subcomponent,Group,20,"1, 18",0.02,0.883,0.001,0.9277768762677485
+Complement C1s subcomponent,TimePoint,20,"1.64, 29.48",1.85,0.18,0.093,0.5682303030303031
+Alpha-actinin-4,TimePoint:Group,20,"1.70, 30.64",0.06,0.921,0.003,0.9677038539553753
+Alpha-actinin-4,Group,20,"1, 18",,0.039,0.215,0.11953846153846154
+Alpha-actinin-4,TimePoint,20,"1.70, 30.64",0.36,0.664,0.02,0.8370579710144929
+Complement component C1q receptor,TimePoint:Group,20,"1.67, 29.98",1.04,0.352,0.055,0.8057777777777778
+Complement component C1q receptor,Group,20,"1, 18",1.4,0.251,0.072,0.4101514195583596
+Complement component C1q receptor,TimePoint,20,"1.67, 29.98",0.07,0.903,0.004,0.9373827655310621
+Inter-alpha-trypsin inhibitor heavy chain H3,TimePoint:Group,20,"1.70, 30.58",1.2,0.31,0.062,0.8057777777777778
+Inter-alpha-trypsin inhibitor heavy chain H3,Group,20,"1, 18",2.42,0.137,0.118,0.27190038314176246
+Inter-alpha-trypsin inhibitor heavy chain H3,TimePoint,20,"1.70, 30.58",,0.044,0.169,0.3453333333333333
+Immunoglobulin kappa variable 1D-8,TimePoint:Group,20,"1.44, 26.00",0.57,0.518,0.031,0.8385125
+Immunoglobulin kappa variable 1D-8,Group,20,"1, 18",,0.067,0.175,0.16685576923076925
+Immunoglobulin kappa variable 1D-8,TimePoint,20,"1.44, 26.00",0.79,0.426,0.042,0.73556
+Low-density lipoprotein receptor,TimePoint:Group,20,"1.88, 33.79",1.19,0.313,0.062,0.8057777777777778
+Low-density lipoprotein receptor,Group,20,"1, 18",,0.055,0.189,0.14994736842105263
+Low-density lipoprotein receptor,TimePoint,20,"1.88, 33.79",0.13,0.867,0.007,0.922422131147541
+Prolactin-inducible protein,TimePoint:Group,20,"1.21, 21.83",1.97,0.174,0.099,0.8057777777777778
+Prolactin-inducible protein,Group,20,"1, 18",2.26,0.15,0.112,0.2877777777777778
+Prolactin-inducible protein,TimePoint,20,"1.21, 21.83",0.43,0.556,0.023,0.7934104683195593
+Hyaluronan-binding protein 2,TimePoint:Group,20,"1.71, 30.78",0.07,0.91,0.004,0.960040733197556
+Hyaluronan-binding protein 2,Group,20,"1, 18",1.72,0.206,0.087,0.3605
+Hyaluronan-binding protein 2,TimePoint,20,"1.71, 30.78",2.07,0.149,0.103,0.5215
+N-acetylmuramoyl-L-alanine amidase,TimePoint:Group,20,"1.76, 31.75",1.79,0.186,0.091,0.8057777777777778
+N-acetylmuramoyl-L-alanine amidase,Group,20,"1, 18",,0.009,0.321,0.047090909090909086
+N-acetylmuramoyl-L-alanine amidase,TimePoint,20,"1.76, 31.75",,0.018,0.21,0.24536842105263154
+Serpin A11,TimePoint:Group,20,"1.95, 35.14",0.25,0.772,0.014,0.916279176201373
+Serpin A11,Group,20,"1, 18",0.65,0.431,0.035,0.5754072164948454
+Serpin A11,TimePoint,20,"1.95, 35.14",2.41,0.105,0.118,0.4421951219512195
+C4b-binding protein alpha chain,TimePoint:Group,20,"1.88, 33.85",0.33,0.705,0.018,0.8941515892420537
+C4b-binding protein alpha chain,Group,20,"1, 18",1.94,0.18,0.097,0.3271578947368421
+C4b-binding protein alpha chain,TimePoint,20,"1.88, 33.85",,0.082,0.132,0.40842307692307694
+Inter-alpha-trypsin inhibitor heavy chain H2,TimePoint:Group,20,"1.77, 31.93",0.08,0.906,0.004,0.9588285714285715
+Inter-alpha-trypsin inhibitor heavy chain H2,Group,20,"1, 18",,0.02,0.265,0.0809375
+Inter-alpha-trypsin inhibitor heavy chain H2,TimePoint,20,"1.77, 31.93",0.49,0.593,0.027,0.8048923076923076
+Fibrillin-1,TimePoint:Group,20,"1.12, 20.12",1.5,0.239,0.077,0.8057777777777778
+Fibrillin-1,Group,20,"1, 18",,0.005,0.363,0.03083333333333333
+Fibrillin-1,TimePoint,20,"1.12, 20.12",0.75,0.41,0.04,0.7323448275862069
+Golgi-associated RAB2 interactor protein 1B,TimePoint:Group,20,"1.11, 19.95",0.89,0.368,0.047,0.8057777777777778
+Golgi-associated RAB2 interactor protein 1B,Group,20,"1, 18",0.21,0.65,0.012,0.7687214611872146
+Golgi-associated RAB2 interactor protein 1B,TimePoint,20,"1.11, 19.95",0.45,0.53,0.024,0.7821652421652422
+Neurogenic locus notch homolog protein 3,TimePoint:Group,20,"1.54, 27.66",0.75,0.45,0.04,0.8268076923076922
+Neurogenic locus notch homolog protein 3,Group,20,"1, 18",,0.001,0.544,0.010791666666666668
+Neurogenic locus notch homolog protein 3,TimePoint,20,"1.54, 27.66",0.19,0.774,0.01,0.8945198237885462
+Immunoglobulin heavy constant alpha 1,TimePoint:Group,20,"1.86, 33.46",0.61,0.539,0.033,0.8499367816091954
+Immunoglobulin heavy constant alpha 1,Group,20,"1, 18",0.09,0.773,0.005,0.861105376344086
+Immunoglobulin heavy constant alpha 1,TimePoint,20,"1.86, 33.46",1.03,0.364,0.054,0.7129667896678967
+Apolipoprotein C-III,TimePoint:Group,20,"1.44, 25.97",,0.08,0.144,0.8057777777777778
+Apolipoprotein C-III,Group,20,"1, 18",0.47,0.503,0.025,0.6465359801488834
+Apolipoprotein C-III,TimePoint,20,"1.44, 25.97",,0.004,0.306,0.1295
+Glutathione peroxidase 3,TimePoint:Group,20,"1.99, 35.79",0.6,0.555,0.032,0.8499367816091954
+Glutathione peroxidase 3,Group,20,"1, 18",1.24,0.279,0.065,0.43530722891566265
+Glutathione peroxidase 3,TimePoint,20,"1.99, 35.79",,0.054,0.15,0.3493488372093023
+Contactin-1,TimePoint:Group,20,"1.96, 35.37",,0.019,0.199,0.8057777777777778
+Contactin-1,Group,20,"1, 18",,0.001,0.45,0.010791666666666668
+Contactin-1,TimePoint,20,"1.96, 35.37",,0.098,0.122,0.43459322033898307
+Stomatin,TimePoint:Group,20,"1.43, 25.83",0.35,0.635,0.019,0.8710578947368421
+Stomatin,Group,20,"1, 18",,0.05,0.198,0.1423076923076923
+Stomatin,TimePoint,20,"1.43, 25.83",,0.014,0.248,0.226625
+Immunoglobulin heavy variable 3-13,TimePoint:Group,20,"1.90, 34.12",0.17,0.831,0.01,0.9461084598698482
+Immunoglobulin heavy variable 3-13,Group,20,"1, 18",2.72,0.116,0.131,0.2524705882352941
+Immunoglobulin heavy variable 3-13,TimePoint,20,"1.90, 34.12",0.53,0.586,0.028,0.8048923076923076
+Immunoglobulin heavy variable 1-69-2,TimePoint:Group,20,"1.74, 31.36",0.12,0.864,0.006,0.9522382978723405
+Immunoglobulin heavy variable 1-69-2,Group,20,"1, 18",,0.051,0.196,0.14279999999999998
+Immunoglobulin heavy variable 1-69-2,TimePoint,20,"1.74, 31.36",1.4,0.26,0.072,0.6537864077669904
+Apolipoprotein E,TimePoint:Group,20,"1.62, 29.19",2.56,0.104,0.124,0.8057777777777778
+Apolipoprotein E,Group,20,"1, 18",0.66,0.427,0.035,0.5743626943005181
+Apolipoprotein E,TimePoint,20,"1.62, 29.19",2.18,0.139,0.108,0.5036111111111111
+Mucosal addressin cell adhesion molecule 1,TimePoint:Group,20,"1.27, 22.88",0.3,0.642,0.017,0.8728503937007874
+Mucosal addressin cell adhesion molecule 1,Group,20,"1, 18",,0.031,0.234,0.10427272727272727
+Mucosal addressin cell adhesion molecule 1,TimePoint,20,"1.27, 22.88",0.11,0.804,0.006,0.8978666666666667
+Protein S100-A11,TimePoint:Group,20,"1.30, 23.31",1.91,0.179,0.096,0.8057777777777778
+Protein S100-A11,Group,20,"1, 18",2.27,0.149,0.112,0.28692193308550185
+Protein S100-A11,TimePoint,20,"1.30, 23.31",0.68,0.455,0.036,0.7539044585987261
+Complement factor H-related protein 4,TimePoint:Group,20,"1.82, 32.83",2.08,0.145,0.103,0.8057777777777778
+Complement factor H-related protein 4,Group,20,"1, 18",2.96,0.102,0.141,0.22872727272727272
+Complement factor H-related protein 4,TimePoint,20,"1.82, 32.83",1.43,0.254,0.073,0.6513465346534654
+Immunoglobulin kappa variable 1D-16,TimePoint:Group,20,"1.75, 31.44",0.14,0.841,0.008,0.9461084598698482
+Immunoglobulin kappa variable 1D-16,Group,20,"1, 18",2.22,0.154,0.11,0.29220512820512823
+Immunoglobulin kappa variable 1D-16,TimePoint,20,"1.75, 31.44",0.48,0.6,0.026,0.8048923076923076
+Immunoglobulin lambda variable 1-47,TimePoint:Group,20,"1.76, 31.72",0.77,0.454,0.041,0.8268076923076922
+Immunoglobulin lambda variable 1-47,Group,20,"1, 18",0.11,0.747,0.006,0.8430196078431372
+Immunoglobulin lambda variable 1-47,TimePoint,20,"1.76, 31.72",1.46,0.246,0.075,0.6371399999999999
+Fructose-bisphosphate aldolase A,TimePoint:Group,20,"1.47, 26.47",0.65,0.484,0.035,0.8268076923076922
+Fructose-bisphosphate aldolase A,Group,20,"1, 18",0.04,0.839,0.002,0.8979380165289256
+Fructose-bisphosphate aldolase A,TimePoint,20,"1.47, 26.47",1.01,0.355,0.053,0.71
+Thrombospondin-1,TimePoint:Group,20,"1.45, 26.09",1.09,0.333,0.057,0.8057777777777778
+Thrombospondin-1,Group,20,"1, 18",2.19,0.156,0.109,0.29491970802919704
+Thrombospondin-1,TimePoint,20,"1.45, 26.09",1.32,0.275,0.068,0.6622831050228312
+Aminopeptidase N,TimePoint:Group,20,"1.10, 19.72",0.77,0.404,0.041,0.8057777777777778
+Aminopeptidase N,Group,20,"1, 18",0.05,0.824,0.003,0.8876929460580912
+Aminopeptidase N,TimePoint,20,"1.10, 19.72",1.64,0.217,0.084,0.6066417112299465
+Apolipoprotein M,TimePoint:Group,20,"1.53, 27.49",0.15,0.802,0.008,0.9335640449438203
+Apolipoprotein M,Group,20,"1, 18",1.58,0.224,0.081,0.3804327868852459
+Apolipoprotein M,TimePoint,20,"1.53, 27.49",0.11,0.849,0.006,0.9162125
+Immunoglobulin heavy variable 3-43,TimePoint:Group,20,"1.55, 27.99",0.06,0.907,0.003,0.9588285714285715
+Immunoglobulin heavy variable 3-43,Group,20,"1, 18",,0.07,0.171,0.1686511627906977
+Immunoglobulin heavy variable 3-43,TimePoint,20,"1.55, 27.99",0.81,0.426,0.043,0.73556
+Cysteine-rich secretory protein 3,TimePoint:Group,20,"1.43, 25.73",1.25,0.291,0.065,0.8057777777777778
+Cysteine-rich secretory protein 3,Group,20,"1, 18",,0.046,0.203,0.1331173184357542
+Cysteine-rich secretory protein 3,TimePoint,20,"1.43, 25.73",2.38,0.126,0.117,0.4729565217391304
+Complement component C8 alpha chain,TimePoint:Group,20,"1.63, 29.40",0.27,0.724,0.015,0.8972057416267941
+Complement component C8 alpha chain,Group,20,"1, 18",2.08,0.167,0.103,0.3100573476702509
+Complement component C8 alpha chain,TimePoint,20,"1.63, 29.40",0.29,0.708,0.016,0.8641458823529411
+Immunoglobulin heavy variable 2-70D,TimePoint:Group,20,"1.67, 30.11",1.44,0.252,0.074,0.8057777777777778
+Immunoglobulin heavy variable 2-70D,Group,20,"1, 18",0.0,0.991,0.001,0.9948410852713178
+Immunoglobulin heavy variable 2-70D,TimePoint,20,"1.67, 30.11",0.49,0.583,0.027,0.8048923076923076
+Immunoglobulin heavy variable 3-23,TimePoint:Group,20,"1.57, 28.25",0.26,0.718,0.014,0.8972057416267941
+Immunoglobulin heavy variable 3-23,Group,20,"1, 18",0.13,0.721,0.007,0.8208307692307691
+Immunoglobulin heavy variable 3-23,TimePoint,20,"1.57, 28.25",0.59,0.521,0.032,0.7777421203438396
+Plasma kallikrein,TimePoint:Group,20,"1.46, 26.21",,0.025,0.211,0.8057777777777778
+Plasma kallikrein,Group,20,"1, 18",2.57,0.126,0.125,0.26212048192771087
+Plasma kallikrein,TimePoint,20,"1.46, 26.21",,0.062,0.159,0.3608539325842697
+Galectin-7,TimePoint:Group,20,"1.25, 22.54",0.28,0.655,0.015,0.8762056555269923
+Galectin-7,Group,20,"1, 18",0.44,0.514,0.024,0.6574123456790124
+Galectin-7,TimePoint,20,"1.25, 22.54",1.03,0.34,0.054,0.7035826771653543
+Extracellular superoxide dismutase [Cu-Zn],TimePoint:Group,20,"1.27, 22.79",0.54,0.51,0.029,0.8330219435736678
+Extracellular superoxide dismutase [Cu-Zn],Group,20,"1, 18",1.85,0.191,0.093,0.33999312714776636
+Extracellular superoxide dismutase [Cu-Zn],TimePoint,20,"1.27, 22.79",2.75,0.104,0.133,0.44157377049180324
+Immunoglobulin heavy variable 1-8,TimePoint:Group,20,"1.50, 27.00",0.02,0.957,0.001,0.9769744597249508
+Immunoglobulin heavy variable 1-8,Group,20,"1, 18",,0.001,0.52,0.010791666666666668
+Immunoglobulin heavy variable 1-8,TimePoint,20,"1.50, 27.00",0.15,0.797,0.008,0.8978666666666667
+Cystatin-C,TimePoint:Group,20,"1.25, 22.46",,0.01,0.283,0.8057777777777778
+Cystatin-C,Group,20,"1, 18",,0.017,0.277,0.074
+Cystatin-C,TimePoint,20,"1.25, 22.46",,0.028,0.219,0.3223111111111111
+Immunoglobulin lambda-like polypeptide 1,TimePoint:Group,20,"1.86, 33.50",1.11,0.338,0.058,0.8057777777777778
+Immunoglobulin lambda-like polypeptide 1,Group,20,"1, 18",1.71,0.208,0.087,0.3613953488372093
+Immunoglobulin lambda-like polypeptide 1,TimePoint,20,"1.86, 33.50",0.25,0.765,0.014,0.8945198237885462
+Inhibin beta C chain,TimePoint:Group,20,"1.78, 32.08",,0.021,0.203,0.8057777777777778
+Inhibin beta C chain,Group,20,"1, 18",,0.068,0.173,0.16853588516746412
+Inhibin beta C chain,TimePoint,20,"1.78, 32.08",,0.053,0.157,0.3493488372093023
+Mannose-binding protein C,TimePoint:Group,20,"1.64, 29.54",0.38,0.649,0.02,0.8762056555269923
+Mannose-binding protein C,Group,20,"1, 18",,0.076,0.165,0.18058715596330274
+Mannose-binding protein C,TimePoint,20,"1.64, 29.54",0.64,0.504,0.034,0.7701238938053097
+IgGFc-binding protein,TimePoint:Group,20,"1.53, 27.46",0.61,0.508,0.033,0.8330219435736678
+IgGFc-binding protein,Group,20,"1, 18",0.76,0.395,0.04,0.553
+IgGFc-binding protein,TimePoint,20,"1.53, 27.46",1.73,0.2,0.088,0.5974659090909091
+Macrophage mannose receptor 1,TimePoint:Group,20,"1.89, 34.04",1.18,0.317,0.062,0.8057777777777778
+Macrophage mannose receptor 1,Group,20,"1, 18",,0.063,0.179,0.16155445544554456
+Macrophage mannose receptor 1,TimePoint,20,"1.89, 34.04",0.6,0.543,0.032,0.7841944444444444
+Aromatase,TimePoint:Group,20,"1.75, 31.46",0.1,0.878,0.006,0.9565588235294117
+Aromatase,Group,20,"1, 18",0.08,0.785,0.004,0.8633333333333334
+Aromatase,TimePoint,20,"1.75, 31.46",,0.017,0.216,0.23800000000000002
+Cadherin-5,TimePoint:Group,20,"1.58, 28.46",,0.05,0.166,0.8057777777777778
+Cadherin-5,Group,20,"1, 18",,0.01,0.314,0.04886792452830189
+Cadherin-5,TimePoint,20,"1.58, 28.46",1.07,0.343,0.056,0.7035826771653543
+Immunoglobulin kappa variable 1-8,TimePoint:Group,20,"1.89, 34.10",0.37,0.68,0.02,0.883950248756219
+Immunoglobulin kappa variable 1-8,Group,20,"1, 18",,0.032,0.232,0.1055796178343949
+Immunoglobulin kappa variable 1-8,TimePoint,20,"1.89, 34.10",0.06,0.935,0.003,0.9525500982318271
+Retinol-binding protein 4,TimePoint:Group,20,"1.59, 28.56",0.73,0.459,0.039,0.8268076923076922
+Retinol-binding protein 4,Group,20,"1, 18",0.65,0.431,0.035,0.5754072164948454
+Retinol-binding protein 4,TimePoint,20,"1.59, 28.56",,0.05,0.166,0.3453333333333334
+Complement component C8 beta chain,TimePoint:Group,20,"1.73, 31.13",0.26,0.739,0.014,0.9049692671394799
+Complement component C8 beta chain,Group,20,"1, 18",2.12,0.162,0.105,0.30294584837545124
+Complement component C8 beta chain,TimePoint,20,"1.73, 31.13",,0.031,0.186,0.33869230769230774
+Tumor necrosis factor receptor superfamily member 1B,TimePoint:Group,20,"1.93, 34.76",,0.028,0.183,0.8057777777777778
+Tumor necrosis factor receptor superfamily member 1B,Group,20,"1, 18",,0.059,0.184,0.15672820512820512
+Tumor necrosis factor receptor superfamily member 1B,TimePoint,20,"1.93, 34.76",,0.001,0.455,0.0518
+Formin-2,TimePoint:Group,20,"1.91, 34.35",0.16,0.844,0.009,0.9463030303030303
+Formin-2,Group,20,"1, 18",0.3,0.594,0.016,0.7239811764705881
+Formin-2,TimePoint,20,"1.91, 34.35",0.88,0.42,0.047,0.735
+Scavenger receptor cysteine-rich domain-containing protein DMBT1,TimePoint:Group,20,"1.53, 27.54",0.7,0.471,0.037,0.8268076923076922
+Scavenger receptor cysteine-rich domain-containing protein DMBT1,Group,20,"1, 18",,0.054,0.191,0.1487872340425532
+Scavenger receptor cysteine-rich domain-containing protein DMBT1,TimePoint,20,"1.53, 27.54",0.61,0.509,0.033,0.7732023460410558
+Apolipoprotein L1,TimePoint:Group,20,"1.96, 35.32",2.34,0.112,0.115,0.8057777777777778
+Apolipoprotein L1,Group,20,"1, 18",0.21,0.65,0.012,0.7687214611872146
+Apolipoprotein L1,TimePoint,20,"1.96, 35.32",0.22,0.797,0.012,0.8978666666666667
+Leucine-rich alpha-2-glycoprotein,TimePoint:Group,20,"1.47, 26.47",1.07,0.337,0.056,0.8057777777777778
+Leucine-rich alpha-2-glycoprotein,Group,20,"1, 18",0.01,0.931,0.001,0.9549663366336634
+Leucine-rich alpha-2-glycoprotein,TimePoint,20,"1.47, 26.47",1.97,0.168,0.099,0.5507848101265823
+Immunoglobulin heavy variable 1-2,TimePoint:Group,20,"1.86, 33.56",0.32,0.713,0.018,0.8942711864406779
+Immunoglobulin heavy variable 1-2,Group,20,"1, 18",2.46,0.134,0.12,0.27008560311284047
+Immunoglobulin heavy variable 1-2,TimePoint,20,"1.86, 33.56",,0.038,0.171,0.3453333333333333
+Ras-related protein Rab-10,TimePoint:Group,20,"1.27, 22.90",0.31,0.639,0.017,0.8710578947368421
+Ras-related protein Rab-10,Group,20,"1, 18",0.01,0.916,0.001,0.945195219123506
+Ras-related protein Rab-10,TimePoint,20,"1.27, 22.90",2.56,0.117,0.124,0.4662
+Immunoglobulin heavy variable 1-24,TimePoint:Group,20,"1.97, 35.46",2.38,0.108,0.117,0.8057777777777778
+Immunoglobulin heavy variable 1-24,Group,20,"1, 18",,0.004,0.373,0.0259
+Immunoglobulin heavy variable 1-24,TimePoint,20,"1.97, 35.46",0.26,0.768,0.014,0.8945198237885462
+Annexin A3,TimePoint:Group,20,"1.80, 32.43",0.34,0.691,0.019,0.8859851485148514
+Annexin A3,Group,20,"1, 18",0.42,0.526,0.023,0.6678137254901961
+Annexin A3,TimePoint,20,"1.80, 32.43",2.15,0.137,0.107,0.5033049645390071
+Hemoglobin subunit beta,TimePoint:Group,20,"1.86, 33.51",0.16,0.835,0.009,0.9461084598698482
+Hemoglobin subunit beta,Group,20,"1, 18",0.84,0.372,0.045,0.5308076923076923
+Hemoglobin subunit beta,TimePoint,20,"1.86, 33.51",,0.05,0.157,0.3453333333333334
+Immunoglobulin lambda variable 4-69,TimePoint:Group,20,"1.91, 34.47",1.62,0.214,0.082,0.8057777777777778
+Immunoglobulin lambda variable 4-69,Group,20,"1, 18",2.46,0.134,0.12,0.27008560311284047
+Immunoglobulin lambda variable 4-69,TimePoint,20,"1.91, 34.47",1.06,0.354,0.056,0.71
+Elongation factor 2,TimePoint:Group,20,"1.75, 31.48",0.97,0.38,0.051,0.8057777777777778
+Elongation factor 2,Group,20,"1, 18",0.84,0.372,0.044,0.5308076923076923
+Elongation factor 2,TimePoint,20,"1.75, 31.48",0.09,0.891,0.005,0.9324
+Multiple inositol polyphosphate phosphatase 1,TimePoint:Group,20,"1.87, 33.67",1.1,0.341,0.058,0.8057777777777778
+Multiple inositol polyphosphate phosphatase 1,Group,20,"1, 18",0.87,0.363,0.046,0.5223166666666667
+Multiple inositol polyphosphate phosphatase 1,TimePoint,20,"1.87, 33.67",,0.034,0.176,0.33869230769230774
+Collagen alpha-1(VI) chain,TimePoint:Group,20,"1.39, 24.96",0.66,0.471,0.035,0.8268076923076922
+Collagen alpha-1(VI) chain,Group,20,"1, 18",,0.065,0.176,0.16504901960784316
+Collagen alpha-1(VI) chain,TimePoint,20,"1.39, 24.96",0.19,0.743,0.011,0.8827385321100918
+Hepatocyte growth factor activator,TimePoint:Group,20,"1.47, 26.51",0.1,0.849,0.005,0.9463461538461538
+Hepatocyte growth factor activator,Group,20,"1, 18",,0.031,0.232,0.10427272727272727
+Hepatocyte growth factor activator,TimePoint,20,"1.47, 26.51",0.04,0.927,0.002,0.9481341222879685
+Fibrinogen beta chain,TimePoint:Group,20,"1.97, 35.40",2.27,0.119,0.112,0.8057777777777778
+Fibrinogen beta chain,Group,20,"1, 18",2.99,0.101,0.143,0.2274695652173913
+Fibrinogen beta chain,TimePoint,20,"1.97, 35.40",,0.008,0.236,0.18836363636363637
+Hemicentin-1,TimePoint:Group,20,"1.52, 27.37",0.66,0.487,0.035,0.8268076923076922
+Hemicentin-1,Group,20,"1, 18",,0.06,0.182,0.15776649746192892
+Hemicentin-1,TimePoint,20,"1.52, 27.37",0.15,0.805,0.008,0.8978666666666667
+C-type mannose receptor 2,TimePoint:Group,20,"1.90, 34.16",0.88,0.42,0.047,0.8057777777777778
+C-type mannose receptor 2,Group,20,"1, 18",,0.003,0.395,0.02252173913043478
+C-type mannose receptor 2,TimePoint,20,"1.90, 34.16",0.13,0.867,0.007,0.922422131147541
+Platelet glycoprotein Ib beta chain,TimePoint:Group,20,"1.69, 30.36",0.77,0.453,0.041,0.8268076923076922
+Platelet glycoprotein Ib beta chain,Group,20,"1, 18",,0.024,0.251,0.0894388489208633
+Platelet glycoprotein Ib beta chain,TimePoint,20,"1.69, 30.36",,0.001,0.538,0.0518
+Complement C2,TimePoint:Group,20,"1.90, 34.14",0.0,0.998,0.001,0.999
+Complement C2,Group,20,"1, 18",0.84,0.373,0.044,0.5308076923076923
+Complement C2,TimePoint,20,"1.90, 34.14",,0.09,0.127,0.43166666666666664
+Annexin A2,TimePoint:Group,20,"1.85, 33.27",0.98,0.38,0.052,0.8057777777777778
+Annexin A2,Group,20,"1, 18",,0.035,0.224,0.11054878048780489
+Annexin A2,TimePoint,20,"1.85, 33.27",0.56,0.562,0.03,0.7968142076502731
+Protein disulfide-isomerase A3,TimePoint:Group,20,"1.18, 21.32",0.35,0.595,0.019,0.8647843137254903
+Protein disulfide-isomerase A3,Group,20,"1, 18",,0.027,0.244,0.09514285714285714
+Protein disulfide-isomerase A3,TimePoint,20,"1.18, 21.32",1.26,0.284,0.065,0.6656651583710407
+Dipeptidyl peptidase 4,TimePoint:Group,20,"1.63, 29.41",1.66,0.21,0.084,0.8057777777777778
+Dipeptidyl peptidase 4,Group,20,"1, 18",,0.001,0.652,0.010791666666666668
+Dipeptidyl peptidase 4,TimePoint,20,"1.63, 29.41",,0.033,0.187,0.33869230769230774
+Proteasome subunit alpha type-4,TimePoint:Group,20,"1.24, 22.29",1.16,0.306,0.061,0.8057777777777778
+Proteasome subunit alpha type-4,Group,20,"1, 18",0.05,0.825,0.003,0.8876929460580912
+Proteasome subunit alpha type-4,TimePoint,20,"1.24, 22.29",0.45,0.551,0.024,0.7898784530386741
+Coagulation factor XI,TimePoint:Group,20,"1.55, 27.89",0.39,0.627,0.021,0.8710578947368421
+Coagulation factor XI,Group,20,"1, 18",0.66,0.428,0.035,0.5743626943005181
+Coagulation factor XI,TimePoint,20,"1.55, 27.89",0.57,0.527,0.031,0.7799600000000001
+Collectin-11,TimePoint:Group,20,"1.79, 32.24",0.8,0.447,0.042,0.8268076923076922
+Collectin-11,Group,20,"1, 18",0.31,0.585,0.017,0.7180805687203791
+Collectin-11,TimePoint,20,"1.79, 32.24",2.45,0.107,0.12,0.44698387096774195
+High mobility group protein B1,TimePoint:Group,20,"1.99, 35.85",,0.045,0.159,0.8057777777777778
+High mobility group protein B1,Group,20,"1, 18",,0.003,0.398,0.02252173913043478
+High mobility group protein B1,TimePoint,20,"1.99, 35.85",0.8,0.456,0.043,0.7539044585987261
+Immunoglobulin lambda variable 3-16,TimePoint:Group,20,"1.95, 35.14",,0.082,0.13,0.8057777777777778
+Immunoglobulin lambda variable 3-16,Group,20,"1, 18",0.81,0.379,0.043,0.5363487738419619
+Immunoglobulin lambda variable 3-16,TimePoint,20,"1.95, 35.14",1.12,0.337,0.059,0.7035826771653543
+Prothrombin,TimePoint:Group,20,"1.69, 30.33",0.39,0.646,0.021,0.8759895287958116
+Prothrombin,Group,20,"1, 18",,0.019,0.271,0.078736
+Prothrombin,TimePoint,20,"1.69, 30.33",,0.001,0.383,0.0518
+Immunoglobulin kappa joining 1,TimePoint:Group,20,"1.38, 24.81",,0.081,0.145,0.8057777777777778
+Immunoglobulin kappa joining 1,Group,20,"1, 18",,0.094,0.148,0.2154513274336283
+Immunoglobulin kappa joining 1,TimePoint,20,"1.38, 24.81",,0.05,0.175,0.3453333333333334
+Immunoglobulin heavy variable 3-7,TimePoint:Group,20,"1.80, 32.42",0.0,0.999,0.001,0.999
+Immunoglobulin heavy variable 3-7,Group,20,"1, 18",0.25,0.626,0.013,0.7506203703703703
+Immunoglobulin heavy variable 3-7,TimePoint,20,"1.80, 32.42",0.56,0.56,0.03,0.7968142076502731
+Immunoglobulin heavy variable 3-74,TimePoint:Group,20,"1.83, 32.90",0.88,0.416,0.047,0.8057777777777778
+Immunoglobulin heavy variable 3-74,Group,20,"1, 18",,0.021,0.261,0.08367692307692308
+Immunoglobulin heavy variable 3-74,TimePoint,20,"1.83, 32.90",0.65,0.517,0.035,0.7777421203438396
+Ezrin,TimePoint:Group,20,"1.27, 22.78",0.24,0.685,0.013,0.883950248756219
+Ezrin,Group,20,"1, 18",0.08,0.78,0.004,0.8625970149253732
+Ezrin,TimePoint,20,"1.27, 22.78",,0.04,0.195,0.3453333333333333
+Intercellular adhesion molecule 2,TimePoint:Group,20,"1.96, 35.30",0.77,0.468,0.041,0.8268076923076922
+Intercellular adhesion molecule 2,Group,20,"1, 18",1.37,0.258,0.071,0.41633644859813085
+Intercellular adhesion molecule 2,TimePoint,20,"1.96, 35.30",0.53,0.588,0.029,0.8048923076923076
+Lysozyme C,TimePoint:Group,20,"1.12, 20.16",0.94,0.355,0.05,0.8057777777777778
+Lysozyme C,Group,20,"1, 18",1.7,0.209,0.086,0.3613953488372093
+Lysozyme C,TimePoint,20,"1.12, 20.16",0.52,0.497,0.028,0.7701238938053097
+Protein AMBP,TimePoint:Group,20,"1.74, 31.30",1.56,0.226,0.08,0.8057777777777778
+Protein AMBP,Group,20,"1, 18",,0.02,0.267,0.0809375
+Protein AMBP,TimePoint,20,"1.74, 31.30",1.55,0.229,0.079,0.6237696335078534
+Prolyl endopeptidase FAP,TimePoint:Group,20,"1.20, 21.58",0.07,0.835,0.004,0.9461084598698482
+Prolyl endopeptidase FAP,Group,20,"1, 18",,0.001,0.572,0.010791666666666668
+Prolyl endopeptidase FAP,TimePoint,20,"1.20, 21.58",0.51,0.515,0.028,0.7777421203438396
+"Actin, cytoplasmic 2",TimePoint:Group,20,"1.16, 20.90",0.23,0.67,0.013,0.8831043256997455
+"Actin, cytoplasmic 2",Group,20,"1, 18",2.67,0.12,0.129,0.2537142857142857
+"Actin, cytoplasmic 2",TimePoint,20,"1.16, 20.90",0.64,0.457,0.034,0.7539044585987261
+Kallistatin,TimePoint:Group,20,"1.75, 31.49",1.19,0.312,0.062,0.8057777777777778
+Kallistatin,Group,20,"1, 18",0.46,0.507,0.025,0.6500643564356435
+Kallistatin,TimePoint,20,"1.75, 31.49",,0.023,0.199,0.2836666666666666
+Hemopexin,TimePoint:Group,20,"1.84, 33.03",1.66,0.207,0.084,0.8057777777777778
+Hemopexin,Group,20,"1, 18",0.73,0.404,0.039,0.5578461538461539
+Hemopexin,TimePoint,20,"1.84, 33.03",,0.056,0.152,0.3493488372093023
+C4b-binding protein beta chain,TimePoint:Group,20,"1.51, 27.13",1.99,0.164,0.1,0.8057777777777778
+C4b-binding protein beta chain,Group,20,"1, 18",2.14,0.16,0.106,0.30138181818181814
+C4b-binding protein beta chain,TimePoint,20,"1.51, 27.13",0.74,0.452,0.039,0.7539044585987261
+Peptidyl-prolyl cis-trans isomerase A,TimePoint:Group,20,"1.94, 34.93",0.18,0.832,0.01,0.9461084598698482
+Peptidyl-prolyl cis-trans isomerase A,Group,20,"1, 18",2.43,0.136,0.119,0.27095384615384616
+Peptidyl-prolyl cis-trans isomerase A,TimePoint,20,"1.94, 34.93",0.09,0.913,0.005,0.9420996015936256
+Complement C1r subcomponent-like protein,TimePoint:Group,20,"1.80, 32.48",0.99,0.376,0.052,0.8057777777777778
+Complement C1r subcomponent-like protein,Group,20,"1, 18",0.12,0.73,0.007,0.8292543859649123
+Complement C1r subcomponent-like protein,TimePoint,20,"1.80, 32.48",0.91,0.402,0.048,0.7323448275862069
+Immunoglobulin heavy variable 3-30;Immunoglobulin heavy variable 3-30-5,TimePoint:Group,20,"1.61, 28.91",0.46,0.596,0.025,0.8647843137254903
+Immunoglobulin heavy variable 3-30;Immunoglobulin heavy variable 3-30-5,Group,20,"1, 18",,0.015,0.287,0.06698275862068966
+Immunoglobulin heavy variable 3-30;Immunoglobulin heavy variable 3-30-5,TimePoint,20,"1.61, 28.91",0.12,0.847,0.006,0.9162125
+Immunoglobulin lambda variable 3-9,TimePoint:Group,20,"1.99, 35.86",0.71,0.496,0.038,0.8268076923076922
+Immunoglobulin lambda variable 3-9,Group,20,"1, 18",2.89,0.106,0.138,0.23667241379310344
+Immunoglobulin lambda variable 3-9,TimePoint,20,"1.99, 35.86",1.59,0.219,0.081,0.6066417112299465
+Immunoglobulin heavy variable 1-45,TimePoint:Group,20,"1.84, 33.14",0.43,0.635,0.024,0.8710578947368421
+Immunoglobulin heavy variable 1-45,Group,20,"1, 18",0.73,0.405,0.039,0.5578461538461539
+Immunoglobulin heavy variable 1-45,TimePoint,20,"1.84, 33.14",0.47,0.612,0.026,0.8087142857142856
+Hemoglobin subunit gamma-1,TimePoint:Group,20,"1.98, 35.57",0.11,0.896,0.006,0.9588285714285715
+Hemoglobin subunit gamma-1,Group,20,"1, 18",0.08,0.784,0.004,0.8633333333333334
+Hemoglobin subunit gamma-1,TimePoint,20,"1.98, 35.57",,0.057,0.148,0.3493488372093023
+Apolipoprotein F,TimePoint:Group,20,"1.69, 30.38",1.87,0.177,0.094,0.8057777777777778
+Apolipoprotein F,Group,20,"1, 18",,0.028,0.242,0.09669333333333334
+Apolipoprotein F,TimePoint,20,"1.69, 30.38",0.34,0.681,0.018,0.8459424460431656
+Immunoglobulin gamma-1 heavy chain,TimePoint:Group,20,"1.83, 32.96",1.06,0.354,0.055,0.8057777777777778
+Immunoglobulin gamma-1 heavy chain,Group,20,"1, 18",,0.001,0.492,0.010791666666666668
+Immunoglobulin gamma-1 heavy chain,TimePoint,20,"1.83, 32.96",0.18,0.814,0.01,0.9009658119658119
+Low affinity immunoglobulin gamma Fc region receptor III-B,TimePoint:Group,20,"1.91, 34.37",0.9,0.41,0.048,0.8057777777777778
+Low affinity immunoglobulin gamma Fc region receptor III-B,Group,20,"1, 18",2.12,0.162,0.106,0.30294584837545124
+Low affinity immunoglobulin gamma Fc region receptor III-B,TimePoint,20,"1.91, 34.37",1.61,0.215,0.082,0.6066417112299465
+Multiple epidermal growth factor-like domains protein 8,TimePoint:Group,20,"1.34, 24.21",0.03,0.924,0.002,0.967979797979798
+Multiple epidermal growth factor-like domains protein 8,Group,20,"1, 18",,0.001,0.595,0.010791666666666668
+Multiple epidermal growth factor-like domains protein 8,TimePoint,20,"1.34, 24.21",0.49,0.545,0.027,0.7841944444444444
+Complement C4-B,TimePoint:Group,20,"1.55, 27.91",,0.071,0.148,0.8057777777777778
+Complement C4-B,Group,20,"1, 18",0.52,0.478,0.028,0.6236876574307304
+Complement C4-B,TimePoint,20,"1.55, 27.91",2.19,0.14,0.109,0.5036111111111111
+Glyceraldehyde-3-phosphate dehydrogenase,TimePoint:Group,20,"1.81, 32.50",0.28,0.738,0.015,0.9049692671394799
+Glyceraldehyde-3-phosphate dehydrogenase,Group,20,"1, 18",,0.006,0.348,0.03572413793103448
+Glyceraldehyde-3-phosphate dehydrogenase,TimePoint,20,"1.81, 32.50",0.3,0.72,0.016,0.8714018691588784
+Complement C1r subcomponent,TimePoint:Group,20,"1.56, 28.03",2.48,0.112,0.121,0.8057777777777778
+Complement C1r subcomponent,Group,20,"1, 18",2.43,0.136,0.119,0.27095384615384616
+Complement C1r subcomponent,TimePoint,20,"1.56, 28.03",1.82,0.187,0.092,0.5800359281437125
+Sex hormone-binding globulin,TimePoint:Group,20,"1.29, 23.28",2.14,0.153,0.106,0.8057777777777778
+Sex hormone-binding globulin,Group,20,"1, 18",,0.036,0.223,0.11233734939759034
+Sex hormone-binding globulin,TimePoint,20,"1.29, 23.28",,0.072,0.156,0.3805714285714285
+Biotinidase,TimePoint:Group,20,"1.71, 30.77",1.71,0.2,0.087,0.8057777777777778
+Biotinidase,Group,20,"1, 18",,0.067,0.175,0.16685576923076925
+Biotinidase,TimePoint,20,"1.71, 30.77",,0.014,0.225,0.226625
+Cholinesterase,TimePoint:Group,20,"1.31, 23.59",0.22,0.708,0.012,0.8942711864406779
+Cholinesterase,Group,20,"1, 18",,0.07,0.171,0.1686511627906977
+Cholinesterase,TimePoint,20,"1.31, 23.59",0.43,0.571,0.023,0.8037445652173912
+Immunoglobulin heavy variable 2-5,TimePoint:Group,20,"1.42, 25.49",0.02,0.948,0.001,0.9769744597249508
+Immunoglobulin heavy variable 2-5,Group,20,"1, 18",,0.002,0.427,0.01786206896551724
+Immunoglobulin heavy variable 2-5,TimePoint,20,"1.42, 25.49",0.56,0.521,0.03,0.7777421203438396
+Immunoglobulin lambda variable 1-36,TimePoint:Group,20,"1.27, 22.82",0.61,0.482,0.033,0.8268076923076922
+Immunoglobulin lambda variable 1-36,Group,20,"1, 18",,0.002,0.412,0.01786206896551724
+Immunoglobulin lambda variable 1-36,TimePoint,20,"1.27, 22.82",0.37,0.6,0.02,0.8048923076923076
+Immunoglobulin kappa variable 3-11,TimePoint:Group,20,"1.51, 27.21",0.45,0.59,0.024,0.8633333333333333
+Immunoglobulin kappa variable 3-11,Group,20,"1, 18",,0.005,0.363,0.03083333333333333
+Immunoglobulin kappa variable 3-11,TimePoint,20,"1.51, 27.21",1.09,0.333,0.057,0.7035826771653543
+Immunoglobulin kappa variable 6-21,TimePoint:Group,20,"1.80, 32.38",,0.03,0.185,0.8057777777777778
+Immunoglobulin kappa variable 6-21,Group,20,"1, 18",0.24,0.633,0.013,0.7555161290322581
+Immunoglobulin kappa variable 6-21,TimePoint,20,"1.80, 32.38",1.53,0.232,0.078,0.6259166666666667
+Immunoglobulin kappa light chain,TimePoint:Group,20,"1.81, 32.63",1.25,0.298,0.065,0.8057777777777778
+Immunoglobulin kappa light chain,Group,20,"1, 18",,0.01,0.316,0.04886792452830189
+Immunoglobulin kappa light chain,TimePoint,20,"1.81, 32.63",2.32,0.119,0.114,0.4669848484848485
+Neuropilin-1,TimePoint:Group,20,"1.70, 30.67",1.34,0.273,0.069,0.8057777777777778
+Neuropilin-1,Group,20,"1, 18",,0.001,0.581,0.010791666666666668
+Neuropilin-1,TimePoint,20,"1.70, 30.67",0.32,0.693,0.018,0.8510874704491724
+Ficolin-2,TimePoint:Group,20,"1.52, 27.28",0.84,0.414,0.044,0.8057777777777778
+Ficolin-2,Group,20,"1, 18",,0.036,0.222,0.11233734939759034
+Ficolin-2,TimePoint,20,"1.52, 27.28",1.36,0.267,0.07,0.6622831050228312
+Gamma-glutamyl hydrolase,TimePoint:Group,20,"1.52, 27.28",1.15,0.318,0.06,0.8057777777777778
+Gamma-glutamyl hydrolase,Group,20,"1, 18",0.07,0.798,0.004,0.87024
+Gamma-glutamyl hydrolase,TimePoint,20,"1.52, 27.28",0.15,0.805,0.008,0.8978666666666667
+Keratinocyte proline-rich protein,TimePoint:Group,20,"1.64, 29.55",0.62,0.513,0.033,0.8330219435736678
+Keratinocyte proline-rich protein,Group,20,"1, 18",1.33,0.263,0.069,0.42047530864197535
+Keratinocyte proline-rich protein,TimePoint,20,"1.64, 29.55",0.07,0.9,0.004,0.9373827655310621
+Kyphoscoliosis peptidase,TimePoint:Group,20,"1.02, 18.28",0.98,0.336,0.052,0.8057777777777778
+Kyphoscoliosis peptidase,Group,20,"1, 18",2.71,0.117,0.131,0.253581589958159
+Kyphoscoliosis peptidase,TimePoint,20,"1.02, 18.28",1.12,0.305,0.059,0.683939393939394
+Laminin subunit alpha-2,TimePoint:Group,20,"1.78, 32.02",0.34,0.686,0.019,0.883950248756219
+Laminin subunit alpha-2,Group,20,"1, 18",,0.001,0.482,0.010791666666666668
+Laminin subunit alpha-2,TimePoint,20,"1.78, 32.02",0.27,0.741,0.015,0.8827385321100918
+Desmoglein-1,TimePoint:Group,20,"1.63, 29.26",0.75,0.454,0.04,0.8268076923076922
+Desmoglein-1,Group,20,"1, 18",1.98,0.177,0.099,0.3228380281690141
+Desmoglein-1,TimePoint,20,"1.63, 29.26",0.89,0.401,0.047,0.7323448275862069
+Immunoglobulin lambda variable 3-27,TimePoint:Group,20,"1.48, 26.57",0.07,0.883,0.004,0.9588285714285715
+Immunoglobulin lambda variable 3-27,Group,20,"1, 18",0.02,0.888,0.001,0.9303070707070707
+Immunoglobulin lambda variable 3-27,TimePoint,20,"1.48, 26.57",0.24,0.718,0.013,0.8710163934426229
+Myosin-9,TimePoint:Group,20,"1.60, 28.78",1.02,0.359,0.053,0.8057777777777778
+Myosin-9,Group,20,"1, 18",0.73,0.404,0.039,0.5578461538461539
+Myosin-9,TimePoint,20,"1.60, 28.78",0.98,0.37,0.052,0.7129667896678967
+Versican core protein,TimePoint:Group,20,"1.44, 25.92",0.19,0.756,0.01,0.9067990762124711
+Versican core protein,Group,20,"1, 18",,0.097,0.146,0.22037719298245614
+Versican core protein,TimePoint,20,"1.44, 25.92",,0.009,0.268,0.20269565217391303
+Proteasome subunit beta type-3,TimePoint:Group,20,"1.45, 26.06",1.04,0.347,0.054,0.8057777777777778
+Proteasome subunit beta type-3,Group,20,"1, 18",0.52,0.482,0.028,0.62678
+Proteasome subunit beta type-3,TimePoint,20,"1.45, 26.06",0.58,0.515,0.031,0.7777421203438396
+Alpha-N-acetylglucosaminidase,TimePoint:Group,20,"1.57, 28.31",0.48,0.577,0.026,0.8539599999999999
+Alpha-N-acetylglucosaminidase,Group,20,"1, 18",,0.002,0.422,0.01786206896551724
+Alpha-N-acetylglucosaminidase,TimePoint,20,"1.57, 28.31",1.22,0.302,0.063,0.6831266375545851
+Caspase-14,TimePoint:Group,20,"1.46, 26.34",0.22,0.733,0.012,0.9040333333333332
+Caspase-14,Group,20,"1, 18",0.47,0.502,0.025,0.6465359801488834
+Caspase-14,TimePoint,20,"1.46, 26.34",0.11,0.838,0.006,0.9157890295358649
+Histidine-rich glycoprotein,TimePoint:Group,20,"1.53, 27.52",0.85,0.412,0.045,0.8057777777777778
+Histidine-rich glycoprotein,Group,20,"1, 18",1.77,0.2,0.089,0.3535836177474403
+Histidine-rich glycoprotein,TimePoint,20,"1.53, 27.52",1.47,0.245,0.076,0.6371399999999999
+"ATP synthase subunit alpha, mitochondrial",TimePoint:Group,20,"1.72, 30.87",1.75,0.194,0.088,0.8057777777777778
+"ATP synthase subunit alpha, mitochondrial",Group,20,"1, 18",0.08,0.778,0.005,0.8625970149253732
+"ATP synthase subunit alpha, mitochondrial",TimePoint,20,"1.72, 30.87",0.05,0.926,0.003,0.9481341222879685
+Immunoglobulin kappa constant,TimePoint:Group,20,"1.66, 29.92",0.87,0.411,0.046,0.8057777777777778
+Immunoglobulin kappa constant,Group,20,"1, 18",,0.09,0.151,0.2072
+Immunoglobulin kappa constant,TimePoint,20,"1.66, 29.92",0.46,0.603,0.025,0.8048923076923076
+Interleukin-1 receptor accessory protein,TimePoint:Group,20,"1.46, 26.19",1.95,0.17,0.098,0.8057777777777778
+Interleukin-1 receptor accessory protein,Group,20,"1, 18",0.71,0.412,0.038,0.5616210526315789
+Interleukin-1 receptor accessory protein,TimePoint,20,"1.46, 26.19",0.14,0.806,0.008,0.8978666666666667
+Immunoglobulin lambda variable 9-49,TimePoint:Group,20,"1.56, 28.00",,0.084,0.138,0.8057777777777778
+Immunoglobulin lambda variable 9-49,Group,20,"1, 18",,0.06,0.183,0.15776649746192892
+Immunoglobulin lambda variable 9-49,TimePoint,20,"1.56, 28.00",0.43,0.606,0.023,0.8048923076923076
+Plexin domain-containing protein 2,TimePoint:Group,20,"1.84, 33.11",0.28,0.737,0.015,0.9049692671394799
+Plexin domain-containing protein 2,Group,20,"1, 18",,0.055,0.19,0.14994736842105263
+Plexin domain-containing protein 2,TimePoint,20,"1.84, 33.11",0.58,0.552,0.031,0.7898784530386741
+Immunoglobulin heavy variable 4-28,TimePoint:Group,20,"1.49, 26.82",0.25,0.713,0.014,0.8942711864406779
+Immunoglobulin heavy variable 4-28,Group,20,"1, 18",,0.01,0.313,0.04886792452830189
+Immunoglobulin heavy variable 4-28,TimePoint,20,"1.49, 26.82",0.3,0.675,0.017,0.8405048076923078
+Desmoplakin,TimePoint:Group,20,"1.60, 28.75",0.66,0.494,0.035,0.8268076923076922
+Desmoplakin,Group,20,"1, 18",2.83,0.11,0.136,0.24246808510638299
+Desmoplakin,TimePoint,20,"1.60, 28.75",0.55,0.545,0.03,0.7841944444444444
+Endoplasmin,TimePoint:Group,20,"1.16, 20.87",1.37,0.262,0.07,0.8057777777777778
+Endoplasmin,Group,20,"1, 18",0.35,0.564,0.019,0.7056811594202899
+Endoplasmin,TimePoint,20,"1.16, 20.87",0.07,0.829,0.004,0.911723991507431
+Heparin cofactor 2,TimePoint:Group,20,"1.65, 29.69",,0.089,0.132,0.8057777777777778
+Heparin cofactor 2,Group,20,"1, 18",,0.004,0.373,0.0259
+Heparin cofactor 2,TimePoint,20,"1.65, 29.69",0.98,0.371,0.052,0.7129667896678967
+Laminin subunit gamma-1,TimePoint:Group,20,"1.91, 34.34",1.62,0.213,0.083,0.8057777777777778
+Laminin subunit gamma-1,Group,20,"1, 18",,0.001,0.49,0.010791666666666668
+Laminin subunit gamma-1,TimePoint,20,"1.91, 34.34",1.88,0.17,0.095,0.5531728395061728
+Polymeric immunoglobulin receptor,TimePoint:Group,20,"1.96, 35.22",0.05,0.944,0.003,0.9760319361277445
+Polymeric immunoglobulin receptor,Group,20,"1, 18",0.03,0.855,0.002,0.9112962962962963
+Polymeric immunoglobulin receptor,TimePoint,20,"1.96, 35.22",0.12,0.881,0.007,0.9288275862068965
+Serum amyloid A-4 protein,TimePoint:Group,20,"1.65, 29.65",0.07,0.904,0.004,0.9588285714285715
+Serum amyloid A-4 protein,Group,20,"1, 18",0.01,0.911,0.001,0.9429461077844312
+Serum amyloid A-4 protein,TimePoint,20,"1.65, 29.65",0.42,0.623,0.023,0.8169974683544303
+Catalase,TimePoint:Group,20,"1.94, 34.93",0.56,0.57,0.03,0.8499367816091954
+Catalase,Group,20,"1, 18",,0.019,0.268,0.078736
+Catalase,TimePoint,20,"1.94, 34.93",0.87,0.424,0.046,0.73556
+Complement receptor type 1,TimePoint:Group,20,"1.97, 35.39",,0.064,0.143,0.8057777777777778
+Complement receptor type 1,Group,20,"1, 18",,0.009,0.323,0.047090909090909086
+Complement receptor type 1,TimePoint,20,"1.97, 35.39",1.75,0.19,0.088,0.5823668639053254
+Immunoglobulin kappa variable 1-27,TimePoint:Group,20,"1.94, 34.86",0.97,0.386,0.051,0.8057777777777778
+Immunoglobulin kappa variable 1-27,Group,20,"1, 18",2.44,0.136,0.119,0.27095384615384616
+Immunoglobulin kappa variable 1-27,TimePoint,20,"1.94, 34.86",2.35,0.112,0.115,0.46412800000000004
+Immunoglobulin kappa variable 2-30,TimePoint:Group,20,"1.79, 32.24",0.11,0.872,0.006,0.9549598308668077
+Immunoglobulin kappa variable 2-30,Group,20,"1, 18",,0.042,0.211,0.12432000000000001
+Immunoglobulin kappa variable 2-30,TimePoint,20,"1.79, 32.24",0.5,0.592,0.027,0.8048923076923076
+Protein-glutamine gamma-glutamyltransferase E,TimePoint:Group,20,"1.69, 30.43",1.61,0.219,0.082,0.8057777777777778
+Protein-glutamine gamma-glutamyltransferase E,Group,20,"1, 18",0.58,0.455,0.031,0.5997201017811705
+Protein-glutamine gamma-glutamyltransferase E,TimePoint,20,"1.69, 30.43",0.61,0.523,0.033,0.7777421203438396
+Periostin,TimePoint:Group,20,"1.73, 31.08",1.52,0.234,0.078,0.8057777777777778
+Periostin,Group,20,"1, 18",,0.033,0.228,0.10750943396226416
+Periostin,TimePoint,20,"1.73, 31.08",,0.087,0.132,0.4251509433962264
+Albumin,TimePoint:Group,20,"1.78, 31.99",0.85,0.425,0.045,0.8093750000000001
+Albumin,Group,20,"1, 18",0.03,0.859,0.002,0.9136796714579055
+Albumin,TimePoint,20,"1.78, 31.99",,0.047,0.163,0.3453333333333334
+Complement factor B,TimePoint:Group,20,"1.74, 31.39",0.58,0.542,0.031,0.8499367816091954
+Complement factor B,Group,20,"1, 18",0.3,0.593,0.016,0.7239811764705881
+Complement factor B,TimePoint,20,"1.74, 31.39",2.37,0.116,0.116,0.46579844961240313
+Probable non-functional immunoglobulinn kappa variable 1-37;Probable non-functional immunoglobulinn kappa variable 1D-37,TimePoint:Group,20,"1.77, 31.79",2.49,0.105,0.121,0.8057777777777778
+Probable non-functional immunoglobulinn kappa variable 1-37;Probable non-functional immunoglobulinn kappa variable 1D-37,Group,20,"1, 18",,0.001,0.723,0.010791666666666668
+Probable non-functional immunoglobulinn kappa variable 1-37;Probable non-functional immunoglobulinn kappa variable 1D-37,TimePoint,20,"1.77, 31.79",0.11,0.869,0.006,0.922422131147541
+Immunoglobulin lambda variable 8-61,TimePoint:Group,20,"1.60, 28.84",,0.063,0.153,0.8057777777777778
+Immunoglobulin lambda variable 8-61,Group,20,"1, 18",,0.084,0.156,0.19868493150684932
+Immunoglobulin lambda variable 8-61,TimePoint,20,"1.60, 28.84",0.7,0.473,0.038,0.7668277945619335
+Annexin A1,TimePoint:Group,20,"1.30, 23.32",2.43,0.127,0.119,0.8057777777777778
+Annexin A1,Group,20,"1, 18",0.2,0.661,0.011,0.7746561085972852
+Annexin A1,TimePoint,20,"1.30, 23.32",0.86,0.393,0.045,0.7323448275862069
+CD5 antigen-like,TimePoint:Group,20,"1.73, 31.16",1.33,0.277,0.069,0.8057777777777778
+CD5 antigen-like,Group,20,"1, 18",0.01,0.922,0.001,0.9494950298210737
+CD5 antigen-like,TimePoint,20,"1.73, 31.16",0.39,0.649,0.021,0.8344137931034483
+RB-associated KRAB zinc finger protein,TimePoint:Group,20,"1.13, 20.39",,0.025,0.235,0.8057777777777778
+RB-associated KRAB zinc finger protein,Group,20,"1, 18",,0.002,0.43,0.01786206896551724
+RB-associated KRAB zinc finger protein,TimePoint,20,"1.13, 20.39",,0.014,0.274,0.226625
+Immunoglobulin lambda variable 7-46,TimePoint:Group,20,"1.21, 21.80",0.88,0.379,0.047,0.8057777777777778
+Immunoglobulin lambda variable 7-46,Group,20,"1, 18",0.81,0.379,0.043,0.5363487738419619
+Immunoglobulin lambda variable 7-46,TimePoint,20,"1.21, 21.80",0.3,0.63,0.017,0.8199497487437186
+Basement membrane-specific heparan sulfate proteoglycan core protein,TimePoint:Group,20,"1.68, 30.21",0.08,0.899,0.004,0.9588285714285715
+Basement membrane-specific heparan sulfate proteoglycan core protein,Group,20,"1, 18",,0.001,0.629,0.010791666666666668
+Basement membrane-specific heparan sulfate proteoglycan core protein,TimePoint,20,"1.68, 30.21",0.21,0.777,0.011,0.8945198237885462
+Vitamin K-dependent protein C,TimePoint:Group,20,"1.46, 26.20",0.5,0.552,0.027,0.8499367816091954
+Vitamin K-dependent protein C,Group,20,"1, 18",,0.035,0.224,0.11054878048780489
+Vitamin K-dependent protein C,TimePoint,20,"1.46, 26.20",,0.095,0.133,0.43459322033898307
+Immunoglobulin lambda variable 1-40,TimePoint:Group,20,"1.80, 32.38",1.46,0.247,0.075,0.8057777777777778
+Immunoglobulin lambda variable 1-40,Group,20,"1, 18",0.0,0.972,0.001,0.983390625
+Immunoglobulin lambda variable 1-40,TimePoint,20,"1.80, 32.38",0.22,0.778,0.012,0.8945198237885462
+Pantetheinase,TimePoint:Group,20,"1.95, 35.12",1.5,0.237,0.077,0.8057777777777778
+Pantetheinase,Group,20,"1, 18",1.04,0.322,0.055,0.48068011527377524
+Pantetheinase,TimePoint,20,"1.95, 35.12",,0.096,0.123,0.43459322033898307
+Neutrophil defensin 1;Neutrophil defensin 3,TimePoint:Group,20,"1.84, 33.19",,0.053,0.155,0.8057777777777778
+Neutrophil defensin 1;Neutrophil defensin 3,Group,20,"1, 18",,0.007,0.337,0.040741573033707866
+Neutrophil defensin 1;Neutrophil defensin 3,TimePoint,20,"1.84, 33.19",0.19,0.81,0.01,0.9003862660944206
+Immunoglobulin lambda variable 2-8,TimePoint:Group,20,"1.52, 27.41",,0.076,0.145,0.8057777777777778
+Immunoglobulin lambda variable 2-8,Group,20,"1, 18",1.05,0.318,0.055,0.4774608695652174
+Immunoglobulin lambda variable 2-8,TimePoint,20,"1.52, 27.41",1.07,0.341,0.056,0.7035826771653543
+Immunoglobulin heavy variable 1-18,TimePoint:Group,20,"1.40, 25.24",1.12,0.322,0.059,0.8057777777777778
+Immunoglobulin heavy variable 1-18,Group,20,"1, 18",,0.001,0.543,0.010791666666666668
+Immunoglobulin heavy variable 1-18,TimePoint,20,"1.40, 25.24",0.43,0.584,0.023,0.8048923076923076
+Immunoglobulin kappa variable 3D-15,TimePoint:Group,20,"1.83, 32.90",0.14,0.855,0.008,0.9463461538461538
+Immunoglobulin kappa variable 3D-15,Group,20,"1, 18",2.0,0.174,0.1,0.3196170212765957
+Immunoglobulin kappa variable 3D-15,TimePoint,20,"1.83, 32.90",0.79,0.452,0.042,0.7539044585987261
+Extracellular matrix protein 1,TimePoint:Group,20,"1.65, 29.77",1.06,0.347,0.056,0.8057777777777778
+Extracellular matrix protein 1,Group,20,"1, 18",,0.025,0.249,0.09119718309859155
+Extracellular matrix protein 1,TimePoint,20,"1.65, 29.77",,0.036,0.182,0.3453333333333333
+Tubulin alpha-1B chain,TimePoint:Group,20,"1.48, 26.71",1.64,0.214,0.084,0.8057777777777778
+Tubulin alpha-1B chain,Group,20,"1, 18",0.18,0.673,0.01,0.7834022471910114
+Tubulin alpha-1B chain,TimePoint,20,"1.48, 26.71",0.2,0.755,0.011,0.888
+Immunoglobulin lambda variable 5-45,TimePoint:Group,20,"1.72, 30.99",0.97,0.377,0.051,0.8057777777777778
+Immunoglobulin lambda variable 5-45,Group,20,"1, 18",,0.089,0.152,0.2072
+Immunoglobulin lambda variable 5-45,TimePoint,20,"1.72, 30.99",0.1,0.873,0.006,0.9239428571428572
+Alpha-2-HS-glycoprotein,TimePoint:Group,20,"1.81, 32.51",0.08,0.902,0.005,0.9588285714285715
+Alpha-2-HS-glycoprotein,Group,20,"1, 18",,0.096,0.146,0.21906607929515418
+Alpha-2-HS-glycoprotein,TimePoint,20,"1.81, 32.51",,0.087,0.131,0.4251509433962264
+Cartilage acidic protein 1,TimePoint:Group,20,"1.68, 30.33",1.09,0.34,0.057,0.8057777777777778
+Cartilage acidic protein 1,Group,20,"1, 18",,0.076,0.165,0.18058715596330274
+Cartilage acidic protein 1,TimePoint,20,"1.68, 30.33",0.68,0.49,0.036,0.7668277945619335
+Coagulation factor IX,TimePoint:Group,20,"1.92, 34.61",0.13,0.87,0.007,0.9547881355932204
+Coagulation factor IX,Group,20,"1, 18",0.33,0.57,0.018,0.7080575539568346
+Coagulation factor IX,TimePoint,20,"1.92, 34.61",,0.069,0.14,0.37231250000000005
+Integrin alpha-2,TimePoint:Group,20,"1.86, 33.47",,0.071,0.14,0.8057777777777778
+Integrin alpha-2,Group,20,"1, 18",,0.002,0.421,0.01786206896551724
+Integrin alpha-2,TimePoint,20,"1.86, 33.47",0.32,0.711,0.018,0.8645492957746478
+"Mannosyl-oligosaccharide 1,2-alpha-mannosidase IA",TimePoint:Group,20,"1.93, 34.80",,0.052,0.154,0.8057777777777778
+"Mannosyl-oligosaccharide 1,2-alpha-mannosidase IA",Group,20,"1, 18",,0.026,0.247,0.09288275862068965
+"Mannosyl-oligosaccharide 1,2-alpha-mannosidase IA",TimePoint,20,"1.93, 34.80",,0.098,0.122,0.43459322033898307
+Endophilin-A3,TimePoint:Group,20,"1.96, 35.25",,0.038,0.167,0.8057777777777778
+Endophilin-A3,Group,20,"1, 18",2.35,0.143,0.115,0.2784736842105263
+Endophilin-A3,TimePoint,20,"1.96, 35.25",0.63,0.534,0.034,0.7841944444444444
+Collagen alpha-1(I) chain,TimePoint:Group,20,"1.01, 18.17",0.93,0.35,0.049,0.8057777777777778
+Collagen alpha-1(I) chain,Group,20,"1, 18",0.61,0.445,0.033,0.589539641943734
+Collagen alpha-1(I) chain,TimePoint,20,"1.01, 18.17",0.88,0.361,0.047,0.7129667896678967
+Carboxypeptidase N subunit 2,TimePoint:Group,20,"1.85, 33.29",,0.033,0.179,0.8057777777777778
+Carboxypeptidase N subunit 2,Group,20,"1, 18",0.51,0.483,0.028,0.62678
+Carboxypeptidase N subunit 2,TimePoint,20,"1.85, 33.29",0.15,0.844,0.008,0.9162125
+Scavenger receptor cysteine-rich type 1 protein M130,TimePoint:Group,20,"1.24, 22.23",0.61,0.478,0.033,0.8268076923076922
+Scavenger receptor cysteine-rich type 1 protein M130,Group,20,"1, 18",,0.001,0.691,0.010791666666666668
+Scavenger receptor cysteine-rich type 1 protein M130,TimePoint,20,"1.24, 22.23",0.72,0.434,0.038,0.7444105960264902
+Annexin A5,TimePoint:Group,20,"1.56, 28.07",1.19,0.31,0.062,0.8057777777777778
+Annexin A5,Group,20,"1, 18",,0.052,0.194,0.14404278074866309
+Annexin A5,TimePoint,20,"1.56, 28.07",0.24,0.733,0.013,0.8809605568445475
+Platelet factor 4,TimePoint:Group,20,"1.15, 20.78",1.09,0.319,0.057,0.8057777777777778
+Platelet factor 4,Group,20,"1, 18",2.46,0.134,0.12,0.27008560311284047
+Platelet factor 4,TimePoint,20,"1.15, 20.78",1.47,0.244,0.075,0.6371399999999999
+Immunoglobulin heavy variable 3-72,TimePoint:Group,20,"1.85, 33.24",1.72,0.197,0.087,0.8057777777777778
+Immunoglobulin heavy variable 3-72,Group,20,"1, 18",0.01,0.944,0.001,0.966387351778656
+Immunoglobulin heavy variable 3-72,TimePoint,20,"1.85, 33.24",0.22,0.787,0.012,0.8959692307692307
+Protein HEG homolog 1,TimePoint:Group,20,"1.92, 34.62",0.08,0.918,0.004,0.9665121951219513
+Protein HEG homolog 1,Group,20,"1, 18",,0.022,0.259,0.0856842105263158
+Protein HEG homolog 1,TimePoint,20,"1.92, 34.62",0.11,0.889,0.006,0.9321902834008098
+Sulfhydryl oxidase 1,TimePoint:Group,20,"1.72, 30.96",0.85,0.422,0.045,0.8066273062730628
+Sulfhydryl oxidase 1,Group,20,"1, 18",,0.09,0.151,0.2072
+Sulfhydryl oxidase 1,TimePoint,20,"1.72, 30.96",1.41,0.259,0.072,0.6537864077669904
+Corticosteroid-binding globulin,TimePoint:Group,20,"1.35, 24.26",0.45,0.569,0.024,0.8499367816091954
+Corticosteroid-binding globulin,Group,20,"1, 18",0.06,0.807,0.003,0.8763647798742138
+Corticosteroid-binding globulin,TimePoint,20,"1.35, 24.26",2.57,0.114,0.125,0.4649763779527559
+Angiopoietin-related protein 6,TimePoint:Group,20,"1.33, 24.00",0.45,0.566,0.024,0.8499367816091954
+Angiopoietin-related protein 6,Group,20,"1, 18",,0.001,0.475,0.010791666666666668
+Angiopoietin-related protein 6,TimePoint,20,"1.33, 24.00",2.0,0.167,0.1,0.5507848101265823
+72 kDa type IV collagenase,TimePoint:Group,20,"1.95, 35.13",,0.01,0.227,0.8057777777777778
+72 kDa type IV collagenase,Group,20,"1, 18",2.59,0.125,0.126,0.2610887096774194
+72 kDa type IV collagenase,TimePoint,20,"1.95, 35.13",,0.01,0.23,0.2072
+Trypsin-3,TimePoint:Group,20,"1.00, 18.00",1.01,0.329,0.053,0.8057777777777778
+Trypsin-3,Group,20,"1, 18",1.42,0.249,0.073,0.40817088607594937
+Trypsin-3,TimePoint,20,"1.00, 18.00",1.09,0.311,0.057,0.6943879310344828
+Complement component C9,TimePoint:Group,20,"1.55, 27.97",0.99,0.366,0.052,0.8057777777777778
+Complement component C9,Group,20,"1, 18",0.02,0.878,0.001,0.9243983739837398
+Complement component C9,TimePoint,20,"1.55, 27.97",,0.015,0.232,0.2285294117647059
+Pyruvate kinase PKM,TimePoint:Group,20,"1.38, 24.76",1.61,0.221,0.082,0.8057777777777778
+Pyruvate kinase PKM,Group,20,"1, 18",0.84,0.372,0.045,0.5308076923076923
+Pyruvate kinase PKM,TimePoint,20,"1.38, 24.76",1.28,0.284,0.066,0.6656651583710407
+Immunoglobulin heavy variable 4-34,TimePoint:Group,20,"2.00, 35.99",1.14,0.331,0.06,0.8057777777777778
+Immunoglobulin heavy variable 4-34,Group,20,"1, 18",,0.086,0.155,0.20157466063348414
+Immunoglobulin heavy variable 4-34,TimePoint,20,"2.00, 35.99",0.06,0.945,0.003,0.9579452054794519
+Immunoglobulin kappa variable 6D-21,TimePoint:Group,20,"1.90, 34.22",1.67,0.205,0.085,0.8057777777777778
+Immunoglobulin kappa variable 6D-21,Group,20,"1, 18",0.9,0.355,0.048,0.5150980392156863
+Immunoglobulin kappa variable 6D-21,TimePoint,20,"1.90, 34.22",0.14,0.864,0.007,0.922422131147541
+Immunoglobulin lambda-1 light chain,TimePoint:Group,20,"1.81, 32.52",0.71,0.484,0.038,0.8268076923076922
+Immunoglobulin lambda-1 light chain,Group,20,"1, 18",,0.037,0.22,0.11408333333333333
+Immunoglobulin lambda-1 light chain,TimePoint,20,"1.81, 32.52",0.87,0.417,0.046,0.735
+Transforming growth factor-beta-induced protein ig-h3,TimePoint:Group,20,"1.71, 30.84",1.15,0.323,0.06,0.8057777777777778
+Transforming growth factor-beta-induced protein ig-h3,Group,20,"1, 18",,0.014,0.293,0.06417699115044248
+Transforming growth factor-beta-induced protein ig-h3,TimePoint,20,"1.71, 30.84",0.97,0.377,0.051,0.7179632352941178
+Complement C1q subcomponent subunit A,TimePoint:Group,20,"1.39, 24.98",0.27,0.686,0.015,0.883950248756219
+Complement C1q subcomponent subunit A,Group,20,"1, 18",,0.04,0.214,0.11976878612716764
+Complement C1q subcomponent subunit A,TimePoint,20,"1.39, 24.98",0.84,0.404,0.045,0.7323448275862069
+Prolow-density lipoprotein receptor-related protein 1,TimePoint:Group,20,"1.38, 24.84",0.8,0.418,0.042,0.8057777777777778
+Prolow-density lipoprotein receptor-related protein 1,Group,20,"1, 18",0.0,0.989,0.001,0.9947611650485436
+Prolow-density lipoprotein receptor-related protein 1,TimePoint,20,"1.38, 24.84",2.0,0.166,0.1,0.5507848101265823
+Immunoglobulin heavy constant mu,TimePoint:Group,20,"1.72, 31.04",0.08,0.902,0.004,0.9588285714285715
+Immunoglobulin heavy constant mu,Group,20,"1, 18",0.25,0.62,0.014,0.7498321678321678
+Immunoglobulin heavy constant mu,TimePoint,20,"1.72, 31.04",0.02,0.965,0.001,0.970621359223301
+UV-stimulated scaffold protein A,TimePoint:Group,20,"1.54, 27.66",0.15,0.807,0.008,0.9351812080536913
+UV-stimulated scaffold protein A,Group,20,"1, 18",,0.04,0.213,0.11976878612716764
+UV-stimulated scaffold protein A,TimePoint,20,"1.54, 27.66",0.07,0.884,0.004,0.9288275862068965
+Complement component C6,TimePoint:Group,20,"1.96, 35.34",0.04,0.959,0.002,0.9769744597249508
+Complement component C6,Group,20,"1, 18",0.2,0.661,0.011,0.7746561085972852
+Complement component C6,TimePoint,20,"1.96, 35.34",1.36,0.27,0.07,0.6622831050228312
+Angiotensinogen,TimePoint:Group,20,"1.88, 33.88",1.08,0.347,0.057,0.8057777777777778
+Angiotensinogen,Group,20,"1, 18",,0.001,0.465,0.010791666666666668
+Angiotensinogen,TimePoint,20,"1.88, 33.88",1.0,0.373,0.053,0.7129667896678967
+Pregnancy zone protein,TimePoint:Group,20,"1.38, 24.79",0.81,0.415,0.043,0.8057777777777778
+Pregnancy zone protein,Group,20,"1, 18",,0.025,0.249,0.09119718309859155
+Pregnancy zone protein,TimePoint,20,"1.38, 24.79",0.8,0.418,0.042,0.735
+Histone H2A type 1-B/E;Histone H2A type 3;Histone H2A type 1-C,TimePoint:Group,20,"1.34, 24.21",0.83,0.404,0.044,0.8057777777777778
+Histone H2A type 1-B/E;Histone H2A type 3;Histone H2A type 1-C,Group,20,"1, 18",,0.09,0.152,0.2072
+Histone H2A type 1-B/E;Histone H2A type 3;Histone H2A type 1-C,TimePoint,20,"1.34, 24.21",0.34,0.629,0.019,0.8199497487437186
+Desmocollin-1,TimePoint:Group,20,"1.69, 30.39",0.71,0.476,0.038,0.8268076923076922
+Desmocollin-1,Group,20,"1, 18",0.39,0.541,0.021,0.6818442822384428
+Desmocollin-1,TimePoint,20,"1.69, 30.39",0.49,0.586,0.026,0.8048923076923076
+Protein Z-dependent protease inhibitor,TimePoint:Group,20,"1.70, 30.64",0.07,0.902,0.004,0.9588285714285715
+Protein Z-dependent protease inhibitor,Group,20,"1, 18",0.32,0.579,0.017,0.7158042959427207
+Protein Z-dependent protease inhibitor,TimePoint,20,"1.70, 30.64",,0.041,0.173,0.3453333333333333
+Immunoglobulin kappa variable 1-17,TimePoint:Group,20,"1.84, 33.13",0.89,0.413,0.047,0.8057777777777778
+Immunoglobulin kappa variable 1-17,Group,20,"1, 18",,0.031,0.233,0.10427272727272727
+Immunoglobulin kappa variable 1-17,TimePoint,20,"1.84, 33.13",0.18,0.818,0.01,0.9034626865671641
+Fibronectin,TimePoint:Group,20,"1.22, 21.98",0.32,0.619,0.018,0.8665999999999999
+Fibronectin,Group,20,"1, 18",2.01,0.174,0.1,0.3196170212765957
+Fibronectin,TimePoint,20,"1.22, 21.98",1.93,0.178,0.097,0.5656687116564417
+Probable non-functional immunoglobulin heavy variable 3-38,TimePoint:Group,20,"1.55, 27.85",0.45,0.59,0.025,0.8633333333333333
+Probable non-functional immunoglobulin heavy variable 3-38,Group,20,"1, 18",,0.023,0.255,0.08760294117647059
+Probable non-functional immunoglobulin heavy variable 3-38,TimePoint,20,"1.55, 27.85",1.06,0.344,0.056,0.7035826771653543
+Nucleoside diphosphate kinase 3,TimePoint:Group,20,"1.54, 27.67",0.63,0.498,0.034,0.8268076923076922
+Nucleoside diphosphate kinase 3,Group,20,"1, 18",,0.015,0.289,0.06698275862068966
+Nucleoside diphosphate kinase 3,TimePoint,20,"1.54, 27.67",1.53,0.234,0.078,0.6280414507772022
+Plasma protease C1 inhibitor,TimePoint:Group,20,"2.00, 35.95",0.37,0.691,0.02,0.8859851485148514
+Plasma protease C1 inhibitor,Group,20,"1, 18",0.25,0.621,0.014,0.7498321678321678
+Plasma protease C1 inhibitor,TimePoint,20,"2.00, 35.95",2.43,0.103,0.119,0.44094214876033055
+Immunoglobulin kappa variable 1-16,TimePoint:Group,20,"1.96, 35.25",0.5,0.606,0.027,0.8656793478260869
+Immunoglobulin kappa variable 1-16,Group,20,"1, 18",0.03,0.872,0.001,0.9199511201629328
+Immunoglobulin kappa variable 1-16,TimePoint,20,"1.96, 35.25",1.12,0.337,0.058,0.7035826771653543
+F-actin-capping protein subunit alpha-1,TimePoint:Group,20,"1.66, 29.97",1.6,0.22,0.082,0.8057777777777778
+F-actin-capping protein subunit alpha-1,Group,20,"1, 18",0.08,0.777,0.005,0.8625970149253732
+F-actin-capping protein subunit alpha-1,TimePoint,20,"1.66, 29.97",0.92,0.392,0.049,0.7323448275862069
+Cathepsin D,TimePoint:Group,20,"1.26, 22.74",1.09,0.325,0.057,0.8057777777777778
+Cathepsin D,Group,20,"1, 18",2.84,0.109,0.136,0.2412905982905983
+Cathepsin D,TimePoint,20,"1.26, 22.74",1.03,0.339,0.054,0.7035826771653543
+Anthrax toxin receptor 2,TimePoint:Group,20,"1.49, 26.74",1.82,0.188,0.092,0.8057777777777778
+Anthrax toxin receptor 2,Group,20,"1, 18",,0.001,0.459,0.010791666666666668
+Anthrax toxin receptor 2,TimePoint,20,"1.49, 26.74",,0.099,0.13,0.43459322033898307
+Talin-1,TimePoint:Group,20,"1.62, 29.21",0.43,0.61,0.024,0.8656793478260869
+Talin-1,Group,20,"1, 18",,0.024,0.251,0.0894388489208633
+Talin-1,TimePoint,20,"1.62, 29.21",,0.052,0.163,0.3493488372093023
+Protein disulfide-isomerase,TimePoint:Group,20,"1.49, 26.76",0.99,0.363,0.052,0.8057777777777778
+Protein disulfide-isomerase,Group,20,"1, 18",0.03,0.868,0.002,0.9186571428571428
+Protein disulfide-isomerase,TimePoint,20,"1.49, 26.76",0.11,0.841,0.006,0.9162125
+Junction plakoglobin,TimePoint:Group,20,"1.79, 32.28",0.15,0.841,0.008,0.9461084598698482
+Junction plakoglobin,Group,20,"1, 18",,0.057,0.186,0.1521958762886598
+Junction plakoglobin,TimePoint,20,"1.79, 32.28",0.17,0.825,0.009,0.9092553191489362
+Tenascin,TimePoint:Group,20,"1.48, 26.64",1.38,0.263,0.071,0.8057777777777778
+Tenascin,Group,20,"1, 18",,0.009,0.326,0.047090909090909086
+Tenascin,TimePoint,20,"1.48, 26.64",2.37,0.125,0.116,0.4729565217391304
+Cadherin-related family member 5,TimePoint:Group,20,"1.69, 30.48",0.72,0.473,0.038,0.8268076923076922
+Cadherin-related family member 5,Group,20,"1, 18",2.87,0.108,0.137,0.2401030042918455
+Cadherin-related family member 5,TimePoint,20,"1.69, 30.48",0.21,0.777,0.011,0.8945198237885462
+Kininogen-1,TimePoint:Group,20,"1.86, 33.47",0.85,0.427,0.045,0.8102051282051282
+Kininogen-1,Group,20,"1, 18",0.38,0.544,0.021,0.6839611650485438
+Kininogen-1,TimePoint,20,"1.86, 33.47",,0.041,0.166,0.3453333333333333
+Alpha-1-antichymotrypsin,TimePoint:Group,20,"1.95, 35.16",2.1,0.138,0.105,0.8057777777777778
+Alpha-1-antichymotrypsin,Group,20,"1, 18",0.37,0.548,0.02,0.6873220338983052
+Alpha-1-antichymotrypsin,TimePoint,20,"1.95, 35.16",,0.099,0.121,0.43459322033898307
+Integrin alpha-IIb,TimePoint:Group,20,"1.92, 34.48",1.18,0.317,0.062,0.8057777777777778
+Integrin alpha-IIb,Group,20,"1, 18",,0.004,0.384,0.0259
+Integrin alpha-IIb,TimePoint,20,"1.92, 34.48",,0.001,0.494,0.0518
+Serum amyloid P-component,TimePoint:Group,20,"1.76, 31.67",0.13,0.855,0.007,0.9463461538461538
+Serum amyloid P-component,Group,20,"1, 18",1.6,0.222,0.082,0.3782763157894737
+Serum amyloid P-component,TimePoint,20,"1.76, 31.67",2.24,0.128,0.111,0.4770071942446043
+Inter-alpha-trypsin inhibitor heavy chain H1,TimePoint:Group,20,"1.57, 28.21",0.2,0.77,0.011,0.916279176201373
+Inter-alpha-trypsin inhibitor heavy chain H1,Group,20,"1, 18",0.01,0.906,0.001,0.9423855421686748
+Inter-alpha-trypsin inhibitor heavy chain H1,TimePoint,20,"1.57, 28.21",0.86,0.408,0.046,0.7323448275862069
+Probable non-functional immunoglobulin heavy variable 3-35,TimePoint:Group,20,"1.50, 27.01",0.14,0.815,0.007,0.9423437499999999
+Probable non-functional immunoglobulin heavy variable 3-35,Group,20,"1, 18",0.08,0.781,0.004,0.8625970149253732
+Probable non-functional immunoglobulin heavy variable 3-35,TimePoint,20,"1.50, 27.01",0.05,0.912,0.003,0.9420996015936256
+Immunoglobulin kappa variable 1-5,TimePoint:Group,20,"1.58, 28.43",0.0,0.987,0.001,0.9927495145631068
+Immunoglobulin kappa variable 1-5,Group,20,"1, 18",,0.052,0.194,0.14404278074866309
+Immunoglobulin kappa variable 1-5,TimePoint,20,"1.58, 28.43",0.91,0.393,0.048,0.7323448275862069
+Band 3 anion transport protein,TimePoint:Group,20,"1.09, 19.65",1.07,0.321,0.056,0.8057777777777778
+Band 3 anion transport protein,Group,20,"1, 18",1.15,0.298,0.06,0.45669822485207096
+Band 3 anion transport protein,TimePoint,20,"1.09, 19.65",,0.081,0.156,0.4073592233009709
+Immunoglobulin lambda variable 7-43,TimePoint:Group,20,"1.35, 24.24",0.43,0.58,0.023,0.8549943181818181
+Immunoglobulin lambda variable 7-43,Group,20,"1, 18",2.06,0.168,0.103,0.3108
+Immunoglobulin lambda variable 7-43,TimePoint,20,"1.35, 24.24",1.3,0.278,0.067,0.6622831050228312
+Peroxiredoxin-1,TimePoint:Group,20,"1.81, 32.53",1.07,0.35,0.056,0.8057777777777778
+Peroxiredoxin-1,Group,20,"1, 18",,0.035,0.224,0.11054878048780489
+Peroxiredoxin-1,TimePoint,20,"1.81, 32.53",0.24,0.769,0.013,0.8945198237885462
+Matrix metalloproteinase-9,TimePoint:Group,20,"1.54, 27.74",0.22,0.744,0.012,0.9067990762124711
+Matrix metalloproteinase-9,Group,20,"1, 18",,0.017,0.276,0.074
+Matrix metalloproteinase-9,TimePoint,20,"1.54, 27.74",2.02,0.16,0.101,0.5488741721854306
+Multimerin-2,TimePoint:Group,20,"1.97, 35.52",,0.069,0.139,0.8057777777777778
+Multimerin-2,Group,20,"1, 18",,0.001,0.528,0.010791666666666668
+Multimerin-2,TimePoint,20,"1.97, 35.52",,0.017,0.204,0.23800000000000002
+Immunoglobulin heavy variable 1-3,TimePoint:Group,20,"1.51, 27.16",0.17,0.788,0.009,0.9214085778781039
+Immunoglobulin heavy variable 1-3,Group,20,"1, 18",,0.018,0.273,0.07642622950819672
+Immunoglobulin heavy variable 1-3,TimePoint,20,"1.51, 27.16",0.21,0.75,0.011,0.886986301369863
+Podocalyxin,TimePoint:Group,20,"1.97, 35.44",0.38,0.685,0.021,0.883950248756219
+Podocalyxin,Group,20,"1, 18",0.44,0.517,0.024,0.658
+Podocalyxin,TimePoint,20,"1.97, 35.44",,0.006,0.247,0.1554
+Immunoglobulin lambda variable 1-51,TimePoint:Group,20,"1.55, 27.93",,0.056,0.161,0.8057777777777778
+Immunoglobulin lambda variable 1-51,Group,20,"1, 18",1.49,0.238,0.076,0.3951410256410256
+Immunoglobulin lambda variable 1-51,TimePoint,20,"1.55, 27.93",0.9,0.394,0.048,0.7323448275862069
+Cadherin-13,TimePoint:Group,20,"1.89, 34.08",0.61,0.54,0.033,0.8499367816091954
+Cadherin-13,Group,20,"1, 18",,0.066,0.175,0.1659611650485437
+Cadherin-13,TimePoint,20,"1.89, 34.08",0.71,0.49,0.038,0.7668277945619335
+Plastin-2,TimePoint:Group,20,"1.53, 27.47",0.42,0.61,0.023,0.8656793478260869
+Plastin-2,Group,20,"1, 18",,0.008,0.328,0.04455913978494624
+Plastin-2,TimePoint,20,"1.53, 27.47",0.98,0.366,0.052,0.7129667896678967
+Inter-alpha-trypsin inhibitor heavy chain H4,TimePoint:Group,20,"1.63, 29.25",0.09,0.878,0.005,0.9565588235294117
+Inter-alpha-trypsin inhibitor heavy chain H4,Group,20,"1, 18",1.66,0.214,0.085,0.36705960264900667
+Inter-alpha-trypsin inhibitor heavy chain H4,TimePoint,20,"1.63, 29.25",1.5,0.24,0.077,0.6342857142857142
+Fructose-bisphosphate aldolase B,TimePoint:Group,20,"1.08, 19.38",0.78,0.398,0.041,0.8057777777777778
+Fructose-bisphosphate aldolase B,Group,20,"1, 18",1.25,0.278,0.065,0.43530722891566265
+Fructose-bisphosphate aldolase B,TimePoint,20,"1.08, 19.38",0.72,0.416,0.039,0.735
+Mannan-binding lectin serine protease 2,TimePoint:Group,20,"1.32, 23.68",0.17,0.756,0.009,0.9067990762124711
+Mannan-binding lectin serine protease 2,Group,20,"1, 18",,0.005,0.363,0.03083333333333333
+Mannan-binding lectin serine protease 2,TimePoint,20,"1.32, 23.68",1.1,0.324,0.058,0.7035826771653543
+Platelet glycoprotein 4,TimePoint:Group,20,"1.60, 28.71",0.89,0.401,0.047,0.8057777777777778
+Platelet glycoprotein 4,Group,20,"1, 18",,0.009,0.322,0.047090909090909086
+Platelet glycoprotein 4,TimePoint,20,"1.60, 28.71",,0.001,0.53,0.0518
+Hemoglobin subunit alpha,TimePoint:Group,20,"1.92, 34.57",0.19,0.823,0.01,0.9461084598698482
+Hemoglobin subunit alpha,Group,20,"1, 18",0.25,0.625,0.014,0.7506203703703703
+Hemoglobin subunit alpha,TimePoint,20,"1.92, 34.57",2.46,0.102,0.12,0.44094214876033055
+Immunoglobulin lambda variable 3-10,TimePoint:Group,20,"1.49, 26.86",1.5,0.239,0.077,0.8057777777777778
+Immunoglobulin lambda variable 3-10,Group,20,"1, 18",0.01,0.927,0.001,0.95275
+Immunoglobulin lambda variable 3-10,TimePoint,20,"1.49, 26.86",1.12,0.325,0.059,0.7035826771653543
+Serum paraoxonase/lactonase 3,TimePoint:Group,20,"1.68, 30.32",0.76,0.457,0.04,0.8268076923076922
+Serum paraoxonase/lactonase 3,Group,20,"1, 18",0.89,0.358,0.047,0.518
+Serum paraoxonase/lactonase 3,TimePoint,20,"1.68, 30.32",0.92,0.396,0.048,0.7323448275862069
+Dopamine beta-hydroxylase,TimePoint:Group,20,"1.79, 32.31",0.46,0.614,0.025,0.8656793478260869
+Dopamine beta-hydroxylase,Group,20,"1, 18",1.24,0.279,0.065,0.43530722891566265
+Dopamine beta-hydroxylase,TimePoint,20,"1.79, 32.31",1.62,0.216,0.082,0.6066417112299465
+Triosephosphate isomerase,TimePoint:Group,20,"1.51, 27.20",0.57,0.525,0.031,0.8451578947368422
+Triosephosphate isomerase,Group,20,"1, 18",1.23,0.283,0.064,0.4389041916167664
+Triosephosphate isomerase,TimePoint,20,"1.51, 27.20",0.34,0.654,0.019,0.8344137931034483
+Endoplasmic reticulum chaperone BiP,TimePoint:Group,20,"1.94, 34.99",0.41,0.658,0.023,0.8762056555269923
+Endoplasmic reticulum chaperone BiP,Group,20,"1, 18",0.1,0.751,0.006,0.8456913043478261
+Endoplasmic reticulum chaperone BiP,TimePoint,20,"1.94, 34.99",0.21,0.804,0.012,0.8978666666666667
+Suprabasin,TimePoint:Group,20,"1.69, 30.38",0.6,0.529,0.032,0.845746913580247
+Suprabasin,Group,20,"1, 18",0.11,0.747,0.006,0.8430196078431372
+Suprabasin,TimePoint,20,"1.69, 30.38",0.85,0.42,0.045,0.735
+Immunoglobulin kappa variable 3-20,TimePoint:Group,20,"1.90, 34.19",1.02,0.368,0.054,0.8057777777777778
+Immunoglobulin kappa variable 3-20,Group,20,"1, 18",1.36,0.258,0.07,0.41633644859813085
+Immunoglobulin kappa variable 3-20,TimePoint,20,"1.90, 34.19",0.55,0.574,0.03,0.8048923076923076
+Ficolin-1,TimePoint:Group,20,"1.76, 31.60",0.38,0.658,0.021,0.8762056555269923
+Ficolin-1,Group,20,"1, 18",0.21,0.655,0.011,0.7728701594533031
+Ficolin-1,TimePoint,20,"1.76, 31.60",1.22,0.304,0.064,0.683939393939394
+Autotaxin,TimePoint:Group,20,"1.52, 27.30",1.67,0.209,0.085,0.8057777777777778
+Autotaxin,Group,20,"1, 18",0.29,0.594,0.016,0.7239811764705881
+Autotaxin,TimePoint,20,"1.52, 27.30",2.45,0.116,0.12,0.46579844961240313
+Histidine ammonia-lyase,TimePoint:Group,20,"1.53, 27.62",1.58,0.224,0.081,0.8057777777777778
+Histidine ammonia-lyase,Group,20,"1, 18",2.67,0.12,0.129,0.2537142857142857
+Histidine ammonia-lyase,TimePoint,20,"1.53, 27.62",0.71,0.464,0.038,0.7582082018927445
+Noelin,TimePoint:Group,20,"1.76, 31.63",1.9,0.17,0.095,0.8057777777777778
+Noelin,Group,20,"1, 18",,0.027,0.245,0.09514285714285714
+Noelin,TimePoint,20,"1.76, 31.63",0.39,0.654,0.021,0.8344137931034483
+Prenylcysteine oxidase 1,TimePoint:Group,20,"1.29, 23.28",1.01,0.346,0.053,0.8057777777777778
+Prenylcysteine oxidase 1,Group,20,"1, 18",,0.022,0.259,0.0856842105263158
+Prenylcysteine oxidase 1,TimePoint,20,"1.29, 23.28",0.27,0.666,0.015,0.8370579710144929
+Immunoglobulin delta heavy chain,TimePoint:Group,20,"1.26, 22.67",1.93,0.177,0.097,0.8057777777777778
+Immunoglobulin delta heavy chain,Group,20,"1, 18",2.81,0.111,0.135,0.2426075949367089
+Immunoglobulin delta heavy chain,TimePoint,20,"1.26, 22.67",1.12,0.316,0.059,0.7017350427350427
+Antithrombin-III,TimePoint:Group,20,"1.57, 28.18",0.83,0.42,0.044,0.8057777777777778
+Antithrombin-III,Group,20,"1, 18",0.01,0.904,0.001,0.9421971830985916
+Antithrombin-III,TimePoint,20,"1.57, 28.18",,0.004,0.298,0.1295
+Complement component C7,TimePoint:Group,20,"1.83, 33.01",0.11,0.879,0.006,0.9565588235294117
+Complement component C7,Group,20,"1, 18",1.05,0.318,0.055,0.4774608695652174
+Complement component C7,TimePoint,20,"1.83, 33.01",,0.052,0.156,0.3493488372093023
+BOS complex subunit NOMO3;BOS complex subunit NOMO1;BOS complex subunit NOMO2,TimePoint:Group,20,"1.46, 26.30",0.93,0.379,0.049,0.8057777777777778
+BOS complex subunit NOMO3;BOS complex subunit NOMO1;BOS complex subunit NOMO2,Group,20,"1, 18",,0.016,0.284,0.07083760683760684
+BOS complex subunit NOMO3;BOS complex subunit NOMO1;BOS complex subunit NOMO2,TimePoint,20,"1.46, 26.30",0.78,0.433,0.041,0.7444105960264902
+Cofilin-1,TimePoint:Group,20,"1.20, 21.65",1.04,0.333,0.055,0.8057777777777778
+Cofilin-1,Group,20,"1, 18",0.79,0.386,0.042,0.5432682926829269
+Cofilin-1,TimePoint,20,"1.20, 21.65",1.51,0.237,0.077,0.6295692307692307
+Histone H4,TimePoint:Group,20,"1.47, 26.48",0.02,0.958,0.001,0.9769744597249508
+Histone H4,Group,20,"1, 18",,0.004,0.376,0.0259
+Histone H4,TimePoint,20,"1.47, 26.48",0.05,0.912,0.003,0.9420996015936256
+Serum amyloid A-1 protein,TimePoint:Group,20,"1.05, 18.86",1.3,0.27,0.068,0.8057777777777778
+Serum amyloid A-1 protein,Group,20,"1, 18",,0.008,0.329,0.04455913978494624
+Serum amyloid A-1 protein,TimePoint,20,"1.05, 18.86",1.37,0.259,0.071,0.6537864077669904
+Transferrin receptor protein 1,TimePoint:Group,20,"1.69, 30.44",0.52,0.569,0.028,0.8499367816091954
+Transferrin receptor protein 1,Group,20,"1, 18",,0.005,0.361,0.03083333333333333
+Transferrin receptor protein 1,TimePoint,20,"1.69, 30.44",0.45,0.611,0.024,0.8087142857142856
+Serpin B12,TimePoint:Group,20,"1.97, 35.48",0.24,0.783,0.013,0.9214085778781039
+Serpin B12,Group,20,"1, 18",0.0,0.947,0.001,0.9675463510848126
+Serpin B12,TimePoint,20,"1.97, 35.48",0.16,0.849,0.009,0.9162125
+Immunoglobulin kappa variable 3D-20,TimePoint:Group,20,"1.97, 35.38",0.23,0.788,0.013,0.9214085778781039
+Immunoglobulin kappa variable 3D-20,Group,20,"1, 18",,0.003,0.406,0.02252173913043478
+Immunoglobulin kappa variable 3D-20,TimePoint,20,"1.97, 35.38",0.79,0.459,0.042,0.7540506329113924
+Probable non-functional immunoglobulin heavy variable 3-16,TimePoint:Group,20,"1.46, 26.26",0.1,0.842,0.006,0.9461084598698482
+Probable non-functional immunoglobulin heavy variable 3-16,Group,20,"1, 18",,0.035,0.224,0.11054878048780489
+Probable non-functional immunoglobulin heavy variable 3-16,TimePoint,20,"1.46, 26.26",0.16,0.784,0.009,0.8945198237885462
+Immunoglobulin lambda variable 6-57,TimePoint:Group,20,"1.31, 23.53",0.79,0.416,0.042,0.8057777777777778
+Immunoglobulin lambda variable 6-57,Group,20,"1, 18",,0.008,0.332,0.04455913978494624
+Immunoglobulin lambda variable 6-57,TimePoint,20,"1.31, 23.53",1.11,0.322,0.058,0.7035826771653543
+Fibrinogen alpha chain,TimePoint:Group,20,"1.76, 31.71",1.72,0.198,0.087,0.8057777777777778
+Fibrinogen alpha chain,Group,20,"1, 18",0.7,0.414,0.037,0.5628661417322834
+Fibrinogen alpha chain,TimePoint,20,"1.76, 31.71",,0.001,0.408,0.0518
+Galectin-3-binding protein,TimePoint:Group,20,"1.63, 29.30",1.68,0.207,0.085,0.8057777777777778
+Galectin-3-binding protein,Group,20,"1, 18",2.48,0.132,0.121,0.27008560311284047
+Galectin-3-binding protein,TimePoint,20,"1.63, 29.30",0.56,0.54,0.03,0.7841944444444444
+Macrophage colony-stimulating factor 1 receptor,TimePoint:Group,20,"1.79, 32.22",0.42,0.636,0.023,0.8710578947368421
+Macrophage colony-stimulating factor 1 receptor,Group,20,"1, 18",,0.014,0.291,0.06417699115044248
+Macrophage colony-stimulating factor 1 receptor,TimePoint,20,"1.79, 32.22",,0.093,0.128,0.43459322033898307
+Phosphatidylinositol-glycan-specific phospholipase D,TimePoint:Group,20,"1.85, 33.36",2.22,0.128,0.11,0.8057777777777778
+Phosphatidylinositol-glycan-specific phospholipase D,Group,20,"1, 18",1.24,0.281,0.064,0.4371111111111111
+Phosphatidylinositol-glycan-specific phospholipase D,TimePoint,20,"1.85, 33.36",,0.034,0.176,0.33869230769230774
+Serotransferrin,TimePoint:Group,20,"1.81, 32.64",0.81,0.445,0.043,0.8268076923076922
+Serotransferrin,Group,20,"1, 18",0.1,0.753,0.006,0.8461041214750542
+Serotransferrin,TimePoint,20,"1.81, 32.64",,0.044,0.165,0.3453333333333333
+Integrin alpha-11,TimePoint:Group,20,"1.93, 34.67",0.34,0.706,0.019,0.8941515892420537
+Integrin alpha-11,Group,20,"1, 18",,0.006,0.35,0.03572413793103448
+Integrin alpha-11,TimePoint,20,"1.93, 34.67",,0.036,0.171,0.3453333333333333
+Proprotein convertase subtilisin/kexin type 9,TimePoint:Group,20,"1.59, 28.69",1.9,0.174,0.095,0.8057777777777778
+Proprotein convertase subtilisin/kexin type 9,Group,20,"1, 18",1.07,0.315,0.056,0.4757142857142857
+Proprotein convertase subtilisin/kexin type 9,TimePoint,20,"1.59, 28.69",,0.006,0.274,0.1554
+Gelsolin,TimePoint:Group,20,"1.74, 31.37",1.54,0.231,0.079,0.8057777777777778
+Gelsolin,Group,20,"1, 18",,0.019,0.27,0.078736
+Gelsolin,TimePoint,20,"1.74, 31.37",,0.003,0.295,0.111
+Proteoglycan 4,TimePoint:Group,20,"1.22, 22.00",1.03,0.337,0.054,0.8057777777777778
+Proteoglycan 4,Group,20,"1, 18",0.25,0.623,0.014,0.7504976744186046
+Proteoglycan 4,TimePoint,20,"1.22, 22.00",1.98,0.172,0.099,0.5531728395061728
+Vascular cell adhesion protein 1,TimePoint:Group,20,"1.97, 35.49",1.55,0.226,0.079,0.8057777777777778
+Vascular cell adhesion protein 1,Group,20,"1, 18",,0.002,0.408,0.01786206896551724
+Vascular cell adhesion protein 1,TimePoint,20,"1.97, 35.49",1.6,0.216,0.082,0.6066417112299465
+Adhesion G protein-coupled receptor F5,TimePoint:Group,20,"1.77, 31.90",1.26,0.293,0.066,0.8057777777777778
+Adhesion G protein-coupled receptor F5,Group,20,"1, 18",,0.001,0.465,0.010791666666666668
+Adhesion G protein-coupled receptor F5,TimePoint,20,"1.77, 31.90",1.44,0.25,0.074,0.6442786069651741
+Insulin-like growth factor-binding protein 3,TimePoint:Group,20,"1.07, 19.25",1.61,0.222,0.082,0.8057777777777778
+Insulin-like growth factor-binding protein 3,Group,20,"1, 18",1.69,0.21,0.086,0.3613953488372093
+Insulin-like growth factor-binding protein 3,TimePoint,20,"1.07, 19.25",0.23,0.654,0.013,0.8344137931034483
+Transthyretin,TimePoint:Group,20,"1.93, 34.81",1.88,0.169,0.094,0.8057777777777778
+Transthyretin,Group,20,"1, 18",0.34,0.568,0.018,0.7072692307692308
+Transthyretin,TimePoint,20,"1.93, 34.81",2.21,0.126,0.109,0.4729565217391304
+Coiled-coil domain-containing protein 126,TimePoint:Group,20,"1.31, 23.66",0.0,0.975,0.001,0.9883561643835616
+Coiled-coil domain-containing protein 126,Group,20,"1, 18",0.12,0.733,0.007,0.8308402625820569
+Coiled-coil domain-containing protein 126,TimePoint,20,"1.31, 23.66",0.81,0.41,0.043,0.7323448275862069
+Guanine nucleotide-binding protein G(i) subunit alpha-2,TimePoint:Group,20,"1.95, 35.15",1.21,0.31,0.063,0.8057777777777778
+Guanine nucleotide-binding protein G(i) subunit alpha-2,Group,20,"1, 18",0.2,0.66,0.011,0.7746561085972852
+Guanine nucleotide-binding protein G(i) subunit alpha-2,TimePoint,20,"1.95, 35.15",,0.001,0.478,0.0518
+Apolipoprotein C-I,TimePoint:Group,20,"1.76, 31.67",1.89,0.172,0.095,0.8057777777777778
+Apolipoprotein C-I,Group,20,"1, 18",0.01,0.909,0.001,0.9429461077844312
+Apolipoprotein C-I,TimePoint,20,"1.76, 31.67",,0.044,0.167,0.3453333333333333
+Syntenin-1,TimePoint:Group,20,"1.81, 32.58",0.56,0.559,0.03,0.8499367816091954
+Syntenin-1,Group,20,"1, 18",,0.001,0.533,0.010791666666666668
+Syntenin-1,TimePoint,20,"1.81, 32.58",0.05,0.936,0.003,0.9525500982318271
+Phospholipid transfer protein,TimePoint:Group,20,"1.79, 32.28",0.32,0.706,0.017,0.8941515892420537
+Phospholipid transfer protein,Group,20,"1, 18",2.41,0.138,0.118,0.2727348484848485
+Phospholipid transfer protein,TimePoint,20,"1.79, 32.28",0.34,0.694,0.018,0.8510874704491724
+Laminin subunit beta-1,TimePoint:Group,20,"1.72, 30.92",0.09,0.887,0.005,0.9588285714285715
+Laminin subunit beta-1,Group,20,"1, 18",,0.001,0.688,0.010791666666666668
+Laminin subunit beta-1,TimePoint,20,"1.72, 30.92",0.91,0.398,0.048,0.7323448275862069
+Proline-rich protein 4,TimePoint:Group,20,"1.74, 31.34",0.55,0.557,0.03,0.8499367816091954
+Proline-rich protein 4,Group,20,"1, 18",,0.07,0.171,0.1686511627906977
+Proline-rich protein 4,TimePoint,20,"1.74, 31.34",0.62,0.524,0.033,0.7777421203438396
+Immunoglobulin kappa variable 2-28;Immunoglobulin kappa variable 2D-28,TimePoint:Group,20,"1.07, 19.25",0.92,0.357,0.048,0.8057777777777778
+Immunoglobulin kappa variable 2-28;Immunoglobulin kappa variable 2D-28,Group,20,"1, 18",0.05,0.83,0.003,0.8901449275362319
+Immunoglobulin kappa variable 2-28;Immunoglobulin kappa variable 2D-28,TimePoint,20,"1.07, 19.25",0.8,0.389,0.043,0.7323448275862069
+Complement C3,TimePoint:Group,20,"1.85, 33.30",0.34,0.699,0.018,0.8940296296296296
+Complement C3,Group,20,"1, 18",1.17,0.294,0.061,0.4519050445103857
+Complement C3,TimePoint,20,"1.85, 33.30",,0.058,0.15,0.3493488372093023
+Thyroxine-binding globulin,TimePoint:Group,20,"1.43, 25.72",0.47,0.568,0.025,0.8499367816091954
+Thyroxine-binding globulin,Group,20,"1, 18",0.47,0.501,0.026,0.6465359801488834
+Thyroxine-binding globulin,TimePoint,20,"1.43, 25.72",2.27,0.136,0.112,0.5032
+Immunoglobulin kappa variable 1D-13;Immunoglobulin kappa variable 1-13,TimePoint:Group,20,"1.06, 19.02",1.15,0.301,0.06,0.8057777777777778
+Immunoglobulin kappa variable 1D-13;Immunoglobulin kappa variable 1-13,Group,20,"1, 18",1.45,0.244,0.075,0.40380830670926515
+Immunoglobulin kappa variable 1D-13;Immunoglobulin kappa variable 1-13,TimePoint,20,"1.06, 19.02",0.48,0.508,0.026,0.7732023460410558
+Complement factor H-related protein 5,TimePoint:Group,20,"1.81, 32.52",0.05,0.94,0.003,0.97384
+Complement factor H-related protein 5,Group,20,"1, 18",1.29,0.27,0.067,0.4264024390243903
+Complement factor H-related protein 5,TimePoint,20,"1.81, 32.52",1.35,0.271,0.07,0.6622831050228312
+Immunoglobulin lambda variable 2-23,TimePoint:Group,20,"1.51, 27.13",0.97,0.369,0.051,0.8057777777777778
+Immunoglobulin lambda variable 2-23,Group,20,"1, 18",,0.013,0.296,0.061779816513761465
+Immunoglobulin lambda variable 2-23,TimePoint,20,"1.51, 27.13",1.09,0.333,0.057,0.7035826771653543
+Coagulation factor VII,TimePoint:Group,20,"1.98, 35.67",0.74,0.485,0.039,0.8268076923076922
+Coagulation factor VII,Group,20,"1, 18",0.17,0.681,0.01,0.7891677852348994
+Coagulation factor VII,TimePoint,20,"1.98, 35.67",,0.097,0.122,0.43459322033898307
+Immunoglobulin heavy constant gamma 4,TimePoint:Group,20,"1.58, 28.50",0.43,0.608,0.023,0.8656793478260869
+Immunoglobulin heavy constant gamma 4,Group,20,"1, 18",2.57,0.127,0.125,0.263144
+Immunoglobulin heavy constant gamma 4,TimePoint,20,"1.58, 28.50",0.56,0.54,0.03,0.7841944444444444
+L-lactate dehydrogenase B chain,TimePoint:Group,20,"1.40, 25.17",0.28,0.676,0.016,0.883950248756219
+L-lactate dehydrogenase B chain,Group,20,"1, 18",2.51,0.131,0.122,0.27008560311284047
+L-lactate dehydrogenase B chain,TimePoint,20,"1.40, 25.17",1.3,0.279,0.067,0.6622831050228312
+Zinc-alpha-2-glycoprotein,TimePoint:Group,20,"1.52, 27.32",0.72,0.458,0.039,0.8268076923076922
+Zinc-alpha-2-glycoprotein,Group,20,"1, 18",1.86,0.189,0.094,0.33759310344827587
+Zinc-alpha-2-glycoprotein,TimePoint,20,"1.52, 27.32",,0.034,0.191,0.33869230769230774
+"Dihydrolipoyllysine-residue succinyltransferase component of 2-oxoglutarate dehydrogenase complex, mitochondrial",TimePoint:Group,20,"1.86, 33.55",0.04,0.957,0.002,0.9769744597249508
+"Dihydrolipoyllysine-residue succinyltransferase component of 2-oxoglutarate dehydrogenase complex, mitochondrial",Group,20,"1, 18",1.4,0.252,0.072,0.41049056603773587
+"Dihydrolipoyllysine-residue succinyltransferase component of 2-oxoglutarate dehydrogenase complex, mitochondrial",TimePoint,20,"1.86, 33.55",0.81,0.445,0.043,0.7539044585987261
+Serpin B3,TimePoint:Group,20,"1.42, 25.62",0.94,0.374,0.05,0.8057777777777778
+Serpin B3,Group,20,"1, 18",,0.024,0.253,0.0894388489208633
+Serpin B3,TimePoint,20,"1.42, 25.62",1.02,0.35,0.054,0.7082031249999999
+Immunoglobulin heavy variable 3-33,TimePoint:Group,20,"1.64, 29.44",0.81,0.431,0.043,0.8148102189781021
+Immunoglobulin heavy variable 3-33,Group,20,"1, 18",,0.003,0.386,0.02252173913043478
+Immunoglobulin heavy variable 3-33,TimePoint,20,"1.64, 29.44",0.88,0.407,0.046,0.7323448275862069
+Follistatin-related protein 1,TimePoint:Group,20,"1.82, 32.77",1.98,0.157,0.099,0.8057777777777778
+Follistatin-related protein 1,Group,20,"1, 18",,0.032,0.231,0.1055796178343949
+Follistatin-related protein 1,TimePoint,20,"1.82, 32.77",,0.058,0.151,0.3493488372093023
+Cholesteryl ester transfer protein,TimePoint:Group,20,"1.82, 32.81",0.05,0.94,0.003,0.97384
+Cholesteryl ester transfer protein,Group,20,"1, 18",1.69,0.21,0.086,0.3613953488372093
+Cholesteryl ester transfer protein,TimePoint,20,"1.82, 32.81",0.73,0.477,0.039,0.7668277945619335
+Complement C1q subcomponent subunit C,TimePoint:Group,20,"1.73, 31.21",1.09,0.342,0.057,0.8057777777777778
+Complement C1q subcomponent subunit C,Group,20,"1, 18",0.0,0.989,0.001,0.9947611650485436
+Complement C1q subcomponent subunit C,TimePoint,20,"1.73, 31.21",2.14,0.14,0.106,0.5036111111111111
+Immunoglobulin heavy variable 4-30-2,TimePoint:Group,20,"1.69, 30.43",1.99,0.16,0.099,0.8057777777777778
+Immunoglobulin heavy variable 4-30-2,Group,20,"1, 18",,0.002,0.413,0.01786206896551724
+Immunoglobulin heavy variable 4-30-2,TimePoint,20,"1.69, 30.43",0.1,0.874,0.006,0.9239428571428572
+Thrombospondin-4,TimePoint:Group,20,"1.37, 24.72",1.38,0.263,0.071,0.8057777777777778
+Thrombospondin-4,Group,20,"1, 18",,0.066,0.175,0.1659611650485437
+Thrombospondin-4,TimePoint,20,"1.37, 24.72",0.46,0.563,0.025,0.7968142076502731
+Transketolase,TimePoint:Group,20,"1.16, 20.81",0.74,0.417,0.04,0.8057777777777778
+Transketolase,Group,20,"1, 18",1.84,0.192,0.093,0.3406027397260274
+Transketolase,TimePoint,20,"1.16, 20.81",0.55,0.49,0.03,0.7668277945619335
+Complement receptor type 2,TimePoint:Group,20,"1.70, 30.51",0.57,0.543,0.031,0.8499367816091954
+Complement receptor type 2,Group,20,"1, 18",,0.001,0.525,0.010791666666666668
+Complement receptor type 2,TimePoint,20,"1.70, 30.51",0.08,0.898,0.004,0.9373827655310621
+Immunoglobulin kappa variable 2-40;Immunoglobulin kappa variable 2D-40,TimePoint:Group,20,"1.36, 24.52",0.44,0.576,0.024,0.8539599999999999
+Immunoglobulin kappa variable 2-40;Immunoglobulin kappa variable 2D-40,Group,20,"1, 18",,0.023,0.256,0.08760294117647059
+Immunoglobulin kappa variable 2-40;Immunoglobulin kappa variable 2D-40,TimePoint,20,"1.36, 24.52",0.66,0.472,0.035,0.7668277945619335
+Immunoglobulin kappa variable 3D-7,TimePoint:Group,20,"1.97, 35.43",0.72,0.49,0.039,0.8268076923076922
+Immunoglobulin kappa variable 3D-7,Group,20,"1, 18",2.66,0.12,0.129,0.2537142857142857
+Immunoglobulin kappa variable 3D-7,TimePoint,20,"1.97, 35.43",0.14,0.869,0.008,0.922422131147541
+Immunoglobulin heavy variable 3-64,TimePoint:Group,20,"1.36, 24.55",0.31,0.651,0.017,0.8762056555269923
+Immunoglobulin heavy variable 3-64,Group,20,"1, 18",,0.002,0.42,0.01786206896551724
+Immunoglobulin heavy variable 3-64,TimePoint,20,"1.36, 24.55",0.62,0.487,0.033,0.7668277945619335
+Vitronectin,TimePoint:Group,20,"1.78, 32.12",1.41,0.257,0.073,0.8057777777777778
+Vitronectin,Group,20,"1, 18",0.75,0.399,0.04,0.5570943396226415
+Vitronectin,TimePoint,20,"1.78, 32.12",1.12,0.332,0.059,0.7035826771653543
+Complement component C8 gamma chain,TimePoint:Group,20,"1.79, 32.14",1.08,0.346,0.056,0.8057777777777778
+Complement component C8 gamma chain,Group,20,"1, 18",1.89,0.186,0.095,0.3345416666666667
+Complement component C8 gamma chain,TimePoint,20,"1.79, 32.14",,0.062,0.148,0.3608539325842697
+Immunoglobulin heavy variable 5-51,TimePoint:Group,20,"1.77, 31.90",2.53,0.101,0.123,0.8057777777777778
+Immunoglobulin heavy variable 5-51,Group,20,"1, 18",0.31,0.585,0.017,0.7180805687203791
+Immunoglobulin heavy variable 5-51,TimePoint,20,"1.77, 31.90",0.37,0.669,0.02,0.8370579710144929
+Coagulation factor V,TimePoint:Group,20,"1.79, 32.24",,0.07,0.142,0.8057777777777778
+Coagulation factor V,Group,20,"1, 18",,0.062,0.18,0.16058
+Coagulation factor V,TimePoint,20,"1.79, 32.24",0.45,0.621,0.024,0.8164416243654822
+Protein S100-A7,TimePoint:Group,20,"1.13, 20.38",0.31,0.614,0.017,0.8656793478260869
+Protein S100-A7,Group,20,"1, 18",0.69,0.417,0.037,0.5654607329842932
+Protein S100-A7,TimePoint,20,"1.13, 20.38",1.27,0.28,0.066,0.6622831050228312
+Arginase-1,TimePoint:Group,20,"1.64, 29.44",0.54,0.556,0.029,0.8499367816091954
+Arginase-1,Group,20,"1, 18",2.39,0.139,0.117,0.2727348484848485
+Arginase-1,TimePoint,20,"1.64, 29.44",0.46,0.594,0.025,0.8048923076923076
+Protein-glutamine gamma-glutamyltransferase K,TimePoint:Group,20,"1.72, 30.95",0.56,0.553,0.03,0.8499367816091954
+Protein-glutamine gamma-glutamyltransferase K,Group,20,"1, 18",1.14,0.3,0.06,0.45705882352941174
+Protein-glutamine gamma-glutamyltransferase K,TimePoint,20,"1.72, 30.95",0.14,0.835,0.008,0.9144397463002114
+Immunoglobulin kappa variable 4-1,TimePoint:Group,20,"1.81, 32.49",1.58,0.223,0.08,0.8057777777777778
+Immunoglobulin kappa variable 4-1,Group,20,"1, 18",0.02,0.902,0.001,0.9420080645161291
+Immunoglobulin kappa variable 4-1,TimePoint,20,"1.81, 32.49",0.21,0.791,0.011,0.8978666666666667
+Coagulation factor XIII B chain,TimePoint:Group,20,"1.87, 33.68",0.39,0.665,0.021,0.8800714285714286
+Coagulation factor XIII B chain,Group,20,"1, 18",,0.025,0.248,0.09119718309859155
+Coagulation factor XIII B chain,TimePoint,20,"1.87, 33.68",,0.09,0.127,0.43166666666666664
+Apolipoprotein C-II,TimePoint:Group,20,"1.67, 30.10",0.05,0.925,0.003,0.967979797979798
+Apolipoprotein C-II,Group,20,"1, 18",0.04,0.841,0.002,0.8982226804123711
+Apolipoprotein C-II,TimePoint,20,"1.67, 30.10",,0.003,0.296,0.111
+Bone marrow proteoglycan,TimePoint:Group,20,"1.77, 31.78",0.11,0.869,0.006,0.9547881355932204
+Bone marrow proteoglycan,Group,20,"1, 18",,0.003,0.394,0.02252173913043478
+Bone marrow proteoglycan,TimePoint,20,"1.77, 31.78",0.05,0.938,0.003,0.952713725490196
+Apolipoprotein A-I,TimePoint:Group,20,"1.48, 26.59",1.64,0.215,0.083,0.8057777777777778
+Apolipoprotein A-I,Group,20,"1, 18",0.57,0.46,0.031,0.6047715736040609
+Apolipoprotein A-I,TimePoint,20,"1.48, 26.59",,0.075,0.147,0.38849999999999996
+Coagulation factor X,TimePoint:Group,20,"1.88, 33.81",1.66,0.206,0.085,0.8057777777777778
+Coagulation factor X,Group,20,"1, 18",1.75,0.202,0.089,0.35590476190476195
+Coagulation factor X,TimePoint,20,"1.88, 33.81",,0.021,0.198,0.27195
+Thioredoxin,TimePoint:Group,20,"1.65, 29.68",0.79,0.441,0.042,0.8268076923076922
+Thioredoxin,Group,20,"1, 18",,0.003,0.388,0.02252173913043478
+Thioredoxin,TimePoint,20,"1.65, 29.68",0.41,0.63,0.022,0.8199497487437186
+Immunoglobulin heavy variable 3-15,TimePoint:Group,20,"1.88, 33.79",0.67,0.512,0.036,0.8330219435736678
+Immunoglobulin heavy variable 3-15,Group,20,"1, 18",1.42,0.249,0.073,0.40817088607594937
+Immunoglobulin heavy variable 3-15,TimePoint,20,"1.88, 33.79",0.23,0.779,0.013,0.8945198237885462
+Proteasome subunit beta type-2,TimePoint:Group,20,"1.31, 23.64",1.12,0.318,0.059,0.8057777777777778
+Proteasome subunit beta type-2,Group,20,"1, 18",1.56,0.228,0.08,0.38470358306188923
+Proteasome subunit beta type-2,TimePoint,20,"1.31, 23.64",0.62,0.483,0.033,0.7668277945619335
+Apolipoprotein A-II,TimePoint:Group,20,"1.51, 27.26",0.99,0.364,0.052,0.8057777777777778
+Apolipoprotein A-II,Group,20,"1, 18",0.02,0.889,0.001,0.9303070707070707
+Apolipoprotein A-II,TimePoint,20,"1.51, 27.26",1.92,0.173,0.096,0.5531728395061728
+Immunoglobulin heavy constant gamma 2,TimePoint:Group,20,"1.63, 29.37",0.2,0.777,0.011,0.9189178082191781
+Immunoglobulin heavy constant gamma 2,Group,20,"1, 18",0.33,0.572,0.018,0.7088421052631578
+Immunoglobulin heavy constant gamma 2,TimePoint,20,"1.63, 29.37",,0.015,0.227,0.2285294117647059
+Plakophilin-1,TimePoint:Group,20,"1.49, 26.76",0.14,0.806,0.008,0.9351812080536913
+Plakophilin-1,Group,20,"1, 18",0.03,0.866,0.002,0.9186571428571428
+Plakophilin-1,TimePoint,20,"1.49, 26.76",0.39,0.617,0.021,0.8132468193384224
+Fetuin-B,TimePoint:Group,20,"1.87, 33.69",0.33,0.705,0.018,0.8941515892420537
+Fetuin-B,Group,20,"1, 18",,0.03,0.235,0.10291390728476822
+Fetuin-B,TimePoint,20,"1.87, 33.69",,0.076,0.136,0.3897821782178218
+Complement factor H-related protein 3,TimePoint:Group,20,"1.41, 25.30",1.58,0.225,0.081,0.8057777777777778
+Complement factor H-related protein 3,Group,20,"1, 18",0.72,0.408,0.038,0.5591111111111111
+Complement factor H-related protein 3,TimePoint,20,"1.41, 25.30",0.64,0.481,0.035,0.7668277945619335
+Plasminogen,TimePoint:Group,20,"1.96, 35.23",0.55,0.581,0.029,0.8549943181818181
+Plasminogen,Group,20,"1, 18",0.13,0.721,0.007,0.8208307692307691
+Plasminogen,TimePoint,20,"1.96, 35.23",,0.001,0.324,0.0518
+Fermitin family homolog 3,TimePoint:Group,20,"1.83, 32.93",1.48,0.242,0.076,0.8057777777777778
+Fermitin family homolog 3,Group,20,"1, 18",2.81,0.111,0.135,0.2426075949367089
+Fermitin family homolog 3,TimePoint,20,"1.83, 32.93",,0.001,0.696,0.0518
+Immunoglobulin heavy variable 3-21,TimePoint:Group,20,"1.80, 32.39",1.09,0.341,0.057,0.8057777777777778
+Immunoglobulin heavy variable 3-21,Group,20,"1, 18",1.91,0.184,0.096,0.3332587412587413
+Immunoglobulin heavy variable 3-21,TimePoint,20,"1.80, 32.39",0.32,0.709,0.017,0.8641458823529411
+Immunoglobulin heavy variable 2-26,TimePoint:Group,20,"1.89, 33.94",0.0,0.999,0.001,0.999
+Immunoglobulin heavy variable 2-26,Group,20,"1, 18",,0.04,0.213,0.11976878612716764
+Immunoglobulin heavy variable 2-26,TimePoint,20,"1.89, 33.94",1.6,0.218,0.082,0.6066417112299465
+Immunoglobulin kappa variable 1-12;Immunoglobulin kappa variable 1D-12,TimePoint:Group,20,"1.66, 29.85",1.34,0.273,0.069,0.8057777777777778
+Immunoglobulin kappa variable 1-12;Immunoglobulin kappa variable 1D-12,Group,20,"1, 18",1.12,0.305,0.058,0.46331378299120235
+Immunoglobulin kappa variable 1-12;Immunoglobulin kappa variable 1D-12,TimePoint,20,"1.66, 29.85",0.76,0.455,0.04,0.7539044585987261
+Immunoglobulin heavy constant gamma 3,TimePoint:Group,20,"1.83, 32.86",0.01,0.984,0.001,0.9916575875486381
+Immunoglobulin heavy constant gamma 3,Group,20,"1, 18",0.55,0.466,0.03,0.6111088607594937
+Immunoglobulin heavy constant gamma 3,TimePoint,20,"1.83, 32.86",0.49,0.602,0.026,0.8048923076923076
+Immunoglobulin kappa variable 2D-29,TimePoint:Group,20,"1.32, 23.69",0.04,0.901,0.002,0.9588285714285715
+Immunoglobulin kappa variable 2D-29,Group,20,"1, 18",1.34,0.262,0.069,0.42017337461300314
+Immunoglobulin kappa variable 2D-29,TimePoint,20,"1.32, 23.69",1.24,0.29,0.065,0.6676444444444444
+Neogenin,TimePoint:Group,20,"1.58, 28.43",,0.002,0.34,0.8057777777777778
+Neogenin,Group,20,"1, 18",,0.001,0.528,0.010791666666666668
+Neogenin,TimePoint,20,"1.58, 28.43",,0.041,0.178,0.3453333333333333
+Immunoglobulin heavy variable 6-1,TimePoint:Group,20,"1.09, 19.61",1.3,0.272,0.067,0.8057777777777778
+Immunoglobulin heavy variable 6-1,Group,20,"1, 18",0.68,0.419,0.037,0.5666892950391645
+Immunoglobulin heavy variable 6-1,TimePoint,20,"1.09, 19.61",0.89,0.367,0.047,0.7129667896678967
+L-selectin,TimePoint:Group,20,"1.48, 26.59",0.7,0.462,0.038,0.8268076923076922
+L-selectin,Group,20,"1, 18",,0.028,0.24,0.09669333333333334
+L-selectin,TimePoint,20,"1.48, 26.59",0.74,0.449,0.039,0.7539044585987261
+Immunoglobulin lambda constant 3,TimePoint:Group,20,"1.39, 25.06",0.53,0.533,0.028,0.846914110429448
+Immunoglobulin lambda constant 3,Group,20,"1, 18",0.24,0.628,0.013,0.7512794457274827
+Immunoglobulin lambda constant 3,TimePoint,20,"1.39, 25.06",0.01,0.965,0.001,0.970621359223301
+A disintegrin and metalloproteinase with thrombospondin motifs 13,TimePoint:Group,20,"1.73, 31.07",,0.066,0.147,0.8057777777777778
+A disintegrin and metalloproteinase with thrombospondin motifs 13,Group,20,"1, 18",,0.001,0.605,0.010791666666666668
+A disintegrin and metalloproteinase with thrombospondin motifs 13,TimePoint,20,"1.73, 31.07",,0.068,0.145,0.3707789473684211
+von Willebrand factor,TimePoint:Group,20,"1.79, 32.14",1.3,0.283,0.068,0.8057777777777778
+von Willebrand factor,Group,20,"1, 18",0.0,0.961,0.001,0.977992141453831
+von Willebrand factor,TimePoint,20,"1.79, 32.14",,0.005,0.272,0.1523529411764706
+Neutral alpha-glucosidase AB,TimePoint:Group,20,"1.60, 28.84",1.07,0.344,0.056,0.8057777777777778
+Neutral alpha-glucosidase AB,Group,20,"1, 18",,0.05,0.197,0.1423076923076923
+Neutral alpha-glucosidase AB,TimePoint,20,"1.60, 28.84",0.88,0.404,0.047,0.7323448275862069
+Carbonic anhydrase 1,TimePoint:Group,20,"1.66, 29.95",0.03,0.953,0.002,0.9769744597249508
+Carbonic anhydrase 1,Group,20,"1, 18",,0.003,0.399,0.02252173913043478
+Carbonic anhydrase 1,TimePoint,20,"1.66, 29.95",,0.014,0.229,0.226625
+Immunoglobulin lambda variable 4-60,TimePoint:Group,20,"1.78, 31.99",0.47,0.607,0.025,0.8656793478260869
+Immunoglobulin lambda variable 4-60,Group,20,"1, 18",2.65,0.121,0.128,0.25478861788617885
+Immunoglobulin lambda variable 4-60,TimePoint,20,"1.78, 31.99",0.22,0.782,0.012,0.8945198237885462
+Integrin beta-1,TimePoint:Group,20,"1.92, 34.58",1.29,0.286,0.067,0.8057777777777778
+Integrin beta-1,Group,20,"1, 18",,0.001,0.48,0.010791666666666668
+Integrin beta-1,TimePoint,20,"1.92, 34.58",0.5,0.606,0.027,0.8048923076923076
+Immunoglobulin lambda variable 3-12,TimePoint:Group,20,"1.67, 30.05",1.29,0.285,0.067,0.8057777777777778
+Immunoglobulin lambda variable 3-12,Group,20,"1, 18",,0.035,0.224,0.11054878048780489
+Immunoglobulin lambda variable 3-12,TimePoint,20,"1.67, 30.05",1.1,0.336,0.058,0.7035826771653543
+Alpha-amylase 1B;Alpha-amylase 1C;Alpha-amylase 1A,TimePoint:Group,20,"1.22, 22.04",0.45,0.55,0.024,0.8499367816091954
+Alpha-amylase 1B;Alpha-amylase 1C;Alpha-amylase 1A,Group,20,"1, 18",0.23,0.639,0.012,0.7609241379310345
+Alpha-amylase 1B;Alpha-amylase 1C;Alpha-amylase 1A,TimePoint,20,"1.22, 22.04",0.54,0.504,0.029,0.7701238938053097
+Lumican,TimePoint:Group,20,"1.56, 28.00",,0.086,0.137,0.8057777777777778
+Lumican,Group,20,"1, 18",,0.004,0.375,0.0259
+Lumican,TimePoint,20,"1.56, 28.00",,0.02,0.217,0.26564102564102565
+Beta-Ala-His dipeptidase,TimePoint:Group,20,"1.31, 23.62",1.9,0.18,0.095,0.8057777777777778
+Beta-Ala-His dipeptidase,Group,20,"1, 18",0.72,0.406,0.039,0.5578461538461539
+Beta-Ala-His dipeptidase,TimePoint,20,"1.31, 23.62",0.27,0.674,0.015,0.8405048076923078
+Immunoglobulin alpha-2 heavy chain,TimePoint:Group,20,"1.90, 34.17",0.39,0.666,0.021,0.8800714285714286
+Immunoglobulin alpha-2 heavy chain,Group,20,"1, 18",3.0,0.1,0.143,0.22620087336244543
+Immunoglobulin alpha-2 heavy chain,TimePoint,20,"1.90, 34.17",0.73,0.481,0.039,0.7668277945619335
+Complement C5,TimePoint:Group,20,"1.70, 30.59",0.67,0.494,0.036,0.8268076923076922
+Complement C5,Group,20,"1, 18",0.98,0.336,0.051,0.4944545454545455
+Complement C5,TimePoint,20,"1.70, 30.59",1.17,0.317,0.061,0.7017350427350427
+Protein S100-A8,TimePoint:Group,20,"1.35, 24.34",1.65,0.214,0.084,0.8057777777777778
+Protein S100-A8,Group,20,"1, 18",,0.044,0.207,0.1287683615819209
+Protein S100-A8,TimePoint,20,"1.35, 24.34",0.78,0.422,0.042,0.73556
+Immunoglobulin lambda variable 3-25,TimePoint:Group,20,"1.94, 34.92",0.59,0.555,0.032,0.8499367816091954
+Immunoglobulin lambda variable 3-25,Group,20,"1, 18",0.22,0.648,0.012,0.7687214611872146
+Immunoglobulin lambda variable 3-25,TimePoint,20,"1.94, 34.92",0.15,0.859,0.008,0.922422131147541
+Leukocyte immunoglobulin-like receptor subfamily B member 3;Leukocyte immunoglobulin-like receptor subfamily A member 6,TimePoint:Group,20,"1.87, 33.73",0.27,0.754,0.015,0.9067990762124711
+Leukocyte immunoglobulin-like receptor subfamily B member 3;Leukocyte immunoglobulin-like receptor subfamily A member 6,Group,20,"1, 18",2.7,0.118,0.13,0.2536265560165975
+Leukocyte immunoglobulin-like receptor subfamily B member 3;Leukocyte immunoglobulin-like receptor subfamily A member 6,TimePoint,20,"1.87, 33.73",0.7,0.493,0.038,0.7691987951807229
+Collagen alpha-3(VI) chain,TimePoint:Group,20,"1.15, 20.63",1.32,0.27,0.068,0.8057777777777778
+Collagen alpha-3(VI) chain,Group,20,"1, 18",1.2,0.288,0.062,0.44399999999999995
+Collagen alpha-3(VI) chain,TimePoint,20,"1.15, 20.63",0.89,0.372,0.047,0.7129667896678967
+Immunoglobulin kappa variable 1-39;Immunoglobulin kappa variable 1D-39,TimePoint:Group,20,"1.86, 33.46",0.36,0.682,0.02,0.883950248756219
+Immunoglobulin kappa variable 1-39;Immunoglobulin kappa variable 1D-39,Group,20,"1, 18",2.23,0.153,0.11,0.291375
+Immunoglobulin kappa variable 1-39;Immunoglobulin kappa variable 1D-39,TimePoint,20,"1.86, 33.46",1.41,0.259,0.072,0.6537864077669904
+Bleomycin hydrolase,TimePoint:Group,20,"1.77, 31.81",0.16,0.829,0.009,0.9461084598698482
+Bleomycin hydrolase,Group,20,"1, 18",,0.022,0.26,0.0856842105263158
+Bleomycin hydrolase,TimePoint,20,"1.77, 31.81",0.4,0.65,0.022,0.8344137931034483
+CD166 antigen,TimePoint:Group,20,"1.10, 19.72",1.72,0.206,0.087,0.8057777777777778
+CD166 antigen,Group,20,"1, 18",0.09,0.768,0.005,0.8592311015118791
+CD166 antigen,TimePoint,20,"1.10, 19.72",0.78,0.4,0.041,0.7323448275862069
+Beta-2-microglobulin,TimePoint:Group,20,"1.40, 25.25",0.09,0.85,0.005,0.9463461538461538
+Beta-2-microglobulin,Group,20,"1, 18",0.87,0.363,0.046,0.5223166666666667
+Beta-2-microglobulin,TimePoint,20,"1.40, 25.25",0.66,0.475,0.035,0.7668277945619335
+Amino acid transporter heavy chain SLC3A2,TimePoint:Group,20,"1.07, 19.23",1.32,0.268,0.068,0.8057777777777778
+Amino acid transporter heavy chain SLC3A2,Group,20,"1, 18",0.15,0.706,0.008,0.8126844444444443
+Amino acid transporter heavy chain SLC3A2,TimePoint,20,"1.07, 19.23",1.26,0.28,0.065,0.6622831050228312
+Haptoglobin-related protein,TimePoint:Group,20,"1.68, 30.16",0.98,0.374,0.052,0.8057777777777778
+Haptoglobin-related protein,Group,20,"1, 18",0.0,0.967,0.001,0.9802465753424657
+Haptoglobin-related protein,TimePoint,20,"1.68, 30.16",0.31,0.695,0.017,0.8510874704491724
+Alpha-1-acid glycoprotein 1,TimePoint:Group,20,"1.52, 27.30",2.06,0.156,0.103,0.8057777777777778
+Alpha-1-acid glycoprotein 1,Group,20,"1, 18",,0.02,0.267,0.0809375
+Alpha-1-acid glycoprotein 1,TimePoint,20,"1.52, 27.30",,0.058,0.161,0.3493488372093023
+Serum paraoxonase/arylesterase 1,TimePoint:Group,20,"1.59, 28.54",,0.036,0.185,0.8057777777777778
+Serum paraoxonase/arylesterase 1,Group,20,"1, 18",0.18,0.679,0.01,0.7886143497757848
+Serum paraoxonase/arylesterase 1,TimePoint,20,"1.59, 28.54",,0.043,0.175,0.3453333333333333
+Target of Nesh-SH3,TimePoint:Group,20,"1.99, 35.76",1.71,0.196,0.087,0.8057777777777778
+Target of Nesh-SH3,Group,20,"1, 18",,0.001,0.704,0.010791666666666668
+Target of Nesh-SH3,TimePoint,20,"1.99, 35.76",1.88,0.167,0.095,0.5507848101265823
+Intercellular adhesion molecule 1,TimePoint:Group,20,"1.64, 29.53",0.2,0.773,0.011,0.916279176201373
+Intercellular adhesion molecule 1,Group,20,"1, 18",,0.011,0.306,0.052759259259259256
+Intercellular adhesion molecule 1,TimePoint,20,"1.64, 29.53",0.51,0.569,0.028,0.8031117166212534
+Complement C4-A,TimePoint:Group,20,"1.51, 27.21",1.23,0.298,0.064,0.8057777777777778
+Complement C4-A,Group,20,"1, 18",0.34,0.567,0.019,0.7072692307692308
+Complement C4-A,TimePoint,20,"1.51, 27.21",1.12,0.327,0.058,0.7035826771653543
+Coagulation factor XIII A chain,TimePoint:Group,20,"1.99, 35.82",1.83,0.175,0.092,0.8057777777777778
+Coagulation factor XIII A chain,Group,20,"1, 18",,0.001,0.474,0.010791666666666668
+Coagulation factor XIII A chain,TimePoint,20,"1.99, 35.82",,0.006,0.245,0.1554
+Immunoglobulin mu heavy chain,TimePoint:Group,20,"1.91, 34.47",0.14,0.863,0.008,0.9522382978723405
+Immunoglobulin mu heavy chain,Group,20,"1, 18",0.09,0.773,0.005,0.861105376344086
+Immunoglobulin mu heavy chain,TimePoint,20,"1.91, 34.47",0.07,0.928,0.004,0.9481341222879685
+Oncoprotein-induced transcript 3 protein,TimePoint:Group,20,"1.59, 28.54",1.51,0.238,0.077,0.8057777777777778
+Oncoprotein-induced transcript 3 protein,Group,20,"1, 18",0.53,0.477,0.028,0.6236876574307304
+Oncoprotein-induced transcript 3 protein,TimePoint,20,"1.59, 28.54",1.24,0.297,0.064,0.6770350877192982
+Peroxiredoxin-2,TimePoint:Group,20,"1.09, 19.70",1.59,0.224,0.081,0.8057777777777778
+Peroxiredoxin-2,Group,20,"1, 18",0.14,0.71,0.008,0.8154767184035476
+Peroxiredoxin-2,TimePoint,20,"1.09, 19.70",1.26,0.28,0.065,0.6622831050228312
+Tissue factor pathway inhibitor,TimePoint:Group,20,"1.76, 31.71",1.56,0.227,0.08,0.8057777777777778
+Tissue factor pathway inhibitor,Group,20,"1, 18",,0.001,0.545,0.010791666666666668
+Tissue factor pathway inhibitor,TimePoint,20,"1.76, 31.71",1.78,0.187,0.09,0.5800359281437125
+Progranulin,TimePoint:Group,20,"1.92, 34.59",1.38,0.265,0.071,0.8057777777777778
+Progranulin,Group,20,"1, 18",,0.051,0.195,0.14279999999999998
+Progranulin,TimePoint,20,"1.92, 34.59",1.09,0.345,0.057,0.7035826771653543
+Histone H2B type 1-K;Histone H2B type F-S,TimePoint:Group,20,"1.40, 25.16",0.47,0.562,0.025,0.8499367816091954
+Histone H2B type 1-K;Histone H2B type F-S,Group,20,"1, 18",2.6,0.124,0.126,0.2600485829959514
+Histone H2B type 1-K;Histone H2B type F-S,TimePoint,20,"1.40, 25.16",0.51,0.543,0.027,0.7841944444444444
+Hemoglobin subunit delta,TimePoint:Group,20,"1.51, 27.26",0.02,0.949,0.001,0.9769744597249508
+Hemoglobin subunit delta,Group,20,"1, 18",,0.04,0.213,0.11976878612716764
+Hemoglobin subunit delta,TimePoint,20,"1.51, 27.26",1.75,0.197,0.089,0.5974659090909091
+Glutathione S-transferase P,TimePoint:Group,20,"1.26, 22.70",1.46,0.247,0.075,0.8057777777777778
+Glutathione S-transferase P,Group,20,"1, 18",0.41,0.528,0.022,0.6687139364303178
+Glutathione S-transferase P,TimePoint,20,"1.26, 22.70",0.56,0.502,0.03,0.7701238938053097
+Annexin A6,TimePoint:Group,20,"1.78, 31.98",1.33,0.277,0.069,0.8057777777777778
+Annexin A6,Group,20,"1, 18",0.28,0.602,0.015,0.7320093896713614
+Annexin A6,TimePoint,20,"1.78, 31.98",,0.064,0.147,0.3643076923076923
+Complement factor H-related protein 1,TimePoint:Group,20,"1.75, 31.57",0.96,0.385,0.05,0.8057777777777778
+Complement factor H-related protein 1,Group,20,"1, 18",1.05,0.319,0.055,0.47757803468208093
+Complement factor H-related protein 1,TimePoint,20,"1.75, 31.57",0.48,0.597,0.026,0.8048923076923076
+Protein KPLCE,TimePoint:Group,20,"1.76, 31.74",1.77,0.19,0.09,0.8057777777777778
+Protein KPLCE,Group,20,"1, 18",1.53,0.232,0.078,0.3889190938511327
+Protein KPLCE,TimePoint,20,"1.76, 31.74",0.33,0.692,0.018,0.8510874704491724
+Immunoglobulin heavy variable 4-4,TimePoint:Group,20,"1.44, 25.90",0.01,0.978,0.001,0.9894609375
+Immunoglobulin heavy variable 4-4,Group,20,"1, 18",1.3,0.27,0.067,0.4264024390243903
+Immunoglobulin heavy variable 4-4,TimePoint,20,"1.44, 25.90",0.19,0.756,0.01,0.888
+Alpha-1B-glycoprotein,TimePoint:Group,20,"1.83, 32.88",0.27,0.749,0.015,0.9067990762124711
+Alpha-1B-glycoprotein,Group,20,"1, 18",0.0,0.966,0.001,0.9802465753424657
+Alpha-1B-glycoprotein,TimePoint,20,"1.83, 32.88",,0.055,0.154,0.3493488372093023
+Properdin,TimePoint:Group,20,"1.68, 30.32",0.07,0.905,0.004,0.9588285714285715
+Properdin,Group,20,"1, 18",,0.07,0.17,0.1686511627906977
+Properdin,TimePoint,20,"1.68, 30.32",1.78,0.189,0.09,0.5823668639053254
+Immunoglobulin heavy variable 3-53,TimePoint:Group,20,"1.98, 35.57",1.45,0.248,0.074,0.8057777777777778
+Immunoglobulin heavy variable 3-53,Group,20,"1, 18",,0.057,0.187,0.1521958762886598
+Immunoglobulin heavy variable 3-53,TimePoint,20,"1.98, 35.57",0.25,0.78,0.014,0.8945198237885462
+Calmodulin-like protein 5,TimePoint:Group,20,"1.39, 25.08",0.62,0.488,0.033,0.8268076923076922
+Calmodulin-like protein 5,Group,20,"1, 18",1.97,0.177,0.099,0.3228380281690141
+Calmodulin-like protein 5,TimePoint,20,"1.39, 25.08",1.06,0.337,0.056,0.7035826771653543
+Carboxypeptidase B2,TimePoint:Group,20,"1.84, 33.13",1.72,0.196,0.087,0.8057777777777778
+Carboxypeptidase B2,Group,20,"1, 18",1.3,0.268,0.068,0.42584049079754605
+Carboxypeptidase B2,TimePoint,20,"1.84, 33.13",1.29,0.286,0.067,0.6673333333333333
+"Sushi, nidogen and EGF-like domain-containing protein 1",TimePoint:Group,20,"1.18, 21.21",0.33,0.606,0.018,0.8656793478260869
+"Sushi, nidogen and EGF-like domain-containing protein 1",Group,20,"1, 18",,0.002,0.411,0.01786206896551724
+"Sushi, nidogen and EGF-like domain-containing protein 1",TimePoint,20,"1.18, 21.21",0.98,0.349,0.051,0.7082031249999999
+Proteasome subunit alpha type-5,TimePoint:Group,20,"1.27, 22.95",1.43,0.252,0.074,0.8057777777777778
+Proteasome subunit alpha type-5,Group,20,"1, 18",0.05,0.826,0.003,0.8876929460580912
+Proteasome subunit alpha type-5,TimePoint,20,"1.27, 22.95",0.69,0.448,0.037,0.7539044585987261
+Bifunctional heparan sulfate N-deacetylase/N-sulfotransferase 4,TimePoint:Group,20,"1.71, 30.76",1.17,0.316,0.061,0.8057777777777778
+Bifunctional heparan sulfate N-deacetylase/N-sulfotransferase 4,Group,20,"1, 18",1.01,0.329,0.053,0.48831518624641834
+Bifunctional heparan sulfate N-deacetylase/N-sulfotransferase 4,TimePoint,20,"1.71, 30.76",2.34,0.121,0.115,0.4677462686567164
+Immunoglobulin heavy variable 3-9,TimePoint:Group,20,"1.95, 35.02",0.1,0.9,0.006,0.9588285714285715
+Immunoglobulin heavy variable 3-9,Group,20,"1, 18",,0.008,0.332,0.04455913978494624
+Immunoglobulin heavy variable 3-9,TimePoint,20,"1.95, 35.02",,0.066,0.141,0.3676129032258065
+Neural cell adhesion molecule L1-like protein,TimePoint:Group,20,"1.85, 33.39",1.16,0.321,0.061,0.8057777777777778
+Neural cell adhesion molecule L1-like protein,Group,20,"1, 18",,0.001,0.492,0.010791666666666668
+Neural cell adhesion molecule L1-like protein,TimePoint,20,"1.85, 33.39",0.09,0.903,0.005,0.9373827655310621
+Proteasome subunit alpha type-2,TimePoint:Group,20,"1.99, 35.73",,0.061,0.144,0.8057777777777778
+Proteasome subunit alpha type-2,Group,20,"1, 18",0.51,0.484,0.028,0.62678
+Proteasome subunit alpha type-2,TimePoint,20,"1.99, 35.73",1.92,0.162,0.096,0.5507848101265823
+Intercellular adhesion molecule 3,TimePoint:Group,20,"1.65, 29.74",,0.092,0.131,0.8057777777777778
+Intercellular adhesion molecule 3,Group,20,"1, 18",,0.002,0.431,0.01786206896551724
+Intercellular adhesion molecule 3,TimePoint,20,"1.65, 29.74",,0.026,0.199,0.3060909090909091
+Receptor-type tyrosine-protein phosphatase eta,TimePoint:Group,20,"1.92, 34.52",1.59,0.219,0.081,0.8057777777777778
+Receptor-type tyrosine-protein phosphatase eta,Group,20,"1, 18",,0.001,0.676,0.010791666666666668
+Receptor-type tyrosine-protein phosphatase eta,TimePoint,20,"1.92, 34.52",,0.041,0.165,0.3453333333333333
+ADAMTS-like protein 4,TimePoint:Group,20,"1.69, 30.44",1.33,0.277,0.069,0.8057777777777778
+ADAMTS-like protein 4,Group,20,"1, 18",,0.001,0.444,0.010791666666666668
+ADAMTS-like protein 4,TimePoint,20,"1.69, 30.44",2.54,0.103,0.124,0.44094214876033055
+Immunoglobulin lambda variable 3-21,TimePoint:Group,20,"1.70, 30.57",0.12,0.853,0.007,0.9463461538461538
+Immunoglobulin lambda variable 3-21,Group,20,"1, 18",0.94,0.345,0.05,0.5034084507042254
+Immunoglobulin lambda variable 3-21,TimePoint,20,"1.70, 30.57",0.05,0.926,0.003,0.9481341222879685
+Cartilage oligomeric matrix protein,TimePoint:Group,20,"1.94, 34.90",0.04,0.96,0.002,0.9769744597249508
+Cartilage oligomeric matrix protein,Group,20,"1, 18",,0.001,0.597,0.010791666666666668
+Cartilage oligomeric matrix protein,TimePoint,20,"1.94, 34.90",,0.002,0.3,0.09418181818181819
+Neural cell adhesion molecule 1,TimePoint:Group,20,"1.22, 21.87",1.23,0.29,0.064,0.8057777777777778
+Neural cell adhesion molecule 1,Group,20,"1, 18",,0.001,0.739,0.010791666666666668
+Neural cell adhesion molecule 1,TimePoint,20,"1.22, 21.87",1.74,0.203,0.088,0.5974659090909091
+Immunoglobulin lambda variable 2-11,TimePoint:Group,20,"1.86, 33.51",1.47,0.245,0.075,0.8057777777777778
+Immunoglobulin lambda variable 2-11,Group,20,"1, 18",0.6,0.449,0.032,0.5933214285714286
+Immunoglobulin lambda variable 2-11,TimePoint,20,"1.86, 33.51",1.06,0.354,0.056,0.71
+Immunoglobulin kappa variable 1D-33;Immunoglobulin kappa variable 1-33,TimePoint:Group,20,"1.93, 34.74",1.37,0.268,0.071,0.8057777777777778
+Immunoglobulin kappa variable 1D-33;Immunoglobulin kappa variable 1-33,Group,20,"1, 18",,0.014,0.292,0.06417699115044248
+Immunoglobulin kappa variable 1D-33;Immunoglobulin kappa variable 1-33,TimePoint,20,"1.93, 34.74",0.37,0.685,0.02,0.8488755980861244
+Beta-2-glycoprotein 1,TimePoint:Group,20,"1.73, 31.14",0.15,0.83,0.008,0.9461084598698482
+Beta-2-glycoprotein 1,Group,20,"1, 18",0.01,0.912,0.001,0.9429461077844312
+Beta-2-glycoprotein 1,TimePoint,20,"1.73, 31.14",1.7,0.201,0.086,0.5974659090909091
+Vitamin D-binding protein,TimePoint:Group,20,"1.84, 33.08",0.22,0.787,0.012,0.9214085778781039
+Vitamin D-binding protein,Group,20,"1, 18",0.44,0.517,0.024,0.658
+Vitamin D-binding protein,TimePoint,20,"1.84, 33.08",,0.03,0.183,0.3378260869565217
+Filamin-A,TimePoint:Group,20,"1.11, 20.03",1.1,0.316,0.057,0.8057777777777778
+Filamin-A,Group,20,"1, 18",,0.018,0.273,0.07642622950819672
+Filamin-A,TimePoint,20,"1.11, 20.03",,0.01,0.301,0.2072
+Reelin,TimePoint:Group,20,"1.94, 34.89",0.42,0.654,0.023,0.8762056555269923
+Reelin,Group,20,"1, 18",2.31,0.146,0.114,0.28325093632958803
+Reelin,TimePoint,20,"1.94, 34.89",,0.07,0.138,0.3738144329896908
+Immunoglobulin lambda variable 5-39,TimePoint:Group,20,"1.84, 33.08",0.29,0.733,0.016,0.9040333333333332
+Immunoglobulin lambda variable 5-39,Group,20,"1, 18",,0.014,0.291,0.06417699115044248
+Immunoglobulin lambda variable 5-39,TimePoint,20,"1.84, 33.08",0.03,0.968,0.001,0.9717519379844961
+Fatty acid-binding protein 5,TimePoint:Group,20,"1.51, 27.17",0.13,0.823,0.007,0.9461084598698482
+Fatty acid-binding protein 5,Group,20,"1, 18",2.37,0.141,0.116,0.2756150943396226
+Fatty acid-binding protein 5,TimePoint,20,"1.51, 27.17",0.01,0.977,0.001,0.978889748549323
+"HLA class I histocompatibility antigen, A alpha chain",TimePoint:Group,20,"1.83, 33.02",1.56,0.226,0.08,0.8057777777777778
+"HLA class I histocompatibility antigen, A alpha chain",Group,20,"1, 18",,0.01,0.312,0.04886792452830189
+"HLA class I histocompatibility antigen, A alpha chain",TimePoint,20,"1.83, 33.02",,0.062,0.147,0.3608539325842697
+Low affinity immunoglobulin gamma Fc region receptor III-A,TimePoint:Group,20,"1.78, 31.99",,0.01,0.24,0.8057777777777778
+Low affinity immunoglobulin gamma Fc region receptor III-A,Group,20,"1, 18",0.1,0.755,0.006,0.8465151515151516
+Low affinity immunoglobulin gamma Fc region receptor III-A,TimePoint,20,"1.78, 31.99",1.57,0.224,0.08,0.6171914893617021
+Heat shock 70 kDa protein 1A;Heat shock 70 kDa protein 1B,TimePoint:Group,20,"1.11, 19.93",0.13,0.744,0.007,0.9067990762124711
+Heat shock 70 kDa protein 1A;Heat shock 70 kDa protein 1B,Group,20,"1, 18",0.14,0.713,0.008,0.8171106194690265
+Heat shock 70 kDa protein 1A;Heat shock 70 kDa protein 1B,TimePoint,20,"1.11, 19.93",1.08,0.319,0.056,0.7031574468085107
+Apolipoprotein D,TimePoint:Group,20,"2.00, 35.97",2.23,0.122,0.11,0.8057777777777778
+Apolipoprotein D,Group,20,"1, 18",1.53,0.232,0.078,0.3889190938511327
+Apolipoprotein D,TimePoint,20,"2.00, 35.97",0.45,0.643,0.024,0.832685
+Plexin-B1,TimePoint:Group,20,"1.79, 32.28",0.24,0.761,0.013,0.9082903225806452
+Plexin-B1,Group,20,"1, 18",,0.001,0.469,0.010791666666666668
+Plexin-B1,TimePoint,20,"1.79, 32.28",0.26,0.747,0.014,0.8854599542334096
+Immunoglobulin heavy variable 1-58,TimePoint:Group,20,"1.27, 22.83",0.85,0.391,0.045,0.8057777777777778
+Immunoglobulin heavy variable 1-58,Group,20,"1, 18",,0.003,0.404,0.02252173913043478
+Immunoglobulin heavy variable 1-58,TimePoint,20,"1.27, 22.83",2.25,0.143,0.111,0.5073561643835616
+Apolipoprotein C-IV,TimePoint:Group,20,"1.30, 23.43",0.86,0.391,0.046,0.8057777777777778
+Apolipoprotein C-IV,Group,20,"1, 18",0.94,0.345,0.05,0.5034084507042254
+Apolipoprotein C-IV,TimePoint,20,"1.30, 23.43",1.56,0.23,0.08,0.6237696335078534
+Monocyte differentiation antigen CD14,TimePoint:Group,20,"1.94, 35.00",1.14,0.33,0.06,0.8057777777777778
+Monocyte differentiation antigen CD14,Group,20,"1, 18",1.73,0.205,0.088,0.3599661016949153
+Monocyte differentiation antigen CD14,TimePoint,20,"1.94, 35.00",,0.064,0.143,0.3643076923076923
+Protein MENT,TimePoint:Group,20,"1.68, 30.23",1.2,0.308,0.063,0.8057777777777778
+Protein MENT,Group,20,"1, 18",0.81,0.38,0.043,0.5363487738419619
+Protein MENT,TimePoint,20,"1.68, 30.23",,0.095,0.128,0.43459322033898307
+Immunoglobulin epsilon heavy chain,TimePoint:Group,20,"1.52, 27.31",,0.095,0.132,0.8057777777777778
+Immunoglobulin epsilon heavy chain,Group,20,"1, 18",,0.023,0.254,0.08760294117647059
+Immunoglobulin epsilon heavy chain,TimePoint,20,"1.52, 27.31",0.23,0.738,0.012,0.8827385321100918
+Complement factor H,TimePoint:Group,20,"2.00, 36.00",0.52,0.602,0.028,0.8656793478260869
+Complement factor H,Group,20,"1, 18",2.39,0.139,0.117,0.2727348484848485
+Complement factor H,TimePoint,20,"2.00, 36.00",0.21,0.812,0.011,0.900676659528908
+Stabilin-1,TimePoint:Group,20,"1.95, 35.03",2.38,0.109,0.117,0.8057777777777778
+Stabilin-1,Group,20,"1, 18",,0.003,0.398,0.02252173913043478
+Stabilin-1,TimePoint,20,"1.95, 35.03",,0.008,0.24,0.18836363636363637
+Macrophage receptor MARCO,TimePoint:Group,20,"1.68, 30.25",0.24,0.753,0.013,0.9067990762124711
+Macrophage receptor MARCO,Group,20,"1, 18",,0.001,0.56,0.010791666666666668
+Macrophage receptor MARCO,TimePoint,20,"1.68, 30.25",0.03,0.954,0.002,0.9651796874999999
+Protein POF1B,TimePoint:Group,20,"1.50, 27.08",0.68,0.476,0.036,0.8268076923076922
+Protein POF1B,Group,20,"1, 18",1.44,0.246,0.074,0.4058216560509554
+Protein POF1B,TimePoint,20,"1.50, 27.08",0.35,0.649,0.019,0.8344137931034483
+Phosphatidylcholine-sterol acyltransferase,TimePoint:Group,20,"1.02, 18.36",0.78,0.391,0.042,0.8057777777777778
+Phosphatidylcholine-sterol acyltransferase,Group,20,"1, 18",2.69,0.119,0.13,0.2537142857142857
+Phosphatidylcholine-sterol acyltransferase,TimePoint,20,"1.02, 18.36",0.87,0.366,0.046,0.7129667896678967
+Clusterin,TimePoint:Group,20,"1.88, 33.85",2.02,0.151,0.101,0.8057777777777778
+Clusterin,Group,20,"1, 18",1.89,0.186,0.095,0.3345416666666667
+Clusterin,TimePoint,20,"1.88, 33.85",,0.073,0.138,0.38195959595959594
+Platelet-activating factor acetylhydrolase,TimePoint:Group,20,"1.79, 32.19",0.88,0.414,0.047,0.8057777777777778
+Platelet-activating factor acetylhydrolase,Group,20,"1, 18",,0.009,0.323,0.047090909090909086
+Platelet-activating factor acetylhydrolase,TimePoint,20,"1.79, 32.19",,0.054,0.156,0.3493488372093023
+Vasorin,TimePoint:Group,20,"1.59, 28.65",,0.029,0.197,0.8057777777777778
+Vasorin,Group,20,"1, 18",,0.001,0.65,0.010791666666666668
+Vasorin,TimePoint,20,"1.59, 28.65",,0.049,0.168,0.3453333333333334
+Myeloperoxidase,TimePoint:Group,20,"1.73, 31.20",0.02,0.974,0.001,0.9883561643835616
+Myeloperoxidase,Group,20,"1, 18",1.61,0.221,0.082,0.3778151815181518
+Myeloperoxidase,TimePoint,20,"1.73, 31.20",0.21,0.783,0.011,0.8945198237885462
+Immunoglobulin lambda variable 5-52,TimePoint:Group,20,"1.82, 32.85",0.09,0.902,0.005,0.9588285714285715
+Immunoglobulin lambda variable 5-52,Group,20,"1, 18",0.14,0.716,0.008,0.8187373068432671
+Immunoglobulin lambda variable 5-52,TimePoint,20,"1.82, 32.85",1.25,0.298,0.065,0.6770350877192982
+Carboxypeptidase N catalytic chain,TimePoint:Group,20,"1.26, 22.72",1.23,0.292,0.064,0.8057777777777778
+Carboxypeptidase N catalytic chain,Group,20,"1, 18",0.15,0.704,0.008,0.8121870824053451
+Carboxypeptidase N catalytic chain,TimePoint,20,"1.26, 22.72",0.26,0.669,0.014,0.8370579710144929
+Fibrinogen gamma chain,TimePoint:Group,20,"1.58, 28.49",1.93,0.171,0.097,0.8057777777777778
+Fibrinogen gamma chain,Group,20,"1, 18",0.25,0.62,0.014,0.7498321678321678
+Fibrinogen gamma chain,TimePoint,20,"1.58, 28.49",0.86,0.41,0.046,0.7323448275862069
+Soluble scavenger receptor cysteine-rich domain-containing protein SSC5D,TimePoint:Group,20,"1.94, 34.97",0.17,0.84,0.009,0.9461084598698482
+Soluble scavenger receptor cysteine-rich domain-containing protein SSC5D,Group,20,"1, 18",1.7,0.209,0.086,0.3613953488372093
+Soluble scavenger receptor cysteine-rich domain-containing protein SSC5D,TimePoint,20,"1.94, 34.97",1.66,0.206,0.084,0.6028700564971752
+Tetranectin,TimePoint:Group,20,"1.97, 35.44",0.28,0.758,0.015,0.9067990762124711
+Tetranectin,Group,20,"1, 18",0.06,0.809,0.003,0.8766987447698745
+Tetranectin,TimePoint,20,"1.97, 35.44",,0.066,0.141,0.3676129032258065
+Apolipoprotein(a),TimePoint:Group,20,"1.77, 31.89",0.65,0.51,0.035,0.8330219435736678
+Apolipoprotein(a),Group,20,"1, 18",,0.003,0.387,0.02252173913043478
+Apolipoprotein(a),TimePoint,20,"1.77, 31.89",1.82,0.181,0.092,0.5682303030303031
+Alpha-2-antiplasmin,TimePoint:Group,20,"1.96, 35.23",0.33,0.719,0.018,0.8972057416267941
+Alpha-2-antiplasmin,Group,20,"1, 18",0.71,0.41,0.038,0.5603693931398417
+Alpha-2-antiplasmin,TimePoint,20,"1.96, 35.23",,0.016,0.208,0.23679999999999998
+Retroviral-like aspartic protease 1,TimePoint:Group,20,"1.54, 27.69",0.4,0.619,0.022,0.8665999999999999
+Retroviral-like aspartic protease 1,Group,20,"1, 18",,0.05,0.197,0.1423076923076923
+Retroviral-like aspartic protease 1,TimePoint,20,"1.54, 27.69",0.45,0.591,0.024,0.8048923076923076
+Ficolin-3,TimePoint:Group,20,"1.69, 30.44",0.19,0.79,0.011,0.9216666666666667
+Ficolin-3,Group,20,"1, 18",,0.004,0.373,0.0259
+Ficolin-3,TimePoint,20,"1.69, 30.44",0.68,0.489,0.037,0.7668277945619335
+Immunoglobulin kappa variable 2-24,TimePoint:Group,20,"1.64, 29.50",1.15,0.321,0.06,0.8057777777777778
+Immunoglobulin kappa variable 2-24,Group,20,"1, 18",2.47,0.134,0.12,0.27008560311284047
+Immunoglobulin kappa variable 2-24,TimePoint,20,"1.64, 29.50",1.15,0.322,0.06,0.7035826771653543
+Immunoglobulin superfamily containing leucine-rich repeat protein,TimePoint:Group,20,"1.81, 32.56",1.57,0.224,0.08,0.8057777777777778
+Immunoglobulin superfamily containing leucine-rich repeat protein,Group,20,"1, 18",,0.01,0.315,0.04886792452830189
+Immunoglobulin superfamily containing leucine-rich repeat protein,TimePoint,20,"1.81, 32.56",,0.098,0.124,0.43459322033898307
+Complement factor D,TimePoint:Group,20,"1.98, 35.70",1.27,0.293,0.066,0.8057777777777778
+Complement factor D,Group,20,"1, 18",,0.004,0.384,0.0259
+Complement factor D,TimePoint,20,"1.98, 35.70",1.34,0.275,0.069,0.6622831050228312
+Vitamin K-dependent protein Z,TimePoint:Group,20,"1.66, 29.91",0.43,0.615,0.024,0.8656793478260869
+Vitamin K-dependent protein Z,Group,20,"1, 18",,0.042,0.211,0.12432000000000001
+Vitamin K-dependent protein Z,TimePoint,20,"1.66, 29.91",1.71,0.202,0.087,0.5974659090909091
+EGF-containing fibulin-like extracellular matrix protein 1,TimePoint:Group,20,"1.59, 28.57",1.01,0.36,0.053,0.8057777777777778
+EGF-containing fibulin-like extracellular matrix protein 1,Group,20,"1, 18",,0.004,0.378,0.0259
+EGF-containing fibulin-like extracellular matrix protein 1,TimePoint,20,"1.59, 28.57",1.91,0.172,0.096,0.5531728395061728
+Dipeptidase 2,TimePoint:Group,20,"1.84, 33.13",1.52,0.234,0.078,0.8057777777777778
+Dipeptidase 2,Group,20,"1, 18",,0.021,0.263,0.08367692307692308
+Dipeptidase 2,TimePoint,20,"1.84, 33.13",1.61,0.215,0.082,0.6066417112299465
+Myeloblastin,TimePoint:Group,20,"1.43, 25.82",0.11,0.825,0.006,0.9461084598698482
+Myeloblastin,Group,20,"1, 18",,0.069,0.172,0.1686511627906977
+Myeloblastin,TimePoint,20,"1.43, 25.82",0.53,0.535,0.029,0.7841944444444444
+Neurogenic locus notch homolog protein 1,TimePoint:Group,20,"1.92, 34.62",1.08,0.348,0.057,0.8057777777777778
+Neurogenic locus notch homolog protein 1,Group,20,"1, 18",,0.001,0.674,0.010791666666666668
+Neurogenic locus notch homolog protein 1,TimePoint,20,"1.92, 34.62",0.72,0.49,0.038,0.7668277945619335
+Vitamin K-dependent protein S,TimePoint:Group,20,"1.52, 27.37",0.17,0.786,0.009,0.9214085778781039
+Vitamin K-dependent protein S,Group,20,"1, 18",,0.051,0.195,0.14279999999999998
+Vitamin K-dependent protein S,TimePoint,20,"1.52, 27.37",2.08,0.153,0.104,0.5318133333333334
+Dermcidin,TimePoint:Group,20,"1.56, 28.00",0.53,0.551,0.029,0.8499367816091954
+Dermcidin,Group,20,"1, 18",0.63,0.437,0.034,0.5819177377892031
+Dermcidin,TimePoint,20,"1.56, 28.00",0.64,0.497,0.034,0.7701238938053097
+Immunoglobulin heavy variable 3-73,TimePoint:Group,20,"1.99, 35.77",0.75,0.477,0.04,0.8268076923076922
+Immunoglobulin heavy variable 3-73,Group,20,"1, 18",,0.004,0.382,0.0259
+Immunoglobulin heavy variable 3-73,TimePoint,20,"1.99, 35.77",0.14,0.867,0.008,0.922422131147541
+Alpha-2-macroglobulin,TimePoint:Group,20,"1.97, 35.41",0.59,0.554,0.032,0.8499367816091954
+Alpha-2-macroglobulin,Group,20,"1, 18",0.18,0.673,0.01,0.7834022471910114
+Alpha-2-macroglobulin,TimePoint,20,"1.97, 35.41",0.25,0.776,0.014,0.8945198237885462
+Cation-independent mannose-6-phosphate receptor,TimePoint:Group,20,"1.86, 33.44",1.32,0.278,0.069,0.8057777777777778
+Cation-independent mannose-6-phosphate receptor,Group,20,"1, 18",,0.001,0.522,0.010791666666666668
+Cation-independent mannose-6-phosphate receptor,TimePoint,20,"1.86, 33.44",0.15,0.851,0.008,0.9164615384615384
+Chromodomain-helicase-DNA-binding protein 1;Chromodomain-helicase-DNA-binding protein 2;Chromodomain-helicase-DNA-binding protein 9;Chromodomain-helicase-DNA-binding protein 6;Chromodomain-helicase-DNA-binding protein 8;Chromodomain-helicase-DNA-binding protein 7,TimePoint:Group,20,"1.75, 31.44",1.12,0.332,0.059,0.8057777777777778
+Chromodomain-helicase-DNA-binding protein 1;Chromodomain-helicase-DNA-binding protein 2;Chromodomain-helicase-DNA-binding protein 9;Chromodomain-helicase-DNA-binding protein 6;Chromodomain-helicase-DNA-binding protein 8;Chromodomain-helicase-DNA-binding protein 7,Group,20,"1, 18",,0.061,0.181,0.15958585858585858
+Chromodomain-helicase-DNA-binding protein 1;Chromodomain-helicase-DNA-binding protein 2;Chromodomain-helicase-DNA-binding protein 9;Chromodomain-helicase-DNA-binding protein 6;Chromodomain-helicase-DNA-binding protein 8;Chromodomain-helicase-DNA-binding protein 7,TimePoint,20,"1.75, 31.44",0.14,0.842,0.008,0.9162125
+Ceruloplasmin,TimePoint:Group,20,"1.82, 32.83",0.54,0.571,0.029,0.8499367816091954
+Ceruloplasmin,Group,20,"1, 18",0.79,0.387,0.042,0.5432682926829269
+Ceruloplasmin,TimePoint,20,"1.82, 32.83",,0.081,0.134,0.4073592233009709
+Prostaglandin-H2 D-isomerase,TimePoint:Group,20,"1.67, 30.05",,0.083,0.136,0.8057777777777778
+Prostaglandin-H2 D-isomerase,Group,20,"1, 18",,0.001,0.571,0.010791666666666668
+Prostaglandin-H2 D-isomerase,TimePoint,20,"1.67, 30.05",,0.001,0.356,0.0518
+Protein S100-A9,TimePoint:Group,20,"1.26, 22.71",1.61,0.221,0.082,0.8057777777777778
+Protein S100-A9,Group,20,"1, 18",,0.063,0.18,0.16155445544554456
+Protein S100-A9,TimePoint,20,"1.26, 22.71",1.64,0.217,0.084,0.6066417112299465
+Immunoglobulin J chain,TimePoint:Group,20,"1.66, 29.85",0.23,0.758,0.012,0.9067990762124711
+Immunoglobulin J chain,Group,20,"1, 18",0.19,0.671,0.01,0.7834022471910114
+Immunoglobulin J chain,TimePoint,20,"1.66, 29.85",0.26,0.733,0.014,0.8809605568445475
