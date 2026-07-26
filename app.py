@@ -6,7 +6,7 @@ import streamlit as st
 from figures.figure3 import render_figure3, load_fig3_results
 from figures.figure4 import render_figure4, load_fig4_results
 
-# --- 1. STREAMLIT PAGE CONFIGURATION (WIDE & OPEN) ---
+# --- 1. STREAMLIT PAGE CONFIGURATION ---
 st.set_page_config(
     page_title="GLYMREG EV Study Dashboard",
     page_icon="🧬",
@@ -14,23 +14,30 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for compact header, full-width fluid layout, and readable tables
+# Custom CSS for ultra-compact spacing, full-width tables, and clean layout
 st.markdown("""
 <style>
-    /* Reduce top whitespace and header size */
+    /* Maximize container width and remove dead whitespace */
     .block-container {
-        padding-top: 1.5rem;
+        padding-top: 1rem;
         padding-bottom: 2rem;
-        max-width: 98%;
+        max-width: 98% !important;
     }
     h1 {
-        font-size: 1.8rem !important;
-        margin-bottom: 0px !important;
+        font-size: 1.6rem !important;
+        margin-bottom: -5px !important;
     }
-    p {
-        font-size: 0.95rem;
+    .stCaption {
+        margin-bottom: 0.5rem !important;
     }
-    /* Style download button for single-click instant download */
+    /* Force tables to stretch wide and avoid horizontal scrolling */
+    div[data-testid="stDataFrame"] {
+        width: 100% !important;
+    }
+    div[data-testid="stDataFrame"] > div {
+        width: 100% !important;
+    }
+    /* Style download button for instant 1-click export */
     .stDownloadButton button {
         background-color: #28a745 !important;
         color: white !important;
@@ -43,10 +50,15 @@ st.markdown("""
 # Compact Title Banner
 st.title("🧬 GLYMREG Extracellular Vesicle Study")
 st.caption("Interactive Manuscript Dashboard & Statistical Summary")
-st.markdown("---")
 
-# --- 2. SIDEBAR NAVIGATION ---
+# --- 2. SIDEBAR NAVIGATION & REVIEWER GUIDANCE ---
 st.sidebar.header("📌 Navigation")
+
+# Helpful guidance for reviewers unfamiliar with Streamlit's collapsible sidebar
+st.sidebar.info(
+    "💡 **Tip for Reviewers:** Click the **`>`** or **`<<`** icon at the top-left of the sidebar to hide this menu and expand the dashboard to full screen."
+)
+
 selected_figure = st.sidebar.radio(
     "Select Figure:",
     [
