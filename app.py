@@ -3,6 +3,7 @@ import pandas as pd
 import streamlit as st
 
 # Import figure modules from your figures folder
+from figures.figure2 import render_figure2, load_fig2_results
 from figures.figure3 import render_figure3, load_fig3_results
 from figures.figure4 import render_figure4, load_fig4_results
 
@@ -51,9 +52,9 @@ selected_figure = st.sidebar.radio(
     "Select Figure:",
     [
         "Figure 1: Baseline Characteristics",
-        "Figure 2: Global Proteomic Profiling",
-        "Figure 3: Discovery Proteomics (518 Panel)",
-        "Figure 4: Targeted Cytokine Validation"
+        "Figure 2: Extracellular Vesicles (Concentration, Size & Correlation)",
+        "Figure 3: Proteomics (518 Panel)",
+        "Figure 4: Cytokine Analysis"
     ],
     index=2
 )
@@ -65,20 +66,38 @@ if selected_figure == "Figure 1: Baseline Characteristics":
     st.header("Figure 1: Participant Baseline Characteristics")
     st.info("Figure 1 module is queued for upload.")
 
-elif selected_figure == "Figure 2: Global Proteomic Profiling":
-    st.header("Figure 2: Global Proteomic Profiling")
-    st.info("Figure 2 module is queued for upload.")
+elif selected_figure == "Figure 2: Extracellular Vesicles (Concentration, Size & Correlation)":
+    render_figure2()
 
-elif selected_figure == "Figure 3: Discovery Proteomics (518 Panel)":
+elif selected_figure == "Figure 3: Proteomics (518 Panel)":
     render_figure3()
 
-elif selected_figure == "Figure 4: Targeted Cytokine Validation":
+elif selected_figure == "Figure 4: Cytokine Analysis":
     render_figure4()
 
 # --- 4. ONE-CLICK INSTANT EXPORT HANDLER ---
 st.sidebar.header("📥 Export Statistical Reports")
 
-if selected_figure == "Figure 3: Discovery Proteomics (518 Panel)":
+if selected_figure == "Figure 2: Extracellular Vesicles (Concentration, Size & Correlation)":
+    ancova_df, posthoc_df, corr_overall, corr_sex, long_df = load_fig2_results()
+    
+    out_name = "Figure2_EV_Full_Stats_Report.xlsx"
+    with pd.ExcelWriter(out_name, engine='openpyxl') as writer:
+        ancova_df.to_excel(writer, sheet_name='RM_ANCOVA_Stats', index=False)
+        posthoc_df.to_excel(writer, sheet_name='PostHoc_Contrasts', index=False)
+        corr_overall.to_excel(writer, sheet_name='Correlation_Overall', index=False)
+        corr_sex.to_excel(writer, sheet_name='Correlation_Sex', index=False)
+        long_df.to_excel(writer, sheet_name='Raw_Data', index=False)
+    
+    with open(out_name, "rb") as f:
+        st.sidebar.download_button(
+            label="📥 Download Figure 2 Report (.xlsx)",
+            data=f,
+            file_name=out_name,
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        )
+
+elif selected_figure == "Figure 3: Proteomics (518 Panel)":
     ancova_df, posthoc_df, pca_scores_df, perm_df, long_df, _ = load_fig3_results()
     
     out_name = "Figure3_Proteomics_Full_Stats_Report.xlsx"
@@ -97,7 +116,7 @@ if selected_figure == "Figure 3: Discovery Proteomics (518 Panel)":
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         )
 
-elif selected_figure == "Figure 4: Targeted Cytokine Validation":
+elif selected_figure == "Figure 4: Cytokine Analysis":
     ancova_df, posthoc_df, df_emm, fig4_long_df = load_fig4_results()
     
     out_name = "Figure4_Cytokine_Full_Stats_Report.xlsx"
