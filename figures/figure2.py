@@ -13,7 +13,13 @@ warnings.filterwarnings("ignore")
 # --- 1. FAST PRE-COMPUTED DATA LOADER ---
 @st.cache_data
 def load_fig2_results():
-    data_dir = 'results2' if os.path.exists('results2') else '../results2'
+    if os.path.exists('results/fig2_ancova_stats.csv'):
+        data_dir = 'results'
+    elif os.path.exists('../results/fig2_ancova_stats.csv'):
+        data_dir = '../results'
+    else:
+        data_dir = '.'
+        
     ancova_df = pd.read_csv(os.path.join(data_dir, 'fig2_ancova_stats.csv'))
     posthoc_df = pd.read_csv(os.path.join(data_dir, 'fig2_posthoc_contrasts.csv'))
     corr_overall = pd.read_csv(os.path.join(data_dir, 'fig2_corr_overall.csv'))
