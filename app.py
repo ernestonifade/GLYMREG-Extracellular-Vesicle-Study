@@ -3,6 +3,7 @@ import pandas as pd
 import streamlit as st
 
 # Import figure modules from your figures folder
+from figures.figure1 import render_figure1, load_fig1_results
 from figures.figure2 import render_figure2, load_fig2_results
 from figures.figure3 import render_figure3, load_fig3_results
 from figures.figure4 import render_figure4, load_fig4_results
@@ -51,7 +52,7 @@ st.sidebar.header("📌 Navigation")
 selected_figure = st.sidebar.radio(
     "Select Figure:",
     [
-        "Figure 1: Baseline Characteristics",
+        "Figure 1: EV Size Skewness",
         "Figure 2: Extracellular Vesicles (Concentration, Size & Correlation)",
         "Figure 3: Proteomics (518 Panel)",
         "Figure 4: Cytokine Analysis"
@@ -62,9 +63,8 @@ selected_figure = st.sidebar.radio(
 st.sidebar.markdown("---")
 
 # --- 3. PAGE ROUTING & RENDER CALLS ---
-if selected_figure == "Figure 1: Baseline Characteristics":
-    st.header("Figure 1: Participant Baseline Characteristics")
-    st.info("Figure 1 module is queued for upload.")
+if selected_figure == "Figure 1: EV Size Skewness":
+    render_figure1()
 
 elif selected_figure == "Figure 2: Extracellular Vesicles (Concentration, Size & Correlation)":
     render_figure2()
@@ -78,7 +78,23 @@ elif selected_figure == "Figure 4: Cytokine Analysis":
 # --- 4. ONE-CLICK INSTANT EXPORT HANDLER ---
 st.sidebar.header("📥 Export Statistical Reports")
 
-if selected_figure == "Figure 2: Extracellular Vesicles (Concentration, Size & Correlation)":
+if selected_figure == "Figure 1: EV Size Skewness":
+    stats_df, df_all = load_fig1_results()
+    
+    out_name = "Figure1D_EV_Size_Skewness_Data.xlsx"
+    with pd.ExcelWriter(out_name, engine='openpyxl') as writer:
+        stats_df.to_excel(writer, sheet_name='EV_Size_Skewness_Wilcoxon_Stats', index=False)
+        df_all.to_excel(writer, sheet_name='Raw_EV_Data', index=False)
+    
+    with open(out_name, "rb") as f:
+        st.sidebar.download_button(
+            label="📥 Download Figure 1 Report (.xlsx)",
+            data=f,
+            file_name=out_name,
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        )
+
+elif selected_figure == "Figure 2: Extracellular Vesicles (Concentration, Size & Correlation)":
     ancova_df, posthoc_df, corr_overall, corr_sex, long_df = load_fig2_results()
     
     out_name = "Figure2_EV_Full_Stats_Report.xlsx"
