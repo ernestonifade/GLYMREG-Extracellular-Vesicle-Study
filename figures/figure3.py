@@ -44,6 +44,9 @@ def load_results():
     
     return ancova_df, posthoc_df, pca_scores_df, perm_df, long_df, fig3_long_df
 
+# Alias function to satisfy app.py import requirements cleanly
+load_fig3_results = load_results
+
 # --- 2. MANUSCRIPT PCA & PERMANOVA TRIO RENDERER ---
 def confidence_ellipse(x, y, ax, n_std=2.0, **kwargs):
     if x.size == 0 or y.size == 0: return None
