@@ -7,9 +7,16 @@ from matplotlib.lines import Line2D
 import seaborn as sns
 from matplotlib.patches import Ellipse
 import streamlit as st
+import warnings
+warnings.filterwarnings("ignore")
 
+plt.rcParams['path.simplify'] = True
+plt.rcParams['path.simplify_threshold'] = 1.0
+plt.rcParams['agg.path.chunksize'] = 10000
+
+# --- 1. DIRECT PRE-COMPUTED DATA LOADER ---
 @st.cache_data
-def load_fig3_results():
+def load_results():
     if os.path.exists('results/fig3_ancova_stats.csv'):
         data_dir = 'results'
     elif os.path.exists('../results/fig3_ancova_stats.csv'):
@@ -34,8 +41,10 @@ def load_fig3_results():
         value_name='Value'
     )
     long_df = wide_df.copy()
+    
     return ancova_df, posthoc_df, pca_scores_df, perm_df, long_df, fig3_long_df
 
+# --- 2. MANUSCRIPT PCA & PERMANOVA TRIO RENDERER ---
 def confidence_ellipse(x, y, ax, n_std=2.0, **kwargs):
     if x.size == 0 or y.size == 0: return None
     cov = np.cov(x, y)
@@ -74,6 +83,7 @@ def render_pca_trio(pca_scores_df):
             
         ev1 = sub_scores['EV_PC1'].iloc[0]
         ev2 = sub_scores['EV_PC2'].iloc[0]
+        
         present_levels = [lvl for lvl in order if lvl in sub_scores['sex'].values]
         
         for lvl in present_levels:
@@ -120,9 +130,12 @@ def plot_interaction_heatmap_19_proteins(
     effect_term='TimePoint:Group',
     cmap='coolwarm', pseudocount=1e-9,
     figsize_w=3.8, row_height=0.22,
+    title=None,
+    proteins_of_interest=None, poi_color="red", poi_bold=True,
     x_tick_rotation=0
 ):
     mpl.rcParams['svg.fonttype'] = 'none'
+    
     plt.rcParams.update({
         'font.family': 'sans-serif', 'font.sans-serif': ['Arial', 'Helvetica', 'FreeSans', 'DejaVu Sans', 'sans-serif'],
         'font.size': 8, 'font.weight': 'bold',
@@ -193,6 +206,9 @@ def plot_interaction_heatmap_19_proteins(
     ax_top  = fig.add_subplot(gs[0, 0:6], sharex=ax_heat)
     ax_cbar = fig.add_subplot(gs[1, 7])
 
+    if title:
+        fig.suptitle(title, y=0.98, fontweight='bold', fontsize=9)
+
     max_val = np.percentile(np.abs(mat.values), 98)
 
     hm = sns.heatmap(
@@ -211,6 +227,14 @@ def plot_interaction_heatmap_19_proteins(
     for label in ax_heat.get_yticklabels():
         label.set_rotation(0)
         label.set_fontweight('bold')
+
+    if proteins_of_interest:
+        poi = set(map(str, proteins_of_interest))
+        for tick in ax_heat.get_yticklabels():
+            if tick.get_text() in poi:
+                tick.set_color(poi_color)
+                if poi_bold:
+                    tick.set_fontweight("bold")
 
     ax_heat.set_xticks(np.arange(len(mat.columns)) + 0.5)
     ax_heat.set_xticklabels([])
@@ -256,11 +280,13 @@ def plot_interaction_heatmap_19_proteins(
 
 def render_pathway_enrichment_bubble():
     mpl.rcParams['svg.fonttype'] = 'none'
+    
     file_candidates = [
         'data/EV proteins time_sex interaction significant_pathways.xlsx',
         '../data/EV proteins time_sex interaction significant_pathways.xlsx',
         'EV proteins time_sex interaction significant_pathways.xlsx'
     ]
+    
     filepath = None
     for path in file_candidates:
         if os.path.exists(path):
@@ -280,14 +306,33 @@ def render_pathway_enrichment_bubble():
     }
     df = df.rename(columns={k: v for k, v in col_map.items() if k in df.columns})
 
+    if 'FDR' not in df.columns or 'Pathway Name' not in df.columns:
+        st.warning("⚠️ Expected columns ('FDR', 'Pathway Name') missing from pathway file.")
+        return None
+
     df['-log10FDR'] = -np.log10(df['FDR'].astype(float).clip(lower=1e-15))
+
     if 'Fold_Enrichment' not in df.columns:
-        df['Fold_Enrichment'] = 1.5
+        if 'Number of Molecules Enriched' in df.columns and 'Total Molecules in Pathway' in df.columns:
+            if 'Not_Enriched' in df.columns:
+                N_measured = df['Number of Molecules Enriched'].sum() + df['Not_Enriched'].sum()
+            else:
+                enrichment_rate = 0.05
+                N_measured = df['Number of Molecules Enriched'].sum() / enrichment_rate
+            
+            K_enriched = df['Number of Molecules Enriched'].sum()
+            df['Expected_Enriched'] = (df['Total Molecules in Pathway'] / N_measured) * K_enriched
+            df['Fold_Enrichment'] = df['Number of Molecules Enriched'] / df['Expected_Enriched']
+        else:
+            df['Fold_Enrichment'] = 1.5
+
+    if 'Number of Molecules Enriched' not in df.columns:
+        df['Number of Molecules Enriched'] = 3
 
     df = df.sort_values('-log10FDR', ascending=True)
 
     fig, ax = plt.subplots(figsize=(4.2, 4.0))
-    df['PlotSize'] = (df.get('Number of Molecules Enriched', 3) + 1) * 35
+    df['PlotSize'] = (df['Number of Molecules Enriched'] + 1) * 35
     df['PlotSize'] = df['PlotSize'].clip(lower=60, upper=300)
 
     scatter = ax.scatter(
@@ -297,57 +342,212 @@ def render_pathway_enrichment_bubble():
     )
 
     ax.axvline(x=1.0, color='red', linestyle=':', linewidth=1.2, label='Expected', alpha=0.8, zorder=1)
+
+    v_min, v_max = df['-log10FDR'].min(), df['-log10FDR'].max()
+    cmap = plt.cm.viridis
+    norm = plt.Normalize(v_min, v_max)
+    color_vals = np.linspace(v_min, v_max, 3)
+
+    color_handles = [
+        Line2D([0], [0], marker='o', color='w', markerfacecolor=cmap(norm(v)),
+               markersize=6, markeredgecolor='black', label=f"{v:.1f}")
+        for v in color_vals
+    ]
+
+    legend_col = ax.legend(
+        handles=color_handles[::-1], title=r"$\mathbf{-\log_{10}(FDR)}$",
+        bbox_to_anchor=(1.02, 1.0), loc='upper left', frameon=False, labelspacing=1.2, prop={'weight': 'bold', 'size': 6.5}
+    )
+
+    s_min, s_max = int(df['Number of Molecules Enriched'].min()), int(df['Number of Molecules Enriched'].max())
+    size_steps = np.unique(np.linspace(s_min, s_max, 3).astype(int))
+
+    size_handles = []
+    for s in size_steps:
+        plot_size = (s + 1) * 35
+        marker_d = np.sqrt(plot_size)
+        size_handles.append(
+            Line2D([0], [0], marker='o', color='w', markerfacecolor='gray',
+                   markersize=marker_d, markeredgecolor='black', label=str(s))
+        )
+
+    legend_siz = ax.legend(
+        handles=size_handles[::-1], title=r"$\mathbf{Qty. Enriched}$",
+        bbox_to_anchor=(1.02, 0.45), loc='upper left', frameon=False, labelspacing=1.4, prop={'weight': 'bold', 'size': 6.5}
+    )
+
+    ax.add_artist(legend_col)
     ax.set_xlabel('Fold Enrichment\n(>1 = Enriched, <1 = Depleted)', fontweight='bold', fontsize=7.5)
     ax.set_title('Top Enriched Pathways (19 Candidate Proteins)', y=1.03, fontweight='bold', fontsize=8.5)
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.grid(linestyle='--', alpha=0.5, zorder=0)
+    ax.tick_params(axis='both', labelsize=7)
+    plt.setp(ax.get_yticklabels(), fontweight='bold')
+    plt.setp(ax.get_xticklabels(), fontweight='bold')
     return fig
 
-# MAIN MODULE ENTRY POINT
+# --- MAIN RENDER FUNCTION FOR STREAMLIT ---
 def render_figure3():
-    ancova_df, posthoc_df, pca_scores_df, perm_df, long_df, fig3_long_df = load_fig3_results()
+    ancova_df, posthoc_df, pca_scores_df, perm_df, long_df, fig3_long_df = load_results()
 
-    tab1, tab2, tab3, tab4, tab5 = st.tabs([
-        "📊 Figure 3A–C: PCA & PERMANOVA Trio",
-        "🔥 Heatmap: 19 Candidates",
-        "🧬 Pathway Enrichment",
-        "📄 RM-ANCOVA Model Summary",
-        "🔍 Post-Hoc Pairwise Contrasts"
-    ])
+    # Streamlit Selectbox replacing ipywidgets dropdown
+    selected_view = st.selectbox(
+        "Select Section View:",
+        [
+            '📊 Figure 3A–C: PCA & PERMANOVA Trio (Baseline, Post-All, Post-19)',
+            '🔥 Heatmap: Time × Group Interactions (19 Candidates)',
+            '🧬 Pathway Enrichment: Reactome/KEGG Analysis (19 Candidates)',
+            '📄 RM-ANCOVA Model Summary (Main & Interaction Effects)',
+            '🔍 Post-Hoc Pairwise Contrasts (emmeans)'
+        ]
+    )
 
-    with tab1:
-        st.markdown('<div style="background-color: #f8f9fa; border-left: 4px solid #007bff; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 11px; line-height: 1.5; color: #343a40;"><b>Figure 3A–C (Multivariate Profile Discrimination):</b> Side-by-side PCA score plots comparing biological sex clustering.</div>', unsafe_allow_html=True)
+    st.markdown("---")
+
+    if selected_view == '📊 Figure 3A–C: PCA & PERMANOVA Trio (Baseline, Post-All, Post-19)':
+        st.markdown("""
+        <div style="background-color: #f8f9fa; border-left: 4px solid #007bff; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 11px; line-height: 1.5; color: #343a40;">
+            <b>Figure 3A–C (Multivariate Profile Discrimination):</b> Side-by-side PCA score plots comparing biological sex clustering at Baseline (Panel A), Post-Exercise across all proteins (Panel B), and Post-Exercise restricted to the 19 interaction candidates (Panel C). Corresponding PERMANOVA Pseudo-<i>F</i> and FDR statistics are summarized below.
+        </div>
+        """, unsafe_allow_html=True)
+        
         fig = render_pca_trio(pca_scores_df)
         st.pyplot(fig)
-        
-        st.markdown("<b>📊 Statistical Summary: PERMANOVA & PC Centroid Separation (Male vs. Female)</b>", unsafe_allow_html=True)
-        st.dataframe(perm_df, use_container_width=True)
 
-    with tab2:
-        st.markdown('<div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 11px; color: #856404;"><b>Figure 3A (Candidate Heatmap):</b> Relative fold change dynamics for 19 candidate proteins meeting nominal significance (<i>p</i><sub>raw</sub> &lt; 0.05).</div>', unsafe_allow_html=True)
-        fig_hm = plot_interaction_heatmap_19_proteins(fig3_long_df, ancova_df)
+        disp_perm = perm_df.copy()
+        if not disp_perm.empty:
+            if 'Centroid Distance (PC1-2)' in disp_perm.columns:
+                disp_perm['Centroid Distance (PC1-2)'] = disp_perm['Centroid Distance (PC1-2)'].round(2)
+            if 'Pseudo-F Statistic' in disp_perm.columns:
+                disp_perm['Pseudo-F Statistic'] = disp_perm['Pseudo-F Statistic'].round(2)
+            if 'p_value_raw' in disp_perm.columns:
+                disp_perm['p_value_raw'] = disp_perm['p_value_raw'].apply(lambda p: f"{p:.4f}" if pd.notnull(p) and p >= 0.0001 else ("< 0.0001" if pd.notnull(p) else "N/A"))
+            if 'p_value_FDR' in disp_perm.columns:
+                disp_perm['p_value_FDR'] = disp_perm['p_value_FDR'].apply(lambda p: f"{p:.4f}" if pd.notnull(p) and p >= 0.0001 else ("< 0.0001" if pd.notnull(p) else "N/A"))
+            
+            st.markdown("<b>📊 Statistical Summary: PERMANOVA & PC Centroid Separation (Male vs. Female)</b>", unsafe_allow_html=True)
+            st.dataframe(disp_perm, use_container_width=True)
+
+    elif selected_view == '🔥 Heatmap: Time × Group Interactions (19 Candidates)':
+        st.markdown("""
+        <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 11px; color: #856404;">
+            <b>Figure 3A (Candidate Heatmap):</b> Relative fold change dynamics for 19 candidate proteins meeting nominal significance (<i>p</i><sub>raw</sub> &lt; 0.05) for Time × Group interaction across recovery.
+        </div>
+        """, unsafe_allow_html=True)
+
+        fig_hm = plot_interaction_heatmap_19_proteins(
+            long_df=fig3_long_df,
+            full_anova_results=ancova_df,
+            id_col='Subject_ID', sex_col='sex', time_col='time', prot_col='Protein', value_col='Value',
+            time_order=('baseline', '3min', '1hr', '2hrs'),
+            time_display={'3min': '3min', '1hr': '1hr', '2hrs': '2hrs'},
+            sex_order=('M', 'F'),
+            use_p_col='p_value_raw', alpha=0.05,
+            effect_term='TimePoint:Group',
+            title=None
+        )
         st.pyplot(fig_hm)
 
-    with tab3:
-        st.markdown('<div style="background-color: #e2e3e5; border-left: 4px solid #383d41; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 11px; color: #383d41;"><b>Figure 3B (Pathway Enrichment):</b> Over-Representation Analysis mapping 19 candidate interaction proteins to functional Reactome/KEGG biological networks.</div>', unsafe_allow_html=True)
+    elif selected_view == '🧬 Pathway Enrichment: Reactome/KEGG Analysis (19 Candidates)':
+        st.markdown("""
+        <div style="background-color: #e2e3e5; border-left: 4px solid #383d41; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 11px; color: #383d41;">
+            <b>Figure 3B (Pathway Enrichment):</b> Over-Representation Analysis mapping 19 candidate interaction proteins to functional Reactome/KEGG biological networks.
+        </div>
+        """, unsafe_allow_html=True)
+
         fig_path = render_pathway_enrichment_bubble()
         if fig_path:
             st.pyplot(fig_path)
 
-    with tab4:
-        st.markdown('<div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 12px; line-height: 1.5; color: #856404;"><b>📄 Reviewer Note on Output Alignment:</b> Displaying all nominal significant results (<i>p</i><sub>raw</sub> &lt; 0.05) organized by Model Effect without row truncation.</div>', unsafe_allow_html=True)
+    elif selected_view == '📄 RM-ANCOVA Model Summary (Main & Interaction Effects)':
+        st.markdown("""
+        <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 12px; line-height: 1.5; color: #856404;">
+            <b>📄 Reviewer Note on Output Alignment:</b> Displaying all nominal significant results (<i>p</i><sub>raw</sub> &lt; 0.05) organized by Model Effect without row truncation.
+            To inspect the primary <b>Jamovi statistical report</b>: 
+            <a href="https://github.com/ernestonifade/GLYMREG-Extracellular-Vesicle-Study/raw/main/data/Jamovi_Statistical_Report_Figure3.pdf" target="_blank" style="color: #533f03; font-weight: bold; text-decoration: underline;">
+                Download Jamovi PDF (GitHub) ↗
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
+        
         df_ancova_fmt = ancova_df.copy()
         if not df_ancova_fmt.empty:
-            df_ancova_fmt['F_statistic'] = pd.to_numeric(df_ancova_fmt['F_statistic'], errors='coerce').round(2)
-            df_ancova_fmt['Partial_Eta_Squared'] = pd.to_numeric(df_ancova_fmt['Partial_Eta_Squared'], errors='coerce').round(3)
-        st.dataframe(df_ancova_fmt[df_ancova_fmt['p_value_raw'] < 0.05], use_container_width=True)
+            df_ancova_fmt['F_statistic'] = df_ancova_fmt['F_statistic'].round(2)
+            df_ancova_fmt['Partial_Eta_Squared'] = df_ancova_fmt['Partial_Eta_Squared'].round(3)
+            df_ancova_fmt['p_value_raw_fmt'] = df_ancova_fmt['p_value_raw'].apply(lambda p: f"{p:.4f}" if pd.notnull(p) and p >= 0.0001 else ("< 0.0001" if pd.notnull(p) else "N/A"))
+            df_ancova_fmt['p_value_FDR_fmt'] = df_ancova_fmt['p_value_FDR'].apply(lambda p: f"{p:.4f}" if pd.notnull(p) and p >= 0.0001 else ("< 0.0001" if pd.notnull(p) else "N/A"))
 
-    with tab5:
-        st.markdown('<h4>Post-Hoc Pairwise Contrasts (emmeans)</h4>', unsafe_allow_html=True)
+        effect_map = [
+            ('TimePoint:Group', '1. Time × Group Interaction Effects (p_raw < 0.05)'),
+            ('Group', '2. Group / Sex Main Effects (p_raw < 0.05)'),
+            ('TimePoint', '3. Time Main Effects (p_raw < 0.05)')
+        ]
+
+        cols_to_show = [
+            'Protein', 'Effect', 'N', 'num_df', 'den_df', 
+            'F_statistic', 'p_value_raw_fmt', 'p_value_FDR_fmt', 
+            'Partial_Eta_Squared', 'Significant_FDR'
+        ]
+        rename_dict = {'p_value_raw_fmt': 'p_value_raw', 'p_value_FDR_fmt': 'p_value_FDR'}
+
+        for eff_key, eff_title in effect_map:
+            sub = df_ancova_fmt[(df_ancova_fmt['Effect'].str.contains(eff_key, case=False, na=False)) & 
+                                (df_ancova_fmt['p_value_raw'] < 0.05)].sort_values('p_value_raw')
+            
+            st.markdown(f'<h4 style="margin-top:22px; margin-bottom:6px; color:#2c3e50;">{eff_title}</h4>', unsafe_allow_html=True)
+            if not sub.empty:
+                st.dataframe(sub[cols_to_show].rename(columns=rename_dict), use_container_width=True)
+            else:
+                st.markdown('<p style="font-size:11px; color:#7f8c8d; font-style:italic;">No proteins met nominal significance (p_raw &lt; 0.05) for this effect.</p>', unsafe_allow_html=True)
+
+        ancova_note = """
+        <div style="background-color: #f8f9fa; border-left: 4px solid #007bff; padding: 14px; margin-top: 25px; border-radius: 4px; font-size: 12px; line-height: 1.6; color: #212529;">
+            <b>📊 Notes on ANCOVA Model Terms & Column Layout:</b><br>
+            • <b>Tables Filtered:</b> Showing all proteins meeting nominal significance (<i>p</i><sub>raw</sub> &lt; 0.05) with full expansion.<br>
+            • <b>Side-by-Side Statistics:</b> <code>p_value_raw</code> (uncorrected ANOVA <i>p</i>) and <code>p_value_FDR</code> (Benjamini-Hochberg adjusted).<br>
+            • <b>Partial_Eta_Squared (η<sub>p</sub>²):</b> Effect size estimate (Small ≈ 0.01, Medium ≈ 0.06, Large ≥ 0.14).
+        </div>
+        """
+        st.markdown(ancova_note, unsafe_allow_html=True)
+
+    elif selected_view == '🔍 Post-Hoc Pairwise Contrasts (emmeans)':
         df_ph_fmt = posthoc_df.copy()
         if not df_ph_fmt.empty:
             for col in ['estimate', 'std_error', 'df', 't_ratio']:
                 if col in df_ph_fmt.columns:
                     df_ph_fmt[col] = pd.to_numeric(df_ph_fmt[col], errors='coerce').round(3)
-        st.dataframe(df_ph_fmt[df_ph_fmt['p_value_raw'] < 0.05], use_container_width=True)
+            
+            df_ph_fmt['p_value_raw_fmt'] = df_ph_fmt['p_value_raw'].apply(lambda p: f"{p:.4f}" if pd.notnull(p) and p >= 0.0001 else ("< 0.0001" if pd.notnull(p) else "N/A"))
+            df_ph_fmt['p_value_FDR_fmt'] = df_ph_fmt['p_value_FDR'].apply(lambda p: f"{p:.4f}" if pd.notnull(p) and p >= 0.0001 else ("< 0.0001" if pd.notnull(p) else "N/A"))
+
+        ph_cols = ['Protein', 'contrast', 'TimePoint', 'Group', 'estimate', 'std_error', 'df', 't_ratio', 'p_value_raw_fmt', 'p_value_FDR_fmt']
+        ph_rename = {'p_value_raw_fmt': 'p_value_raw', 'p_value_FDR_fmt': 'p_value_FDR'}
+        existing_cols = [c for c in ph_cols if c in df_ph_fmt.columns]
+
+        between_sub = df_ph_fmt[(df_ph_fmt['contrast'].str.contains('Male|Female|22°C|8°C', case=False, na=False)) & 
+                                (df_ph_fmt['p_value_raw'] < 0.05)].sort_values('p_value_raw')
+        
+        st.markdown('<h4 style="margin-top:15px; margin-bottom:6px; color:#2c3e50;">1. Between-Group Pairwise Contrasts (Male vs. Female by TimePoint)</h4>', unsafe_allow_html=True)
+        if not between_sub.empty:
+            st.dataframe(between_sub[existing_cols].rename(columns=ph_rename), use_container_width=True)
+        else:
+            st.markdown('<p style="font-size:11px; color:#7f8c8d; font-style:italic;">No between-group contrasts met nominal significance (p_raw &lt; 0.05).</p>', unsafe_allow_html=True)
+
+        within_sub = df_ph_fmt[(~df_ph_fmt['contrast'].str.contains('Male|Female|22°C|8°C', case=False, na=False)) & 
+                               (df_ph_fmt['p_value_raw'] < 0.05)].sort_values('p_value_raw')
+        
+        st.markdown('<h4 style="margin-top:25px; margin-bottom:6px; color:#2c3e50;">2. Within-Group Pairwise Contrasts (Recovery Time Shifting)</h4>', unsafe_allow_html=True)
+        if not within_sub.empty:
+            st.dataframe(within_sub[existing_cols].rename(columns=ph_rename), use_container_width=True)
+        else:
+            st.markdown('<p style="font-size:11px; color:#7f8c8d; font-style:italic;">No within-group contrasts met nominal significance (p_raw &lt; 0.05).</p>', unsafe_allow_html=True)
+
+        posthoc_note = """
+        <div style="background-color: #f8f9fa; border-left: 4px solid #28a745; padding: 14px; margin-top: 25px; border-radius: 4px; font-size: 12px; line-height: 1.6; color: #212529;">
+            <b>📊 Notes on Pairwise Contrasts & Column Layout:</b><br>
+            • <b>estimate:</b> Difference in Baseline-Adjusted Estimated Marginal Means (EMMs).<br>
+            • <b>t_ratio & std_error:</b> Test statistic and standard error for the specified contrast.
+        </div>
+        """
+        st.markdown(posthoc_note, unsafe_allow_html=True)
