@@ -156,7 +156,7 @@ elif selected_figure == "Figure 4: Cytokine Analysis":
         )
 
 elif selected_figure == "Figure 5: Protein vs Cytokine vs Blood Correlation":
-    data = load_figure5_data()
+    data = load_fig5_results()
     
     out_name = "Figure5_MultiModal_Integration_Report.xlsx"
     with pd.ExcelWriter(out_name, engine='openpyxl') as writer:
