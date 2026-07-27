@@ -7,6 +7,7 @@ from figures.figure1 import render_figure1, load_fig1_results
 from figures.figure2 import render_figure2, load_fig2_results
 from figures.figure3 import render_figure3, load_fig3_results
 from figures.figure4 import render_figure4, load_fig4_results
+from figures.figure5 import render_figure5, load_fig5_results
 
 # --- 1. STREAMLIT PAGE CONFIGURATION (WIDE & OPEN) ---
 st.set_page_config(
@@ -56,6 +57,7 @@ selected_figure = st.sidebar.radio(
         "Figure 2: Extracellular Vesicles (Concentration, Size & Correlation)",
         "Figure 3: Proteomics (518 Panel)",
         "Figure 4: Cytokine Analysis"
+        "Figure 5: Protein vs Cytokine vs Blood Correlation"
     ],
     index=2
 )
@@ -74,6 +76,9 @@ elif selected_figure == "Figure 3: Proteomics (518 Panel)":
 
 elif selected_figure == "Figure 4: Cytokine Analysis":
     render_figure4()
+
+elif selected_figure == "Figure 5: Protein vs Cytokine vs Blood Correlation":
+    render_figure5()
 
 # --- 4. ONE-CLICK INSTANT EXPORT HANDLER ---
 st.sidebar.header("📥 Export Statistical Reports")
@@ -145,6 +150,32 @@ elif selected_figure == "Figure 4: Cytokine Analysis":
     with open(out_name, "rb") as f:
         st.sidebar.download_button(
             label="📥 Download Figure 4 Report (.xlsx)",
+            data=f,
+            file_name=out_name,
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        )
+
+elif selected_figure == "Figure 5: Protein vs Cytokine vs Blood Correlation":
+    data = load_figure5_data()
+    
+    out_name = "Figure5_MultiModal_Integration_Report.xlsx"
+    with pd.ExcelWriter(out_name, engine='openpyxl') as writer:
+        if not data['cyto_rm'].empty:
+            data['cyto_rm'].to_excel(writer, sheet_name='Cyto_Protein_RM_Corr', index=False)
+        if not data['blood_rm'].empty:
+            data['blood_rm'].to_excel(writer, sheet_name='Blood_Protein_RM_Corr', index=False)
+        if not data['cyto_baseline'].empty:
+            data['cyto_baseline'].to_excel(writer, sheet_name='Cyto_Protein_Baseline', index=False)
+        if not data['cyto_delta'].empty:
+            data['cyto_delta'].to_excel(writer, sheet_name='Cyto_Protein_Delta_Windows', index=False)
+        if not data['blood_baseline'].empty:
+            data['blood_baseline'].to_excel(writer, sheet_name='Blood_Protein_Baseline', index=False)
+        if not data['blood_delta'].empty:
+            data['blood_delta'].to_excel(writer, sheet_name='Blood_Protein_Delta_Windows', index=False)
+    
+    with open(out_name, "rb") as f:
+        st.sidebar.download_button(
+            label="📥 Download Figure 5 Report (.xlsx)",
             data=f,
             file_name=out_name,
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
