@@ -474,7 +474,17 @@ def render_figure3():
         </div>
         """, unsafe_allow_html=True)
         
+        # --- SEARCH BAR INTEGRATION ---
+        search_query = st.text_input("🔍 Search Protein / Cytokine Name:", "").strip()
+        
         df_ancova_fmt = ancova_df.copy()
+        
+        # Filter dataframe globally if search query is entered
+        if search_query:
+            col_name = 'Protein' if 'Protein' in df_ancova_fmt.columns else ('Cytokine' if 'Cytokine' in df_ancova_fmt.columns else None)
+            if col_name:
+                df_ancova_fmt = df_ancova_fmt[df_ancova_fmt[col_name].astype(str).str.contains(search_query, case=False, na=False)]
+        
         if not df_ancova_fmt.empty:
             df_ancova_fmt['F_statistic'] = df_ancova_fmt['F_statistic'].round(2)
             df_ancova_fmt['Partial_Eta_Squared'] = df_ancova_fmt['Partial_Eta_Squared'].round(3)
