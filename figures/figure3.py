@@ -526,14 +526,14 @@ def render_figure3():
 
     elif selected_view == '🔍 Post-Hoc Pairwise Contrasts (emmeans)':
 
-        search_query = st.text_input("🔍 Search Protein / Cytokine Name:", key="unique_ancova_search_input").strip()
+        search_query = st.text_input("🔍 Search Protein / Cytokine Name:", key="posthoc_search_bar").strip()
         
         df_ph_fmt = posthoc_df.copy()
         
         if search_query:
-            col_name = 'Protein' if 'Protein' in df_ancova_fmt.columns else ('Cytokine' if 'Cytokine' in df_ancova_fmt.columns else None)
+            col_name = 'Protein' if 'Protein' in df_ph_fmt.columns else ('Cytokine' if 'Cytokine' in df_ph_fmt.columns else None)
             if col_name:
-                df_ancova_fmt = df_ancova_fmt[df_ancova_fmt[col_name].astype(str).str.contains(search_query, case=False, na=False)]
+                df_ph_fmt = df_ph_fmt[df_ph_fmt[col_name].astype(str).str.contains(search_query, case=False, na=False)]
         
         if not df_ph_fmt.empty:
             for col in ['estimate', 'std_error', 'df', 't_ratio']:
