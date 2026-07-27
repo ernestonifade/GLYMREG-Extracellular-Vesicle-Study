@@ -475,7 +475,7 @@ def render_figure3():
         """, unsafe_allow_html=True)
         
         # --- SEARCH BAR INTEGRATION ---
-        search_query = st.text_input("🔍 Search Protein / Cytokine Name:", "").strip()
+        search_query = st.text_input("🔍 Search Protein / Cytokine Name:", key="unique_ancova_search_input").strip()
         
         df_ancova_fmt = ancova_df.copy()
         
