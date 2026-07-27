@@ -56,7 +56,7 @@ selected_figure = st.sidebar.radio(
         "Figure 1: EV Size Skewness",
         "Figure 2: Extracellular Vesicles (Concentration, Size & Correlation)",
         "Figure 3: Proteomics (518 Panel)",
-        "Figure 4: Cytokine Analysis"
+        "Figure 4: Cytokine Analysis",
         "Figure 5: Protein vs Cytokine vs Blood Correlation"
     ],
     index=2
