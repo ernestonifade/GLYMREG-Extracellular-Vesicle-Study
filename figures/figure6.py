@@ -274,7 +274,7 @@ def render_figure6():
     with tab2:
         # Load raw sample dataset fallback if accessible, else pass empty
         df_dummy = pd.DataFrame()
-        render_correlation_plot(df_dummy)
+        render_correlation_plot()
 
     with tab3:
         render_searchable_table(data['cyto_blood_rm'], "Cytokines vs. Blood Cells")
