@@ -111,17 +111,42 @@ def render_clustermap(df_source, title_text, xlabel, ylabel):
     st.pyplot(g.fig)
     plt.close(g.fig)
 
-def render_correlation_plot(df):
+def render_correlation_plot():
     st.subheader("Temporal Correlation: EV Size vs. Histone H2A")
-    if df.empty:
-        st.warning("⚠️ Master dataframe unavailable for individual correlation plot.")
+    
+    # Load the raw longitudinal window data to reconstruct subject trajectories
+    try:
+        all_windows = []
+        for w_key in ['df1', 'df2', 'df3', 'df4']:
+            p_path = os.path.join('results', f"{w_key}_protein.xlsx")
+            v_path = os.path.join('results', f"{w_key}_EVs.xlsx")
+            if os.path.exists(p_path) and os.path.exists(v_path):
+                df_p = pd.read_excel(p_path)
+                df_v = pd.read_excel(v_path)
+                df_p.columns = df_p.columns.str.strip()
+                df_v.columns = df_v.columns.str.strip()
+                
+                meta = pd.DataFrame({
+                    'ID': [f"M{i+1}" for i in range(10)] + [f"F{i+1}" for i in range(10)],
+                    'time': w_key
+                })
+                w_master = pd.concat([meta, df_p, df_v], axis=1)
+                all_windows.append(w_master)
+        
+        if not all_windows:
+            st.warning("⚠️ Raw Excel files for windows df1-df4 could not be located in path for plotting.")
+            return
+            
+        df = pd.concat(all_windows, ignore_index=True)
+    except Exception as e:
+        st.warning(f"⚠️ Could not load raw data for plot: {e}")
         return
 
     target_prot = "P04908;Q7L7L0;Q93077"
     target_ev = "Median Value (nm)"
     
     if target_prot not in df.columns or target_ev not in df.columns:
-        st.info("ℹ️ Specific target columns for Histone H2A / EV Size not found in current view dataset.")
+        st.info("ℹ️ Specific target columns for Histone H2A / EV Size not found in dataset columns.")
         return
 
     df_rm = df[["time", target_prot, target_ev, "ID"]].copy()
@@ -132,10 +157,10 @@ def render_correlation_plot(df):
     p_adj = 0.0436
 
     sns.set_style("ticks")
-    g = pg.plot_rm_corr(data=df_rm, x="P04908_Q7L7L0_Q93077", y="Median_Value_nm", subject="ID")
-    ax = g.ax
-    fig = plt.gcf()
-    fig.set_size_inches(5, 4)
+    fig, ax = plt.subplots(figsize=(5, 4))
+    
+    # Generate Pingouin RM correlation plot onto our explicit matplotlib axis
+    g = pg.plot_rm_corr(data=df_rm, x="P04908_Q7L7L0_Q93077", y="Median_Value_nm", subject="ID", ax=ax)
 
     plt.setp(ax.lines, alpha=0.8, linewidth=1.5)
     plt.setp(ax.collections, edgecolor="black", linewidth=0.5, sizes=[28], alpha=0.8)
@@ -163,7 +188,7 @@ def render_correlation_plot(df):
 
     st.pyplot(fig)
     plt.close(fig)
-
+    
 def render_searchable_table(df_input, title_prefix):
     st.subheader(f"{title_prefix} - Repeated Measures Table")
     if df_input.empty:
