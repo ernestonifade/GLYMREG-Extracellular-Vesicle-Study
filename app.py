@@ -9,6 +9,7 @@ from figures.figure3 import render_figure3, load_fig3_results
 from figures.figure4 import render_figure4, load_fig4_results
 from figures.figure5 import render_figure5, load_fig5_results
 from figures.figure6 import render_figure6, load_fig6_results
+from figures.figure7 import render_figure7, load_fig7_results
 
 # --- 1. STREAMLIT PAGE CONFIGURATION (WIDE & OPEN) ---
 st.set_page_config(
@@ -59,7 +60,8 @@ selected_figure = st.sidebar.radio(
         "Figure 3: Proteomics (518 Panel)",
         "Figure 4: Cytokine Analysis",
         "Figure 5: Protein vs Cytokine vs Blood Correlation",
-        "Figure 6: EV vs Protein, Cytokine vs Blood Correlations"
+        "Figure 6: EV vs Protein, Cytokine vs Blood Correlations",
+        "Figure 7: Pathway Enrichment Protein, Cytokine Correlations"
     ],
     index=2
 )
@@ -84,6 +86,9 @@ elif selected_figure == "Figure 5: Protein vs Cytokine vs Blood Correlation":
 
 elif selected_figure == "Figure 6: EV vs Protein, Cytokine vs Blood Correlations":
     render_figure6()
+
+elif selected_figure == "Figure 7: Pathway Enrichment Protein, Cytokine Correlations":
+    render_figure7()
 
 # --- 4. ONE-CLICK INSTANT EXPORT HANDLER ---
 st.sidebar.header("📥 Export Statistical Reports")
@@ -213,6 +218,38 @@ elif selected_figure == "Figure 6: EV vs Protein, Cytokine vs Blood Correlations
     with open(out_name, "rb") as f:
         st.sidebar.download_button(
             label="📥 Download Figure 6 Report (.xlsx)",
+            data=f,
+            file_name=out_name,
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        )
+        
+elif selected_figure == "Figure 7: Pathway Enrichment Protein, Cytokine Correlations":
+    data = load_fig7_results() if 'load_fig7_results' in globals() else {}
+    
+    out_name = "Figure7_Pathway_Enrichment_Report.xlsx"
+    with pd.ExcelWriter(out_name, engine='openpyxl') as writer:
+        prot_path = find_pathway_file([
+            'data/Prot_corr_significant_pathways.xlsx',
+            '../data/Prot_corr_significant_pathways.xlsx',
+            'Prot_corr_significant_pathways.xlsx'
+        ])
+        cyt_path = find_pathway_file([
+            'data/Cyt_corr_significant_pathways.xlsx',
+            '../data/Cyt_corr_significant_pathways.xlsx',
+            'Cyt_corr_significant_pathways.xlsx'
+        ])
+        
+        if prot_path and os.path.exists(prot_path):
+            df_prot = pd.read_excel(prot_path)
+            df_prot.to_excel(writer, sheet_name='Protein_Pathways', index=False)
+            
+        if cyt_path and os.path.exists(cyt_path):
+            df_cyt = pd.read_excel(cyt_path)
+            df_cyt.to_excel(writer, sheet_name='Cytokine_Pathways', index=False)
+            
+    with open(out_name, "rb") as f:
+        st.sidebar.download_button(
+            label="📥 Download Figure 7 Report (.xlsx)",
             data=f,
             file_name=out_name,
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
