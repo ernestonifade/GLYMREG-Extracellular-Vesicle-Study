@@ -141,7 +141,7 @@ def render_correlation_plot(data_dict):
         st.warning(f"⚠️ Error loading data for correlation plot: {e}")
         return
 
-    target_prot = "P04908;Q7L7L0;Q93077"
+    target_prot = "Histone H2B type 1-K;Histone H2B type F-S"
     target_ev = "Median Value (nm)"
     
     if target_prot not in df.columns or target_ev not in df.columns:
@@ -164,11 +164,11 @@ def render_correlation_plot(data_dict):
         })
 
     df_rm = df[["time", target_prot, target_ev, "ID"]].copy()
-    df_rm = df_rm.rename(columns={target_ev: "Median_Value_nm", target_prot: "P04908_Q7L7L0_Q93077"})
-    df_rm = df_rm.dropna(subset=["P04908_Q7L7L0_Q93077", "Median_Value_nm"])
+    df_rm = df_rm.rename(columns={target_ev: "Median_Value_nm", target_prot: "Histone H2B type 1-K;Histone H2B type F-S"})
+    df_rm = df_rm.dropna(subset=["Histone H2B type 1-K;Histone H2B type F-S", "Median_Value_nm"])
 
     # Run stats
-    rm_results = pg.rm_corr(data=df_rm, x="P04908_Q7L7L0_Q93077", y="Median_Value_nm", subject="ID")
+    rm_results = pg.rm_corr(data=df_rm, x="Histone H2B type 1-K;Histone H2B type F-S", y="Median_Value_nm", subject="ID")
     r_rm = rm_results["r"].values[0]
     p_col = [c for c in rm_results.columns if c in ["p", "pval", "p-val"]][0]
     p_rm = rm_results[p_col].values[0]
@@ -180,13 +180,13 @@ def render_correlation_plot(data_dict):
     sns.set_style("ticks")
     fig, ax = plt.subplots(figsize=(3.5, 3))
 
-    g = pg.plot_rm_corr(data=df_rm, x="P04908_Q7L7L0_Q93077", y="Median_Value_nm", subject="ID", ax=ax)
+    g = pg.plot_rm_corr(data=df_rm, x="Histone H2B type 1-K;Histone H2B type F-S", y="Median_Value_nm", subject="ID", ax=ax)
 
     plt.setp(ax.lines, alpha=0.8, linewidth=1.5)
     plt.setp(ax.collections, edgecolor="black", linewidth=0.5, sizes=[28], alpha=0.8)
 
     sns.regplot(
-        x="P04908_Q7L7L0_Q93077",
+        x="Histone H2B type 1-K;Histone H2B type F-S",
         y="Median_Value_nm",
         data=df_rm,
         scatter=False,
