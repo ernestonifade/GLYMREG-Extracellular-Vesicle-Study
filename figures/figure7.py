@@ -38,11 +38,8 @@ def render_pathway_enrichment_bubble(filepath, title_text):
 
     if 'Fold_Enrichment' not in df.columns:
         if 'Number of Molecules Enriched' in df.columns and 'Total Molecules in Pathway' in df.columns:
-            if 'Not_Enriched' in df.columns:
-                N_measured = df['Number of Molecules Enriched'].sum() + df['Not_Enriched'].sum()
-            else:
-                enrichment_rate = 0.05
-                N_measured = df['Number of Molecules Enriched'].sum() / enrichment_rate
+            # Use your exact known analytical background size (518 measured molecules)
+            N_measured = 518 
             
             K_enriched = df['Number of Molecules Enriched'].sum()
             df['Expected_Enriched'] = (df['Total Molecules in Pathway'] / N_measured) * K_enriched
