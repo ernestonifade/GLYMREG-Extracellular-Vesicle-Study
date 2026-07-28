@@ -185,8 +185,8 @@ elif selected_figure == "Figure 5: Protein vs Cytokine vs Blood Correlation":
             file_name=out_name,
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         )
-
-    elif selected_figure == "Figure 6: EV vs Protein, Cytokine vs Blood Correlations":
+        
+elif selected_figure == "Figure 6: EV vs Protein, Cytokine vs Blood Correlations":
     data = load_fig6_results()
     
     out_name = "Figure6_EV_MultiModal_Integration_Report.xlsx"
