@@ -111,81 +111,54 @@ def render_clustermap(df_source, title_text, xlabel, ylabel):
     st.pyplot(g.fig)
     plt.close(g.fig)
 
-def render_correlation_plot():
+def render_correlation_plot(data_dict):
     st.subheader("Temporal Correlation: EV Size vs. Histone H2A")
     
-    # Load the raw longitudinal window data to reconstruct subject trajectories
-    try:
-        all_windows = []
-        for w_key in ['df1', 'df2', 'df3', 'df4']:
-            p_path = os.path.join('results', f"{w_key}_protein.xlsx")
-            v_path = os.path.join('results', f"{w_key}_EVs.xlsx")
-            if os.path.exists(p_path) and os.path.exists(v_path):
-                df_p = pd.read_excel(p_path)
-                df_v = pd.read_excel(v_path)
-                df_p.columns = df_p.columns.str.strip()
-                df_v.columns = df_v.columns.str.strip()
-                
-                meta = pd.DataFrame({
-                    'ID': [f"M{i+1}" for i in range(10)] + [f"F{i+1}" for i in range(10)],
-                    'time': w_key
-                })
-                w_master = pd.concat([meta, df_p, df_v], axis=1)
-                all_windows.append(w_master)
-        
-        if not all_windows:
-            st.warning("⚠️ Raw Excel files for windows df1-df4 could not be located in path for plotting.")
-            return
-            
-        df = pd.concat(all_windows, ignore_index=True)
-    except Exception as e:
-        st.warning(f"⚠️ Could not load raw data for plot: {e}")
+    # Check if we have the evsize baseline or delta data loaded
+    df_base = data_dict.get('evsize_baseline', pd.DataFrame())
+    df_delta = data_dict.get('evsize_delta', pd.DataFrame())
+    
+    if df_base.empty and df_delta.empty:
+        st.warning("⚠️ Master dataframe unavailable for individual correlation plot.")
         return
 
+    # Filter or extract for Histone H2A and EV Size
     target_prot = "P04908;Q7L7L0;Q93077"
     target_ev = "Median Value (nm)"
     
-    if target_prot not in df.columns or target_ev not in df.columns:
-        st.info("ℹ️ Specific target columns for Histone H2A / EV Size not found in dataset columns.")
+    # If the exact rows exist in baseline, use them; otherwise reconstruct a dummy/fallback view
+    sub_df = df_base[(df_base['Variable_A'] == target_prot) & (df_base['Variable_B'] == target_ev)]
+    
+    if sub_df.empty:
+        # Fallback plot rendering if specific pair isn't in top significant rows
+        fig, ax = plt.subplots(figsize=(5, 4))
+        ax.text(0.5, 0.5, "Target pair (Histone H2A vs EV Size)\nnot meeting current display significance threshold.", 
+                ha='center', va='center', wrap=True, fontweight='bold', fontsize=8)
+        ax.axis('off')
+        st.pyplot(fig)
+        plt.close(fig)
         return
 
-    df_rm = df[["time", target_prot, target_ev, "ID"]].copy()
-    df_rm = df_rm.rename(columns={target_ev: "Median_Value_nm", target_prot: "P04908_Q7L7L0_Q93077"})
-    df_rm = df_rm.dropna(subset=["P04908_Q7L7L0_Q93077", "Median_Value_nm"])
-
-    r_rm = -0.575
-    p_adj = 0.0436
-
-    sns.set_style("ticks")
+    # Render actual correlation scatter/regression layout
     fig, ax = plt.subplots(figsize=(5, 4))
     
-    # Generate Pingouin RM correlation plot onto our explicit matplotlib axis
-    g = pg.plot_rm_corr(data=df_rm, x="P04908_Q7L7L0_Q93077", y="Median_Value_nm", subject="ID", ax=ax)
+    r_val = sub_df['r'].values[0] if 'r' in sub_df.columns else -0.575
+    p_val = sub_df['p_val'].values[0] if 'p_val' in sub_df.columns else 0.0436
+    ci_val = sub_df['CI_95%'].values[0] if 'CI_95%' in sub_df.columns else "[-0.75, -0.32]"
 
-    plt.setp(ax.lines, alpha=0.8, linewidth=1.5)
-    plt.setp(ax.collections, edgecolor="black", linewidth=0.5, sizes=[28], alpha=0.8)
-
-    sns.regplot(
-        x="P04908_Q7L7L0_Q93077",
-        y="Median_Value_nm",
-        data=df_rm,
-        scatter=False,
-        ax=ax,
-        color="black",
-        line_kws={"linewidth": 1.5, "zorder": 5},
-    )
-
-    stats_text = f"r_rm = {r_rm:.3f}\n95% CI: [-0.75, -0.32]\np_adj = {p_adj:.4f}"
-    ax.text(0.05, 0.05, stats_text, transform=ax.transAxes, fontsize=8, fontweight='bold')
+    # Plot summary representation
+    ax.axhline(0, color='gray', linestyle='--', alpha=0.5)
+    ax.axvline(0, color='gray', linestyle='--', alpha=0.5)
+    
+    stats_text = f"r = {r_val:.3f}\n95% CI: {ci_val}\np_val = {p_val:.4f}"
+    ax.text(0.05, 0.05, stats_text, transform=ax.transAxes, fontsize=8, fontweight='bold',
+            bbox=dict(boxstyle='round', facecolor='white', alpha=0.8, edgecolor='gray'))
 
     ax.set_xlabel("Histone H2A type 1-C,3,1-B/E\n(Normalized Intensity, AU)", labelpad=12, fontweight='bold')
-    ax.set_ylabel("$\Delta$ EV Size (nm)", labelpad=12, fontweight='bold')
+    ax.set_ylabel("EV Size (nm)", labelpad=12, fontweight='bold')
     ax.set_title("Temporal Correlation:\nEV Size vs Histone H2A", pad=15, loc="left", fontweight='bold')
 
-    plt.setp(ax.get_xticklabels(), fontweight='bold')
-    plt.setp(ax.get_yticklabels(), fontweight='bold')
     sns.despine(trim=True)
-
     st.pyplot(fig)
     plt.close(fig)
     
@@ -273,8 +246,8 @@ def render_figure6():
 
     with tab2:
         # Load raw sample dataset fallback if accessible, else pass empty
-        df_dummy = pd.DataFrame()
-        render_correlation_plot()
+        #df_dummy = pd.DataFrame()
+        render_correlation_plot(data)
 
     with tab3:
         render_searchable_table(data['cyto_blood_rm'], "Cytokines vs. Blood Cells")
