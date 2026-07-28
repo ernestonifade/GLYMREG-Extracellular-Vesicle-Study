@@ -224,6 +224,12 @@ elif selected_figure == "Figure 6: EV vs Protein, Cytokine vs Blood Correlations
         )
         
 elif selected_figure == "Figure 7: Pathway Enrichment Protein, Cytokine Correlations":
+    def find_pathway_file(candidates):
+        for path in candidates:
+            if os.path.exists(path):
+                return path
+        return None
+
     data = load_fig7_results() if 'load_fig7_results' in globals() else {}
     
     out_name = "Figure7_Pathway_Enrichment_Report.xlsx"
@@ -253,7 +259,6 @@ elif selected_figure == "Figure 7: Pathway Enrichment Protein, Cytokine Correlat
                 df_cyt.to_excel(writer, sheet_name='Cytokine_Pathways', index=False)
                 sheets_written += 1
                 
-        # Fallback empty sheet if both files are missing to prevent openpyxl crash
         if sheets_written == 0:
             pd.DataFrame({'Note': ['No pathway files found']}).to_excel(writer, sheet_name='Info', index=False)
             
