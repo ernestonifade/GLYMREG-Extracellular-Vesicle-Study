@@ -118,8 +118,8 @@ def render_correlation_plot(data_dict):
     try:
         all_windows = []
         for w_key in ['df1', 'df2', 'df3', 'df4']:
-            p_path = os.path.join('results', f"{w_key}_protein.xlsx")
-            v_path = os.path.join('results', f"{w_key}_EVs.xlsx")
+            p_path = os.path.join('data', f"{w_key}_protein.xlsx")
+            v_path = os.path.join('data', f"{w_key}_EVs.xlsx")
             if os.path.exists(p_path) and os.path.exists(v_path):
                 df_p = pd.read_excel(p_path)
                 df_v = pd.read_excel(v_path)
