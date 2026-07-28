@@ -227,25 +227,35 @@ elif selected_figure == "Figure 7: Pathway Enrichment Protein, Cytokine Correlat
     data = load_fig7_results() if 'load_fig7_results' in globals() else {}
     
     out_name = "Figure7_Pathway_Enrichment_Report.xlsx"
+    
+    prot_path = find_pathway_file([
+        'data/Prot_corr_significant_pathways.xlsx',
+        '../data/Prot_corr_significant_pathways.xlsx',
+        'Prot_corr_significant_pathways.xlsx'
+    ])
+    cyt_path = find_pathway_file([
+        'data/Cyt_corr_significant_pathways.xlsx',
+        '../data/Cyt_corr_significant_pathways.xlsx',
+        'Cyt_corr_significant_pathways.xlsx'
+    ])
+    
+    sheets_written = 0
     with pd.ExcelWriter(out_name, engine='openpyxl') as writer:
-        prot_path = find_pathway_file([
-            'data/Prot_corr_significant_pathways.xlsx',
-            '../data/Prot_corr_significant_pathways.xlsx',
-            'Prot_corr_significant_pathways.xlsx'
-        ])
-        cyt_path = find_pathway_file([
-            'data/Cyt_corr_significant_pathways.xlsx',
-            '../data/Cyt_corr_significant_pathways.xlsx',
-            'Cyt_corr_significant_pathways.xlsx'
-        ])
-        
         if prot_path and os.path.exists(prot_path):
             df_prot = pd.read_excel(prot_path)
-            df_prot.to_excel(writer, sheet_name='Protein_Pathways', index=False)
+            if not df_prot.empty:
+                df_prot.to_excel(writer, sheet_name='Protein_Pathways', index=False)
+                sheets_written += 1
             
         if cyt_path and os.path.exists(cyt_path):
             df_cyt = pd.read_excel(cyt_path)
-            df_cyt.to_excel(writer, sheet_name='Cytokine_Pathways', index=False)
+            if not df_cyt.empty:
+                df_cyt.to_excel(writer, sheet_name='Cytokine_Pathways', index=False)
+                sheets_written += 1
+                
+        # Fallback empty sheet if both files are missing to prevent openpyxl crash
+        if sheets_written == 0:
+            pd.DataFrame({'Note': ['No pathway files found']}).to_excel(writer, sheet_name='Info', index=False)
             
     with open(out_name, "rb") as f:
         st.sidebar.download_button(
