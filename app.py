@@ -58,7 +58,7 @@ selected_figure = st.sidebar.radio(
         "Figure 2: Extracellular Vesicles (Concentration, Size & Correlation)",
         "Figure 3: Proteomics (518 Panel)",
         "Figure 4: Cytokine Analysis",
-        "Figure 5: Protein vs Cytokine vs Blood Correlation"
+        "Figure 5: Protein vs Cytokine vs Blood Correlation",
         "Figure 6: EV vs Protein, Cytokine vs Blood Correlations"
     ],
     index=2
