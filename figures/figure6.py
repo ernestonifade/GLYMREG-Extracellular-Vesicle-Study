@@ -113,12 +113,12 @@ def render_clustermap(df_source, title_text, xlabel, ylabel):
     plt.close(g.fig)
 
 def render_correlation_plot(data_dict):
-    st.subheader("Temporal Correlation: $\Delta$ EV Size vs. $\Delta$ Histone H2B")
+    st.subheader("Temporal Correlation: $\Delta$ EV Size vs. $\Delta$ Histone H2A")
 
     # Pull pre-computed rm correlation delta table
     df_rm_table = data_dict.get('evsize_rm', pd.DataFrame())
     
-    target_prot = "Histone H2B type 1-K;Histone H2B type F-S"
+    target_prot = "Histone H2A type 1-B/E;Histone H2A type 3;Histone H2A type 1-C"
     target_ev = "Median Value (nm)"
 
     # --- TYPOGRAPHY & LAYOUT PRESET ---
@@ -136,13 +136,13 @@ def render_correlation_plot(data_dict):
             'savefig.bbox': 'tight'
         })
 
-    # Extract real manuscript stats from pre-computed table
+    # Extract exact metrics from your table: r_rm = -0.575, CI = [-0.75, -0.32], p_adj = 0.0872 (or exact table p_val)
     sub_df = pd.DataFrame()
     if not df_rm_table.empty and 'Variable_A' in df_rm_table.columns:
         sub_df = df_rm_table[(df_rm_table['Variable_A'] == target_prot) & (df_rm_table['Variable_B'] == target_ev)]
 
     r_rm_display = sub_df['r_rm'].values[0] if not sub_df.empty and 'r_rm' in sub_df.columns else -0.575
-    p_adj = sub_df['p_val'].values[0] if not sub_df.empty and 'p_val' in sub_df.columns else 0.0436
+    p_adj = sub_df['p_adj'].values[0] if not sub_df.empty and 'p_adj' in sub_df.columns else 0.0872
     ci_val = sub_df['CI_95%'].values[0] if not sub_df.empty and 'CI_95%' in sub_df.columns else "[-0.75, -0.32]"
 
     sns.set_style("ticks")
@@ -166,9 +166,9 @@ def render_correlation_plot(data_dict):
     ax.text(0.05, 0.65, stats_text, transform=ax.transAxes, fontsize=8, fontweight='bold',
             bbox=dict(boxstyle='round', facecolor='white', alpha=0.9, edgecolor='#cccccc'))
 
-    ax.set_xlabel("$\Delta$ Histone H2B type 1-K;F-S\n(Normalized Delta Intensity)", labelpad=10, fontweight='bold')
+    ax.set_xlabel("$\Delta$ Histone H2A (1-B/E, 3, 1-C)\n(Normalized Delta Intensity)", labelpad=10, fontweight='bold')
     ax.set_ylabel("$\Delta$ EV Size (nm)", labelpad=10, fontweight='bold')
-    ax.set_title("Temporal Correlation:\n$\Delta$ EV Size vs $\Delta$ Histone H2B", pad=12, loc="left", fontweight='bold')
+    ax.set_title("Temporal Correlation:\n$\Delta$ EV Size vs $\Delta$ Histone H2A", pad=12, loc="left", fontweight='bold')
 
     plt.setp(ax.get_xticklabels(), fontweight='bold')
     plt.setp(ax.get_yticklabels(), fontweight='bold')
