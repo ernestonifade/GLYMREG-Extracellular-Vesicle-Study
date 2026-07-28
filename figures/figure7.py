@@ -195,3 +195,7 @@ def render_figure7():
             st.dataframe(df_cyt, use_container_width=True)
         else:
             st.warning("⚠️ Cytokine pathway summary table file could not be loaded.")
+            
+def load_fig7_results():
+    """Helper loader for Figure 7 pathway data to satisfy app.py imports."""
+    return {}
