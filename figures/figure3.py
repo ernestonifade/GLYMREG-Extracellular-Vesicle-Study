@@ -29,7 +29,7 @@ def load_results():
     posthoc_df = pd.read_csv(os.path.join(data_dir, 'fig3_posthoc_contrasts.csv'))
     pca_scores_df = pd.read_csv(os.path.join(data_dir, 'fig3_pca_scores.csv'))
     perm_df = pd.read_csv(os.path.join(data_dir, 'fig3_permanova_summary.csv'))
-    protein_diff_pathway_df = pd.read_csv(os.path.join(data_dir, 'enrichment_permutation_results_for_interacting_proteins.csv'))
+    #protein_diff_pathway_df = pd.read_csv(os.path.join(data_dir, 'enrichment_permutation_results_for_interacting_proteins.csv'))
     wide_df = pd.read_csv(os.path.join(data_dir, 'fig3_processed_data.csv'))
 
     metadata_cols = ['Subject_ID', 'sex', 'time', 'ID', 'Sex', 'Time', 'Group', 'TimePoint', 'BaselineValue']
@@ -487,7 +487,7 @@ def render_pathway_enrichment_bubble_from_df(
 
 # --- MAIN RENDER FUNCTION FOR STREAMLIT ---
 def render_figure3():
-    ancova_df, posthoc_df, pca_scores_df, perm_df, protein_diff_pathway_df, long_df, fig3_long_df = load_results()
+    ancova_df, posthoc_df, pca_scores_df, perm_df, long_df, fig3_long_df = load_results()
 
     # Streamlit Selectbox replacing ipywidgets dropdown
     selected_view = st.selectbox(
