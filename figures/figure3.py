@@ -292,11 +292,11 @@ def render_pathway_enrichment_bubble_from_df(
   # 1. Handle file loading if a path or None is provided, otherwise use the passed dataframe
   if results_input is None or isinstance(results_input, (str, os.PathLike)):
     file_candidates = [
-        "data/enrichment_permutation_results_for_interacting_proteins.xlsx",
-        "../data/enrichment_permutation_results_for_interacting_proteins.xlsx",
-        "enrichment_permutation_results_for_interacting_proteins.xlsx",
-        # Fallback to csv just in case
-        "enrichment_permutation_results_with_fdr_and_proteins.csv",
+        "data/enrichment_permutation_results_for_interacting_proteins.csv",
+        "../data/enrichment_permutation_results_for_interacting_proteins.csv",
+        "enrichment_permutation_results_for_interacting_proteins.csv",
+        # Fallback to excel just in case
+        "enrichment_permutation_results_with_fdr_and_proteins.xlsx",
     ]
 
     if isinstance(results_input, (str, os.PathLike)):
@@ -559,6 +559,53 @@ def render_figure3():
         if fig:
           st.pyplot(fig)
 
+        file_candidates = [
+            "data/enrichment_permutation_results_for_interacting_proteins.xlsx",
+            "../data/enrichment_permutation_results_for_interacting_proteins.xlsx",
+            "enrichment_permutation_results_for_interacting_proteins.xlsx",
+            "enrichment_permutation_results_with_fdr_and_proteins.csv",
+        ]
+        
+        filepath = None
+        for path in file_candidates:
+          if os.path.exists(path):
+            filepath = path
+            break
+        
+        if filepath:
+          if filepath.endswith(".xlsx") or filepath.endswith(".xls"):
+            master_results_df = pd.read_excel(filepath)
+          else:
+            master_results_df = pd.read_csv(filepath)
+        
+          # 2. Display the contributing proteins table below your plot
+          st.subheader("Pathway Protein Mapping")
+          st.write(
+              "Inspect which of your candidate proteins contributed to each significant"
+              " pathway:"
+          )
+        
+          # Filter for significant/overlapping results
+          display_df = master_results_df[
+              (master_results_df["Observed_Overlap"] > 0)
+              & (master_results_df["Empirical_P_Value"] <= 0.05)
+          ].sort_values(by="Empirical_P_Value")
+        
+          st.dataframe(
+              display_df[[
+                  "Database",
+                  "Pathway",
+                  "Observed_Overlap",
+                  "Empirical_P_Value",
+                  "Contributing_Proteins",
+              ]].head(15),
+              use_container_width=True,
+          )
+        else:
+          st.warning(
+              "⚠️ Results file not found in GitHub paths. Please ensure the analysis"
+              " script has been run and saved."
+          )
     elif selected_view == '📄 RM-ANCOVA Model Summary (Main & Interaction Effects)':
         st.markdown("""
         <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 12px; line-height: 1.5; color: #856404;">
