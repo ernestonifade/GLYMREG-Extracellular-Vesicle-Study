@@ -1,4 +1,3 @@
-# utils.py
 import pandas as pd
 import streamlit as st
 
@@ -6,6 +5,19 @@ import streamlit as st
 def render_searchable_table(df, key_prefix, columns_to_show=None):
   if columns_to_show is None:
     columns_to_show = df.columns.tolist()
+
+  # CSS injection to hide ONLY the native search/magnifying glass button in the toolbar
+  st.markdown(
+      """
+        <style>
+        /* Target only the search button inside the Streamlit dataframe element toolbar */
+        button[data-testid="baseButton-header"][title*="Search"] {
+            display: none !important;
+        }
+        </style>
+    """,
+      unsafe_allow_html=True,
+  )
 
   search_key = f"{key_prefix}_search"
   if search_key not in st.session_state:
