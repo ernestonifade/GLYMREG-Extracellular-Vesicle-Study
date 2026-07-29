@@ -7,6 +7,7 @@ from figures.figure3 import load_fig3_results, render_figure3
 from figures.figure4 import load_fig4_results, render_figure4
 from figures.figure5 import load_fig5_results, render_figure5
 from figures.figure6 import load_fig6_results, render_figure6
+
 from figures.figure7 import load_fig7_results, render_figure7
 from utils import render_searchable_table
 
