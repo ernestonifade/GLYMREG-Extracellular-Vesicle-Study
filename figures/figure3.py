@@ -590,7 +590,19 @@ def render_figure3():
               (master_results_df["Observed_Overlap"] > 0)
               & (master_results_df["Empirical_P_Value"] <= 0.05)
           ].sort_values(by="Empirical_P_Value")
-        
+
+          render_searchable_table(
+                df=display_df,
+                key_prefix="pathway_table",
+                columns_to_show=[
+                    "Database",
+                    "Pathway",
+                    "Observed_Overlap",
+                    "Empirical_P_Value",
+                    "Contributing_Proteins",
+                ],
+            )
+            
           st.dataframe(
               display_df[[
                   "Database",
