@@ -487,7 +487,7 @@ def render_pathway_enrichment_bubble_from_df(
 
 # --- MAIN RENDER FUNCTION FOR STREAMLIT ---
 def render_figure3():
-    ancova_df, posthoc_df, pca_scores_df, perm_df, long_df, fig3_long_df = load_results()
+    ancova_df, posthoc_df, pca_scores_df, perm_df, protein_diff_pathway_df, long_df, fig3_long_df = load_results()
 
     # Streamlit Selectbox replacing ipywidgets dropdown
     selected_view = st.selectbox(
