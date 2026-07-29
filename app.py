@@ -146,7 +146,7 @@ elif (
     )
 
 elif selected_figure == "Figure 3: Proteomics (518 Panel)":
-  ancova_df, posthoc_df, pca_scores_df, perm_df, long_df, _ = load_fig3_results()
+  ancova_df, posthoc_df, pca_scores_df, perm_df, protein_diff_pathway_df, long_df, _ = load_fig3_results()
 
   out_name = "Figure3_Proteomics_Full_Stats_Report.xlsx"
   with pd.ExcelWriter(out_name, engine="openpyxl") as writer:
@@ -156,6 +156,7 @@ elif selected_figure == "Figure 3: Proteomics (518 Panel)":
     )
     perm_df.to_excel(writer, sheet_name="PERMANOVA_Summary", index=False)
     pca_scores_df.to_excel(writer, sheet_name="PCA_Scores_and_EV", index=False)
+    protein_diff_pathway_df.to_excel(writer, sheet_name="Sex_diff_Protein_pathways_df", index=False)
     long_df.to_excel(writer, sheet_name="Raw_Proteomic_Data", index=False)
 
   with open(out_name, "rb") as f:
