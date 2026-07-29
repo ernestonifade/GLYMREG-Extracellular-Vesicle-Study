@@ -8,6 +8,7 @@ import seaborn as sns
 import streamlit as st
 import warnings
 warnings.filterwarnings("ignore")
+from utils import render_searchable_table
 
 plt.rcParams['path.simplify'] = True
 plt.rcParams['path.simplify_threshold'] = 1.0
@@ -228,9 +229,9 @@ def find_pathway_file(candidates):
 def render_figure7():
     # Define candidate filepaths for proteins and cytokines
     prot_candidates = [
-        'data/Prot_corr_significant_pathways.xlsx',
-        '../data/Prot_corr_significant_pathways.xlsx',
-        'Prot_corr_significant_pathways.xlsx'
+        'data/enrichment_permutation_results_for_correlating_proteins.csv',
+        '../data/enrichment_permutation_results_for_correlating_proteins.csv',
+        'enrichment_permutation_results_for_correlating_proteins.csv'
     ]
     cyt_candidates = [
         'data/Cyt_corr_significant_pathways.xlsx',
@@ -260,7 +261,7 @@ def render_figure7():
         </div>
         """, unsafe_allow_html=True)
 
-        fig_path = render_pathway_enrichment_bubble(prot_path, 'Top Enriched Pathways (Proteins)')
+        fig_path = render_pathway_enrichment_bubble_from_df(prot_path, 'Top Enriched Pathways (Proteins)')
         if fig_path:
             st.pyplot(fig_path)
 
@@ -271,7 +272,7 @@ def render_figure7():
         </div>
         """, unsafe_allow_html=True)
 
-        fig_path = render_pathway_enrichment_bubble(cyt_path, 'Top Enriched Pathways (Cytokines)')
+        fig_path = render_pathway_enrichment_bubble_from_df(cyt_path, 'Top Enriched Pathways (Cytokines)')
         if fig_path:
             st.pyplot(fig_path)
 
@@ -283,10 +284,31 @@ def render_figure7():
         """, unsafe_allow_html=True)
         
         if prot_path and os.path.exists(prot_path):
-            df_prot = pd.read_excel(prot_path)
-            st.dataframe(df_prot, use_container_width=True)
-        else:
-            st.warning("⚠️ Protein pathway summary table file could not be loaded.")
+            master_results_df = pd.read_excel(prot_path)
+            display_df = master_results_df[
+                  (master_results_df["Observed_Overlap"] > 0)
+                  & (master_results_df["Empirical_P_Value"] <= 0.05)
+              ].sort_values(by="Empirical_P_Value")
+            
+              # Renders the searchable table with custom search & reset button
+              render_searchable_table(
+                  df=display_df,
+                  key_prefix="pathway_table",
+                  columns_to_show=[
+                      "Database",
+                      "Pathway",
+                      "Observed_Overlap",
+                      "Mean_Random_Overlap",
+                      "Empirical_P_Value",
+                      "FDR_q_val",
+                      "Contributing_Proteins",
+                  ],
+              )
+            else:
+              st.warning(
+                  "⚠️ Results file not found in GitHub paths. Please ensure the analysis"
+                  " script has been run and saved."
+              )
 
     elif selected_view == '📋 Cytokine Pathway Enrichment Summary Table':
         st.markdown("""
