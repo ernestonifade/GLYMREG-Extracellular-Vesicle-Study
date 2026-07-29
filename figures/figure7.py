@@ -25,11 +25,11 @@ def render_pathway_enrichment_bubble_from_df(
   # 1. Handle file loading if a path or None is provided, otherwise use the passed dataframe
   if results_input is None or isinstance(results_input, (str, os.PathLike)):
     file_candidates = [
-        "data/enrichment_permutation_results_for_interacting_proteins.csv",
-        "../data/enrichment_permutation_results_for_interacting_proteins.csv",
-        "enrichment_permutation_results_for_interacting_proteins.csv",
+        "data/enrichment_permutation_results_for_correlating_proteins.csv",
+        "../data/enrichment_permutation_results_for_correlating_proteins.csv",
+        "enrichment_permutation_results_for_correlating_proteins.csv",
         # Fallback to excel just in case
-        "enrichment_permutation_results_with_fdr_and_proteins.xlsx",
+        "enrichment_permutation_results_for_correlating_proteins.xlsx",
     ]
 
     if isinstance(results_input, (str, os.PathLike)):
