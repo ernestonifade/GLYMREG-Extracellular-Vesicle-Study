@@ -281,111 +281,207 @@ def plot_interaction_heatmap_19_proteins(
     plt.subplots_adjust(bottom=0.15)
     return fig
 
-def render_pathway_enrichment_bubble():
-    mpl.rcParams['svg.fonttype'] = 'none'
-    
+def render_pathway_enrichment_bubble_from_df(
+    results_input=None,
+    database_name="GO_Biological_Process",
+    max_pvalue=0.05,
+    pathway_indices=None,
+):
+  mpl.rcParams["svg.fonttype"] = "none"
+
+  # 1. Handle file loading if a path or None is provided, otherwise use the passed dataframe
+  if results_input is None or isinstance(results_input, (str, os.PathLike)):
     file_candidates = [
-        'data/EV proteins time_sex interaction significant_pathways.xlsx',
-        '../data/EV proteins time_sex interaction significant_pathways.xlsx',
-        'EV proteins time_sex interaction significant_pathways.xlsx'
+        "data/enrichment_permutation_results_for_interacting_proteins.xlsx",
+        "../data/enrichment_permutation_results_for_interacting_proteins.xlsx",
+        "enrichment_permutation_results_for_interacting_proteins.xlsx",
+        # Fallback to csv just in case
+        "enrichment_permutation_results_with_fdr_and_proteins.csv",
     ]
-    
+
+    if isinstance(results_input, (str, os.PathLike)):
+      file_candidates.insert(0, str(results_input))
+
     filepath = None
     for path in file_candidates:
-        if os.path.exists(path):
-            filepath = path
-            break
-            
+      if os.path.exists(path):
+        filepath = path
+        break
+
     if filepath is None:
-        st.warning("⚠️ Pathway Excel file not found. Please check file path.")
-        return None
+      st.warning(
+          "⚠️ Pathway results file not found. Please check your GitHub file"
+          " path."
+      )
+      return None
 
-    df = pd.read_excel(filepath).iloc[0:15]
-    col_map = {
-        'Pathway': 'Pathway Name', 'Term': 'Pathway Name',
-        'q-value': 'FDR', 'p.adjust': 'FDR',
-        'Count': 'Number of Molecules Enriched', 'Genes_Enriched': 'Number of Molecules Enriched',
-        'Background_Size': 'Total Molecules in Pathway'
-    }
-    df = df.rename(columns={k: v for k, v in col_map.items() if k in df.columns})
+    # Load dataframe based on file extension
+    if filepath.endswith(".xlsx") or filepath.endswith(".xls"):
+      df_master = pd.read_excel(filepath)
+    else:
+      df_master = pd.read_csv(filepath)
+  else:
+    df_master = results_input.copy()
 
-    if 'FDR' not in df.columns or 'Pathway Name' not in df.columns:
-        st.warning("⚠️ Expected columns ('FDR', 'Pathway Name') missing from pathway file.")
-        return None
+  # 2. Handle filtering by database and strict p-value threshold
+  if database_name.lower() == "all":
+    top_lists = []
+    for db, group in df_master.groupby("Database"):
+      sig_group = group[group["Empirical_P_Value"] <= max_pvalue]
+      top_db = sig_group.sort_values(
+          by=["Empirical_P_Value", "Observed_Overlap"], ascending=[True, False]
+      ).head(5)
+      top_lists.append(top_db)
+    df = pd.concat(top_lists, ignore_index=True)
+    title_suffix = "Top Significant (p ≤ 0.05) Across All Databases"
+  else:
+    df = df_master[df_master["Database"] == database_name].copy()
+    if df.empty:
+      st.warning(f"⚠️ No results found for database: {database_name}")
+      return None
 
-    df['-log10FDR'] = -np.log10(df['FDR'].astype(float).clip(lower=1e-15))
+    # Filter for significant pathways only
+    df = df[df["Empirical_P_Value"] <= max_pvalue]
 
-    if 'Fold_Enrichment' not in df.columns:
-        if 'Number of Molecules Enriched' in df.columns and 'Total Molecules in Pathway' in df.columns:
-            # Use your exact known analytical background size (518 measured molecules)
-            N_measured = 518 
-            
-            K_enriched = df['Number of Molecules Enriched'].sum()
-            df['Expected_Enriched'] = (df['Total Molecules in Pathway'] / N_measured) * K_enriched
-            df['Fold_Enrichment'] = df['Number of Molecules Enriched'] / df['Expected_Enriched']
-        else:
-            df['Fold_Enrichment'] = 1.5
-
-    if 'Number of Molecules Enriched' not in df.columns:
-        df['Number of Molecules Enriched'] = 3
-
-    df = df.sort_values('-log10FDR', ascending=True)
-
-    fig, ax = plt.subplots(figsize=(4.2, 4.0))
-    df['PlotSize'] = (df['Number of Molecules Enriched'] + 1) * 35
-    df['PlotSize'] = df['PlotSize'].clip(lower=60, upper=300)
-
-    scatter = ax.scatter(
-        x=df['Fold_Enrichment'], y=df['Pathway Name'],
-        s=df['PlotSize'], c=df['-log10FDR'],
-        cmap='viridis', edgecolor='white', linewidth=0.8, alpha=0.9, zorder=3
-    )
-
-    ax.axvline(x=1.0, color='red', linestyle=':', linewidth=1.2, label='Expected', alpha=0.8, zorder=1)
-
-    v_min, v_max = df['-log10FDR'].min(), df['-log10FDR'].max()
-    cmap = plt.cm.viridis
-    norm = plt.Normalize(v_min, v_max)
-    color_vals = np.linspace(v_min, v_max, 3)
-
-    color_handles = [
-        Line2D([0], [0], marker='o', color='w', markerfacecolor=cmap(norm(v)),
-               markersize=6, markeredgecolor='black', label=f"{v:.1f}")
-        for v in color_vals
-    ]
-
-    legend_col = ax.legend(
-        handles=color_handles[::-1], title=r"$\mathbf{-\log_{10}(FDR)}$",
-        bbox_to_anchor=(1.02, 1.0), loc='upper left', frameon=False, labelspacing=1.2, prop={'weight': 'bold', 'size': 6.5}
-    )
-
-    s_min, s_max = int(df['Number of Molecules Enriched'].min()), int(df['Number of Molecules Enriched'].max())
-    size_steps = np.unique(np.linspace(s_min, s_max, 3).astype(int))
-
-    size_handles = []
-    for s in size_steps:
-        plot_size = (s + 1) * 35
-        marker_d = np.sqrt(plot_size)
-        size_handles.append(
-            Line2D([0], [0], marker='o', color='w', markerfacecolor='gray',
-                   markersize=marker_d, markeredgecolor='black', label=str(s))
+    df = (
+        df.sort_values(
+            by=["Empirical_P_Value", "Observed_Overlap"], ascending=[True, False]
         )
+        .head(15)
+        .copy()
+    )
+    title_suffix = database_name
 
-    legend_siz = ax.legend(
-        handles=size_handles[::-1], title=r"$\mathbf{Qty. Enriched}$",
-        bbox_to_anchor=(1.02, 0.45), loc='upper left', frameon=False, labelspacing=1.4, prop={'weight': 'bold', 'size': 6.5}
+  # 3. Apply clean index-based selection if specified
+  if pathway_indices is not None and not df.empty:
+    df = df.reset_index(drop=True)
+    valid_indices = [i for i in pathway_indices if i < len(df)]
+    df = df.iloc[valid_indices].copy()
+    title_suffix = f"{database_name} (Indexed Selection)"
+
+  if df.empty:
+    st.warning(
+        "⚠️ No pathways meet the significance threshold (p ≤ "
+        f"{max_pvalue}) or valid indices."
+    )
+    return None
+
+  # Map column names & calculations
+  df["Pathway Name"] = df["Pathway"]
+  df["Significance"] = df["Empirical_P_Value"]
+  df["Number of Molecules Enriched"] = df["Observed_Overlap"]
+  df["Fold_Enrichment"] = df["Observed_Overlap"] / df[
+      "Mean_Random_Overlap"
+  ].replace(0, 0.001)
+  df["-log10Sig"] = -np.log10(df["Significance"].astype(float).clip(lower=1e-15))
+  df = df.sort_values("-log10Sig", ascending=True)
+
+  fig, ax = plt.subplots(figsize=(4.5, max(4.0, len(df) * 0.25)))
+  df["PlotSize"] = (df["Number of Molecules Enriched"] + 1) * 35
+  df["PlotSize"] = df["PlotSize"].clip(lower=60, upper=300)
+
+  scatter = ax.scatter(
+      x=df["Fold_Enrichment"],
+      y=df["Pathway Name"],
+      s=df["PlotSize"],
+      c=df["-log10Sig"],
+      cmap="viridis",
+      edgecolor="white",
+      linewidth=0.8,
+      alpha=0.9,
+      zorder=3,
+  )
+
+  ax.axvline(
+      x=1.0,
+      color="red",
+      linestyle=":",
+      linewidth=1.2,
+      label="Expected",
+      alpha=0.8,
+      zorder=1,
+  )
+
+  v_min, v_max = df["-log10Sig"].min(), df["-log10Sig"].max()
+  cmap = plt.cm.viridis
+  norm = plt.Normalize(v_min, v_max)
+  color_vals = np.linspace(v_min, v_max, 3)
+
+  color_handles = [
+      Line2D(
+          [0],
+          [0],
+          marker="o",
+          color="w",
+          markerfacecolor=cmap(norm(v)),
+          markersize=6,
+          markeredgecolor="black",
+          label=f"{v:.1f}",
+      )
+      for v in color_vals
+  ]
+
+  legend_col = ax.legend(
+      handles=color_handles[::-1],
+      title=r"$\mathbf{-\log_{10}(Emp. P)}$",
+      bbox_to_anchor=(1.02, 1.0),
+      loc="upper left",
+      frameon=False,
+      labelspacing=1.2,
+      prop={"weight": "bold", "size": 6.5},
+  )
+
+  s_min, s_max = int(df["Number of Molecules Enriched"].min()), int(
+      df["Number of Molecules Enriched"].max()
+  )
+  size_steps = np.unique(np.linspace(s_min, s_max, 3).astype(int))
+
+  size_handles = []
+  for s in size_steps:
+    plot_size = (s + 1) * 35
+    marker_d = np.sqrt(plot_size)
+    size_handles.append(
+        Line2D(
+            [0],
+            [0],
+            marker="o",
+            color="w",
+            markerfacecolor="gray",
+            markersize=marker_d,
+            markeredgecolor="black",
+            label=str(s),
+        )
     )
 
-    ax.add_artist(legend_col)
-    ax.set_xlabel('Fold Enrichment\n(>1 = Enriched, <1 = Depleted)', fontweight='bold', fontsize=7.5)
-    ax.set_title('Top Enriched Pathways (19 Candidate Proteins)', y=1.03, fontweight='bold', fontsize=8.5)
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-    ax.grid(linestyle='--', alpha=0.5, zorder=0)
-    ax.tick_params(axis='both', labelsize=7)
-    plt.setp(ax.get_yticklabels(), fontweight='bold')
-    plt.setp(ax.get_xticklabels(), fontweight='bold')
-    return fig
+  legend_siz = ax.legend(
+      handles=size_handles[::-1],
+      title=r"$\mathbf{Qty. Enriched}$",
+      bbox_to_anchor=(1.02, 0.45),
+      loc="upper left",
+      frameon=False,
+      labelspacing=1.4,
+      prop={"weight": "bold", "size": 6.5},
+  )
+
+  ax.add_artist(legend_col)
+  ax.set_xlabel(
+      "Enrichment Ratio (Obs / Exp)\n(>1 = Enriched, <1 = Depleted)",
+      fontweight="bold",
+      fontsize=7.5,
+  )
+  ax.set_title(
+      f"Top Enriched Pathways ({title_suffix})",
+      y=1.03,
+      fontweight="bold",
+      fontsize=8.5,
+  )
+  ax.spines["top"].set_visible(False)
+  ax.spines["right"].set_visible(False)
+  ax.grid(linestyle="--", alpha=0.5, zorder=0)
+  ax.tick_params(axis="both", labelsize=7)
+  plt.setp(ax.get_yticklabels(), fontweight="bold")
+  plt.setp(ax.get_xticklabels(), fontweight="bold")
+  return fig
 
 # --- MAIN RENDER FUNCTION FOR STREAMLIT ---
 def render_figure3():
@@ -456,9 +552,12 @@ def render_figure3():
         </div>
         """, unsafe_allow_html=True)
 
-        fig_path = render_pathway_enrichment_bubble()
-        if fig_path:
-            st.pyplot(fig_path)
+        st.subheader("Pathway Enrichmen: Sex Divergent Response Proteins")
+        fig = render_pathway_enrichment_bubble_from_df(
+            database_name="All", max_pvalue=0.05
+        )
+        if fig:
+          st.pyplot(fig)
 
     elif selected_view == '📄 RM-ANCOVA Model Summary (Main & Interaction Effects)':
         st.markdown("""
