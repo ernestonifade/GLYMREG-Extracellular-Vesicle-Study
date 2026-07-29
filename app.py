@@ -1,23 +1,21 @@
 import os
 import pandas as pd
 import streamlit as st
+from figures.figure1 import load_fig1_results, render_figure1
+from figures.figure2 import load_fig2_results, render_figure2
+from figures.figure3 import load_fig3_results, render_figure3
+from figures.figure4 import load_fig4_results, render_figure4
+from figures.figure5 import load_fig5_results, render_figure5
+from figures.figure6 import load_fig6_results, render_figure6
+from figures.figure7 import load_fig7_results, render_figure7
 from utils import render_searchable_table
-
-# Import figure modules from your figures folder
-from figures.figure1 import render_figure1, load_fig1_results
-from figures.figure2 import render_figure2, load_fig2_results
-from figures.figure3 import render_figure3, load_fig3_results
-from figures.figure4 import render_figure4, load_fig4_results
-from figures.figure5 import render_figure5, load_fig5_results
-from figures.figure6 import render_figure6, load_fig6_results
-from figures.figure7 import render_figure7, load_fig7_results
 
 # --- 1. STREAMLIT PAGE CONFIGURATION (WIDE & OPEN) ---
 st.set_page_config(
     page_title="GLYMREG EV Study Dashboard",
     page_icon="🧬",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
 )
 
 # Custom CSS for compact header, full-width fluid layout, and readable tables
