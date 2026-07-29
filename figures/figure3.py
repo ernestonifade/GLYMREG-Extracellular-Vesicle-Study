@@ -560,10 +560,10 @@ def render_figure3():
           st.pyplot(fig)
 
         file_candidates = [
-            "data/enrichment_permutation_results_for_interacting_proteins.xlsx",
-            "../data/enrichment_permutation_results_for_interacting_proteins.xlsx",
-            "enrichment_permutation_results_for_interacting_proteins.xlsx",
-            "enrichment_permutation_results_with_fdr_and_proteins.csv",
+            "data/enrichment_permutation_results_for_interacting_proteins.csv",
+            "../data/enrichment_permutation_results_for_interacting_proteins.csv",
+            "enrichment_permutation_results_for_interacting_proteins.csv",
+            "enrichment_permutation_results_with_fdr_and_proteins.xlsx",
         ]
         
         filepath = None
