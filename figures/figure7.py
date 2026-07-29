@@ -71,32 +71,27 @@ def render_pathway_enrichment_bubble_from_df(
 
   # 2. Handle filtering by database and strict p-value threshold
   if database_name.lower() == "all":
-    top_lists = []
-    for db, group in df_master.groupby("Database"):
-      sig_group = group[group["Empirical_P_Value"] <= max_pvalue]
-      top_db = sig_group.sort_values(
-          by=["Empirical_P_Value", "Observed_Overlap"], ascending=[True, False]
-      ).head(5)
-      top_lists.append(top_db)
-    df = pd.concat(top_lists, ignore_index=True)
+    db_col = "Database" if "Database" in df_master.columns else None
+
+    if db_col is None:
+      df = df_master[df_master["Empirical_P_Value"] <= max_pvalue].copy()
+    else:
+      top_lists = []
+      for db, group in df_master.groupby(db_col):
+        sig_group = group[group["Empirical_P_Value"] <= max_pvalue]
+        if not sig_group.empty:
+          top_db = sig_group.sort_values(
+              by=["Empirical_P_Value", "Observed_Overlap"],
+              ascending=[True, False],
+          ).head(5)
+          top_lists.append(top_db)
+
+      if top_lists:
+        df = pd.concat(top_lists, ignore_index=True)
+      else:
+        df = pd.DataFrame(columns=df_master.columns)
+
     title_suffix = "Top Significant (p ≤ 0.05) Across All Databases"
-  else:
-    df = df_master[df_master["Database"] == database_name].copy()
-    if df.empty:
-      st.warning(f"⚠️ No results found for database: {database_name}")
-      return None
-
-    # Filter for significant pathways only
-    df = df[df["Empirical_P_Value"] <= max_pvalue]
-
-    df = (
-        df.sort_values(
-            by=["Empirical_P_Value", "Observed_Overlap"], ascending=[True, False]
-        )
-        .head(15)
-        .copy()
-    )
-    title_suffix = database_name
 
   # 3. Apply clean index-based selection if specified
   if pathway_indices is not None and not df.empty:
