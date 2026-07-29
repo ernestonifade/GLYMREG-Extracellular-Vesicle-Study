@@ -24,18 +24,29 @@ def render_pathway_enrichment_bubble_from_df(
 ):
   mpl.rcParams["svg.fonttype"] = "none"
 
-  # 1. Handle file loading if a path or None is provided, otherwise use the passed dataframe
-  if results_input is None or isinstance(results_input, (str, os.PathLike)):
-    file_candidates = [
-        "data/enrichment_permutation_results_for_correlating_proteins.csv",
-        "../data/enrichment_permutation_results_for_correlating_proteins.csv",
-        "enrichment_permutation_results_for_correlating_proteins.csv",
-        # Fallback to excel just in case
-        "enrichment_permutation_results_for_correlating_proteins.xlsx",
-    ]
-
-    if isinstance(results_input, (str, os.PathLike)):
-      file_candidates.insert(0, str(results_input))
+  # 1. Handle dynamic file loading based on input path, list, or DataFrame
+  if results_input is None or isinstance(
+      results_input, (str, os.PathLike, list)
+  ):
+    if isinstance(results_input, list):
+      file_candidates = results_input
+    elif isinstance(results_input, (str, os.PathLike)):
+      file_candidates = [
+          str(results_input),
+          "data/enrichment_permutation_results_for_correlating_proteins.csv",
+          "data/enrichment_permutation_results_for_correlating_cytokines.csv",
+          "data/enrichment_permutation_results_for_correlating_cytokines.xlsx",
+      ]
+    else:
+      file_candidates = [
+          "data/enrichment_permutation_results_for_correlating_proteins.csv",
+          "../data/enrichment_permutation_results_for_correlating_proteins.csv",
+          "enrichment_permutation_results_for_correlating_proteins.csv",
+          "data/enrichment_permutation_results_for_correlating_cytokines.csv",
+          "../data/enrichment_permutation_results_for_correlating_cytokiness.csv",
+          "enrichment_permutation_results_for_correlating_cytokines.csv",
+          "enrichment_permutation_results_for_correlating_cytokines.xlsx",
+      ]
 
     filepath = None
     for path in file_candidates:
@@ -218,7 +229,6 @@ def render_pathway_enrichment_bubble_from_df(
   plt.setp(ax.get_xticklabels(), fontweight="bold")
   return fig
 
-
 def find_pathway_file(candidates):
   for path in candidates:
     if os.path.exists(path):
@@ -235,9 +245,9 @@ def render_figure7():
       "enrichment_permutation_results_for_correlating_proteins.csv",
   ]
   cyt_candidates = [
-      "data/Cyt_corr_significant_pathways.xlsx",
-      "../data/Cyt_corr_significant_pathways.xlsx",
-      "Cyt_corr_significant_pathways.xlsx",
+      "data/enrichment_permutation_results_for_correlating_cytokines.csv",
+      "../enrichment_permutation_results_for_correlating_cytokines.csv",
+      "enrichment_permutation_results_for_correlating_cytokines.xlsx",
   ]
 
   prot_path = find_pathway_file(prot_candidates)
@@ -335,11 +345,30 @@ def render_figure7():
     )
 
     if cyt_path and os.path.exists(cyt_path):
-      df_cyt = pd.read_excel(cyt_path)
-      st.dataframe(df_cyt, use_container_width=True)
+      master_results_df = pd.read_csv(cyt_path)
+      display_df = master_results_df[
+          (master_results_df["Observed_Overlap"] > 0)
+          & (master_results_df["Empirical_P_Value"] <= 0.05)
+      ].sort_values(by="Empirical_P_Value")
+
+      # Renders the searchable table with custom search & reset button
+      render_searchable_table(
+          df=display_df,
+          key_prefix="pathway_table",
+          columns_to_show=[
+              "Database",
+              "Pathway",
+              "Observed_Overlap",
+              "Mean_Random_Overlap",
+              "Empirical_P_Value",
+              "FDR_q_val",
+              "Contributing_Cytokines",
+          ],
+      )
     else:
       st.warning(
-          "⚠️ Cytokine pathway summary table file could not be loaded."
+          "⚠️ Results file not found in GitHub paths. Please ensure the analysis"
+          " script has been run and saved."
       )
 
 
