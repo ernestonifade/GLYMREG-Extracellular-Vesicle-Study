@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import streamlit as st
+from utils import render_searchable_table
 
 # Import figure modules from your figures folder
 from figures.figure1 import render_figure1, load_fig1_results
@@ -10,63 +11,6 @@ from figures.figure4 import render_figure4, load_fig4_results
 from figures.figure5 import render_figure5, load_fig5_results
 from figures.figure6 import render_figure6, load_fig6_results
 from figures.figure7 import render_figure7, load_fig7_results
-
-def render_searchable_table(df, key_prefix, columns_to_show=None):
-  """Renders any DataFrame with its own dedicated search bar and reset button,
-
-  completely avoiding sticky native toolbar states.
-  """
-  if columns_to_show is None:
-    columns_to_show = df.columns.tolist()
-
-  # Initialize session state for this specific table if it doesn't exist
-  search_key = f"{key_prefix}_search"
-  if search_key not in st.session_state:
-    st.session_state[search_key] = ""
-
-  # Layout: Search input box and Reset button side-by-side
-  col1, col2 = st.columns([4, 1])
-
-  with col1:
-    search_query = st.text_input(
-        "Search table:",
-        placeholder="Type to filter rows...",
-        key=search_key,
-        label_visibility="collapsed",  # Keeps it clean and compact
-    )
-
-
-  def reset_table():
-    st.session_state[search_key] = ""
-
-
-  with col2:
-    if st.button("Reset", key=f"{key_prefix}_reset"):
-      reset_table()
-      st.rerun()
-
-  # Filter DataFrame dynamically based on text input across all text columns
-  filtered_df = df.copy()
-  current_query = st.session_state.get(search_key, "").strip().lower()
-
-  if current_query:
-    # Filter across all string/object columns dynamically
-    mask = False
-    for col in filtered_df.columns:
-      # Check if column contains text data
-      if filtered_df[col].dtype == object or pd.api.types.is_string_dtype(
-          filtered_df[col]
-      ):
-        mask = mask | filtered_df[col].astype(str).str.lower().str.contains(
-            current_query, na=False
-        )
-    filtered_df = filtered_df[mask]
-
-  # Display the clean table with index hidden
-  st.dataframe(
-      filtered_df[columns_to_show], use_container_width=True, hide_index=True
-  )
-
 
 # --- 1. STREAMLIT PAGE CONFIGURATION (WIDE & OPEN) ---
 st.set_page_config(
