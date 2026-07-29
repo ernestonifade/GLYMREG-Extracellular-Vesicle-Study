@@ -302,14 +302,14 @@ elif (
   out_name = "Figure7_Pathway_Enrichment_Report.xlsx"
 
   prot_path = find_pathway_file([
-      "data/Prot_corr_significant_pathways.xlsx",
-      "../data/Prot_corr_significant_pathways.xlsx",
-      "Prot_corr_significant_pathways.xlsx",
+      "data/enrichment_permutation_results_for_correlating_proteins.csv",
+      "../data/enrichment_permutation_results_for_correlating_proteins.csv",
+      "enrichment_permutation_results_for_correlating_proteins.csv",
   ])
   cyt_path = find_pathway_file([
-      "data/Cyt_corr_significant_pathways.xlsx",
-      "../data/Cyt_corr_significant_pathways.xlsx",
-      "Cyt_corr_significant_pathways.xlsx",
+      "data/enrichment_permutation_results_for_correlating_cytokines.csv",
+      "../data/enrichment_permutation_results_for_correlating_cytokines.csv",
+      "enrichment_permutation_results_for_correlating_cytokines.csv",
   ])
 
   sheets_written = 0
