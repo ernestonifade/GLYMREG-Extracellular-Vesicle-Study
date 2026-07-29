@@ -1,18 +1,19 @@
+import warnings
 import os
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 import matplotlib as mpl
 from matplotlib.lines import Line2D
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 import seaborn as sns
 import streamlit as st
-import warnings
-warnings.filterwarnings("ignore")
 from utils import render_searchable_table
 
-plt.rcParams['path.simplify'] = True
-plt.rcParams['path.simplify_threshold'] = 1.0
-plt.rcParams['agg.path.chunksize'] = 10000
+warnings.filterwarnings("ignore")
+
+plt.rcParams["path.simplify"] = True
+plt.rcParams["path.simplify_threshold"] = 1.0
+plt.rcParams["agg.path.chunksize"] = 10000
 
 
 def render_pathway_enrichment_bubble_from_df(
@@ -219,110 +220,129 @@ def render_pathway_enrichment_bubble_from_df(
 
 
 def find_pathway_file(candidates):
-    for path in candidates:
-        if os.path.exists(path):
-            return path
-    return None
+  for path in candidates:
+    if os.path.exists(path):
+      return path
+  return None
 
 
 # --- MAIN RENDER FUNCTION FOR STREAMLIT ---
 def render_figure7():
-    # Define candidate filepaths for proteins and cytokines
-    prot_candidates = [
-        'data/enrichment_permutation_results_for_correlating_proteins.csv',
-        '../data/enrichment_permutation_results_for_correlating_proteins.csv',
-        'enrichment_permutation_results_for_correlating_proteins.csv'
-    ]
-    cyt_candidates = [
-        'data/Cyt_corr_significant_pathways.xlsx',
-        '../data/Cyt_corr_significant_pathways.xlsx',
-        'Cyt_corr_significant_pathways.xlsx'
-    ]
+  # Define candidate filepaths for proteins and cytokines
+  prot_candidates = [
+      "data/enrichment_permutation_results_for_correlating_proteins.csv",
+      "../data/enrichment_permutation_results_for_correlating_proteins.csv",
+      "enrichment_permutation_results_for_correlating_proteins.csv",
+  ]
+  cyt_candidates = [
+      "data/Cyt_corr_significant_pathways.xlsx",
+      "../data/Cyt_corr_significant_pathways.xlsx",
+      "Cyt_corr_significant_pathways.xlsx",
+  ]
 
-    prot_path = find_pathway_file(prot_candidates)
-    cyt_path = find_pathway_file(cyt_candidates)
+  prot_path = find_pathway_file(prot_candidates)
+  cyt_path = find_pathway_file(cyt_candidates)
 
-    selected_view = st.selectbox(
-        "Select Section View:",
-        [
-            '🧬 Pathway Enrichment: Correlating Proteins',
-            '📄 Pathway Enrichment: Correlating Cytokines',
-            '📋 Protein Pathway Enrichment Summary Table',
-            '📋 Cytokine Pathway Enrichment Summary Table'
-        ]
-    )
+  selected_view = st.selectbox(
+      "Select Section View:",
+      [
+          "🧬 Pathway Enrichment: Correlating Proteins",
+          "📄 Pathway Enrichment: Correlating Cytokines",
+          "📋 Protein Pathway Enrichment Summary Table",
+          "📋 Cytokine Pathway Enrichment Summary Table",
+      ],
+  )
 
-    st.markdown("---")
+  st.markdown("---")
 
-    if selected_view == '🧬 Pathway Enrichment: Correlating Proteins':
-        st.markdown("""
+  if selected_view == "🧬 Pathway Enrichment: Correlating Proteins":
+    st.markdown(
+        """
         <div style="background-color: #e2e3e5; border-left: 4px solid #383d41; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 11px; color: #383d41;">
             <b>Pathway Enrichment (Proteins):</b> Over-Representation Analysis mapping correlating candidate interaction proteins to functional pathways.
         </div>
-        """, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True,
+    )
 
-        fig_path = render_pathway_enrichment_bubble_from_df(prot_path, 'Top Enriched Pathways (Proteins)')
-        if fig_path:
-            st.pyplot(fig_path)
+    fig_path = render_pathway_enrichment_bubble_from_df(
+        prot_path, "Top Enriched Pathways (Proteins)"
+    )
+    if fig_path:
+      st.pyplot(fig_path)
 
-    elif selected_view == '📄 Pathway Enrichment: Correlating Cytokines':
-        st.markdown("""
+  elif selected_view == "📄 Pathway Enrichment: Correlating Cytokines":
+    st.markdown(
+        """
         <div style="background-color: #e2e3e5; border-left: 4px solid #383d41; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 11px; color: #383d41;">
             <b>Pathway Enrichment (Cytokines):</b> Over-Representation Analysis mapping correlating cytokines to functional biological networks.
         </div>
-        """, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True,
+    )
 
-        fig_path = render_pathway_enrichment_bubble_from_df(cyt_path, 'Top Enriched Pathways (Cytokines)')
-        if fig_path:
-            st.pyplot(fig_path)
+    fig_path = render_pathway_enrichment_bubble_from_df(
+        cyt_path, "Top Enriched Pathways (Cytokines)"
+    )
+    if fig_path:
+      st.pyplot(fig_path)
 
-    elif selected_view == '📋 Protein Pathway Enrichment Summary Table':
-        st.markdown("""
+  elif selected_view == "📋 Protein Pathway Enrichment Summary Table":
+    st.markdown(
+        """
         <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 12px; line-height: 1.5; color: #856404;">
             <b>📄 Protein Pathway Summary Table:</b> Complete statistical enrichment metrics for protein correlates.
         </div>
-        """, unsafe_allow_html=True)
-        
-        if prot_path and os.path.exists(prot_path):
-            master_results_df = pd.read_excel(prot_path)
-            display_df = master_results_df[
-                  (master_results_df["Observed_Overlap"] > 0)
-                  & (master_results_df["Empirical_P_Value"] <= 0.05)
-              ].sort_values(by="Empirical_P_Value")
-            
-              # Renders the searchable table with custom search & reset button
-              render_searchable_table(
-                  df=display_df,
-                  key_prefix="pathway_table",
-                  columns_to_show=[
-                      "Database",
-                      "Pathway",
-                      "Observed_Overlap",
-                      "Mean_Random_Overlap",
-                      "Empirical_P_Value",
-                      "FDR_q_val",
-                      "Contributing_Proteins",
-                  ],
-              )
-            else:
-              st.warning(
-                  "⚠️ Results file not found in GitHub paths. Please ensure the analysis"
-                  " script has been run and saved."
-              )
+        """,
+        unsafe_allow_html=True,
+    )
 
-    elif selected_view == '📋 Cytokine Pathway Enrichment Summary Table':
-        st.markdown("""
+    if prot_path and os.path.exists(prot_path):
+      master_results_df = pd.read_excel(prot_path)
+      display_df = master_results_df[
+          (master_results_df["Observed_Overlap"] > 0)
+          & (master_results_df["Empirical_P_Value"] <= 0.05)
+      ].sort_values(by="Empirical_P_Value")
+
+      # Renders the searchable table with custom search & reset button
+      render_searchable_table(
+          df=display_df,
+          key_prefix="pathway_table",
+          columns_to_show=[
+              "Database",
+              "Pathway",
+              "Observed_Overlap",
+              "Mean_Random_Overlap",
+              "Empirical_P_Value",
+              "FDR_q_val",
+              "Contributing_Proteins",
+          ],
+      )
+    else:
+      st.warning(
+          "⚠️ Results file not found in GitHub paths. Please ensure the analysis"
+          " script has been run and saved."
+      )
+
+  elif selected_view == "📋 Cytokine Pathway Enrichment Summary Table":
+    st.markdown(
+        """
         <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 12px; line-height: 1.5; color: #856404;">
             <b>📄 Cytokine Pathway Summary Table:</b> Complete statistical enrichment metrics for cytokine correlates.
         </div>
-        """, unsafe_allow_html=True)
-        
-        if cyt_path and os.path.exists(cyt_path):
-            df_cyt = pd.read_excel(cyt_path)
-            st.dataframe(df_cyt, use_container_width=True)
-        else:
-            st.warning("⚠️ Cytokine pathway summary table file could not be loaded.")
-            
+        """,
+        unsafe_allow_html=True,
+    )
+
+    if cyt_path and os.path.exists(cyt_path):
+      df_cyt = pd.read_excel(cyt_path)
+      st.dataframe(df_cyt, use_container_width=True)
+    else:
+      st.warning(
+          "⚠️ Cytokine pathway summary table file could not be loaded."
+      )
+
+
 def load_fig7_results():
-    """Helper loader for Figure 7 pathway data to satisfy app.py imports."""
-    return {}
+  """Helper loader for Figure 7 pathway data to satisfy app.py imports."""
+  return {}
