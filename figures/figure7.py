@@ -298,7 +298,7 @@ def render_figure7():
     )
 
     if prot_path and os.path.exists(prot_path):
-      master_results_df = pd.read_excel(prot_path)
+      master_results_df = pd.read_csv(prot_path)
       display_df = master_results_df[
           (master_results_df["Observed_Overlap"] > 0)
           & (master_results_df["Empirical_P_Value"] <= 0.05)
