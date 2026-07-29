@@ -58,7 +58,7 @@ def render_searchable_table(df, key_prefix, columns_to_show=None):
           filtered_df[col]
       ):
         mask = mask | filtered_df[col].astype(str).str.lower().str.contains(
-            current_query, native_na=False
+            current_query, na=False
         )
     filtered_df = filtered_df[mask]
 
