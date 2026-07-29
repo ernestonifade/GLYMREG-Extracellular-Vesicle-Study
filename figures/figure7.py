@@ -266,7 +266,7 @@ def render_figure7():
     )
 
     fig_path = render_pathway_enrichment_bubble_from_df(
-        prot_path, "Top Enriched Pathways (Proteins)"
+        prot_path, database_name="All"
     )
     if fig_path:
       st.pyplot(fig_path)
@@ -282,7 +282,7 @@ def render_figure7():
     )
 
     fig_path = render_pathway_enrichment_bubble_from_df(
-        cyt_path, "Top Enriched Pathways (Cytokines)"
+       cyt_path, database_name="All"
     )
     if fig_path:
       st.pyplot(fig_path)
