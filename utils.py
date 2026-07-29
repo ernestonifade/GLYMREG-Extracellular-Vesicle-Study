@@ -6,12 +6,17 @@ def render_searchable_table(df, key_prefix, columns_to_show=None):
   if columns_to_show is None:
     columns_to_show = df.columns.tolist()
 
-  # CSS injection to hide ONLY the native search/magnifying glass button in the toolbar
+  # Robust CSS to target and hide ONLY the search button inside the dataframe toolbar
   st.markdown(
       """
         <style>
-        /* Target only the search button inside the Streamlit dataframe element toolbar */
-        button[data-testid="baseButton-header"][title*="Search"] {
+        /* Hide the specific search button tool item in Streamlit dataframes */
+        [data-testid="stElementToolbar"] button[title*="Search"],
+        [data-testid="stElementToolbar"] [aria-label*="Search"] {
+            display: none !important;
+        }
+        /* Fallback: target by SVG search icon path if title attribute differs */
+        [data-testid="stElementToolbar"] button svg path[d*="M15.5 14h-.79l-.28-.27"] {
             display: none !important;
         }
         </style>
@@ -53,7 +58,7 @@ def render_searchable_table(df, key_prefix, columns_to_show=None):
           filtered_df[col]
       ):
         mask = mask | filtered_df[col].astype(str).str.lower().str.contains(
-            current_query, na=False
+            current_query, native_na=False
         )
     filtered_df = filtered_df[mask]
 
