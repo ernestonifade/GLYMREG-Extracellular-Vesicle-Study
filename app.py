@@ -325,13 +325,13 @@ elif (
   sheets_written = 0
   with pd.ExcelWriter(out_name, engine="openpyxl") as writer:
     if prot_path and os.path.exists(prot_path):
-      df_prot = pd.read_excel(prot_path)
+      df_prot = pd.read_csv(prot_path)
       if not df_prot.empty:
         df_prot.to_excel(writer, sheet_name="Protein_Pathways", index=False)
         sheets_written += 1
 
     if cyt_path and os.path.exists(cyt_path):
-      df_cyt = pd.read_excel(cyt_path)
+      df_cyt = pd.read_csv(cyt_path)
       if not df_cyt.empty:
         df_cyt.to_excel(writer, sheet_name="Cytokine_Pathways", index=False)
         sheets_written += 1
