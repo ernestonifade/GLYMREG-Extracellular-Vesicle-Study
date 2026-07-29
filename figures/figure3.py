@@ -7,7 +7,7 @@ from matplotlib.lines import Line2D
 import seaborn as sns
 from matplotlib.patches import Ellipse
 import streamlit as st
-from app import render_searchable_table
+from utils import render_searchable_table
 import warnings
 warnings.filterwarnings("ignore")
 
