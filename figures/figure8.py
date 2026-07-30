@@ -1,5 +1,6 @@
 # figures/figure8.py
 import os
+import uuid
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
@@ -201,8 +202,8 @@ def load_fig8_results():
 
 def render_figure8():
   st.title(
-      "📊 Figure 8: Bodymetrics Influence on EV Concentration (Multivariate"
-      " PLS)"
+      "📊 Figure 8: Biophysical predictors of EV concentration shifts"
+      " (Multivariate PLS)"
   )
   st.markdown(
       "Multivariate evaluation of baseline biophysical profiles against"
@@ -232,28 +233,7 @@ def render_figure8():
       "Value": [r2_cv, pct_comp1, pct_comp2, total_pct],
   })
 
-  out_name = "Figure8_EV_Concentration_PLS_Report.xlsx"
-  with pd.ExcelWriter(out_name, engine="openpyxl") as writer:
-    predictor_importance.to_excel(
-        writer, sheet_name="PLS_VIP_Scores", index=False
-    )
-    model_metrics_summary.to_excel(
-        writer, sheet_name="Model_Performance_Summary", index=False
-    )
-    if len(writer.book.worksheets) > 0:
-      writer.book.active = writer.book.worksheets[0]
-
-  with open(out_name, "rb") as f:
-    st.sidebar.download_button(
-        label="📥 Download Figure 8 Report (.xlsx)",
-        data=f,
-        file_name=out_name,
-        mime=(
-            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        ),
-        key="download_btn_figure_8_pls_report_unique",
-    )
-
+  # Navigation views selector rendered first in the sidebar
   view_selection = st.sidebar.radio(
       "Figure 8 Navigation Views",
       [
@@ -262,6 +242,7 @@ def render_figure8():
           "View 3: Actual vs. Predicted Parity Plot",
           "View 4: Complete VIP Table",
       ],
+      key="fig8_nav_view_selector",
   )
 
   if view_selection == "View 1: Model Overview & Summary":
