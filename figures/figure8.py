@@ -193,6 +193,9 @@ def run_pls_pipeline(target_column="Concentration/ml"):
       X,
       Y_actual_original,
       Y_pred_original,
+      pls,
+      X_scaled,
+      Y_scaled,
   )
 
 
@@ -221,6 +224,9 @@ def render_figure8():
       X_data,
       Y_actual,
       Y_pred,
+      pls,
+      X_scaled,
+      Y_scaled,
   ) = run_pls_pipeline()
 
   # Main canvas view selector consistent with other figure modules
