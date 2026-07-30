@@ -329,7 +329,7 @@ elif (
     )
 
 elif selected_figure == "Figure 8: Biophysical predictors of EV concentration shifts":
-  predictor_importance, r2_cv, pct_comp1, pct_comp2, total_pct, _, _, _, _, _ = (
+  predictor_importance, r2_cv, pct_comp1, pct_comp2, total_pct, comp1_scores, Y_outcome, X_data, Y_actual, Y_pred, pls, X_scaled, Y_scaled = (
       load_fig8_results()
   )
   model_metrics_summary = pd.DataFrame({
