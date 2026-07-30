@@ -360,14 +360,27 @@ elif (
     )
 
 elif selected_figure == "Figure 8: Biophysical predictors of EV concentration shifts":
+  import openpyxl
+
   out_name = "Figure8_EV_Concentration_PLS_Report.xlsx"
-  with pd.ExcelWriter(out_name, engine="openpyxl") as writer:
-    predictor_importance.to_excel(
-        writer, sheet_name="PLS_VIP_Scores", index=False
-    )
-    model_metrics_summary.to_excel(
-        writer, sheet_name="Model_Performance_Summary", index=False
-    )
+
+  # Direct openpyxl workbook creation to bypass pandas/openpyxl version bugs
+  wb = openpyxl.Workbook()
+  default_sheet = wb.active
+  wb.remove(default_sheet)
+
+
+  def write_df_to_wb(workbook, sheet_name, df):
+    ws = workbook.create_sheet(title=sheet_name)
+    ws.append(list(df.columns))
+    for row in df.itertuples(index=False, name=None):
+      ws.append(list(row))
+
+
+  write_df_to_wb(wb, "PLS_VIP_Scores", predictor_importance)
+  write_df_to_wb(wb, "Model_Performance_Summary", model_metrics_summary)
+
+  wb.save(out_name)
 
   with open(out_name, "rb") as f:
     st.sidebar.download_button(
