@@ -361,10 +361,25 @@ elif (
 
 elif selected_figure == "Figure 8: Biophysical predictors of EV concentration shifts":
   import openpyxl
+  from figures.figure8 import load_fig8_results
+
+  # Load the results dataframe and summary metrics from figure8 module
+  predictor_importance, r2_cv, pct_comp1, pct_comp2, total_pct, _, _, _, _, _ = (
+      load_fig8_results()
+  )
+
+  model_metrics_summary = pd.DataFrame({
+      "Metric_Parameter": [
+          "Cross-Validated R2 (cv=5)",
+          "Component 1 Variance (%)",
+          "Component 2 Variance (%)",
+          "Total Variance Explained (%)",
+      ],
+      "Value": [r2_cv, pct_comp1, pct_comp2, total_pct],
+  })
 
   out_name = "Figure8_EV_Concentration_PLS_Report.xlsx"
 
-  # Direct openpyxl workbook creation to bypass pandas/openpyxl version bugs
   wb = openpyxl.Workbook()
   default_sheet = wb.active
   wb.remove(default_sheet)
