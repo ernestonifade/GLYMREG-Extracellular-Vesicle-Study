@@ -8,6 +8,7 @@ from figures.figure4 import load_fig4_results, render_figure4
 from figures.figure5 import load_fig5_results, render_figure5
 from figures.figure6 import load_fig6_results, render_figure6
 from figures.figure7 import load_fig7_results, render_figure7
+from figures.figure8 import load_fig8_results, render_figure8
 from utils import render_searchable_table
 
 # --- 1. STREAMLIT PAGE CONFIGURATION (WIDE & OPEN) ---
@@ -64,6 +65,7 @@ selected_figure = st.sidebar.radio(
         "Figure 5: Protein vs Cytokine vs Blood Correlation",
         "Figure 6: EV vs Protein, Cytokine vs Blood Correlations",
         "Figure 7: Pathway Enrichment Protein, Cytokine Correlations",
+        "Figure 8: Biophysical predictors of EV concentration shifts"
     ],
     index=2,
 )
@@ -97,6 +99,13 @@ elif (
     == "Figure 7: Pathway Enrichment Protein, Cytokine Correlations"
 ):
   render_figure7()
+
+elif (
+    selected_figure
+    == "Figure 8: Biophysical predictors of EV concentration shifts"
+):
+
+
 
 # --- 4. ONE-CLICK INSTANT EXPORT HANDLER ---
 st.sidebar.header("📥 Export Statistical Reports")
@@ -344,6 +353,26 @@ elif (
   with open(out_name, "rb") as f:
     st.sidebar.download_button(
         label="📥 Download Figure 7 Report (.xlsx)",
+        data=f,
+        file_name=out_name,
+        mime=(
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ),
+    )
+
+elif selected_figure == "Figure 8: Biophysical predictors of EV concentration shifts":
+  out_name = "Figure8_EV_Concentration_PLS_Report.xlsx"
+  with pd.ExcelWriter(out_name, engine="openpyxl") as writer:
+    predictor_importance.to_excel(
+        writer, sheet_name="PLS_VIP_Scores", index=False
+    )
+    model_metrics_summary.to_excel(
+        writer, sheet_name="Model_Performance_Summary", index=False
+    )
+
+  with open(out_name, "rb") as f:
+    st.sidebar.download_button(
+        label="📥 Download Figure 8 Report (.xlsx)",
         data=f,
         file_name=out_name,
         mime=(
