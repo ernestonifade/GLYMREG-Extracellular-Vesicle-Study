@@ -251,7 +251,7 @@ def render_figure8():
         mime=(
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         ),
-        key="unique_download_btn_fig8_ev_pls",
+        key="download_btn_figure_8_pls_report_unique",
     )
 
   view_selection = st.sidebar.radio(
