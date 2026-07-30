@@ -251,6 +251,7 @@ def render_figure8():
         mime=(
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         ),
+        key="download_figure_8_report",  # <--- This unique key fixes the collision
     )
 
   view_selection = st.sidebar.radio(
