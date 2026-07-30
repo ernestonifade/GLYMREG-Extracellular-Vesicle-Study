@@ -329,37 +329,4 @@ elif (
     )
 
 elif selected_figure == "Figure 8: Biophysical predictors of EV concentration shifts":
-  from figures.figure8 import load_fig8_results
-
-  predictor_importance, r2_cv, pct_comp1, pct_comp2, total_pct, _, _, _, _, _ = (
-      load_fig8_results()
-  )
-  model_metrics_summary = pd.DataFrame({
-      "Metric_Parameter": [
-          "Cross-Validated R2 (cv=5)",
-          "Component 1 Variance (%)",
-          "Component 2 Variance (%)",
-          "Total Variance Explained (%)",
-      ],
-      "Value": [r2_cv, pct_comp1, pct_comp2, total_pct],
-  })
-
-  out_name = "Figure8_EV_Concentration_PLS_Report.xlsx"
-  export_sheets_to_excel(
-      out_name,
-      {
-          "PLS_VIP_Scores": predictor_importance,
-          "Model_Performance_Summary": model_metrics_summary,
-      },
-  )
-
-  with open(out_name, "rb") as f:
-    st.sidebar.download_button(
-        label="📥 Download Figure 8 Report (.xlsx)",
-        data=f,
-        file_name=out_name,
-        mime=(
-            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        ),
-        key=f"dl_fig8_{uuid.uuid4()}",
-    )
+  pass
