@@ -240,8 +240,8 @@ def render_figure8():
     model_metrics_summary.to_excel(
         writer, sheet_name="Model_Performance_Summary", index=False
     )
-    # Ensure at least one sheet is explicitly active/visible for openpyxl
-    writer.book.active = 0
+    if len(writer.book.worksheets) > 0:
+      writer.book.active = writer.book.worksheets[0]
 
   with open(out_name, "rb") as f:
     st.sidebar.download_button(
