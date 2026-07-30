@@ -1,4 +1,5 @@
-import streamlit as st
+# figures/figure8.py
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -6,31 +7,13 @@ import seaborn as sns
 from sklearn.cross_decomposition import PLSRegression
 from sklearn.model_selection import cross_val_predict
 from sklearn.preprocessing import StandardScaler
-import matplotlib as mpl
-
-# =====================================================================
-# PAGE CONFIGURATION & STYLING
-# =====================================================================
-st.set_page_config(
-    page_title="EV Concentration PLS Model Dashboard",
-    page_icon="📊",
-    layout="wide",
-)
-
-st.title("📊 Extracellular Vesicle Concentration: Multivariate PLS Dashboard")
-st.markdown(
-    "Interactive dashboard evaluating the multivariate biophysical profile"
-    " against exercise-induced shifts in **EV Concentration**."
-)
+import streamlit as st
 
 mpl.rcParams["svg.fonttype"] = "none"
 
-# =====================================================================
-# DATA PROCESSING & MODEL PIPELINE (Cached for Performance)
-# =====================================================================
+
 @st.cache_data
 def run_pls_pipeline(target_column="Concentration/ml"):
-  # 1. Process Metrics
   e1 = pd.read_excel("bodymetrics.xlsx")
   df_metrics_prep = e1.copy()
   df_metrics_prep.columns = df_metrics_prep.columns.str.strip()
@@ -75,7 +58,6 @@ def run_pls_pipeline(target_column="Concentration/ml"):
       .dropna()
   )
 
-  # 2. Process Biomarkers
   df1 = pd.read_excel("df1_EVs.xlsx")
   df2 = pd.read_excel("df2_EVs.xlsx")
   df3 = pd.read_excel("df3_EVs.xlsx")
@@ -137,7 +119,6 @@ def run_pls_pipeline(target_column="Concentration/ml"):
   X = final_data[static_predictors]
   Y = final_data[[c for c in final_data.columns if c not in static_predictors]]
 
-  # 3. PLS Execution
   scaler_x, scaler_y = StandardScaler(), StandardScaler()
   X_scaled = scaler_x.fit_transform(X)
   Y_scaled = scaler_y.fit_transform(Y)
@@ -157,7 +138,6 @@ def run_pls_pipeline(target_column="Concentration/ml"):
   pct_comp2 = (np.sum(np.var(Y_pred_c2, axis=0)) / total_variance_y) * 100
   total_pct = pct_comp1 + pct_comp2
 
-  # VIP Calculation
   t, w, q = pls.x_scores_, pls.x_weights_, pls.y_loadings_
   p, h = w.shape
   vips = np.zeros((p,))
@@ -200,168 +180,209 @@ def run_pls_pipeline(target_column="Concentration/ml"):
   )
 
 
-(
-    predictor_importance,
-    r2_cv,
-    pct_comp1,
-    pct_comp2,
-    total_pct,
-    comp1_scores,
-    Y_outcome,
-    X_data,
-    Y_actual,
-    Y_pred,
-) = run_pls_pipeline()
+def load_fig8_results():
+  return run_pls_pipeline()
 
-# =====================================================================
-# DASHBOARD LAYOUT (4 VIEWS)
-# =====================================================================
-view_selection = st.sidebar.radio(
-    "Navigation Views",
-    [
-        "View 1: Model Overview & Summary",
-        "View 2: Component 1 Scatter Plot",
-        "View 3: Actual vs. Predicted Parity Plot",
-        "View 4: Complete VIP Table",
-    ],
-)
 
-# --- VIEW 1: MODEL OVERVIEW & SUMMARY ---
-if view_selection == "View 1: Model Overview & Summary":
-  st.subheader("View 1: Model Performance & Feature Importance (VIP)")
+def render_figure8():
+  st.title(
+      "📊 Figure 8: Bodymetrics Influence on EV Concentration (Multivariate"
+      " PLS)"
+  )
+  st.markdown(
+      "Multivariate evaluation of baseline biophysical profiles against"
+      " exercise-induced shifts in extracellular vesicle (EV) concentration."
+  )
 
-  col1, col2 = st.columns([1, 1])
+  (
+      predictor_importance,
+      r2_cv,
+      pct_comp1,
+      pct_comp2,
+      total_pct,
+      comp1_scores,
+      Y_outcome,
+      X_data,
+      Y_actual,
+      Y_pred,
+  ) = run_pls_pipeline()
 
-  with col1:
-    st.markdown("### Model Summary Metrics")
-    metrics_df = pd.DataFrame({
-        "Metric Parameter": [
-            "Cross-Validated R² (cv=5)",
-            "Component 1 Variance (%)",
-            "Component 2 Variance (%)",
-            "Total Cumulative Variance (%)",
-        ],
-        "Value": [
-            f"{r2_cv:.3f}",
-            f"{pct_comp1:.2f}%",
-            f"{pct_comp2:.2f}%",
-            f"{total_pct:.2f}%",
-        ],
-    })
-    st.table(metrics_df)
+  model_metrics_summary = pd.DataFrame({
+      "Metric_Parameter": [
+          "Cross-Validated R2 (cv=5)",
+          "Component 1 Variance (%)",
+          "Component 2 Variance (%)",
+          "Total Variance Explained (%)",
+      ],
+      "Value": [r2_cv, pct_comp1, pct_comp2, total_pct],
+  })
 
-  with col2:
-    st.markdown("### Top Feature Importance (VIP)")
-    fig, ax = plt.subplots(figsize=(5, 4))
-    colors = [
-        "#0072B2" if val >= 1.0 else "#b0bec5"
-        for val in predictor_importance["VIP Score"]
-    ]
-    sns.barplot(
-        x=predictor_importance["VIP Score"][:10],
-        y=predictor_importance["Metric"][:10],
-        palette=colors[:10],
-        ax=ax,
-        hue=predictor_importance["Metric"][:10],
-        legend=False,
+  out_name = "Figure8_EV_Concentration_PLS_Report.xlsx"
+  with pd.ExcelWriter(out_name, engine="openpyxl") as writer:
+    predictor_importance.to_excel(
+        writer, sheet_name="PLS_VIP_Scores", index=False
     )
-    ax.axvline(1.0, color="#b71c1c", linestyle="--", linewidth=1.2)
-    ax.set_title("Top 10 VIP Scores (VIP > 1.0 Threshold)", fontweight="bold")
-    ax.set_xlabel("VIP Score Value", fontweight="bold")
-    ax.set_ylabel("")
+    model_metrics_summary.to_excel(
+        writer, sheet_name="Model_Performance_Summary", index=False
+    )
+
+  with open(out_name, "rb") as f:
+    st.sidebar.download_button(
+        label="📥 Download Figure 8 Report (.xlsx)",
+        data=f,
+        file_name=out_name,
+        mime=(
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ),
+    )
+
+  view_selection = st.sidebar.radio(
+      "Figure 8 Navigation Views",
+      [
+          "View 1: Model Overview & Summary",
+          "View 2: Component 1 Scatter Plot",
+          "View 3: Actual vs. Predicted Parity Plot",
+          "View 4: Complete VIP Table",
+      ],
+  )
+
+  if view_selection == "View 1: Model Overview & Summary":
+    st.subheader("View 1: Model Performance & Feature Importance (VIP)")
+    col1, col2 = st.columns([1, 1])
+
+    with col1:
+      st.markdown("### Model Summary Metrics")
+      metrics_df = pd.DataFrame({
+          "Metric Parameter": [
+              "Cross-Validated R² (cv=5)",
+              "Component 1 Variance (%)",
+              "Component 2 Variance (%)",
+              "Total Cumulative Variance (%)",
+          ],
+          "Value": [
+              f"{r2_cv:.3f}",
+              f"{pct_comp1:.2f}%",
+              f"{pct_comp2:.2f}%",
+              f"{total_pct:.2f}%",
+          ],
+      })
+      st.table(metrics_df)
+
+    with col2:
+      st.markdown("### Top Feature Importance (VIP)")
+      fig, ax = plt.subplots(figsize=(5, 4))
+      colors = [
+          "#0072B2" if val >= 1.0 else "#b0bec5"
+          for val in predictor_importance["VIP Score"]
+      ]
+      sns.barplot(
+          x=predictor_importance["VIP Score"][:10],
+          y=predictor_importance["Metric"][:10],
+          palette=colors[:10],
+          ax=ax,
+          hue=predictor_importance["Metric"][:10],
+          legend=False,
+      )
+      ax.axvline(1.0, color="#b71c1c", linestyle="--", linewidth=1.2)
+      ax.set_title("Top 10 VIP Scores (VIP > 1.0 Threshold)", fontweight="bold")
+      ax.set_xlabel("VIP Score Value", fontweight="bold")
+      ax.set_ylabel("")
+      sns.despine(ax=ax, trim=True)
+      st.pyplot(fig)
+
+  elif view_selection == "View 2: Component 1 Scatter Plot":
+    st.subheader(
+        "View 2: Biophysical Baseline Gradient vs. EV Concentration Shift"
+    )
+    fig, ax = plt.subplots(figsize=(6, 5))
+    sns.scatterplot(
+        x=comp1_scores,
+        y=Y_outcome.iloc[:, 0],
+        hue=X_data["sex_encoded"].map({0: "Male", 1: "Female"}),
+        palette={"Male": "blue", "Female": "red"},
+        s=45,
+        alpha=0.85,
+        edgecolor="black",
+        linewidth=0.6,
+        ax=ax,
+    )
+    ax.legend(loc="lower left", frameon=False)
+    sns.regplot(
+        x=comp1_scores,
+        y=Y_outcome.iloc[:, 0],
+        ax=ax,
+        scatter=False,
+        color="#333333",
+        line_kws={"linewidth": 2.0, "linestyle": "-"},
+        ci=95,
+    )
+
+    formatter = plt.ScalarFormatter(useMathText=True)
+    formatter.set_scientific(True)
+    formatter.set_powerlimits((0, 0))
+    ax.yaxis.set_major_formatter(formatter)
+
+    ax.set_title(
+        "Directional Impact of Biophysical Profile\n on Shifts in EV"
+        " Concentration",
+        fontweight="bold",
+    )
+    ax.set_xlabel(
+        "Baseline Biophysical Profile (PLS Component 1 Score)", fontweight="bold"
+    )
+    ax.set_ylabel(
+        r"$\Delta$ EV Concentration (Post - Pre, (/ml))", fontweight="bold"
+    )
     sns.despine(ax=ax, trim=True)
     st.pyplot(fig)
 
-# --- VIEW 2: COMPONENT 1 SCATTER PLOT ---
-elif view_selection == "View 2: Component 1 Scatter Plot":
-  st.subheader(
-      "View 2: Biophysical Baseline Gradient vs. EV Concentration Shift"
-  )
+  elif view_selection == "View 3: Actual vs. Predicted Parity Plot":
+    st.subheader("View 3: Multivariate PLS Model Accuracy (Parity Plot)")
+    fig, ax = plt.subplots(figsize=(6, 5))
+    ax.scatter(
+        Y_actual,
+        Y_pred,
+        color="royalblue",
+        s=55,
+        edgecolor="k",
+        alpha=0.8,
+        label="Subjects",
+    )
 
-  fig, ax = plt.subplots(figsize=(6, 5))
-  sns.scatterplot(
-      x=comp1_scores,
-      y=Y_outcome.iloc[:, 0],
-      hue=X_data["sex_encoded"].map({0: "Male", 1: "Female"}),
-      palette={"Male": "blue", "Female": "red"},
-      s=45,
-      alpha=0.85,
-      edgecolor="black",
-      linewidth=0.6,
-      ax=ax,
-  )
-  ax.legend(loc="lower left", frameon=False)
-  sns.regplot(
-      x=comp1_scores,
-      y=Y_outcome.iloc[:, 0],
-      ax=ax,
-      scatter=False,
-      color="#333333",
-      line_kws={"linewidth": 2.0, "linestyle": "-"},
-      ci=95,
-  )
+    lims = [
+        np.min([ax.get_xlim(), ax.get_ylim()]),
+        np.max([ax.get_xlim(), ax.get_ylim()]),
+    ]
+    ax.plot(
+        lims,
+        lims,
+        color="red",
+        linestyle="--",
+        linewidth=1.5,
+        label="Ideal Fit",
+    )
+    ax.set_xlim(lims)
+    ax.set_ylim(lims)
 
-  formatter = plt.ScalarFormatter(useMathText=True)
-  formatter.set_scientific(True)
-  formatter.set_powerlimits((0, 0))
-  ax.yaxis.set_major_formatter(formatter)
+    ax.set_xlabel("Actual Baseline-Adjusted Shift", fontweight="bold")
+    ax.set_ylabel(
+        "PLS Model Predicted Shift (Full Multivariate)", fontweight="bold"
+    )
+    ax.set_title(
+        "Multivariate PLS Model: Actual vs. Predicted Responses", fontweight="bold"
+    )
+    ax.legend(frameon=False)
+    sns.despine(ax=ax, trim=True)
+    st.pyplot(fig)
 
-  ax.set_title(
-      "Directional Impact of Biophysical Profile\n on Shifts in EV"
-      " Concentration",
-      fontweight="bold",
-  )
-  ax.set_xlabel(
-      "Baseline Biophysical Profile (PLS Component 1 Score)", fontweight="bold"
-  )
-  ax.set_ylabel(
-      r"$\Delta$ EV Concentration (Post - Pre, (/ml))", fontweight="bold"
-  )
-  sns.despine(ax=ax, trim=True)
-  st.pyplot(fig)
-
-# --- VIEW 3: ACTUAL VS. PREDICTED PARITY PLOT ---
-elif view_selection == "View 3: Actual vs. Predicted Parity Plot":
-  st.subheader("View 3: Multivariate PLS Model Accuracy (Parity Plot)")
-
-  fig, ax = plt.subplots(figsize=(6, 5))
-  ax.scatter(
-      Y_actual,
-      Y_pred,
-      color="royalblue",
-      s=55,
-      edgecolor="k",
-      alpha=0.8,
-      label="Subjects",
-  )
-
-  lims = [
-      np.min([ax.get_xlim(), ax.get_ylim()]),
-      np.max([ax.get_xlim(), ax.get_ylim()]),
-  ]
-  ax.plot(lims, lims, color="red", linestyle="--", linewidth=1.5, label="Ideal Fit")
-  ax.set_xlim(lims)
-  ax.set_ylim(lims)
-
-  ax.set_xlabel("Actual Baseline-Adjusted Shift", fontweight="bold")
-  ax.set_ylabel("PLS Model Predicted Shift (Full Multivariate)", fontweight="bold")
-  ax.set_title(
-      "Multivariate PLS Model: Actual vs. Predicted Responses", fontweight="bold"
-  )
-  ax.legend(frameon=False)
-  sns.despine(ax=ax, trim=True)
-  st.pyplot(fig)
-
-# --- VIEW 4: COMPLETE VIP TABLE ---
-elif view_selection == "View 4: Complete VIP Table":
-  st.subheader("View 4: Complete Variable Importance in Projection (VIP) Table")
-  st.markdown(
-      "Complete list of all sex-stratified body metrics ranked by their VIP score"
-      " contribution."
-  )
-
-  display_table = predictor_importance.copy()
-  display_table["Significance"] = np.where(
-      display_table["VIP Score"] >= 1.0, "Significant (> 1.0)", "Below Threshold"
-  )
-  st.dataframe(display_table.reset_index(drop=True), use_container_width=True)
+  elif view_selection == "View 4: Complete VIP Table":
+    st.subheader("View 4: Complete Variable Importance in Projection Table")
+    st.markdown(
+        "Complete list of all sex-stratified body metrics ranked by their VIP"
+        " score contribution."
+    )
+    display_table = predictor_importance.copy()
+    display_table["Significance"] = np.where(
+        display_table["VIP Score"] >= 1.0, "Significant (> 1.0)", "Below Threshold"
+    )
+    st.dataframe(display_table.reset_index(drop=True), use_container_width=True)
