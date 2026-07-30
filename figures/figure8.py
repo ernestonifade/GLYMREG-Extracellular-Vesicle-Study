@@ -282,12 +282,68 @@ def render_figure8():
       st.pyplot(fig)
 
   elif view_selection == "View 2: Component 1 Scatter Plot":
-    st.subheader(
-        "View 2: Biophysical Baseline Gradient vs. EV Concentration Shift"
+    st.subheader("View 2: Biophysical Baseline Gradient vs. EV Concentration Shift")
+    st.markdown(
+        "Explore how exercise-induced shifts in EV concentration align with"
+        " individual biophysical predictors or latent PLS components."
     )
+
+    # Build available X-axis options dynamically
+    # Component scores are available from the PLS model transformation
+    X_comp_scores, _ = pls.transform(X_scaled, Y_scaled)
+    
+    available_x_options = {
+        "PLS Component 1 (Default)": X_comp_scores[:, 0],
+        "PLS Component 2": X_comp_scores[:, 1],
+        "Female_Waist_CM": (
+            X_data["Waist Circumference(cm)_Female"].values
+            if "Waist Circumference(cm)_Female" in X_data.columns
+            else np.zeros(len(X_data))
+        ),
+        "Male_Heart_rate": (
+            X_data["Heart rate(/min)_Male"].values
+            if "Heart rate(/min)_Male" in X_data.columns
+            else np.zeros(len(X_data))
+        ),
+        "Female_Age": (
+            X_data["Age(yrs)_Female"].values
+            if "Age(yrs)_Female" in X_data.columns
+            else np.zeros(len(X_data))
+        ),
+        "Male_VO2peak": (
+            X_data["VO2peak(ml/kg/min)_Male"].values
+            if "VO2peak(ml/kg/min)_Male" in X_data.columns
+            else np.zeros(len(X_data))
+        ),
+        "Male_Systolic_BP": (
+            X_data["Systolic BP(mm Hg)_Male"].values
+            if "Systolic BP(mm Hg)_Male" in X_data.columns
+            else np.zeros(len(X_data))
+        ),
+        "Male_Fat%": (
+            X_data["FAT%_Male"].values
+            if "FAT%_Male" in X_data.columns
+            else np.zeros(len(X_data))
+        ),
+    }
+    
+    # Add individual raw/scaled features from X_data for deep exploration
+    for col in X_data.columns:
+      available_x_options[f"Metric: {col}"] = X_data[col].values
+
+    # Contextual dropdown selector right above the plot
+    selected_x_label = st.selectbox(
+        "Select X-Axis Predictor / Component:",
+        list(available_x_options.keys()),
+        index=0,
+        key="fig8_view2_xaxis_selector",
+    )
+
+    current_x_data = available_x_options[selected_x_label]
+
     fig, ax = plt.subplots(figsize=(6, 5))
     sns.scatterplot(
-        x=comp1_scores,
+        x=current_x_data,
         y=Y_outcome.iloc[:, 0],
         hue=X_data["sex_encoded"].map({0: "Male", 1: "Female"}),
         palette={"Male": "blue", "Female": "red"},
@@ -298,8 +354,10 @@ def render_figure8():
         ax=ax,
     )
     ax.legend(loc="lower left", frameon=False)
+    
+    # Add regression trendline
     sns.regplot(
-        x=comp1_scores,
+        x=current_x_data,
         y=Y_outcome.iloc[:, 0],
         ax=ax,
         scatter=False,
@@ -314,13 +372,10 @@ def render_figure8():
     ax.yaxis.set_major_formatter(formatter)
 
     ax.set_title(
-        "Directional Impact of Biophysical Profile\n on Shifts in EV"
-        " Concentration",
+        f"Directional Impact of\n{selected_x_label} on $\Delta$ EV Concentration",
         fontweight="bold",
     )
-    ax.set_xlabel(
-        "Baseline Biophysical Profile (PLS Component 1 Score)", fontweight="bold"
-    )
+    ax.set_xlabel(selected_x_label, fontweight="bold")
     ax.set_ylabel(
         r"$\Delta$ EV Concentration (Post - Pre, (/ml))", fontweight="bold"
     )
