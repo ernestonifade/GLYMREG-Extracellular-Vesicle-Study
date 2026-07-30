@@ -101,9 +101,8 @@ elif (
   render_figure7()
 
 elif selected_figure == "Figure 8: Biophysical predictors of EV concentration shifts":
-  from figures.figure8 import render_figure8
-
   render_figure8()
+
 
 # --- 4. ONE-CLICK INSTANT EXPORT HANDLER ---
 st.sidebar.header("📥 Export Statistical Reports")
@@ -359,49 +358,5 @@ elif (
     )
 
 elif selected_figure == "Figure 8: Biophysical predictors of EV concentration shifts":
-  import openpyxl
-  from figures.figure8 import load_fig8_results
-
-  # Load the results dataframe and summary metrics from figure8 module
-  predictor_importance, r2_cv, pct_comp1, pct_comp2, total_pct, _, _, _, _, _ = (
-      load_fig8_results()
-  )
-
-  model_metrics_summary = pd.DataFrame({
-      "Metric_Parameter": [
-          "Cross-Validated R2 (cv=5)",
-          "Component 1 Variance (%)",
-          "Component 2 Variance (%)",
-          "Total Variance Explained (%)",
-      ],
-      "Value": [r2_cv, pct_comp1, pct_comp2, total_pct],
-  })
-
-  out_name = "Figure8_EV_Concentration_PLS_Report.xlsx"
-
-  wb = openpyxl.Workbook()
-  default_sheet = wb.active
-  wb.remove(default_sheet)
-
-
-  def write_df_to_wb(workbook, sheet_name, df):
-    ws = workbook.create_sheet(title=sheet_name)
-    ws.append(list(df.columns))
-    for row in df.itertuples(index=False, name=None):
-      ws.append(list(row))
-
-
-  write_df_to_wb(wb, "PLS_VIP_Scores", predictor_importance)
-  write_df_to_wb(wb, "Model_Performance_Summary", model_metrics_summary)
-
-  wb.save(out_name)
-
-  with open(out_name, "rb") as f:
-    st.sidebar.download_button(
-        label="📥 Download Figure 8 Report (.xlsx)",
-        data=f,
-        file_name=out_name,
-        mime=(
-            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        ),
-    )
+  from figures.figure8 import render_figure8
+  render_figure8()
