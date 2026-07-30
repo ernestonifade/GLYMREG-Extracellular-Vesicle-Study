@@ -288,56 +288,37 @@ def render_figure8():
       st.pyplot(fig)
 
   elif view_selection == "View 2: Component 1 Scatter Plot":
-    st.subheader("View 2: Biophysical Baseline Gradient vs. EV Concentration Shift")
+    st.subheader(
+        "View 2: Biophysical Baseline Gradient vs. EV Concentration Shift"
+    )
     st.markdown(
         "Explore how exercise-induced shifts in EV concentration align with"
-        " individual biophysical predictors or latent PLS components."
+        " key biophysical predictors or latent PLS components."
     )
 
-    # Build available X-axis options dynamically
-    # Component scores are available from the PLS model transformation
     X_comp_scores, _ = pls.transform(X_scaled, Y_scaled)
-    
+
+    # Dictionary containing ONLY Component 1, Component 2, and your selected key VIP metrics
     available_x_options = {
         "PLS Component 1 (Default)": X_comp_scores[:, 0],
         "PLS Component 2": X_comp_scores[:, 1],
-        "Female_Waist_CM": (
-            X_data["Waist Circumference(cm)_Female"].values
-            if "Waist Circumference(cm)_Female" in X_data.columns
-            else np.zeros(len(X_data))
-        ),
-        "Male_Heart_rate": (
-            X_data["Heart rate(/min)_Male"].values
-            if "Heart rate(/min)_Male" in X_data.columns
-            else np.zeros(len(X_data))
-        ),
-        "Female_Age": (
-            X_data["Age(yrs)_Female"].values
-            if "Age(yrs)_Female" in X_data.columns
-            else np.zeros(len(X_data))
-        ),
-        "Male_VO2peak": (
-            X_data["VO2peak(ml/kg/min)_Male"].values
-            if "VO2peak(ml/kg/min)_Male" in X_data.columns
-            else np.zeros(len(X_data))
-        ),
-        "Male_Systolic_BP": (
-            X_data["Systolic BP(mm Hg)_Male"].values
-            if "Systolic BP(mm Hg)_Male" in X_data.columns
-            else np.zeros(len(X_data))
-        ),
-        "Male_Fat%": (
-            X_data["FAT%_Male"].values
-            if "FAT%_Male" in X_data.columns
-            else np.zeros(len(X_data))
-        ),
     }
-    
-    # Add individual raw/scaled features from X_data for deep exploration
-    for col in X_data.columns:
-      available_x_options[f"Metric: {col}"] = X_data[col].values
 
-    # Contextual dropdown selector right above the plot
+    # Safely add only your chosen key VIP metrics if they exist in X_data
+    target_metrics = {
+        "Female_Waist_CM": "Waist Circumference(cm)_Female",
+        "Male_Heart_rate": "Heart rate(/min)_Male",
+        "Female_Age": "Age(yrs)_Female",
+        "Male_VO2peak": "VO2peak(ml/kg/min)_Male",
+        "Male_Systolic_BP": "Systolic BP(mm Hg)_Male",
+        "Male_Fat%": "FAT%_Male",
+    }
+
+    for label, col_name in target_metrics.items():
+      if col_name in X_data.columns:
+        available_x_options[label] = X_data[col_name].values
+
+    # Contextual dropdown selector
     selected_x_label = st.selectbox(
         "Select X-Axis Predictor / Component:",
         list(available_x_options.keys()),
@@ -347,7 +328,7 @@ def render_figure8():
 
     current_x_data = available_x_options[selected_x_label]
 
-    fig, ax = plt.subplots(figsize=(6, 5))
+    fig, ax = plt.subplots(figsize=(3.5, 3.5))
     sns.scatterplot(
         x=current_x_data,
         y=Y_outcome.iloc[:, 0],
@@ -360,8 +341,7 @@ def render_figure8():
         ax=ax,
     )
     ax.legend(loc="lower left", frameon=False)
-    
-    # Add regression trendline
+
     sns.regplot(
         x=current_x_data,
         y=Y_outcome.iloc[:, 0],
@@ -378,7 +358,8 @@ def render_figure8():
     ax.yaxis.set_major_formatter(formatter)
 
     ax.set_title(
-        f"Directional Impact of\n{selected_x_label} on $\Delta$ EV Concentration",
+        f"Directional Impact of\n{selected_x_label} on $\Delta$ EV"
+        " Concentration",
         fontweight="bold",
     )
     ax.set_xlabel(selected_x_label, fontweight="bold")
@@ -387,10 +368,9 @@ def render_figure8():
     )
     sns.despine(ax=ax, trim=True)
     st.pyplot(fig)
-
   elif view_selection == "View 3: Actual vs. Predicted Parity Plot":
     st.subheader("View 3: Multivariate PLS Model Accuracy (Parity Plot)")
-    fig, ax = plt.subplots(figsize=(6, 5))
+    fig, ax = plt.subplots(figsize=(3.5, 3.5))
     ax.scatter(
         Y_actual,
         Y_pred,
