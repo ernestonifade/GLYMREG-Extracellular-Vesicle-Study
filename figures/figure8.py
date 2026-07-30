@@ -223,58 +223,19 @@ def render_figure8():
       Y_pred,
   ) = run_pls_pipeline()
 
-  model_metrics_summary = pd.DataFrame({
-      "Metric_Parameter": [
-          "Cross-Validated R2 (cv=5)",
-          "Component 1 Variance (%)",
-          "Component 2 Variance (%)",
-          "Total Variance Explained (%)",
-      ],
-      "Value": [r2_cv, pct_comp1, pct_comp2, total_pct],
-  })
-
-  import openpyxl
-
-  out_name = "Figure8_EV_Concentration_PLS_Report.xlsx"
-  wb = openpyxl.Workbook()
-  default_sheet = wb.active
-  wb.remove(default_sheet)
-
-
-  def write_df_to_wb(workbook, sheet_name, df):
-    ws = workbook.create_sheet(title=sheet_name)
-    ws.append(list(df.columns))
-    for row in df.itertuples(index=False, name=None):
-      ws.append(list(row))
-
-
-  write_df_to_wb(wb, "PLS_VIP_Scores", predictor_importance)
-  write_df_to_wb(wb, "Model_Performance_Summary", model_metrics_summary)
-  wb.save(out_name)
-
-  # 1. Sidebar Download Button
-  with open(out_name, "rb") as f:
-    st.sidebar.download_button(
-        label="📥 Download Figure 8 Report (.xlsx)",
-        data=f,
-        file_name=out_name,
-        mime=(
-            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        ),
-        key=f"dl_fig8_{uuid.uuid4()}",
-    )
-
-  # 2. Sidebar Navigation View Selector (Rendered directly below the download button)
-  view_selection = st.sidebar.radio(
-      "Figure 8 Navigation Views",
+  # Main canvas view selector consistent with other figure modules
+  view_selection = st.radio(
+      "Select Figure 8 View:",
       [
           "View 1: Model Overview & Summary",
           "View 2: Component 1 Scatter Plot",
           "View 3: Actual vs. Predicted Parity Plot",
           "View 4: Complete VIP Table",
       ],
+      horizontal=True,
       key="fig8_nav_view_selector",
   )
+  st.markdown("---")
 
   if view_selection == "View 1: Model Overview & Summary":
     st.subheader("View 1: Model Performance & Feature Importance (VIP)")
