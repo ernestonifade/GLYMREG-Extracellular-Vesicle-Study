@@ -1,4 +1,6 @@
 import os
+import uuid
+import openpyxl
 import pandas as pd
 import streamlit as st
 from figures.figure1 import load_fig1_results, render_figure1
@@ -19,11 +21,9 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# Custom CSS for compact header, full-width fluid layout, and readable tables
 st.markdown(
     """
 <style>
-    /* Reduce top whitespace and header size */
     .block-container {
         padding-top: 1.5rem;
         padding-bottom: 2rem;
@@ -36,7 +36,6 @@ st.markdown(
     p {
         font-size: 0.95rem;
     }
-    /* Style download button for single-click instant download */
     .stDownloadButton button {
         background-color: #28a745 !important;
         color: white !important;
@@ -48,7 +47,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Compact Title Banner
 st.title("🧬 GLYMREG Extracellular Vesicle Study")
 st.caption("Interactive Manuscript Dashboard & Statistical Summary")
 st.markdown("---")
@@ -65,41 +63,56 @@ selected_figure = st.sidebar.radio(
         "Figure 5: Protein vs Cytokine vs Blood Correlation",
         "Figure 6: EV vs Protein, Cytokine vs Blood Correlations",
         "Figure 7: Pathway Enrichment Protein, Cytokine Correlations",
-        "Figure 8: Biophysical predictors of EV concentration shifts"
+        "Figure 8: Biophysical predictors of EV concentration shifts",
     ],
     index=2,
 )
 
 st.sidebar.markdown("---")
 
+
+# Helper function to write DataFrames safely using openpyxl
+def export_sheets_to_excel(filename, sheets_dict):
+  wb = openpyxl.Workbook()
+  default_sheet = wb.active
+  wb.remove(default_sheet)
+
+  for sheet_name, df in sheets_dict.items():
+    if df is not None and not df.empty:
+      ws = wb.create_sheet(title=sheet_name)
+      ws.append(list(df.columns))
+      for row in df.itertuples(index=False, name=None):
+        ws.append(list(row))
+
+  if len(wb.worksheets) == 0:
+    ws = wb.create_sheet(title="Info")
+    ws.append(["Note"])
+    ws.append(["No data available"])
+
+  wb.save(filename)
+
+
 # --- 3. PAGE ROUTING & RENDER CALLS ---
 if selected_figure == "Figure 1: EV Size Skewness":
   render_figure1()
-
 elif (
     selected_figure
     == "Figure 2: Extracellular Vesicles (Concentration, Size & Correlation)"
 ):
   render_figure2()
-
 elif selected_figure == "Figure 3: Proteomics (518 Panel)":
   render_figure3()
-
 elif selected_figure == "Figure 4: Cytokine Analysis":
   render_figure4()
-
 elif selected_figure == "Figure 5: Protein vs Cytokine vs Blood Correlation":
   render_figure5()
-
 elif selected_figure == "Figure 6: EV vs Protein, Cytokine vs Blood Correlations":
   render_figure6()
-
 elif (
     selected_figure
     == "Figure 7: Pathway Enrichment Protein, Cytokine Correlations"
 ):
   render_figure7()
-
 elif selected_figure == "Figure 8: Biophysical predictors of EV concentration shifts":
   render_figure8()
 
@@ -109,13 +122,14 @@ st.sidebar.header("📥 Export Statistical Reports")
 
 if selected_figure == "Figure 1: EV Size Skewness":
   stats_df, df_all = load_fig1_results()
-
   out_name = "Figure1D_EV_Size_Skewness_Data.xlsx"
-  with pd.ExcelWriter(out_name, engine="openpyxl") as writer:
-    stats_df.to_excel(
-        writer, sheet_name="EV_Size_Skewness_Wilcoxon_Stats", index=False
-    )
-    df_all.to_excel(writer, sheet_name="Raw_EV_Data", index=False)
+  export_sheets_to_excel(
+      out_name,
+      {
+          "EV_Size_Skewness_Wilcoxon_Stats": stats_df,
+          "Raw_EV_Data": df_all,
+      },
+  )
 
   with open(out_name, "rb") as f:
     st.sidebar.download_button(
@@ -125,6 +139,7 @@ if selected_figure == "Figure 1: EV Size Skewness":
         mime=(
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         ),
+        key=f"dl_fig1_{uuid.uuid4()}",
     )
 
 elif (
@@ -132,14 +147,17 @@ elif (
     == "Figure 2: Extracellular Vesicles (Concentration, Size & Correlation)"
 ):
   ancova_df, posthoc_df, corr_overall, corr_sex, long_df = load_fig2_results()
-
   out_name = "Figure2_EV_Full_Stats_Report.xlsx"
-  with pd.ExcelWriter(out_name, engine="openpyxl") as writer:
-    ancova_df.to_excel(writer, sheet_name="RM_ANCOVA_Stats", index=False)
-    posthoc_df.to_excel(writer, sheet_name="PostHoc_Contrasts", index=False)
-    corr_overall.to_excel(writer, sheet_name="Correlation_Overall", index=False)
-    corr_sex.to_excel(writer, sheet_name="Correlation_Sex", index=False)
-    long_df.to_excel(writer, sheet_name="Raw_Data", index=False)
+  export_sheets_to_excel(
+      out_name,
+      {
+          "RM_ANCOVA_Stats": ancova_df,
+          "PostHoc_Contrasts": posthoc_df,
+          "Correlation_Overall": corr_overall,
+          "Correlation_Sex": corr_sex,
+          "Raw_Data": long_df,
+      },
+  )
 
   with open(out_name, "rb") as f:
     st.sidebar.download_button(
@@ -149,30 +167,28 @@ elif (
         mime=(
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         ),
+        key=f"dl_fig2_{uuid.uuid4()}",
     )
 
 elif selected_figure == "Figure 3: Proteomics (518 Panel)":
   ancova_df, posthoc_df, pca_scores_df, perm_df, long_df, _ = load_fig3_results()
-
   out_name = "Figure3_Proteomics_Full_Stats_Report.xlsx"
-  with pd.ExcelWriter(out_name, engine="openpyxl") as writer:
-    ancova_df.to_excel(writer, sheet_name="RM_ANCOVA_Model_Stats", index=False)
-    posthoc_df.to_excel(
-        writer, sheet_name="PostHoc_Pairwise_Contrasts", index=False
-    )
-    perm_df.to_excel(writer, sheet_name="PERMANOVA_Summary", index=False)
-    pca_scores_df.to_excel(writer, sheet_name="PCA_Scores_and_EV", index=False)
-    long_df.to_excel(writer, sheet_name="Raw_Proteomic_Data", index=False)
-    for path in [
-        "data/enrichment_permutation_results_for_interacting_proteins.csv",
-        "enrichment_permutation_results_for_interacting_proteins.csv",
-    ]:
-      if os.path.exists(path):
-        df_enrich = pd.read_csv(path)
-        df_enrich.to_excel(
-            writer, sheet_name="Protein_Interaction_Pathway_Enrichment", index=False
-        )
-        break
+  sheets_data = {
+      "RM_ANCOVA_Model_Stats": ancova_df,
+      "PostHoc_Pairwise_Contrasts": posthoc_df,
+      "PERMANOVA_Summary": perm_df,
+      "PCA_Scores_and_EV": pca_scores_df,
+      "Raw_Proteomic_Data": long_df,
+  }
+  for path in [
+      "data/enrichment_permutation_results_for_interacting_proteins.csv",
+      "enrichment_permutation_results_for_interacting_proteins.csv",
+  ]:
+    if os.path.exists(path):
+      sheets_data["Protein_Interaction_Pathway_Enrichment"] = pd.read_csv(path)
+      break
+
+  export_sheets_to_excel(out_name, sheets_data)
 
   with open(out_name, "rb") as f:
     st.sidebar.download_button(
@@ -182,21 +198,21 @@ elif selected_figure == "Figure 3: Proteomics (518 Panel)":
         mime=(
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         ),
+        key=f"dl_fig3_{uuid.uuid4()}",
     )
 
 elif selected_figure == "Figure 4: Cytokine Analysis":
   ancova_df, posthoc_df, df_emm, fig4_long_df = load_fig4_results()
-
   out_name = "Figure4_Cytokine_Full_Stats_Report.xlsx"
-  with pd.ExcelWriter(out_name, engine="openpyxl") as writer:
-    ancova_df.to_excel(writer, sheet_name="RM_ANCOVA_Model_Stats", index=False)
-    posthoc_df.to_excel(
-        writer, sheet_name="PostHoc_Pairwise_Contrasts", index=False
-    )
-    df_emm.to_excel(writer, sheet_name="Group_EMM_Summary", index=False)
-    fig4_long_df.to_excel(
-        writer, sheet_name="Processed_Cytokine_Data", index=False
-    )
+  export_sheets_to_excel(
+      out_name,
+      {
+          "RM_ANCOVA_Model_Stats": ancova_df,
+          "PostHoc_Pairwise_Contrasts": posthoc_df,
+          "Group_EMM_Summary": df_emm,
+          "Processed_Cytokine_Data": fig4_long_df,
+      },
+  )
 
   with open(out_name, "rb") as f:
     st.sidebar.download_button(
@@ -206,37 +222,23 @@ elif selected_figure == "Figure 4: Cytokine Analysis":
         mime=(
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         ),
+        key=f"dl_fig4_{uuid.uuid4()}",
     )
 
 elif selected_figure == "Figure 5: Protein vs Cytokine vs Blood Correlation":
   data = load_fig5_results()
-
   out_name = "Figure5_MultiModal_Integration_Report.xlsx"
-  with pd.ExcelWriter(out_name, engine="openpyxl") as writer:
-    if not data["cyto_rm"].empty:
-      data["cyto_rm"].to_excel(
-          writer, sheet_name="Cyto_Protein_RM_Corr", index=False
-      )
-    if not data["blood_rm"].empty:
-      data["blood_rm"].to_excel(
-          writer, sheet_name="Blood_Protein_RM_Corr", index=False
-      )
-    if not data["cyto_baseline"].empty:
-      data["cyto_baseline"].to_excel(
-          writer, sheet_name="Cyto_Protein_Baseline", index=False
-      )
-    if not data["cyto_delta"].empty:
-      data["cyto_delta"].to_excel(
-          writer, sheet_name="Cyto_Protein_Delta_Windows", index=False
-      )
-    if not data["blood_baseline"].empty:
-      data["blood_baseline"].to_excel(
-          writer, sheet_name="Blood_Protein_Baseline", index=False
-      )
-    if not data["blood_delta"].empty:
-      data["blood_delta"].to_excel(
-          writer, sheet_name="Blood_Protein_Delta_Windows", index=False
-      )
+  export_sheets_to_excel(
+      out_name,
+      {
+          "Cyto_Protein_RM_Corr": data.get("cyto_rm"),
+          "Blood_Protein_RM_Corr": data.get("blood_rm"),
+          "Cyto_Protein_Baseline": data.get("cyto_baseline"),
+          "Cyto_Protein_Delta_Windows": data.get("cyto_delta"),
+          "Blood_Protein_Baseline": data.get("blood_baseline"),
+          "Blood_Protein_Delta_Windows": data.get("blood_delta"),
+      },
+  )
 
   with open(out_name, "rb") as f:
     st.sidebar.download_button(
@@ -246,51 +248,28 @@ elif selected_figure == "Figure 5: Protein vs Cytokine vs Blood Correlation":
         mime=(
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         ),
+        key=f"dl_fig5_{uuid.uuid4()}",
     )
 
 elif (
     selected_figure == "Figure 6: EV vs Protein, Cytokine vs Blood Correlations"
 ):
   data = load_fig6_results()
-
   out_name = "Figure6_EV_MultiModal_Integration_Report.xlsx"
-  with pd.ExcelWriter(out_name, engine="openpyxl") as writer:
-    if not data["cyto_blood_rm"].empty:
-      data["cyto_blood_rm"].to_excel(
-          writer, sheet_name="Cyto_Blood_RM_Corr", index=False
-      )
-    if not data["evsize_rm"].empty:
-      data["evsize_rm"].to_excel(
-          writer, sheet_name="Protein_EVSize_RM_Corr", index=False
-      )
-    if not data["evconc_rm"].empty:
-      data["evconc_rm"].to_excel(
-          writer, sheet_name="Protein_EVConc_RM_Corr", index=False
-      )
-    if not data["cyto_blood_baseline"].empty:
-      data["cyto_blood_baseline"].to_excel(
-          writer, sheet_name="Cyto_Blood_Baseline", index=False
-      )
-    if not data["cyto_blood_delta"].empty:
-      data["cyto_blood_delta"].to_excel(
-          writer, sheet_name="Cyto_Blood_Delta_Windows", index=False
-      )
-    if not data["evsize_baseline"].empty:
-      data["evsize_baseline"].to_excel(
-          writer, sheet_name="Protein_EVSize_Baseline", index=False
-      )
-    if not data["evsize_delta"].empty:
-      data["evsize_delta"].to_excel(
-          writer, sheet_name="Protein_EVSize_Delta_Windows", index=False
-      )
-    if not data["evconc_baseline"].empty:
-      data["evconc_baseline"].to_excel(
-          writer, sheet_name="Protein_EVConc_Baseline", index=False
-      )
-    if not data["evconc_delta"].empty:
-      data["evconc_delta"].to_excel(
-          writer, sheet_name="Protein_EVConc_Delta_Windows", index=False
-      )
+  export_sheets_to_excel(
+      out_name,
+      {
+          "Cyto_Blood_RM_Corr": data.get("cyto_blood_rm"),
+          "Protein_EVSize_RM_Corr": data.get("evsize_rm"),
+          "Protein_EVConc_RM_Corr": data.get("evconc_rm"),
+          "Cyto_Blood_Baseline": data.get("cyto_blood_baseline"),
+          "Cyto_Blood_Delta_Windows": data.get("cyto_blood_delta"),
+          "Protein_EVSize_Baseline": data.get("evsize_baseline"),
+          "Protein_EVSize_Delta_Windows": data.get("evsize_delta"),
+          "Protein_EVConc_Baseline": data.get("evconc_baseline"),
+          "Protein_EVConc_Delta_Windows": data.get("evconc_delta"),
+      },
+  )
 
   with open(out_name, "rb") as f:
     st.sidebar.download_button(
@@ -300,23 +279,20 @@ elif (
         mime=(
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         ),
+        key=f"dl_fig6_{uuid.uuid4()}",
     )
 
 elif (
     selected_figure
     == "Figure 7: Pathway Enrichment Protein, Cytokine Correlations"
 ):
-
   def find_pathway_file(candidates):
     for path in candidates:
       if os.path.exists(path):
         return path
     return None
 
-  data = load_fig7_results() if "load_fig7_results" in globals() else {}
-
   out_name = "Figure7_Pathway_Enrichment_Report.xlsx"
-
   prot_path = find_pathway_file([
       "data/enrichment_permutation_results_for_correlating_proteins.csv",
       "../data/enrichment_permutation_results_for_correlating_proteins.csv",
@@ -328,24 +304,18 @@ elif (
       "enrichment_permutation_results_for_correlating_cytokines.csv",
   ])
 
-  sheets_written = 0
-  with pd.ExcelWriter(out_name, engine="openpyxl") as writer:
-    if prot_path and os.path.exists(prot_path):
-      df_prot = pd.read_csv(prot_path)
-      if not df_prot.empty:
-        df_prot.to_excel(writer, sheet_name="Protein_Pathways", index=False)
-        sheets_written += 1
+  sheets_data = {}
+  if prot_path and os.path.exists(prot_path):
+    df_prot = pd.read_csv(prot_path)
+    if not df_prot.empty:
+      sheets_data["Protein_Pathways"] = df_prot
 
-    if cyt_path and os.path.exists(cyt_path):
-      df_cyt = pd.read_csv(cyt_path)
-      if not df_cyt.empty:
-        df_cyt.to_excel(writer, sheet_name="Cytokine_Pathways", index=False)
-        sheets_written += 1
+  if cyt_path and os.path.exists(cyt_path):
+    df_cyt = pd.read_csv(cyt_path)
+    if not df_cyt.empty:
+      sheets_data["Cytokine_Pathways"] = df_cyt
 
-    if sheets_written == 0:
-      pd.DataFrame({"Note": ["No pathway files found"]}).to_excel(
-          writer, sheet_name="Info", index=False
-      )
+  export_sheets_to_excel(out_name, sheets_data)
 
   with open(out_name, "rb") as f:
     st.sidebar.download_button(
@@ -355,8 +325,9 @@ elif (
         mime=(
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         ),
+        key=f"dl_fig7_{uuid.uuid4()}",
     )
 
 elif selected_figure == "Figure 8: Biophysical predictors of EV concentration shifts":
-  from figures.figure8 import render_figure8
-  render_figure8()
+  # Note: Figure 8 export handling is fully encapsulated inside figures/figure8.py render function
+  pass
