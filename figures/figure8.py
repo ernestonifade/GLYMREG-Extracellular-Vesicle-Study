@@ -19,7 +19,6 @@ def run_pls_pipeline(target_column="Concentration/ml"):
   root_dir = os.path.dirname(script_dir)  # moves up to root project directory
 
   def get_data_path(filename):
-    # Check inside the 'data' subfolder in the root or script directory
     path_data_folder = os.path.join(root_dir, "data", filename)
     path_root = os.path.join(root_dir, filename)
     path_local_data = os.path.join(script_dir, "data", filename)
@@ -241,6 +240,8 @@ def render_figure8():
     model_metrics_summary.to_excel(
         writer, sheet_name="Model_Performance_Summary", index=False
     )
+    # Ensure at least one sheet is explicitly active/visible for openpyxl
+    writer.book.active = 0
 
   with open(out_name, "rb") as f:
     st.sidebar.download_button(
