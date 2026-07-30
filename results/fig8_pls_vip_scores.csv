@@ -1,0 +1,18 @@
+Metric,VIP Score
+Waist Circumference(cm)_Female,1.9697841684566555
+Heart rate(/min)_Male,1.8970622148620784
+Age(yrs)_Female,1.3175427547331624
+VO2peak(ml/kg/min)_Male,1.2718538838429252
+Systolic BP(mm Hg)_Male,1.257311351851985
+FAT%_Male,1.0952829150073322
+FAT%_Female,0.908020824712255
+BMI(kg/m2)_Female,0.6323292391877763
+Age(yrs)_Male,0.6277147758621843
+Diastolic BP(mm Hg)_Female,0.5917050261086721
+Systolic BP(mm Hg)_Female,0.5893150442933374
+VO2peak(ml/kg/min)_Female,0.5758248544499076
+sex_encoded,0.5112284889980694
+BMI(kg/m2)_Male,0.4423107856918834
+Heart rate(/min)_Female,0.3751423758948257
+Waist Circumference(cm)_Male,0.28852609330108026
+Diastolic BP(mm Hg)_Male,0.24243724135799957
