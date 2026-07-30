@@ -15,21 +15,20 @@ mpl.rcParams["svg.fonttype"] = "none"
 
 @st.cache_data
 def run_pls_pipeline(target_column="Concentration/ml"):
-  # Resolve absolute path relative to this script's directory for Streamlit Cloud
   script_dir = os.path.dirname(os.path.abspath(__file__))
   root_dir = os.path.dirname(script_dir)  # moves up to root project directory
 
   def get_data_path(filename):
-    # Check root directory first, then local script directory as fallback
+    # Check inside the 'data' subfolder in the root or script directory
+    path_data_folder = os.path.join(root_dir, "data", filename)
     path_root = os.path.join(root_dir, filename)
+    path_local_data = os.path.join(script_dir, "data", filename)
     path_local = os.path.join(script_dir, filename)
-    if os.path.exists(path_root):
-      return path_root
-    elif os.path.exists(path_local):
-      return path_local
-    else:
-      # Default fallback to direct string if not found (will raise FileNotFoundError cleanly)
-      return filename
+
+    for p in [path_data_folder, path_root, path_local_data, path_local]:
+      if os.path.exists(p):
+        return p
+    return filename
 
   e1 = pd.read_excel(get_data_path("bodymetrics.xlsx"))
   df_metrics_prep = e1.copy()
