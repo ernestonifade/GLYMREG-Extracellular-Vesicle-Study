@@ -104,8 +104,7 @@ elif (
     selected_figure
     == "Figure 8: Biophysical predictors of EV concentration shifts"
 ):
-
-
+    render_figure8()
 
 # --- 4. ONE-CLICK INSTANT EXPORT HANDLER ---
 st.sidebar.header("📥 Export Statistical Reports")
