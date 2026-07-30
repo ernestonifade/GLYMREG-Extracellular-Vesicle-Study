@@ -1,4 +1,5 @@
 # figures/figure8.py
+import os
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
@@ -14,7 +15,23 @@ mpl.rcParams["svg.fonttype"] = "none"
 
 @st.cache_data
 def run_pls_pipeline(target_column="Concentration/ml"):
-  e1 = pd.read_excel("bodymetrics.xlsx")
+  # Resolve absolute path relative to this script's directory for Streamlit Cloud
+  script_dir = os.path.dirname(os.path.abspath(__file__))
+  root_dir = os.path.dirname(script_dir)  # moves up to root project directory
+
+  def get_data_path(filename):
+    # Check root directory first, then local script directory as fallback
+    path_root = os.path.join(root_dir, filename)
+    path_local = os.path.join(script_dir, filename)
+    if os.path.exists(path_root):
+      return path_root
+    elif os.path.exists(path_local):
+      return path_local
+    else:
+      # Default fallback to direct string if not found (will raise FileNotFoundError cleanly)
+      return filename
+
+  e1 = pd.read_excel(get_data_path("bodymetrics.xlsx"))
   df_metrics_prep = e1.copy()
   df_metrics_prep.columns = df_metrics_prep.columns.str.strip()
 
@@ -58,10 +75,10 @@ def run_pls_pipeline(target_column="Concentration/ml"):
       .dropna()
   )
 
-  df1 = pd.read_excel("df1_EVs.xlsx")
-  df2 = pd.read_excel("df2_EVs.xlsx")
-  df3 = pd.read_excel("df3_EVs.xlsx")
-  df4 = pd.read_excel("df4_EVs.xlsx")
+  df1 = pd.read_excel(get_data_path("df1_EVs.xlsx"))
+  df2 = pd.read_excel(get_data_path("df2_EVs.xlsx"))
+  df3 = pd.read_excel(get_data_path("df3_EVs.xlsx"))
+  df4 = pd.read_excel(get_data_path("df4_EVs.xlsx"))
   df = pd.concat([df1, df2, df3, df4], axis=0)
 
   df_biomarker_prep = df[["Subject_ID", "time", "sex", target_column]].copy()
