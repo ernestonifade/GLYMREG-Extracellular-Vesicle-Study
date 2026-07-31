@@ -24,21 +24,26 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    /* Force top-alignment for multi-line radio button options */
+    /* Force top-alignment and style radio buttons for high visibility */
     .stRadio div[role="radiogroup"] {
         gap: 8px;
     }
     .stRadio div[role="radiogroup"] label {
         align-items: flex-start !important;
-        background-color: transparent;
     }
     .stRadio div[role="radiogroup"] label div:first-child {
         margin-top: 2px;
+    }
+    /* Style the radio button outer circle and inner solid dot */
+    .stRadio div[role="radiogroup"] input[type="radio"] {
+        accent-color: #1f77b4; /* Solid primary blue accent color */
     }
     </style>
     """,
     unsafe_allow_html=True,
 )
+
+
 st.markdown(
     """
 <style>
