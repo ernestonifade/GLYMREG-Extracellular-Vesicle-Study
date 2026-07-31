@@ -24,25 +24,27 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    /* Force top-alignment and style radio buttons for high visibility */
+    /* Force top-alignment and scale radio buttons for high visibility */
     .stRadio div[role="radiogroup"] {
-        gap: 8px;
+        gap: 10px;
     }
     .stRadio div[role="radiogroup"] label {
         align-items: flex-start !important;
+        cursor: pointer;
     }
     .stRadio div[role="radiogroup"] label div:first-child {
-        margin-top: 2px;
+        margin-top: 3px;
     }
-    /* Style the radio button outer circle and inner solid dot */
+    /* Scale up the radio inputs to make them larger and easier to click */
     .stRadio div[role="radiogroup"] input[type="radio"] {
-        accent-color: #1f77b4; /* Solid primary blue accent color */
+        transform: scale(1.0);
+        accent-color: #1f77b4;
+        margin-right: 6px;
     }
     </style>
     """,
     unsafe_allow_html=True,
 )
-
 
 st.markdown(
     """
