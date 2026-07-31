@@ -69,6 +69,37 @@ selected_figure = st.sidebar.radio(
 )
 
 st.sidebar.markdown("---")
+# --- COMPLETE STUDY REPOSITORY DOWNLOAD ---
+st.sidebar.markdown("### 🗂️ Study Repository")
+
+import io
+import zipfile
+
+zip_buffer = io.BytesIO()
+data_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+
+if os.path.exists(data_folder):
+  with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as zip_file:
+    for root, dirs, files in os.walk(data_folder):
+      for file in files:
+        if file.lower().endswith(
+            (".xlsx", ".xls", ".csv", ".txt", ".gmt", ".gmx")
+        ):
+          file_path = os.path.join(root, file)
+          arcname = os.path.relpath(file_path, data_folder)
+          zip_file.write(file_path, arcname=arcname)
+
+  zip_buffer.seek(0)
+
+  st.sidebar.download_button(
+      label="📥 Download All Raw Datasets & GMTs (.zip)",
+      data=zip_buffer,
+      file_name="GLYMREG_Study_Complete_Data.zip",
+      mime="application/zip",
+      key=f"dl_all_repo_data_{uuid.uuid4()}",
+  )
+else:
+  st.sidebar.info("Data folder not found.")
 
 
 # Helper function to write DataFrames safely using openpyxl
