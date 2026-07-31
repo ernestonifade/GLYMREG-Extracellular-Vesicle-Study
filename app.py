@@ -23,6 +23,26 @@ st.set_page_config(
 
 st.markdown(
     """
+    <style>
+    /* Align multi-line radio button labels neatly with their selection dots */
+    div.row-widget.stRadio > div {
+        flex-direction: column;
+    }
+    div.row-widget.stRadio label {
+        align-items: flex-start !important;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+    div.row-widget.stRadio div[data-baseweb="radio"] {
+        margin-top: 2px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
 <style>
     .block-container {
         padding-top: 1.5rem;
