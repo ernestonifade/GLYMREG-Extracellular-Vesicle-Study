@@ -69,6 +69,27 @@ selected_figure = st.sidebar.radio(
 )
 
 st.sidebar.markdown("---")
+
+# Helper function to write DataFrames safely using openpyxl
+def export_sheets_to_excel(filename, sheets_dict):
+  wb = openpyxl.Workbook()
+  default_sheet = wb.active
+  wb.remove(default_sheet)
+
+  for sheet_name, df in sheets_dict.items():
+    if df is not None and not df.empty:
+      ws = wb.create_sheet(title=sheet_name)
+      ws.append(list(df.columns))
+      for row in df.itertuples(index=False, name=None):
+        ws.append(list(row))
+
+  if len(wb.worksheets) == 0:
+    ws = wb.create_sheet(title="Info")
+    ws.append(["Note"])
+    ws.append(["No data available"])
+
+  wb.save(filename)
+
 # --- COMPLETE STUDY REPOSITORY DOWNLOAD ---
 st.sidebar.markdown("### 🗂️ Study Repository")
 
@@ -100,27 +121,6 @@ if os.path.exists(data_folder):
   )
 else:
   st.sidebar.info("Data folder not found.")
-
-
-# Helper function to write DataFrames safely using openpyxl
-def export_sheets_to_excel(filename, sheets_dict):
-  wb = openpyxl.Workbook()
-  default_sheet = wb.active
-  wb.remove(default_sheet)
-
-  for sheet_name, df in sheets_dict.items():
-    if df is not None and not df.empty:
-      ws = wb.create_sheet(title=sheet_name)
-      ws.append(list(df.columns))
-      for row in df.itertuples(index=False, name=None):
-        ws.append(list(row))
-
-  if len(wb.worksheets) == 0:
-    ws = wb.create_sheet(title="Info")
-    ws.append(["Note"])
-    ws.append(["No data available"])
-
-  wb.save(filename)
 
 
 # --- 3. PAGE ROUTING & RENDER CALLS ---
