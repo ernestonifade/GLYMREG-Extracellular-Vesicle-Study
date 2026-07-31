@@ -307,10 +307,16 @@ def render_figure8():
     # Safely add only your chosen key VIP metrics if they exist in X_data
     target_metrics = {
         "Female_Waist_CM": "Waist Circumference(cm)_Female",
+        "Male_Waist_CM": "Waist Circumference(cm)_Male",
+        "Female_Heart_rate": "Heart rate(/min)_Female",
         "Male_Heart_rate": "Heart rate(/min)_Male",
         "Female_Age": "Age(yrs)_Female",
+        "Male_Age": "Age(yrs)_Male",
+        "female_VO2peak": "VO2peak(ml/kg/min)_Female",
         "Male_VO2peak": "VO2peak(ml/kg/min)_Male",
+        "Female_Systolic_BP": "Systolic BP(mm Hg)_Female",
         "Male_Systolic_BP": "Systolic BP(mm Hg)_Male",
+        "Female_Fat%": "FAT%_Female",
         "Male_Fat%": "FAT%_Male",
     }
 
@@ -368,17 +374,22 @@ def render_figure8():
     )
     sns.despine(ax=ax, trim=True)
     st.pyplot(fig)
+    
   elif view_selection == "View 3: Actual vs. Predicted Parity Plot":
     st.subheader("View 3: Multivariate PLS Model Accuracy (Parity Plot)")
     fig, ax = plt.subplots(figsize=(3.5, 3.5))
-    ax.scatter(
-        Y_actual,
-        Y_pred,
-        color="royalblue",
+
+    # Plot sex-stratified scatter points matching View 2 styling
+    sns.scatterplot(
+        x=Y_actual.flatten(),
+        y=Y_pred.flatten(),
+        hue=X_data["sex_encoded"].map({0: "Male", 1: "Female"}),
+        palette={"Male": "blue", "Female": "red"},
         s=55,
+        alpha=0.85,
         edgecolor="k",
-        alpha=0.8,
-        label="Subjects",
+        linewidth=0.6,
+        ax=ax,
     )
 
     lims = [
@@ -388,13 +399,26 @@ def render_figure8():
     ax.plot(
         lims,
         lims,
-        color="red",
+        color="black",
         linestyle="--",
-        linewidth=1.5,
+        linewidth=1.2,
         label="Ideal Fit",
     )
     ax.set_xlim(lims)
     ax.set_ylim(lims)
+
+    # Embed model performance metrics as a clean text annotation/legend box on the plot
+    text_str = f"Cross-Validated $R^2$ (cv=5): {r2_cv:.3f}\nTotal Cumulative Var: {total_pct:.2f}%"
+    props = dict(boxstyle="round", facecolor="white", alpha=0.8, edgecolor="#cccccc")
+    ax.text(
+        0.05,
+        0.95,
+        text_str,
+        transform=ax.transAxes,
+        fontsize=9,
+        verticalalignment="top",
+        bbox=props,
+    )
 
     ax.set_xlabel("Actual Baseline-Adjusted Shift", fontweight="bold")
     ax.set_ylabel(
@@ -403,10 +427,10 @@ def render_figure8():
     ax.set_title(
         "Multivariate PLS Model: Actual vs. Predicted Responses", fontweight="bold"
     )
-    ax.legend(frameon=False)
+    ax.legend(loc="lower right", frameon=False)
     sns.despine(ax=ax, trim=True)
     st.pyplot(fig)
-
+    
   elif view_selection == "View 4: Complete VIP Table":
     st.subheader("View 4: Complete Variable Importance in Projection Table")
     st.markdown(
