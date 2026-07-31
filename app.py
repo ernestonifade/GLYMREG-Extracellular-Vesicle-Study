@@ -11,6 +11,7 @@ from figures.figure5 import load_fig5_results, render_figure5
 from figures.figure6 import load_fig6_results, render_figure6
 from figures.figure7 import load_fig7_results, render_figure7
 from figures.figure8 import load_fig8_results, render_figure8
+from figures.figure9 import load_fig9_results, render_figure9
 from utils import render_searchable_table
 
 # --- 1. STREAMLIT PAGE CONFIGURATION (WIDE & OPEN) ---
@@ -89,6 +90,7 @@ selected_figure = st.sidebar.radio(
         "Figure 6: EV vs Protein, Cytokine vs Blood Correlations",
         "Figure 7: Pathway Enrichment Protein, Cytokine Correlations",
         "Figure 8: Biophysical predictors of EV concentration shifts",
+        "Figure 9: Biophysical predictors of EV size shifts",
     ],
     index=0,
 )
@@ -139,6 +141,8 @@ elif (
   render_figure7()
 elif selected_figure == "Figure 8: Biophysical predictors of EV concentration shifts":
   render_figure8()
+elif selected_figure == "Figure 9: Biophysical predictors of EV size shifts":
+  render_figure9()
 
 
 # --- 4. ONE-CLICK INSTANT EXPORT HANDLER ---
@@ -384,6 +388,40 @@ elif selected_figure == "Figure 8: Biophysical predictors of EV concentration sh
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         ),
         key=f"dl_fig8_{uuid.uuid4()}",
+    )
+
+elif selected_figure == "Figure 9: Biophysical predictors of EV size shifts":
+  predictor_importance, r2_cv, pct_comp1, pct_comp2, total_pct, comp1_scores, Y_outcome, X_data, Y_actual, Y_pred, pls, X_scaled, Y_scaled = (
+      load_fig9_results()
+  )
+  model_metrics_summary = pd.DataFrame({
+      "Metric_Parameter": [
+          "Cross-Validated R2 (cv=5)",
+          "Component 1 Variance (%)",
+          "Component 2 Variance (%)",
+          "Total Variance Explained (%)",
+      ],
+      "Value": [r2_cv, pct_comp1, pct_comp2, total_pct],
+  })
+
+  out_name = "Figure9_EV_Size_PLS_Report.xlsx"
+  export_sheets_to_excel(
+      out_name,
+      {
+          "PLS_VIP_Scores": predictor_importance,
+          "Model_Performance_Summary": model_metrics_summary,
+      },
+  )
+
+  with open(out_name, "rb") as f:
+    st.sidebar.download_button(
+        label="📥 Download Figure 9 Report (.xlsx)",
+        data=f,
+        file_name=out_name,
+        mime=(
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ),
+        key=f"dl_fig9_{uuid.uuid4()}",
     )
 
 # --- COMPLETE REPOSITORY DOWNLOAD (Placed right below the active page report button) ---
