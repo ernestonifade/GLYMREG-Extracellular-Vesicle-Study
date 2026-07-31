@@ -65,7 +65,7 @@ selected_figure = st.sidebar.radio(
         "Figure 7: Pathway Enrichment Protein, Cytokine Correlations",
         "Figure 8: Biophysical predictors of EV concentration shifts",
     ],
-    index=2,
+    index=0,
 )
 
 st.sidebar.markdown("---")
