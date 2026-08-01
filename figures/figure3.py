@@ -652,10 +652,13 @@ def render_figure3():
         rename_dict = {'p_value_raw_fmt': 'p_value_raw', 'p_value_FDR_fmt': 'p_value_FDR'}
 
         for eff_key, eff_title in effect_map:
-            sub = df_ancova_fmt[(df_ancova_fmt['Effect'].str.contains(eff_key, case=False, na=False)) & 
-                                (df_ancova_fmt['p_value_raw'] < 0.05)].sort_values('p_value_raw')
-            
-            st.markdown(f'<h4 style="margin-top:22px; margin-bottom:6px; color:#2c3e50;">{eff_title}</h4>', unsafe_allow_html=True)
+            if eff_key == 'TimePoint:Group':
+                sub = df_ancova_fmt[(df_ancova_fmt['Effect'].str.contains('TimePoint:Group', case=False, na=False)) & (df_ancova_fmt['p_value_raw'] < 0.05)].sort_values('p_value_raw')
+            else:
+                # Strict match for pure main effects so interaction rows don't bleed in
+                sub = df_ancova_fmt[(df_ancova_fmt['Effect'] == eff_key) & (df_ancova_fmt['p_value_raw'] < 0.05)].sort_values('p_value_raw')
+                
+                st.markdown(f'<h4 style="margin-top:22px; margin-bottom:6px; color:#2c3e50;">{eff_title}</h4>', unsafe_allow_html=True)
             if not sub.empty:
                 st.dataframe(sub[cols_to_show].rename(columns=rename_dict), use_container_width=True)
             else:
