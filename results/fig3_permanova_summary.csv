@@ -1,0 +1,4 @@
+Panel,Comparison Context,Features Evaluated,Sample Size (N),Centroid Distance (PC1-2),Pseudo-F Statistic,p_value_raw,p_value_FDR
+Figure 3A,Baseline (All Proteins),518,20,15.373701096120193,2.608721176657682,0.003,0.009000000000000001
+Figure 3B,Post-Exercise Adj. Avg (All Proteins),518,20,6.7754097872451355,1.3471943211011508,0.096,0.096
+Figure 3C,Post-Exercise Adj. Avg (19 Candidates),19,20,2.0059971816681528,1.9371256457365558,0.031,0.0465
