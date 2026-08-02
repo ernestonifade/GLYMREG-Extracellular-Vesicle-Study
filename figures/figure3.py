@@ -604,7 +604,7 @@ def render_figure3():
                   "Mean_Random_Overlap",
                   "Empirical_P_Value",
                   "FDR_q_val",
-                  "Contributing_Cytokines",
+                  "Contributing_Proteins",
               ],
           )
         else:
