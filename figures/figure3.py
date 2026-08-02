@@ -601,8 +601,10 @@ def render_figure3():
                   "Database",
                   "Pathway",
                   "Observed_Overlap",
+                  "Mean_Random_Overlap",
                   "Empirical_P_Value",
-                  "Contributing_Proteins",
+                  "FDR_q_val",
+                  "Contributing_Cytokines",
               ],
           )
         else:
