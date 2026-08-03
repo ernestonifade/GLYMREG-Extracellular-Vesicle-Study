@@ -559,7 +559,18 @@ def render_figure3():
             database_name="All", max_pvalue=0.05
         )
         if fig:
-          st.pyplot(fig)
+            st.pyplot(fig)
+            import io
+            buf = io.BytesIO()
+            fig_path.savefig(buf, format="svg", bbox_inches="tight")
+            buf.seek(0)
+            
+            st.download_button(
+                label="📥 Download Editable Vector (SVG)",
+                data=buf,
+                file_name="pathway_enrichment_protein_divergence.svg",
+                mime="image/svg+xml",
+            ) 
         
         file_candidates = [
             "data/enrichment_permutation_results_for_interacting_proteins.csv",
