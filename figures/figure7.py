@@ -275,8 +275,7 @@ def render_figure7():
     )
     if fig_path:
       st.pyplot(fig_path)
-        
-    import io
+      import io
         buf = io.BytesIO()
         fig_path.savefig(buf, format="svg", bbox_inches="tight")
         buf.seek(0)
@@ -286,7 +285,7 @@ def render_figure7():
             data=buf,
             file_name="pathway_enrichment_protein_corr.svg",
             mime="image/svg+xml",
-        )
+        )  
 
   elif selected_view == "📄 Pathway Enrichment: Correlating Cytokines":
     st.markdown(
