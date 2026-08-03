@@ -562,7 +562,7 @@ def render_figure3():
             st.pyplot(fig)
             import io
             buf = io.BytesIO()
-            fig_path.savefig(buf, format="svg", bbox_inches="tight")
+            fig.savefig(buf, format="svg", bbox_inches="tight")
             buf.seek(0)
             
             st.download_button(
