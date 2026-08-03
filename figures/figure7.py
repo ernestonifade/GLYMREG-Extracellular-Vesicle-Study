@@ -286,12 +286,7 @@ def render_figure7():
             file_name="pathway_enrichment.svg",
             mime="image/svg+xml",
         ) 
-      
         
-      
-          
-
-      
   elif selected_view == "📄 Pathway Enrichment: Correlating Cytokines":
     st.markdown(
         """
