@@ -371,6 +371,17 @@ def render_figure9():
     )
     sns.despine(ax=ax, trim=True)
     st.pyplot(fig)
+	import io
+            buf = io.BytesIO()
+            fig.savefig(buf, format="svg", bbox_inches="tight")
+            buf.seek(0)
+            
+            st.download_button(
+                label="📥 Download Editable Vector (SVG)",
+                data=buf,
+                file_name="Directional impact on EV size shift.svg",
+                mime="image/svg+xml",
+            ) 
     
   elif view_selection == "View 3: Actual vs. Predicted Parity Plot":
     st.subheader("View 3: Multivariate PLS Model Accuracy (Parity Plot)")
