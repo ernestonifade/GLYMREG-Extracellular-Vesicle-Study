@@ -11,7 +11,7 @@ from sklearn.model_selection import cross_val_predict
 from sklearn.preprocessing import StandardScaler
 import streamlit as st
 
-mpl.rcParams["svg.fonttype"] = "none"
+#mpl.rcParams["svg.fonttype"] = "none"
 
 
 @st.cache_data
