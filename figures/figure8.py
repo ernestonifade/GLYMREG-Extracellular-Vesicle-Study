@@ -430,17 +430,17 @@ def render_figure8():
     ax.legend(loc="lower right", frameon=False)
     sns.despine(ax=ax, trim=True)
     st.pyplot(fig)
-    import io
-        buf = io.BytesIO()
-        fig.savefig(buf, format="svg", bbox_inches="tight")
-        buf.seek(0)
-        
-        st.download_button(
-            label="📥 Download Editable Vector (SVG)",
-            data=buf,
-            file_name="EV Conc Model Accuracy.svg",
-            mime="image/svg+xml",
-        ) 
+        import io
+            buf = io.BytesIO()
+            fig.savefig(buf, format="svg", bbox_inches="tight")
+            buf.seek(0)
+            
+            st.download_button(
+                label="📥 Download Editable Vector (SVG)",
+                data=buf,
+                file_name="EV Conc Model Accuracy.svg",
+                mime="image/svg+xml",
+            ) 
     
   elif view_selection == "View 4: Complete VIP Table":
     st.subheader("View 4: Complete Variable Importance in Projection Table")
