@@ -432,16 +432,16 @@ def render_figure8():
     st.pyplot(fig)
     
     import io
-        buf = io.BytesIO()
-        fig.savefig(buf, format="svg", bbox_inches="tight")
-        buf.seek(0)
-        
-        st.download_button(
-            label="📥 Download Editable Vector (SVG)",
-            data=buf,
-            file_name="EV Conc Model Accuracy.svg",
-            mime="image/svg+xml",
-        )
+      buf = io.BytesIO()
+      fig.savefig(buf, format="svg", bbox_inches="tight")
+      buf.seek(0)
+      
+      st.download_button(
+          label="📥 Download Editable Vector (SVG)",
+          data=buf,
+          file_name="EV Conc Model Accuracy.svg",
+          mime="image/svg+xml",
+      )
   
     
   elif view_selection == "View 4: Complete VIP Table":
