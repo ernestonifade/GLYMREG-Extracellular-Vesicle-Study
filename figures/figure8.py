@@ -377,7 +377,7 @@ def render_figure8():
     
   elif view_selection == "View 3: Actual vs. Predicted Parity Plot":
     st.subheader("View 3: Multivariate PLS Model Accuracy (Parity Plot)")
-    fig, ax = plt.subplots(figsize=(3.5, 3.5))
+    fig, ax = plt.subplots(figsize=(3, 3))
 
     # Plot sex-stratified scatter points matching View 2 styling
     sns.scatterplot(
