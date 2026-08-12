@@ -386,7 +386,7 @@ def render_figure9():
     
   elif view_selection == "View 3: Actual vs. Predicted Parity Plot":
     st.subheader("View 3: Multivariate PLS Model Accuracy (Parity Plot)")
-    fig, ax = plt.subplots(figsize=(3.5, 3.5))
+    fig, ax = plt.subplots(figsize=(3, 3))
 
     # Plot sex-stratified scatter points matching View 2 styling
     sns.scatterplot(
@@ -417,7 +417,7 @@ def render_figure9():
     ax.set_ylim(lims)
 
     # Embed model performance metrics as a clean text annotation/legend box on the plot
-    text_str = f"Cross-Validated $R^2$ (cv=5): {r2_cv:.3f}\nTotal Cumulative Var: {total_pct:.2f}%"
+    text_str = f"Total Cumulative Var: {total_pct:.2f}%\nCross-Validated $R^2$ (cv=5): {r2_cv:.3f}"
     props = dict(boxstyle="round", facecolor="white", alpha=0.8, edgecolor="#cccccc")
     ax.text(
         0.05,
@@ -429,16 +429,28 @@ def render_figure9():
         bbox=props,
     )
 
-    ax.set_xlabel("Actual Baseline-Adjusted Shift", fontweight="bold")
+    ax.set_xlabel("Actual Baseline-Adjusted Shift", fontsize=8, fontweight="bold")
     ax.set_ylabel(
-        "PLS Model Predicted Shift (Full Multivariate)", fontweight="bold"
+        "PLS Model Predicted Shift (Full Multivariate)", fontsize=8, fontweight="bold"
     )
     ax.set_title(
-        "Multivariate PLS Model: Actual vs. Predicted Responses", fontweight="bold"
+        "Multivariate PLS Model: Actual vs. Predicted Responses", fontsize=8.5, fontweight="bold"
     )
     ax.legend(loc="lower right", frameon=False)
     sns.despine(ax=ax, trim=True)
     st.pyplot(fig)
+
+	import io
+    buf = io.BytesIO()
+    fig.savefig(buf, format="svg", bbox_inches="tight")
+    buf.seek(0)
+    
+    st.download_button(
+        label="📥 Download Editable Vector (SVG)",
+        data=buf,
+        file_name="EV Size Model Accuracy.svg",
+        mime="image/svg+xml",
+    )
     
   elif view_selection == "View 4: Complete VIP Table":
     st.subheader("View 4: Complete Variable Importance in Projection Table")
