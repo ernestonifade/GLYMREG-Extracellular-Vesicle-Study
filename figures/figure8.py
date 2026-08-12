@@ -408,24 +408,24 @@ def render_figure8():
     ax.set_ylim(lims)
 
     # Embed model performance metrics as a clean text annotation/legend box on the plot
-    text_str = f"Cross-Validated $R^2$ (cv=5): {r2_cv:.3f}\nTotal Cumulative Var: {total_pct:.2f}%"
+    text_str = f"Total Cumulative Var: {total_pct:.2f}%\nCross-Validated $R^2$ (cv=5): {r2_cv:.3f}"
     props = dict(boxstyle="round", facecolor="white", alpha=0.8, edgecolor="#cccccc")
     ax.text(
         0.05,
         0.95,
         text_str,
         transform=ax.transAxes,
-        fontsize=9,
+        fontsize=7,
         verticalalignment="top",
         bbox=props,
     )
 
-    ax.set_xlabel("Actual Baseline-Adjusted Shift", fontweight="bold")
+    ax.set_xlabel("Actual Baseline-Adjusted Shift", fontsize= 8, fontweight="bold")
     ax.set_ylabel(
-        "PLS Model Predicted Shift (Full Multivariate)", fontweight="bold"
+        "PLS Model Predicted Shift (Full Multivariate)", fontsize= 8, fontweight="bold"
     )
     ax.set_title(
-        "Multivariate PLS Model: Actual vs. Predicted Responses", fontweight="bold"
+        "Multivariate PLS Model: Actual vs. Predicted Responses", fontsize= 8.5, fontweight="bold"
     )
     ax.legend(loc="lower right", frameon=False)
     sns.despine(ax=ax, trim=True)
