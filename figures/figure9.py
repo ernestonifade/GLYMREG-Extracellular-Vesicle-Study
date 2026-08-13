@@ -448,9 +448,9 @@ def render_figure9():
     st.download_button(
         label="📥 Download Editable Vector (SVG)",
         data=buf,
-        file_name="EV Size Model Accuracy.svg",
+        file_name="EV_Size_Model_Accuracy.svg",
         mime="image/svg+xml",
-     )
+    )
 	
     
   elif view_selection == "View 4: Complete VIP Table":
