@@ -434,7 +434,7 @@ def render_figure9():
         "PLS Model Predicted Shift", fontsize=8, fontweight="bold"
     )
     ax.set_title(
-        "EV Size\nMultivariate PLS Model: Actual vs. Predicted Responses", fontsize=8.5, fontweight="bold"
+        "EV Size\nMultivariate PLS Model Evaluation", fontsize=8.5, fontweight="bold"
     )
     ax.legend(loc="upper left", frameon=False)
     sns.despine(ax=ax, trim=True)
