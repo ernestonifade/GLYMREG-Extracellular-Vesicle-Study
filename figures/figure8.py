@@ -425,7 +425,7 @@ def render_figure8():
         "PLS Model Predicted Shift", fontsize= 8, fontweight="bold"
     )
     ax.set_title(
-        "EV Concentration\nMultivariate PLS Model: Actual vs. Predicted Responses", fontsize= 8.5, fontweight="bold"
+        "EV Concentration\nMultivariate PLS Model Evaluation", fontsize= 8.5, fontweight="bold"
     )
     ax.legend(loc="upper left", frameon=False)
     sns.despine(ax=ax, trim=True)
