@@ -420,7 +420,7 @@ def render_figure9():
     text_str = f"Total Cumulative Var: {total_pct:.2f}%\nCross-Validated $R^2$ (cv=5): {r2_cv:.3f}"
     props = dict(boxstyle="round", facecolor="white", alpha=0.8, edgecolor="#cccccc")
     ax.text(
-        0.85,
+        0.65,
         0.10,
         text_str,
         transform=ax.transAxes,
