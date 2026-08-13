@@ -440,7 +440,7 @@ def render_figure9():
     sns.despine(ax=ax, trim=True)
     st.pyplot(fig)
 
-	import io
+    import io
     buf = io.BytesIO()
     fig.savefig(buf, format="svg", bbox_inches="tight")
     buf.seek(0)
