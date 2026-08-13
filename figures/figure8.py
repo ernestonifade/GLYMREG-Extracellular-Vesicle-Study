@@ -411,8 +411,8 @@ def render_figure8():
     text_str = f"Total Cumulative Var: {total_pct:.2f}%\nCross-Validated $R^2$ (cv=5): {r2_cv:.3f}"
     props = dict(boxstyle="round", facecolor="white", alpha=0.8, edgecolor="#cccccc")
     ax.text(
-        0.05,
-        0.95,
+        0.30,
+        0.20,
         text_str,
         transform=ax.transAxes,
         fontsize=7,
@@ -422,12 +422,12 @@ def render_figure8():
 
     ax.set_xlabel("Actual Baseline-Adjusted Shift", fontsize= 8, fontweight="bold")
     ax.set_ylabel(
-        "PLS Model Predicted Shift (Full Multivariate)", fontsize= 8, fontweight="bold"
+        "PLS Model Predicted Shift", fontsize= 8, fontweight="bold"
     )
     ax.set_title(
-        "Multivariate PLS Model: Actual vs. Predicted Responses", fontsize= 8.5, fontweight="bold"
+        "EV Concentration\nMultivariate PLS Model: Actual vs. Predicted Responses", fontsize= 8.5, fontweight="bold"
     )
-    ax.legend(loc="lower right", frameon=False)
+    ax.legend(loc="upper left", frameon=False)
     sns.despine(ax=ax, trim=True)
     st.pyplot(fig)
     
