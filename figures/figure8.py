@@ -384,7 +384,7 @@ def render_figure8():
         x=Y_actual.flatten(),
         y=Y_pred.flatten(),
         hue=X_data["sex_encoded"].map({0: "Male", 1: "Female"}),
-        palette={"Male": "blue", "Female": "red"},
+        palette={"Male": "red", "Female": "blue"},
         s=55,
         alpha=0.85,
         edgecolor="k",
