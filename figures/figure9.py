@@ -431,7 +431,7 @@ def render_figure9():
 
     ax.set_xlabel("Actual Baseline-Adjusted Shift", fontsize=8, fontweight="bold")
     ax.set_ylabel(
-        "PLS Model Predicted Shift (Full Multivariate)", fontsize=8, fontweight="bold"
+        "PLS Model Predicted Shift", fontsize=8, fontweight="bold"
     )
     ax.set_title(
         "Multivariate PLS Model: Actual vs. Predicted Responses", fontsize=8.5, fontweight="bold"
