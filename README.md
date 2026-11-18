@@ -1,4 +1,5 @@
 # GLYMREG-Extracellular-Vesicle-Study
 It remains unclear whether exercise-induced EV dynamics and EV-associated protein cargo differs between men and women. To address this gap, the present study employed a sex-balanced design with equal numbers of male and female participants.
 Kindly find link to interactive view below.
-[glymreg-extracellular-vesicle-study ∙ main ∙ app.py)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://glymreg-extracellular-vesicle-study.streamlit.app)
+
