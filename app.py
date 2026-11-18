@@ -124,8 +124,8 @@ if selected_figure == "📖 About & User Guide":
     st.markdown("""
     Welcome to the interactive companion dashboard for our research study investigating **Serum responses to acute vigorous-intensity exercise: vesicle analysis with an omics approach**. 
     Previous exercise studies investigating EVs have been carried out largely in men and at a single time point, so it is unclear whether the response differs between sex or how it changes during recovery.
-    Serum components of 10 male and 10 female healthy participants before and at three time points after vigorous cycling, were analysed: vesicle size and concentration, protein cargoes and circulating cytokines
-    This platform provides transparent access to our high-throughput omics analyses.
+    Serum components of 10 male and 10 female healthy participants before and at three time points after vigorous cycling, were analysed for: vesicle size and concentration, protein cargoes and circulating cytokines.
+    This platform there provides a transparent access to our high-throughput omics analyses of these parameters.
     """)
     
     col1, col2 = st.columns(2)
