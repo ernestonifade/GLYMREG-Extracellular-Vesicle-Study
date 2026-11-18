@@ -151,7 +151,7 @@ if selected_figure == "📖 About & User Guide":
         
     st.markdown("---")
     st.markdown("""   
-    Co-authors and Affiliations:** Md Nasir U. Badal1, Adebowale E. Onifade</sub><sup>2</sup>, Tiia Koivula</sub><sup>2</sup>, Joona Neuvonen3, Eero Rissanen2,4,5*, Saara Hämälistö1*, Ilkka H. A. Heinonen2,6,7*
+    Co-authors and Affiliations:** Md Nasir U. Badal1, Adebowale E. Onifad<sub>e</sub><sup>2</sup>, Tiia Koivula</sub><sup>2</sup>, Joona Neuvonen3, Eero Rissanen2,4,5*, Saara Hämälistö1*, Ilkka H. A. Heinonen2,6,7*
     
     *Shared last authorship
     
