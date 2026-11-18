@@ -142,10 +142,10 @@ if selected_figure == "📖 About & User Guide":
         st.subheader("🔬 Methodology & Statistics")
         st.markdown("""
         * **Statistical Framework:**
-    * **Temporal Changes:** Main effects of Time, Group, and Time × Group were analyzed using a 2-way Repeated Measures ANCOVA (mixed design), with baseline values included as covariates after verifying the homogeneity of slopes assumption.
-    * **Temporal Associations:** Evaluated using a within-subject rank-based repeated measures correlation ($n = 20$).
-    * **Pathway Enrichment:** Conducted via Monte Carlo permutation methods using curated 2026 Gene Matrix Transposed (`.gmt`) files retrieved from Reactome, KEGG, and Gene Ontology (GO) Biological Processes databases.
-    * **Biophysical & Anthropometric Influence:** Assessed via Partial Least Squares Regression (PLS-R) analysis (components = 2) to determine the influence and directional impact of fitness and anthropometrics on molecular shifts.
+            * **Temporal Changes:** Main effects of Time, Group, and Time × Group were analyzed using a 2-way Repeated Measures ANCOVA (mixed design), with baseline values included as covariates after verifying the homogeneity of slopes assumption.
+            * **Temporal Associations:** Evaluated using a within-subject rank-based repeated measures correlation ($n = 20$).
+            * **Pathway Enrichment:** Conducted via Monte Carlo permutation methods using curated 2026 Gene Matrix Transposed (`.gmt`) files retrieved from Reactome, KEGG, and Gene Ontology (GO) Biological Processes databases.
+            * **Biophysical & Anthropometric Influence:** Assessed via Partial Least Squares Regression (PLS-R) analysis (components = 2) to determine the influence and directional impact of fitness and anthropometrics on molecular shifts.
         * **Omics Integration:** Features high-throughput vesicle sizing, concentration profiling, cytokine panels, and proteomic datasets.
          """)
         
