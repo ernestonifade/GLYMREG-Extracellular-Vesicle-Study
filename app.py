@@ -141,12 +141,11 @@ if selected_figure == "📖 About & User Guide":
     with col2:
         st.subheader("🔬 Methodology & Statistics")
         st.markdown("""
-        * **Statistical Framework:**  
-                * **Temporal changes (Main effect of Time, Group, TimexGroup) were analysed using a 2way_Repeated Measures ANCOVA (Mixed design) where baseline values were included as covariates after homogeneity of slopes assumption verified
-                * **Temporal associations was done using a within-subject rank-based repeated measures correlation (n=20)
-                * **Pathway enrichment was done by Monte Carlo permutation method using 2026 curated Gene Matrix Transposed (.gmt) files retrieved from Reactome, Kyoto Encyclopedia of Genes and Genomes (KEGG), and Gene Ontology (GO) Biological Processes databases
-                * **Influence and directional impact of anthropometrics and fitness was performed using Partial least square regression analysis (components=2)
-                                          
+        * **Statistical Framework:**
+    * **Temporal Changes:** Main effects of Time, Group, and Time × Group were analyzed using a 2-way Repeated Measures ANCOVA (mixed design), with baseline values included as covariates after verifying the homogeneity of slopes assumption.
+    * **Temporal Associations:** Evaluated using a within-subject rank-based repeated measures correlation ($n = 20$).
+    * **Pathway Enrichment:** Conducted via Monte Carlo permutation methods using curated 2026 Gene Matrix Transposed (`.gmt`) files retrieved from Reactome, KEGG, and Gene Ontology (GO) Biological Processes databases.
+    * **Biophysical & Anthropometric Influence:** Assessed via Partial Least Squares Regression (PLS-R) analysis (components = 2) to determine the influence and directional impact of fitness and anthropometrics on molecular shifts.
         * **Omics Integration:** Features high-throughput vesicle sizing, concentration profiling, cytokine panels, and proteomic datasets.
          """)
         
