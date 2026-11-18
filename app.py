@@ -146,7 +146,8 @@ if selected_figure == "📖 About & User Guide":
                                      Pathway enrichment was done by Monte Carlo permutation method using 2026 curated Gene Matrix Transposed (.gmt) files retrieved from Reactome, Kyoto Encyclopedia of Genes and Genomes (KEGG), and Gene Ontology (GO) Biological Processes databases
                                      Influence and directional impact of anthropometrics and fitness was performed using Partial least square regression analysis (components=2)
         * **Omics Integration:** Features high-throughput vesicle sizing, concentration profiling, cytokine panels, and proteomic datasets.
-        * **Co-authors and Affiliations:** Md Nasir U. Badal1, Adebowale E. Onifade2, Tiia Koivula2, Joona Neuvonen3, Eero Rissanen2,4,5*, Saara Hämälistö1*, Ilkka H. A. Heinonen2,6,7*
+        
+* **Co-authors and Affiliations:** Md Nasir U. Badal1, Adebowale E. Onifade2, Tiia Koivula2, Joona Neuvonen3, Eero Rissanen2,4,5*, Saara Hämälistö1*, Ilkka H. A. Heinonen2,6,7*
 
 *Shared last authorship
 
