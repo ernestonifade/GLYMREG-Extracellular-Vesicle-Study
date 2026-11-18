@@ -141,16 +141,16 @@ if selected_figure == "📖 About & User Guide":
     with col2:
         st.subheader("🔬 Methodology & Statistics")
         st.markdown("""
-        * **Statistical Framework:** Temporal changes (Main effect of Time, Group, TimexGroup) were analysed using a 2way_Repeated Measures ANCOVA (Mixed design) where baseline values were included as covariates after homogeneity of slopes assumption verified
-                                     Temporal associations was done using a within-subject rank-based repeated measures correlation (n=20)
-                                     Pathway enrichment was done by Monte Carlo permutation method using 2026 curated Gene Matrix Transposed (.gmt) files retrieved from Reactome, Kyoto Encyclopedia of Genes and Genomes (KEGG), and Gene Ontology (GO) Biological Processes databases
-                                     Influence and directional impact of anthropometrics and fitness was performed using Partial least square regression analysis (components=2)
+        * **Statistical Framework:**  * **Temporal changes (Main effect of Time, Group, TimexGroup) were analysed using a 2way_Repeated Measures ANCOVA (Mixed design) where baseline values were included as covariates after homogeneity of slopes assumption verified
+                                      * **Temporal associations was done using a within-subject rank-based repeated measures correlation (n=20)
+                                      * **Pathway enrichment was done by Monte Carlo permutation method using 2026 curated Gene Matrix Transposed (.gmt) files retrieved from Reactome, Kyoto Encyclopedia of Genes and Genomes (KEGG), and Gene Ontology (GO) Biological Processes databases
+                                      * **Influence and directional impact of anthropometrics and fitness was performed using Partial least square regression analysis (components=2)
         * **Omics Integration:** Features high-throughput vesicle sizing, concentration profiling, cytokine panels, and proteomic datasets.
          """)
         
     st.markdown("---")
     st.markdown("""   
-    * **Co-authors and Affiliations:** Md Nasir U. Badal1, Adebowale E. Onifade2, Tiia Koivula2, Joona Neuvonen3, Eero Rissanen2,4,5*, Saara Hämälistö1*, Ilkka H. A. Heinonen2,6,7*
+    Co-authors and Affiliations:** Md Nasir U. Badal1, Adebowale E. Onifade2, Tiia Koivula2, Joona Neuvonen3, Eero Rissanen2,4,5*, Saara Hämälistö1*, Ilkka H. A. Heinonen2,6,7*
     
     *Shared last authorship
     
