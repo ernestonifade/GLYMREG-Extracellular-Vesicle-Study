@@ -125,17 +125,17 @@ if selected_figure == "📖 About & User Guide":
     Welcome to the interactive companion dashboard for our research study investigating **Serum responses to acute vigorous-intensity exercise: vesicle analysis with an omics approach**. 
     Previous exercise studies investigating EVs have been carried out largely in men and at a single time point, so it is unclear whether the response differs between sex or how it changes during recovery.
     Serum components of 10 male and 10 female healthy participants before and at three time points after vigorous cycling, were analysed for: vesicle size and concentration, protein cargoes and circulating cytokines.
-    This platform there provides a transparent access to our high-throughput omics analyses of these parameters.
+    This platform therefore provides a transparent access to our high-throughput omics analyses of these parameters.
     """)
     
     col1, col2 = st.columns(2)
     with col1:
         st.subheader("📌 How to Use This Dashboard")
         st.markdown("""
-        * **Navigate Figures:** Use the sidebar radio buttons to switch between individual figures and statistical panels.
-        * **Inspect Results:** View dynamic model-based trajectory plots, p-value distribution histograms, and partial $\eta^2$ effect size plots.
-        * **Export Reports:** Use the green download buttons in the sidebar to export clean, multi-sheet Excel reports (`.xlsx`) for any active figure.
-        * **Download Raw Data:** Scroll to the bottom of the sidebar to download the complete raw dataset and GMT repository as a single `.zip` file.
+        * **Navigate Figures:** Use the sidebar radio buttons to switch between individual figure panels and select specific figures and statistical summary tables using the select views.
+        * **Inspect Results:** For each parameter analysed, view dynamic model-based values, raw and adjusted p-values, effect size, group comparisons, time trajectories, associations, and confidence intervals
+        * **Export Reports:** Use the green download buttons in the sidebar to export clean, multi-sheet Excel reports (`.xlsx`) for any active figure panel.
+        * **Download Raw Data:** Scroll to the bottom of the sidebar to download the complete dataset (cleaned) and GMT repository as a single `.zip` file.
         """)
         
     with col2:
