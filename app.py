@@ -82,6 +82,7 @@ st.sidebar.header("📌 Navigation")
 selected_figure = st.sidebar.radio(
     "Select Figure:",
     [
+        "📖 About & User Guide",
         "Figure 1: EV Size Skewness",
         "Figure 2: Extracellular Vesicles (Concentration, Size & Correlation)",
         "Figure 3: Proteomics (518 Panel)",
@@ -119,7 +120,37 @@ def export_sheets_to_excel(filename, sheets_dict):
 
 
 # --- 3. PAGE ROUTING & RENDER CALLS ---
-if selected_figure == "Figure 1: EV Size Skewness":
+if selected_figure == "📖 About & User Guide":
+    st.header("🧬 GLYMREG Extracellular Vesicle Study — Dashboard Guide")
+    st.markdown("""
+    Welcome to the interactive companion dashboard for our research study investigating **Serum responses to acute vigorous-intensity exercise: vesicle analysis with an omics approach**. 
+    
+    This platform provides transparent access to our high-throughput omics analyses, biostatistical models, and multi-modal integrations.
+    """)
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        st.subheader("📌 How to Use This Dashboard")
+        st.markdown("""
+        * **Navigate Figures:** Use the sidebar radio buttons to switch between individual figures and statistical panels.
+        * **Inspect Results:** View dynamic model-based trajectory plots, p-value distribution histograms, and partial $\eta^2$ effect size plots.
+        * **Export Reports:** Use the green download buttons in the sidebar to export clean, multi-sheet Excel reports (`.xlsx`) for any active figure.
+        * **Download Raw Data:** Scroll to the bottom of the sidebar to download the complete raw dataset and GMT repository as a single `.zip` file.
+        """)
+        
+    with col2:
+        st.subheader("🔬 Methodology & Statistics")
+        st.markdown("""
+        * **Statistical Framework:** Built using robust Linear Mixed Models (LMMs) and multivariate frameworks, accounting for repeated measures across baseline (`_df1`) and post-exercise follow-up time points.
+        * **Omics Integration:** Features high-throughput vesicle sizing, concentration profiling, cytokine panels, and proteomic datasets.
+        * **Affiliation:** Department of Clinical Physiology and Nuclear Medicine, Faculty of Medicine, University of Turku (UTU).
+        """)
+    
+    st.markdown("---")
+    st.info("💡 **Tip for Reviewers & Collaborators:** You can download the underlying statistical tables and raw data tables directly from the sidebar on any figure page!")
+
+# Then your existing figures follow...
+elif selected_figure == "Figure 1: EV Size Skewness":
   render_figure1()
 elif (
     selected_figure
@@ -147,8 +178,10 @@ elif selected_figure == "Figure 9: Biophysical predictors of EV size shifts":
 
 # --- 4. ONE-CLICK INSTANT EXPORT HANDLER ---
 st.sidebar.header("📥 Export Statistical Reports")
-
-if selected_figure == "Figure 1: EV Size Skewness":
+if selected_figure != "📖 About & User Guide":
+    st.sidebar.header("📥 Export Statistical Reports")
+    
+elif selected_figure == "Figure 1: EV Size Skewness":
   stats_df, df_all = load_fig1_results()
   out_name = "Figure1D_EV_Size_Skewness_Data.xlsx"
   export_sheets_to_excel(
