@@ -141,13 +141,32 @@ if selected_figure == "📖 About & User Guide":
     with col2:
         st.subheader("🔬 Methodology & Statistics")
         st.markdown("""
-        * **Statistical Framework:** Built using robust Linear Mixed Models (LMMs) and multivariate frameworks, accounting for repeated measures across baseline (`_df1`) and post-exercise follow-up time points.
+        * **Statistical Framework:** Temporal changes (Main effect of Time, Group, TimexGroup) were analysed using a 2way_Repeated Measures ANCOVA (Mixed design) where baseline values were included as covariates after homogeneity of slopes assumption verified
+                                     Temporal associations was done using a within-subject rank-based repeated measures correlation (n=20)
+                                     Pathway enrichment was done by Monte Carlo permutation method using 2026 curated Gene Matrix Transposed (.gmt) files retrieved from Reactome, Kyoto Encyclopedia of Genes and Genomes (KEGG), and Gene Ontology (GO) Biological Processes databases
+                                     Influence and directional impact of anthropometrics and fitness was performed using Partial least square regression analysis (components=2)
         * **Omics Integration:** Features high-throughput vesicle sizing, concentration profiling, cytokine panels, and proteomic datasets.
-        * **Affiliation:** Department of Clinical Physiology and Nuclear Medicine, Faculty of Medicine, University of Turku (UTU).
+        * **Co-authors and Affiliations:** Md Nasir U. Badal1, Adebowale E. Onifade2, Tiia Koivula2, Joona Neuvonen3, Eero Rissanen2,4,5*, Saara Hämälistö1*, Ilkka H. A. Heinonen2,6,7*
+
+*Shared last authorship
+
+1Institute of Biomedicine, University of Turku and FICAN West, Turku, Finland
+
+2Turku PET Centre, Turku University Hospital, University of Turku, and Åbo Akademi University, Turku, Finland
+
+3Faculty of Sport and Health Sciences, University of Jyväskylä, Jyväskylä, Finland
+
+4InFLAMES Flagship and Clinical Neurosciences, Department of Clinical Medicine, University of Turku, Turku, Finland
+
+5Neurocenter, Turku University Hospital, Wellbeing Services County of Southwest Finland, Turku, Finland
+
+6UKK Institute for Health Promotion Research, Tampere, Finland
+
+7Research Unit of Population Health, University of Oulu, Oulu, Finland.
         """)
     
     st.markdown("---")
-    st.info("💡 **Tip for Reviewers & Collaborators:** You can download the underlying statistical tables and raw data tables directly from the sidebar on any figure page!")
+    st.info("💡 **Remember** You can download the underlying statistical tables and raw data tables directly from the sidebar on any figure page!")
 
 # Then your existing figures follow...
 elif selected_figure == "Figure 1: EV Size Skewness":
