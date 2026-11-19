@@ -502,7 +502,7 @@ def render_figure3():
     )
 
     st.markdown("---")
-    elif selected_view == '📊 Assumption Tests':
+    if selected_view == '📊 Assumption Tests':
         excel_url = "https://raw.githubusercontent.com/ernestonifade/GLYMREG-Extracellular-Vesicle-Study/main/results/Heterogeneous%20Slopes.xlsx" # Ensure extension matches your file
 
         st.markdown("""
