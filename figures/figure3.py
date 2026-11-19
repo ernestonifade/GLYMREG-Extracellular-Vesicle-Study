@@ -627,10 +627,10 @@ def render_figure3():
         st.markdown("""
         <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 12px; line-height: 1.5; color: #856404;">
             <b>📄 Reviewer Note on Output Alignment:</b> Displaying all nominal significant results (<i>p</i><sub>raw</sub> &lt; 0.05) organized by Model Effect without row truncation.
-            To inspect the primary <b>Jamovi statistical report</b>: 
-            <a href="https://github.com/ernestonifade/GLYMREG-Extracellular-Vesicle-Study/raw/main/data/Jamovi_Statistical_Report_Figure3.pdf" target="_blank" style="color: #533f03; font-weight: bold; text-decoration: underline;">
-                Download Jamovi PDF (GitHub) ↗
-            </a>
+            #To inspect the primary <b>Jamovi statistical report</b>: 
+            #<a href="https://github.com/ernestonifade/GLYMREG-Extracellular-Vesicle-Study/raw/main/data/Jamovi_Statistical_Report_Figure3.pdf" target="_blank" style="color: #533f03; font-weight: bold; text-decoration: underline;">
+            #    Download Jamovi PDF (GitHub) ↗
+            #</a>
         </div>
         """, unsafe_allow_html=True)
         
