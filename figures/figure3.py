@@ -492,7 +492,7 @@ def render_figure3():
     # Streamlit Selectbox replacing ipywidgets dropdown
     selected_view = st.selectbox(
         "Select Section View:",
-        [
+        [   'Assumption Tests',
             '📊 Figure 3A–C: PCA & PERMANOVA Trio (Baseline, Post-All, Post-19)',
             '🔥 Heatmap: Time × Group Interactions (19 Candidates)',
             '🧬 Pathway Enrichment: Reactome/KEGG Analysis (19 Candidates)',
@@ -502,8 +502,50 @@ def render_figure3():
     )
 
     st.markdown("---")
+    elif selected_view == '📊 Assumption Tests':
+        csv_url = "https://raw.githubusercontent.com/ernestonifade/GLYMREG-Extracellular-Vesicle-Study/main/results/Heterogeneous%20Slopes.csv"
 
-    if selected_view == '📊 Figure 3A–C: PCA & PERMANOVA Trio (Baseline, Post-All, Post-19)':
+        st.markdown("""
+        <div style="background-color: #e8f5e9; border-left: 5px solid #4caf50; padding: 12px 16px; margin-bottom: 15px; border-radius: 4px; font-size: 12px; line-height: 1.6; color: #1b5e20;">
+            <b>📊 Assumption Tests:</b><br>
+            Explore the complete statistical assumption tests of the proteomics data, or download the CSV file for offline review.
+        </div>
+        """, unsafe_allow_html=True)
+
+        try:
+            @st.cache_data
+            def load_csv_data(url_or_path):
+                return pd.read_csv(url_or_path)
+            
+            df_csv = load_csv_data(csv_url)
+
+            # Direct CSV download button (no BytesIO or xlsxwriter needed)
+            csv_bytes = df_csv.to_csv(index=False).encode("utf-8")
+            st.download_button(
+                label="📥 Download Assumption Tests (.csv)",
+                data=csv_bytes,
+                file_name="Heterogeneous_Slopes.csv",
+                mime="text/csv"
+            )
+
+            st.markdown("---")
+            st.markdown("#### 🔍 Interactive Data Viewer")
+            
+            # Filter rows by keyword
+            search_query = st.text_input("Filter rows by keyword (e.g., protein name, outcome):", "", key="assumption_search")
+            if search_query:
+                mask = df_csv.astype(str).apply(lambda col: col.str.contains(search_query, case=False, na=False)).any(axis=1)
+                filtered_df = df_csv[mask]
+            else:
+                filtered_df = df_csv
+
+            st.dataframe(filtered_df, use_container_width=True, height=400)
+
+        except Exception as e:
+            st.error(f"Could not load the CSV file: {e}")
+            st.markdown(f'<a href="{csv_url}" target="_blank">📥 Direct Download Link ↗</a>', unsafe_allow_html=True)
+
+    elif selected_view == '📊 Figure 3A–C: PCA & PERMANOVA Trio (Baseline, Post-All, Post-19)':
         st.markdown("""
         <div style="background-color: #f8f9fa; border-left: 4px solid #007bff; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 11px; line-height: 1.5; color: #343a40;">
             <b>Figure 3A–C (Multivariate Profile Discrimination):</b> Side-by-side PCA score plots comparing biological sex clustering at Baseline (Panel A), Post-Exercise across all proteins (Panel B), and Post-Exercise restricted to the 19 interaction candidates (Panel C). Corresponding PERMANOVA Pseudo-<i>F</i> and FDR statistics are summarized below.
