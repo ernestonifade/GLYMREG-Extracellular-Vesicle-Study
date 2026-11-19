@@ -652,7 +652,7 @@ def render_figure3():
             df_ancova_fmt['p_value_FDR_fmt'] = df_ancova_fmt['p_value_FDR'].apply(lambda p: f"{p:.4f}" if pd.notnull(p) and p >= 0.0001 else ("< 0.0001" if pd.notnull(p) else "N/A"))
 
         effect_map = [
-            ('TimePoint:Group', '1. Time × Group Interaction Effects (p_raw < 0.05)')',
+            ('TimePoint:Group', '1. Time × Group Interaction Effects (p_raw < 0.05)'),
             ('Group', '2. Group / Sex Main Effects (p_raw < 0.05)'),
             ('TimePoint', '3. Time Main Effects (p_raw < 0.05)')
         ]
