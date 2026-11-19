@@ -342,7 +342,7 @@ def render_figure4():
     # Streamlit Selectbox replacing ipywidgets dropdown
     selected_view = st.selectbox(
         "Select Section View:",
-        [
+        [   '📊 Assumption Tests'
             '🔥 Heatmap & EMM Plots (Top 4 Group Cytokines)',
             '📄 RM-ANCOVA Model Summary (Main & Interaction Effects)',
             '🔍 Post-Hoc Pairwise Contrasts (emmeans)'
@@ -351,8 +351,64 @@ def render_figure4():
     )
 
     st.markdown("---")
+    if selected_view == '📊 Assumption Tests':
+        excel_url = "https://raw.githubusercontent.com/ernestonifade/GLYMREG-Extracellular-Vesicle-Study/main/results/cytokine%20homogenous%20testz.xlsx" 
 
-    if selected_view == '🔥 Heatmap & EMM Plots (Top 4 Group Cytokines)':
+        st.markdown("""
+        <div style="background-color: #e8f5e9; border-left: 5px solid #4caf50; padding: 12px 16px; margin-bottom: 15px; border-radius: 4px; font-size: 12px; line-height: 1.6; color: #1b5e20;">
+            <b>📊 Multi-Sheet Assumption Tests:</b><br>
+            Select a sheet from the dropdown below to view or download the specific statistical assumption tests.
+        </div>
+        """, unsafe_allow_html=True)
+
+        try:
+            @st.cache_data
+            def load_excel_sheets(url_or_path):
+                # sheet_name=None loads ALL sheets into a dictionary: {sheet_name: DataFrame}
+                return pd.read_excel(url_or_path, sheet_name=None)
+            
+            sheets_dict = load_excel_sheets(excel_url)
+            sheet_names = list(sheets_dict.keys())
+
+            # Sheet selector dropdown for multi-sheet files
+            selected_sheet = st.selectbox("Select Sheet:", sheet_names, key="assumption_sheet_selector")
+            df_current = sheets_dict[selected_sheet]
+
+            # Download button for the active sheet or entire workbook
+            import io
+            buffer = io.BytesIO()
+            with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
+                for s_name, s_df in sheets_dict.items():
+                    s_df.to_excel(writer, index=False, sheet_name=s_name)
+            buffer.seek(0)
+            
+            st.download_button(
+                label=f"📥 Download Full Workbook (.xlsx)",
+                data=buffer,
+                file_name="Assumption_Tests_Report.xlsx",
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            )
+
+            st.markdown("---")
+            st.markdown(f"#### 🔍 Viewing Sheet: `{selected_sheet}`")
+            
+            # Filter rows by keyword
+            search_query = st.text_input("Filter rows by keyword:", "", key="assumption_search")
+            if search_query:
+                mask = df_current.astype(str).apply(lambda col: col.str.contains(search_query, case=False, na=False)).any(axis=1)
+                filtered_df = df_current[mask]
+            else:
+                filtered_df = df_current
+
+            st.dataframe(filtered_df, use_container_width=True, height=400)
+
+        except Exception as e:
+            import traceback
+            st.error(f"Could not load the multi-sheet file: {e}")
+            st.code(traceback.format_exc()) # This will show the exact line and error in the app UI
+            st.markdown(f'<a href="{excel_url}" target="_blank">📥 Direct Download Link ↗</a>', unsafe_allow_html=True)
+
+    elif selected_view == '🔥 Heatmap & EMM Plots (Top 4 Group Cytokines)':
         st.markdown("""
         <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 11px; color: #856404;">
             <b>Figure 4A & 4B (Targeted Cytokine Profiles):</b> Heatmap displaying recovery dynamics for top 4 cytokines with right-axis unadjusted <i>p</i>-values, followed by EMM whisker plots arranged left-to-right in identical order.
