@@ -492,7 +492,7 @@ def render_figure3():
     # Streamlit Selectbox replacing ipywidgets dropdown
     selected_view = st.selectbox(
         "Select Section View:",
-        [   '📊 Assumption Tests',
+        [   '📊 Protein Multi-Sheet Assumption Tests',
             '📊 Figure 3A–C: PCA & PERMANOVA Trio (Baseline, Post-All, Post-19)',
             '🔥 Heatmap: Time × Group Interactions (19 Candidates)',
             '🧬 Pathway Enrichment: Reactome/KEGG Analysis (19 Candidates)',
@@ -502,7 +502,7 @@ def render_figure3():
     )
 
     st.markdown("---")
-    if selected_view == '📊 Assumption Tests':
+    if selected_view == '📊 Protein Multi-Sheet Assumption Tests':
         excel_url = "https://raw.githubusercontent.com/ernestonifade/GLYMREG-Extracellular-Vesicle-Study/main/results/Heterogeneous%20Slopes.xlsx" 
 
         st.markdown("""
