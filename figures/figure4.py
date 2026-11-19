@@ -342,7 +342,7 @@ def render_figure4():
     # Streamlit Selectbox replacing ipywidgets dropdown
     selected_view = st.selectbox(
         "Select Section View:",
-        [   '📊 Assumption Tests'
+        [   '📊 Assumption Tests',
             '🔥 Heatmap & EMM Plots (Top 4 Group Cytokines)',
             '📄 RM-ANCOVA Model Summary (Main & Interaction Effects)',
             '🔍 Post-Hoc Pairwise Contrasts (emmeans)'
