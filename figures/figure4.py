@@ -342,7 +342,7 @@ def render_figure4():
     # Streamlit Selectbox replacing ipywidgets dropdown
     selected_view = st.selectbox(
         "Select Section View:",
-        [   '📊 Assumption Tests',
+        [   '📊 Cytokine Multi-Sheet Assumption Tests',
             '🔥 Heatmap & EMM Plots (Top 4 Group Cytokines)',
             '📄 RM-ANCOVA Model Summary (Main & Interaction Effects)',
             '🔍 Post-Hoc Pairwise Contrasts (emmeans)'
@@ -351,7 +351,7 @@ def render_figure4():
     )
 
     st.markdown("---")
-    if selected_view == '📊 Assumption Tests':
+    if selected_view == '📊 Cytokine Multi-Sheet Assumption Tests':
         excel_url = "https://raw.githubusercontent.com/ernestonifade/GLYMREG-Extracellular-Vesicle-Study/main/results/cytokine%20homogenous%20testz.xlsx" 
 
         st.markdown("""
