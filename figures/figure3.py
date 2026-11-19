@@ -554,7 +554,9 @@ def render_figure3():
             st.dataframe(filtered_df, use_container_width=True, height=400)
 
         except Exception as e:
+            import traceback
             st.error(f"Could not load the multi-sheet file: {e}")
+            st.code(traceback.format_exc()) # This will show the exact line and error in the app UI
             st.markdown(f'<a href="{excel_url}" target="_blank">📥 Direct Download Link ↗</a>', unsafe_allow_html=True)
             
     elif selected_view == '📊 Figure 3A–C: PCA & PERMANOVA Trio (Baseline, Post-All, Post-19)':
