@@ -528,7 +528,7 @@ def render_figure3():
             # Download button for the active sheet or entire workbook
             import io
             buffer = io.BytesIO()
-            with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
+            with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
                 for s_name, s_df in sheets_dict.items():
                     s_df.to_excel(writer, index=False, sheet_name=s_name)
             buffer.seek(0)
