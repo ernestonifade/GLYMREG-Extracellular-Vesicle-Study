@@ -503,48 +503,60 @@ def render_figure3():
 
     st.markdown("---")
     elif selected_view == '📊 Assumption Tests':
-        csv_url = "https://raw.githubusercontent.com/ernestonifade/GLYMREG-Extracellular-Vesicle-Study/main/results/Heterogeneous%20Slopes.csv"
+        excel_url = "https://raw.githubusercontent.com/ernestonifade/GLYMREG-Extracellular-Vesicle-Study/main/results/Heterogeneous%20Slopes.xlsx" # Ensure extension matches your file
 
         st.markdown("""
         <div style="background-color: #e8f5e9; border-left: 5px solid #4caf50; padding: 12px 16px; margin-bottom: 15px; border-radius: 4px; font-size: 12px; line-height: 1.6; color: #1b5e20;">
-            <b>📊 Assumption Tests:</b><br>
-            Explore the complete statistical assumption tests of the proteomics data, or download the CSV file for offline review.
+            <b>📊 Multi-Sheet Assumption Tests:</b><br>
+            Select a sheet from the dropdown below to view or download the specific statistical assumption tests.
         </div>
         """, unsafe_allow_html=True)
 
         try:
             @st.cache_data
-            def load_csv_data(url_or_path):
-                return pd.read_csv(url_or_path)
+            def load_excel_sheets(url_or_path):
+                # sheet_name=None loads ALL sheets into a dictionary: {sheet_name: DataFrame}
+                return pd.read_excel(url_or_path, sheet_name=None)
             
-            df_csv = load_csv_data(csv_url)
+            sheets_dict = load_excel_sheets(excel_url)
+            sheet_names = list(sheets_dict.keys())
 
-            # Direct CSV download button (no BytesIO or xlsxwriter needed)
-            csv_bytes = df_csv.to_csv(index=False).encode("utf-8")
+            # Sheet selector dropdown for multi-sheet files
+            selected_sheet = st.selectbox("Select Sheet:", sheet_names, key="assumption_sheet_selector")
+            df_current = sheets_dict[selected_sheet]
+
+            # Download button for the active sheet or entire workbook
+            import io
+            buffer = io.BytesIO()
+            with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
+                for s_name, s_df in sheets_dict.items():
+                    s_df.to_excel(writer, index=False, sheet_name=s_name)
+            buffer.seek(0)
+            
             st.download_button(
-                label="📥 Download Assumption Tests (.csv)",
-                data=csv_bytes,
-                file_name="Heterogeneous_Slopes.csv",
-                mime="text/csv"
+                label=f"📥 Download Full Workbook (.xlsx)",
+                data=buffer,
+                file_name="Assumption_Tests_Report.xlsx",
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
 
             st.markdown("---")
-            st.markdown("#### 🔍 Interactive Data Viewer")
+            st.markdown(f"#### 🔍 Viewing Sheet: `{selected_sheet}`")
             
             # Filter rows by keyword
-            search_query = st.text_input("Filter rows by keyword (e.g., protein name, outcome):", "", key="assumption_search")
+            search_query = st.text_input("Filter rows by keyword:", "", key="assumption_search")
             if search_query:
-                mask = df_csv.astype(str).apply(lambda col: col.str.contains(search_query, case=False, na=False)).any(axis=1)
-                filtered_df = df_csv[mask]
+                mask = df_current.astype(str).apply(lambda col: col.str.contains(search_query, case=False, na=False)).any(axis=1)
+                filtered_df = df_current[mask]
             else:
-                filtered_df = df_csv
+                filtered_df = df_current
 
             st.dataframe(filtered_df, use_container_width=True, height=400)
 
         except Exception as e:
-            st.error(f"Could not load the CSV file: {e}")
-            st.markdown(f'<a href="{csv_url}" target="_blank">📥 Direct Download Link ↗</a>', unsafe_allow_html=True)
-
+            st.error(f"Could not load the multi-sheet file: {e}")
+            st.markdown(f'<a href="{excel_url}" target="_blank">📥 Direct Download Link ↗</a>', unsafe_allow_html=True)
+            
     elif selected_view == '📊 Figure 3A–C: PCA & PERMANOVA Trio (Baseline, Post-All, Post-19)':
         st.markdown("""
         <div style="background-color: #f8f9fa; border-left: 4px solid #007bff; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 11px; line-height: 1.5; color: #343a40;">
