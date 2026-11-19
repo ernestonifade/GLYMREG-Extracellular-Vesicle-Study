@@ -503,7 +503,7 @@ def render_figure3():
 
     st.markdown("---")
     if selected_view == '📊 Assumption Tests':
-        excel_url = "https://raw.githubusercontent.com/ernestonifade/GLYMREG-Extracellular-Vesicle-Study/main/results/Heterogeneous Slopes.xlsx" 
+        excel_url = "https://raw.githubusercontent.com/ernestonifade/GLYMREG-Extracellular-Vesicle-Study/main/results/Heterogeneous%20Slopes.xlsx" 
 
         st.markdown("""
         <div style="background-color: #e8f5e9; border-left: 5px solid #4caf50; padding: 12px 16px; margin-bottom: 15px; border-radius: 4px; font-size: 12px; line-height: 1.6; color: #1b5e20;">
