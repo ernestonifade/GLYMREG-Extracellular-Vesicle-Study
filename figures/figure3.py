@@ -492,7 +492,7 @@ def render_figure3():
     # Streamlit Selectbox replacing ipywidgets dropdown
     selected_view = st.selectbox(
         "Select Section View:",
-        [   'Assumption Tests',
+        [   '📊 Assumption Tests',
             '📊 Figure 3A–C: PCA & PERMANOVA Trio (Baseline, Post-All, Post-19)',
             '🔥 Heatmap: Time × Group Interactions (19 Candidates)',
             '🧬 Pathway Enrichment: Reactome/KEGG Analysis (19 Candidates)',
