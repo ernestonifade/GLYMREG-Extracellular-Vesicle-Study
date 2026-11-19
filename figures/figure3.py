@@ -507,7 +507,7 @@ def render_figure3():
 
         st.markdown("""
         <div style="background-color: #e8f5e9; border-left: 5px solid #4caf50; padding: 12px 16px; margin-bottom: 15px; border-radius: 4px; font-size: 12px; line-height: 1.6; color: #1b5e20;">
-            <b>📊 Multi-Sheet Assumption Tests:</b><br>
+            <b>📊 Protein Multi-Sheet Assumption Tests:</b><br>
             Select a sheet from the dropdown below to view or download the specific statistical assumption tests.
         </div>
         """, unsafe_allow_html=True)
